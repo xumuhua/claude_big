@@ -19,6 +19,7 @@
   python3 scripts/rotation_backtest.py --grid                # 小网格稳健性对照
 """
 import argparse
+import json
 import os
 
 import numpy as np
@@ -73,7 +74,8 @@ def load_daily():
 
 def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_stock,
        vol_adj=False, exit_daily=False, class_cap=0, trend_ma=0, trail_stop=None,
-       hyst=0.0, cooldown=0, inc_margin=0.0, weight_mode="equal", max_w=0.0, eq_ma=0):
+       hyst=0.0, cooldown=0, inc_margin=0.0, weight_mode="equal", max_w=0.0, eq_ma=0,
+       llm_mode="off", llm_dir=None, llm_cap=0.5, llm_conf=0.6):
     """现金+份额双账本; 信号日收盘打分, 次日09:31成交; 留仓不收费, 买卖各收分类费率
 
     vol_adj:    score /= 20日波动率 (避免高波原油霸占排名)
@@ -89,6 +91,9 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
     max_w:      单标的权重上限(超出部分留现金), 0=不限
     eq_ma:      >0 时启用净值曲线熔断: 策略净值收盘 < 其MA(eq_ma) → 次日起空仓,
                 收回MA上方 → 次日恢复。权重皆为比例制, 空仓期信号照常演进, 故后处理精确等价。
+    llm_mode:   off=不用; veto=LLM看空标的禁入场; scale=risk_off月仓位×llm_cap; both=两者
+                LLM 月度产物在 llm_dir 下({YYYYMM}.json, 月末晚间生成), asof<=当日即生效,
+                与信号 T+1 纪律一致。veto 不强制已持仓次日卖出(避免抖动), 由正常风控退出。
     """
     days = closes.index.intersection(opens.index)
     score = sum(w * (closes / closes.shift(lb) - 1) for w, lb in zip(weights, lookbacks))
@@ -101,15 +106,31 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
     ma = closes.rolling(trend_ma).mean() if trend_ma else None
     reb_set = set(days[i] for i in range(0, len(days), reb_days))
 
+    # LLM 月度产物时间线: [(asof, doc)] 按时间升序; 月末晚间生成, asof<=当日生效
+    llm_tl = []
+    if llm_mode != "off" and llm_dir and os.path.isdir(llm_dir):
+        for fn in sorted(os.listdir(llm_dir)):
+            if fn.endswith(".json"):
+                try:
+                    doc = json.load(open(os.path.join(llm_dir, fn), encoding="utf-8"))
+                    llm_tl.append((pd.Timestamp(doc["asof"]), doc))
+                except Exception:
+                    pass
+        llm_tl.sort(key=lambda x: x[0])
+
     cash, pos = 1.0, {}             # pos: ticker -> 份额
     peak = {}                       # ticker -> 买入后最高收盘价 (移动止损用)
     cool = {}                       # ticker -> 冷却截止日 (风控离场后)
     pending = None                  # 待执行目标权重
     curve, trades = [], []
 
+    llm_state = {"veto": set(), "regime": None, "idx": -1}
+
     def eligible(t, day):
         """t 在 day 是否允许(再)入场"""
         if cooldown and day <= cool.get(t, day - pd.Timedelta(days=1)):
+            return False
+        if llm_mode in ("veto", "both") and t in llm_state["veto"]:  # LLM 看空 veto (仅禁入场)
             return False
         s = score.loc[day, t]
         if not np.isfinite(s) or s <= gate:
@@ -133,6 +154,15 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
 
     for i, day in enumerate(days):
         c, o, cp = closes.loc[day], opens.loc[day], cshift.loc[day]
+        # 0) LLM 月度状态推进 (asof<=当日 的最新一份生效)
+        while llm_state["idx"] + 1 < len(llm_tl) and llm_tl[llm_state["idx"] + 1][0] <= day:
+            llm_state["idx"] += 1
+            doc = llm_tl[llm_state["idx"]][1]
+            llm_state["regime"] = doc.get("regime")
+            llm_state["veto"] = {
+                t for t, a in doc.get("assets", {}).items()
+                if a.get("rating") == "看空" and float(a.get("confidence", 0) or 0) >= llm_conf
+            }
         # 1) 开盘执行昨日信号
         if pending is not None:
             fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
@@ -209,6 +239,9 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
                     new_target = {t: 1.0 / len(picks) for t in picks}
                 if max_w > 0:
                     new_target = {t: min(w, max_w) for t, w in new_target.items()}
+                # LLM regime 仓位缩放: risk_off 月总仓位×cap, 余量现金
+                if llm_mode in ("scale", "both") and llm_state["regime"] == "risk_off":
+                    new_target = {t: w * llm_cap for t, w in new_target.items()}
             else:
                 new_target = {}
             # 持仓不变则不触发交易
@@ -295,6 +328,11 @@ def main():
     ap.add_argument("--weight-mode", choices=["equal", "invvol"], default="invvol")
     ap.add_argument("--max-w", type=float, default=0.35, help="单标的权重上限(0=不限)")
     ap.add_argument("--eq-ma", type=int, default=150, help="净值熔断MA窗口(0=不用)")
+    ap.add_argument("--llm-mode", choices=["off", "veto", "scale", "both"], default="off",
+                    help="veto=看空禁入场, scale=risk_off仓位缩放, both=两者")
+    ap.add_argument("--llm-dir", default=os.path.join(os.path.dirname(DATA), "output", "llm_monthly"))
+    ap.add_argument("--llm-riskoff-cap", type=float, default=0.5, help="risk_off月仓位乘数")
+    ap.add_argument("--llm-min-conf", type=float, default=0.6, help="评级置信度门槛")
     ap.add_argument("--grid", action="store_true")
     args = ap.parse_args()
 
@@ -306,7 +344,9 @@ def main():
     kw = dict(vol_adj=args.vol_adj, exit_daily=args.exit_daily,
               class_cap=args.class_cap, trend_ma=args.trend_ma, trail_stop=args.trail_stop,
               hyst=args.hyst, cooldown=args.cooldown, inc_margin=args.inc_margin,
-              weight_mode=args.weight_mode, max_w=args.max_w, eq_ma=args.eq_ma)
+              weight_mode=args.weight_mode, max_w=args.max_w, eq_ma=args.eq_ma,
+              llm_mode=args.llm_mode, llm_dir=args.llm_dir,
+              llm_cap=args.llm_riskoff_cap, llm_conf=args.llm_min_conf)
     if args.grid:
         print("\n== 参数网格稳健性 ==")
         for lb, wt in [([20, 60], [0.5, 0.5]), ([10, 30], [0.5, 0.5]),
