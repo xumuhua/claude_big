@@ -426,7 +426,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     b_entry = {}                   # t -> {"px","low","est"} 入场价/底部参考低/趋势已成立
     gold_off = False               # 黄金失势状态(滞回)
     pending = None
-    curve, trades = [], []
+    curve, trades, wlog = [], [], []
 
     for i, day in enumerate(days):
         c, o, cp = closes.loc[day], opens.loc[day], cshift.loc[day]
@@ -468,9 +468,14 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             cash = total - mv_open - fees
             pos = new_pos
             pending = None
-        # 2) 日终估值
-        mv = sum(n * c.get(t, np.nan) for t, n in pos.items() if np.isfinite(c.get(t, np.nan)))
-        curve.append((day, cash + mv))
+        # 2) 日终估值 + 权重日志
+        mv_parts = {t: n * c[t] for t, n in pos.items() if np.isfinite(c.get(t, np.nan))}
+        mv = sum(mv_parts.values())
+        total_now = cash + mv
+        curve.append((day, total_now))
+        if total_now > 0:
+            wlog.append({**{t: mv_parts.get(t, 0.0) / total_now for t in TICKERS},
+                         "cash": cash / total_now})
         # 3) 收盘目标装配
         target = {}
         # 过热/滞涨收紧止盈状态机 (核心两票)
@@ -670,7 +675,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             pending = target
 
     eq = pd.Series(dict(curve)).sort_index()
-    return eq, trades
+    wdf = pd.DataFrame(wlog, index=eq.index).fillna(0.0)
+    return eq, trades, wdf
 
 
 # ---------------------------------------------------------------------------
@@ -963,7 +969,7 @@ def main():
     print(f"回测区间: {closes.index[0].date()} -> {closes.index[-1].date()}  ({len(closes)} 交易日)")
 
     if args.strategy == "v31":
-        eq, trades = bt_v31(closes, opens, llm_dir=args.llm_dir,
+        eq, trades, wdf = bt_v31(closes, opens, llm_dir=args.llm_dir,
                             cost_etf=args.cost_etf, cost_stock=args.cost_stock,
                             b_arm_dd=args.v3_arm_dd, b_bottom_age=args.v3_bottom_age,
                             b_stop=args.v3_b_stop, b_exit_ma=args.v3_b_exit_ma,
@@ -988,7 +994,12 @@ def main():
         print(f"\n交易次数: {len(trades)}")
         out = os.path.join(os.path.dirname(DATA), "output", "rotation_equity_v31.csv")
         eq.to_csv(out, header=["equity"])
+        daily = wdf.copy()
+        daily.insert(0, "equity", eq)
+        out2 = os.path.join(os.path.dirname(DATA), "output", "v33_daily_weights.csv")
+        daily.round(4).to_csv(out2)
         print("净值已存:", out)
+        print("每日权重已存:", out2)
         return
     if args.strategy == "v3":
         eq, trades = bt_v3(closes, opens, llm_dir=args.llm_dir,
