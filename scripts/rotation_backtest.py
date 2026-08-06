@@ -364,7 +364,9 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            oh_ext=0.275, oh_r20=0.12, stag_ext=0.12, stag_r250=0.20, stag_r60=0.0,
            oh_re_dd=-0.08, use_oh=True, oh_cool=20, use_stag=False,
            oh_re_age=20, oh_re_slope=False,
-           sb_days=0, sb_re_days=5, sb_to="cash"):
+           sb_days=0, sb_re_days=5, sb_to="cash",
+           b_priority=True, b_deep=False, b_trail=-0.20, b_llm_bottom=False,
+           oh_park_banks=False, oh_exit_sig="ma10", b_tranche=False, b_dedup=False):
     """sb_days>0: 慢性破位换防(用户20260806迭代轮1)——核心票连续sb_days日收于
     MA250×0.98下方 → 袖珍转sb_to(cash/banks); 重新站上MA250满sb_re_days日 → 回归。
     与OH止盈正交: OH是过热前瞻止盈, SB是慢熊确认换防(2022型)。"""
@@ -418,6 +420,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     oh_coold = {}                  # t -> 冷却截止日 (回补后oh_cool日内不再触发)
     ma20c = closes.rolling(20).mean()
     ma60c = closes.rolling(60).mean()
+    ma10c = closes.rolling(10).mean()
 
     cash, pos = 1.0, {}
     b_entry = {}                   # t -> {"px","low","est"} 入场价/底部参考低/趋势已成立
@@ -491,8 +494,12 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     oh_armed.setdefault(t, "滞涨")
                 if np.isfinite(ma60c.loc[day, t]) and v < ma60c.loc[day, t]:
                     oh_armed.pop(t, None)
+                if oh_exit_sig == "ma10":
+                    sig_fire = np.isfinite(ma10c.loc[day, t]) and v < ma10c.loc[day, t]
+                else:
+                    sig_fire = diff5 < 0
                 if in_pos and t not in oh_ref and oh_armed.get(t) and day > oh_coold.get(t, pd.Timestamp.min):
-                    if diff5 < 0:
+                    if sig_fire:
                         oh_ref[t] = v
                         tag = oh_armed.pop(t)
                         trades.append((str(day.date()), "OH-OUT", TICKERS[t],
@@ -560,12 +567,16 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             if not in_pos:
                 if t in llm_state["block"]:
                     continue
-                armed = np.isfinite(hi250.loc[day, t]) and c[t] / hi250.loc[day, t] - 1 <= b_arm_dd
+                arm_line = b_arm_dd
+                if b_deep and i >= 250 and np.isfinite(closes[t].iloc[i - 250]):
+                    if c[t] / closes[t].iloc[i - 250] - 1 >= 1.0:   # 年涨幅≥100%=超级主浪后
+                        arm_line = min(b_arm_dd, -0.35)
+                armed = np.isfinite(hi250.loc[day, t]) and c[t] / hi250.loc[day, t] - 1 <= arm_line
                 trig = (armed and low_age[t][i] >= b_bottom_age
                         and np.isfinite(ma20.loc[day, t]) and c[t] > ma20.loc[day, t]
                         and np.isfinite(ma20_slope.loc[day, t]) and ma20_slope.loc[day, t] > 0)
                 if trig:
-                    b_active[t] = cap
+                    b_active[t] = cap * (0.5 if b_tranche else 1.0)
                     b_pending_low[t] = float(closes[t].iloc[max(0, i - 249):i + 1].min())
                     trades.append((str(day.date()), "B-IN", TICKERS[t],
                                    f"dd{c[t] / hi250.loc[day, t] - 1:.0%}/低点{low_age[t][i]}日"))
@@ -574,23 +585,49 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 # 趋势成立标记: 收盘曾站上MA(b_exit_ma)
                 if np.isfinite(maX.loc[day, t]) and c[t] > maX.loc[day, t] and be:
                     be["est"] = True
+                if be:
+                    be["peak"] = max(be.get("peak", be["px"]), c[t])
                 new_low = be and be.get("low") is not None and c[t] < be["low"]
                 trend_end = be.get("est") and np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t]
                 llm_down = use_llm_exit and t in llm_state["exit"]
                 stop = be and c[t] / be["px"] - 1 <= b_stop
-                if not new_low and not trend_end and not llm_down and not stop:
-                    b_active[t] = cap
+                trail = (b_trail and be and be["peak"] / be["px"] - 1 >= 0.20
+                         and c[t] / be["peak"] - 1 <= b_trail)
+                if not new_low and not trend_end and not llm_down and not stop and not trail:
+                    w_cap = cap
+                    if b_tranche:
+                        w_cap = cap * (1.0 if be and c[t] / be["px"] - 1 >= 0.05 else 0.5)
+                    b_active[t] = w_cap
                 else:
                     if llm_down:
                         llm_state["block"].add(t)
                     reason = ("筑底失败创新低" if new_low else "趋势结束" if trend_end
-                              else "LLM下降" if llm_down else "硬止损")
+                              else "LLM下降" if llm_down else "移动止盈" if trail else "硬止损")
                     trades.append((str(day.date()), "B-OUT", TICKERS[t], reason))
+        # R14变体在CLI层用 b_dedup 控制: 两只原油同时active时留强去弱
+        if b_dedup:
+            oils = [t for t in b_active if CLASSES[t] == "oil"]
+            if len(oils) > 1:
+                # 留触发时回撤更深的(反弹空间更大)
+                deeper = min(oils, key=lambda t: c[t] / hi250.loc[day, t] - 1)
+                for t in oils:
+                    if t != deeper:
+                        del b_active[t]
         b_sum = sum(b_active.values())
         if b_sum > b_total_cap:
             b_active = {t: w * b_total_cap / b_sum for t, w in b_active.items()}
             b_sum = b_total_cap
         target.update(b_active)
+        # R7: OH-out袖珍停银行(银行在MA250上方才停, 否则留现金)
+        if oh_park_banks and oh_ref:
+            park_w = 0.0
+            for t in list(oh_ref):
+                cap_t = ndx_w if t == NDX else gold_w
+                park_w += cap_t
+            if park_w > 0:
+                for b in ["601398.SS", "601988.SS", "601939.SS", "601288.SS"]:
+                    if listed.loc[day, b] and np.isfinite(ma250.loc[day, b]) and c[b] > ma250.loc[day, b]:
+                        target[b] = target.get(b, 0) + park_w / 4
         # 黄金/银行袖珍
         if listed.loc[day, GOLD] or gold_off:
             if gold_off:
@@ -606,13 +643,15 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     target[GOLD] = gw
                     if GOLD not in pos:
                         trades.append((str(day.date()), "CORE-IN", TICKERS[GOLD], f"{gw:.1%}"))
-        # 总和归一(银行防御时可能 nasdaq50+banks50+B20=120%)
+        # 总和归一(防御期可能 nasdaq50+banks50+B20=120%)
         tot = sum(target.values())
         if tot > 1.0:
-            # 银行防御期: B轨先让位
+            # 削减顺序: b_priority=True→银行先让位(B保留); False→B先让位(原规则)
+            yield_order = (["601398.SS", "601988.SS", "601939.SS", "601288.SS"] if b_priority
+                           else list(B_TRACK))
             excess = tot - 1.0
-            for t in list(target):
-                if t in B_TRACK and excess > 0:
+            for t in yield_order:
+                if t in target and excess > 0:
                     cut = min(target[t], excess)
                     target[t] -= cut
                     excess -= cut
@@ -775,7 +814,11 @@ def bt_v3(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 if not in_pos:
                     if t in llm_state["block"]:
                         continue                     # LLM退出封锁: 等下月报
-                    armed = np.isfinite(hi250.loc[day, t]) and c[t] / hi250.loc[day, t] - 1 <= b_arm_dd
+                    arm_line = b_arm_dd
+                    if b_deep and i >= 250 and np.isfinite(closes[t].iloc[i - 250]):
+                        if c[t] / closes[t].iloc[i - 250] - 1 >= 1.0:   # 年涨幅≥100%=超级主浪后
+                            arm_line = min(b_arm_dd, -0.35)
+                    armed = np.isfinite(hi250.loc[day, t]) and c[t] / hi250.loc[day, t] - 1 <= arm_line
                     trig = (armed and low_age[t][i] >= b_bottom_age
                             and np.isfinite(ma20.loc[day, t]) and c[t] > ma20.loc[day, t]
                             and np.isfinite(ma20_slope.loc[day, t]) and ma20_slope.loc[day, t] > 0
@@ -893,6 +936,13 @@ def main():
     ap.add_argument("--v3-ndx-w", type=float, default=0.50, help="v3.1纳指核心权重")
     ap.add_argument("--v3-gold-w", type=float, default=0.50, help="v3.1黄金核心权重")
     ap.add_argument("--v3-b-total-cap", type=float, default=0.20, help="v3.1 B轨总上限")
+    ap.add_argument("--v3-no-b-priority", action="store_true", help="关闭防御期B优先(默认开)")
+    ap.add_argument("--v3-b-deep", action="store_true", help="R4: 超级主浪后武装线降至-35%")
+    ap.add_argument("--v3-b-trail", type=float, default=-0.20, help="B轨浮盈20%%后移动止盈(None=关)")
+    ap.add_argument("--v3-oh-park-banks", action="store_true", help="R7: OH-out袖珍停银行")
+    ap.add_argument("--v3-oh-exit-sig", choices=["diff5", "ma10"], default="ma10", help="R8: OH退出信号")
+    ap.add_argument("--v3-b-tranche", action="store_true", help="R12: B轨分批建仓(触发半仓,浮盈5%补齐)")
+    ap.add_argument("--v3-b-dedup", action="store_true", help="R14: 原油类内去重(留回撤深的)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
     ap.add_argument("--v3-oh-ext", type=float, default=0.275, help="冲顶武装: 偏离MA250阈值")
     ap.add_argument("--v3-use-stag", action="store_true", help="启用滞涨武装(默认关, 假信号多)")
@@ -925,7 +975,12 @@ def main():
                             stag_ext=args.v3_stag_ext, stag_r250=args.v3_stag_r250,
                             stag_r60=args.v3_stag_r60, oh_cool=args.v3_oh_cool,
                             use_stag=args.v3_use_stag,
-                            oh_re_age=args.v3_oh_re_age, oh_re_slope=args.v3_oh_re_slope)
+                            oh_re_age=args.v3_oh_re_age, oh_re_slope=args.v3_oh_re_slope,
+                            b_priority=not args.v3_no_b_priority, b_deep=args.v3_b_deep,
+                            b_trail=args.v3_b_trail, b_llm_bottom=args.v3_b_llm_bottom,
+                            oh_park_banks=args.v3_oh_park_banks,
+                            oh_exit_sig=args.v3_oh_exit_sig, b_tranche=args.v3_b_tranche,
+                            b_dedup=getattr(args, "v3_b_dedup", False))
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():
