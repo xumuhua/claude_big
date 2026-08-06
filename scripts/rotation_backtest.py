@@ -367,7 +367,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            sb_days=0, sb_re_days=5, sb_to="cash",
            b_priority=True, b_deep=False, b_trail=-0.20, b_llm_bottom=False,
            oh_park_banks=False, oh_exit_sig="ma10", b_tranche=False, b_dedup=False,
-           nuke_stop=0.28):
+           nuke_stop=0.28, nuke_win=500):
     """nuke_stop>0: 核心核按钮止损——收盘价距250日高点回撤≤-nuke_stop → 清仓该票,
     严格筑底(低点≥20日+MA20上穿+斜率>0)才回补。13年历史纳指最深-29%/黄金-21%,
     -30%档在真实历史零误触发, 专为-70%型史诗崩盘准备。"""
@@ -386,6 +386,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     ma20_slope = ma20 / ma20.shift(20) - 1
     maX = closes.rolling(b_exit_ma).mean()
     hi250 = closes.rolling(250).max()
+    hi_nuke = closes.rolling(nuke_win).max()
     GOLD, NDX = "518800.SS", "513100.SS"
     BANKS = ["601398.SS", "601988.SS", "601939.SS", "601288.SS"]
 
@@ -499,8 +500,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 r250 = v / closes[t].iloc[max(0, i - 250)] - 1 if i >= 250 else 0.0
                 in_pos = t in pos
                 # 核按钮: 史诗崩盘止损(与OH正交——OH管过热顶, nuke管无底洞)
-                if nuke_stop and np.isfinite(hi250.loc[day, t]):
-                    dd250 = v / hi250.loc[day, t] - 1
+                if nuke_stop and np.isfinite(hi_nuke.loc[day, t]):
+                    dd250 = v / hi_nuke.loc[day, t] - 1
                     if in_pos and t not in nuke_out and dd250 <= -nuke_stop:
                         nuke_out[t] = True
                         nuke_low[t] = [v, 0]
@@ -979,6 +980,7 @@ def main():
     ap.add_argument("--v3-b-tranche", action="store_true", help="R12: B轨分批建仓(触发半仓,浮盈5%补齐)")
     ap.add_argument("--v3-b-dedup", action="store_true", help="R14: 原油类内去重(留回撤深的)")
     ap.add_argument("--v3-nuke-stop", type=float, default=0.28, help="核心核按钮止损(0=关, 默认0.28)")
+    ap.add_argument("--v3-nuke-win", type=int, default=500, help="核按钮高点窗口(默认500, 防慢跌滚动窗口逃逸)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
     ap.add_argument("--v3-oh-ext", type=float, default=0.275, help="冲顶武装: 偏离MA250阈值")
     ap.add_argument("--v3-use-stag", action="store_true", help="启用滞涨武装(默认关, 假信号多)")
@@ -1017,7 +1019,7 @@ def main():
                             oh_park_banks=args.v3_oh_park_banks,
                             oh_exit_sig=args.v3_oh_exit_sig, b_tranche=args.v3_b_tranche,
                             b_dedup=getattr(args, "v3_b_dedup", False),
-                            nuke_stop=args.v3_nuke_stop)
+                            nuke_stop=args.v3_nuke_stop, nuke_win=args.v3_nuke_win)
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():
