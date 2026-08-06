@@ -367,7 +367,12 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            sb_days=0, sb_re_days=5, sb_to="cash",
            b_priority=True, b_deep=False, b_trail=-0.20, b_llm_bottom=False,
            oh_park_banks=False, oh_exit_sig="ma10", b_tranche=False, b_dedup=False,
-           nuke_stop=0.28, nuke_win=500):
+           nuke_stop=0.28, nuke_win=500,
+           v_arm_dd=-0.35, v_ret5=0.08, v_trail=-0.15, v_arm_profit=0.15):
+    """V反早鸟(用户20260806: 如何吃到2026-07-02原油触底反弹):
+    脉冲资产的底是V形不是平台——深跌武装(v_arm_dd)后等爆发式反转确认
+    (收盘>MA10 且 5日收益≥v_ret5), 次日进场; 创新低立即证伪止损;
+    浮盈≥v_arm_profit 后移动止盈 v_trail; LLM下降通用退出。"""
     """nuke_stop>0: 核心核按钮止损——收盘价距250日高点回撤≤-nuke_stop → 清仓该票,
     严格筑底(低点≥20日+MA20上穿+斜率>0)才回补。13年历史纳指最深-29%/黄金-21%,
     -30%档在真实历史零误触发, 专为-70%型史诗崩盘准备。"""
@@ -414,11 +419,13 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 except Exception:
                     pass
         llm_tl.sort(key=lambda x: x[0])
-    llm_state = {"idx": -1, "exit": set(), "block": set()}
+    llm_state = {"idx": -1, "exit": set(), "block": set(), "asof": None}
     b_pending_low = {}             # 信号日暂存底部参考低
+    b_pending_kind = {}            # 信号日暂存入仓类型(V/B)
     sb_streak = {}                 # t -> 连续低于MA250×0.98天数
     sb_out = {}                    # t -> True (换防中)
     sb_re = {}                     # t -> 重新站上MA250天数
+    v_arm_low = {}                 # t -> 深跌武装区最低价 (创新低证伪锚)
     nuke_out = {}                  # t -> True (核按钮清仓中, 等严格筑底回补)
     nuke_low = {}                  # t -> [低点价, 低点年龄]
     oh_ref = {}                    # t -> 止盈卖出日收盘价 (回补参照)
@@ -443,6 +450,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             llm_state["exit"] = {t for t, a in doc.get("assets", {}).items()
                                  if a.get("phase") == "下降"}
             llm_state["block"] = llm_state["block"] & llm_state["exit"]
+            llm_state["asof"] = llm_tl[llm_state["idx"]][0]
         # 1) 开盘执行
         if pending is not None:
             fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
@@ -470,7 +478,9 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 new_pos[t] = total * w * (1 - fee_of(t)) / px
                 fees += total * w * fee_of(t)
                 if t in B_TRACK:
-                    b_entry[t] = {"px": px, "low": b_pending_low.pop(t, None), "est": False}
+                    b_entry[t] = {"px": px, "low": b_pending_low.pop(t, None), "est": False,
+                                  "d": day}
+                    b_entry[t]["kind"] = "V" if b_pending_kind.pop(t, None) == "V" else "B"
             mv_open = sum(n * px_of(t) for t, n in new_pos.items() if np.isfinite(px_of(t)))
             cash = total - mv_open - fees
             pos = new_pos
@@ -615,6 +625,24 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     b_pending_low[t] = float(closes[t].iloc[max(0, i - 249):i + 1].min())
                     trades.append((str(day.date()), "B-IN", TICKERS[t],
                                    f"dd{c[t] / hi250.loc[day, t] - 1:.0%}/低点{low_age[t][i]}日"))
+                elif v_arm_dd:
+                    # V反早鸟: 深跌武装 + 爆发反转确认(收盘>MA10 且 5日收益≥v_ret5)
+                    dd_now = c[t] / hi250.loc[day, t] - 1 if np.isfinite(hi250.loc[day, t]) else 0
+                    if dd_now <= v_arm_dd:
+                        lo = v_arm_low.get(t)
+                        v_arm_low[t] = c[t] if lo is None else min(lo, c[t])
+                    px5 = closes[t].iloc[max(0, i - 5):i + 1]
+                    r5 = c[t] / px5.iloc[0] - 1 if len(px5) >= 6 else 0.0
+                    v_trig = (dd_now <= v_arm_dd + 0.10 and t in v_arm_low
+                              and np.isfinite(ma10c.loc[day, t]) and c[t] > ma10c.loc[day, t]
+                              and r5 >= v_ret5)
+                    if v_trig:
+                        b_active[t] = cap
+                        b_pending_kind[t] = "V"
+                        b_pending_low[t] = v_arm_low[t]
+                        trades.append((str(day.date()), "V-IN", TICKERS[t],
+                                       f"dd{dd_now:.0%}/5日{r5:+.0%}/V反早鸟"))
+                        v_arm_low.pop(t, None)
             else:
                 be = b_entry.get(t, {})
                 # 趋势成立标记: 收盘曾站上MA(b_exit_ma)
@@ -624,11 +652,16 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     be["peak"] = max(be.get("peak", be["px"]), c[t])
                 new_low = be and be.get("low") is not None and c[t] < be["low"]
                 trend_end = be.get("est") and np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t]
-                llm_down = use_llm_exit and t in llm_state["exit"]
+                llm_down = (use_llm_exit and t in llm_state["exit"]
+                            and llm_state["asof"] is not None
+                            and (not be or "d" not in be or llm_state["asof"] > be["d"]))
                 stop = be and c[t] / be["px"] - 1 <= b_stop
                 trail = (b_trail and be and be["peak"] / be["px"] - 1 >= 0.20
                          and c[t] / be["peak"] - 1 <= b_trail)
-                if not new_low and not trend_end and not llm_down and not stop and not trail:
+                v_trail_hit = (v_trail and be and be.get("kind") == "V"
+                               and be["peak"] / be["px"] - 1 >= v_arm_profit
+                               and c[t] / be["peak"] - 1 <= v_trail)
+                if not new_low and not trend_end and not llm_down and not stop and not trail and not v_trail_hit:
                     w_cap = cap
                     if b_tranche:
                         w_cap = cap * (1.0 if be and c[t] / be["px"] - 1 >= 0.05 else 0.5)
@@ -637,7 +670,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     if llm_down:
                         llm_state["block"].add(t)
                     reason = ("筑底失败创新低" if new_low else "趋势结束" if trend_end
-                              else "LLM下降" if llm_down else "移动止盈" if trail else "硬止损")
+                              else "LLM下降" if llm_down else "移动止盈" if trail
+                              else "V反止盈" if v_trail_hit else "硬止损")
                     trades.append((str(day.date()), "B-OUT", TICKERS[t], reason))
         # R14变体在CLI层用 b_dedup 控制: 两只原油同时active时留强去弱
         if b_dedup:
@@ -779,6 +813,7 @@ def bt_v3(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                                    if a.get("phase") == "筑底"}
             # 月度粘性: 新月报到达时, 仍判下降的维持封锁, 否则解除
             llm_state["block"] = llm_state["block"] & llm_state["exit"]
+            llm_state["asof"] = llm_tl[llm_state["idx"]][0]
         # 1) 开盘执行昨日信号
         if pending is not None:
             fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
@@ -981,6 +1016,10 @@ def main():
     ap.add_argument("--v3-b-dedup", action="store_true", help="R14: 原油类内去重(留回撤深的)")
     ap.add_argument("--v3-nuke-stop", type=float, default=0.28, help="核心核按钮止损(0=关, 默认0.28)")
     ap.add_argument("--v3-nuke-win", type=int, default=500, help="核按钮高点窗口(默认500, 防慢跌滚动窗口逃逸)")
+    ap.add_argument("--v3-v-arm-dd", type=float, default=-0.35, help="V反早鸟武装回撤(0=关)")
+    ap.add_argument("--v3-v-ret5", type=float, default=0.08, help="V反确认5日收益")
+    ap.add_argument("--v3-v-trail", type=float, default=-0.15, help="V仓浮盈后移动止盈")
+    ap.add_argument("--v3-v-arm-profit", type=float, default=0.15, help="V仓移动止盈启动浮盈")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
     ap.add_argument("--v3-oh-ext", type=float, default=0.275, help="冲顶武装: 偏离MA250阈值")
     ap.add_argument("--v3-use-stag", action="store_true", help="启用滞涨武装(默认关, 假信号多)")
@@ -1019,7 +1058,9 @@ def main():
                             oh_park_banks=args.v3_oh_park_banks,
                             oh_exit_sig=args.v3_oh_exit_sig, b_tranche=args.v3_b_tranche,
                             b_dedup=getattr(args, "v3_b_dedup", False),
-                            nuke_stop=args.v3_nuke_stop, nuke_win=args.v3_nuke_win)
+                            nuke_stop=args.v3_nuke_stop, nuke_win=args.v3_nuke_win,
+                            v_arm_dd=args.v3_v_arm_dd or None, v_ret5=args.v3_v_ret5,
+                            v_trail=args.v3_v_trail, v_arm_profit=args.v3_v_arm_profit)
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():
