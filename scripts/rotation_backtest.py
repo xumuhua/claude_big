@@ -374,7 +374,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            w2_on=True, w2_ext=0.20, w2_exit_buf=1.0,
            oh_arm_mode="ext", oh_rsi=80.0, b_rsi_exit=0.0, tr2_ratio=0.0, oh_re_delay=60,
            grid_on=True, grid_up=0.10, grid_down=0.07, grid_step=0.05, grid_rungs=2,
-           grid_mode="rsi", grid_regime=True):
+           grid_mode="rsi", grid_regime=True, gold_bottom_ride=False):
     """网格交易(用户20260806): 核心票过热减部分仓/回落回补。
     step模式: 较参考价涨grid_up减grid_step仓位(最多grid_rungs档), 较减仓点跌grid_down回补。
     rsi模式: RSI14≥75减仓, RSI14≤50回补。网格仅作用于正常持有态(oh_ref/nuke_out时暂停)。"""
@@ -448,6 +448,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     nuke_low = {}                  # t -> [低点价, 低点年龄]
     oh_ref = {}                    # t -> 止盈卖出日收盘价 (回补参照)
     oh_ref_d = {}                  # t -> 止盈日 (认错回补冷静期用)
+    bottom_ride = {}               # GOLD -> True (筑底ride中, OFF锚=创新低)
+    bottom_low = {}                # GOLD -> 筑底参考低
     grid_ref = {}                  # t -> 网格参考价(上次动作价)
     grid_trim = {}                 # t -> 当前已减出的权重
     grid_rung_px = {}              # t -> 最近一档减仓价
@@ -695,14 +697,35 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     grid_trim[t] = 0.0
                     grid_rung_px.pop(t, None)
                     grid_ref[t] = v
-        # 黄金失势滞回
+        # 黄金失势滞回 (+筑底回补通道: 用户20260806"筑底成功开始买入")
         if listed.loc[day, GOLD] and np.isfinite(ma250.loc[day, GOLD]):
-            if not gold_off and c[GOLD] < ma250.loc[day, GOLD] * (1 - gold_buf):
+            # 筑底ride中: OFF判定锚从MA250换成"创新低=筑底失败"
+            off_line = (bottom_low.get(GOLD, 0) if bottom_ride.get(GOLD)
+                        else ma250.loc[day, GOLD] * (1 - gold_buf))
+            if not gold_off and c[GOLD] < off_line:
                 gold_off = True
-                trades.append((str(day.date()), "GOLD-OFF", TICKERS[GOLD], "失势换银行"))
+                if bottom_ride.get(GOLD):
+                    bottom_ride[GOLD] = False
+                    trades.append((str(day.date()), "GOLD-OFF", TICKERS[GOLD], "筑底失败创新低"))
+                else:
+                    trades.append((str(day.date()), "GOLD-OFF", TICKERS[GOLD], "失势换银行"))
             elif gold_off and c[GOLD] > ma250.loc[day, GOLD] * (1 + gold_buf):
                 gold_off = False
                 trades.append((str(day.date()), "GOLD-ON", TICKERS[GOLD], "复势回黄金"))
+            elif gold_off and gold_bottom_ride:
+                # 筑底回补: 深跌中低点≥20日未破+收复MA20+斜率转正
+                gpx = closes[GOLD].iloc[max(0, i - 249):i + 1]
+                glo = gpx.min()
+                gage = i - (max(0, i - 249) + int(np.nanargmin(gpx.values)))
+                gm20 = ma20c.loc[day, GOLD]
+                gm20s = ma20c[GOLD].iloc[max(0, i - 20):i + 1]
+                if (gage >= 20 and np.isfinite(gm20) and c[GOLD] > gm20
+                        and len(gm20s) >= 21 and ma20c[GOLD].iloc[-1] > gm20s.iloc[0]):
+                    gold_off = False
+                    bottom_ride[GOLD] = True
+                    bottom_low[GOLD] = float(glo)
+                    trades.append((str(day.date()), "GOLD-ON", TICKERS[GOLD],
+                                   f"筑底回补(低点{gage}日+MA20转正)"))
         # B轨: 武装→触发→持有/退出
         b_active = {}
         for t, cap in B_TRACK.items():
@@ -1210,6 +1233,8 @@ def main():
     ap.add_argument("--v3-grid-step", type=float, default=0.05, help="每档减仓权重")
     ap.add_argument("--v3-grid-rungs", type=int, default=2, help="最多档数")
     ap.add_argument("--v3-grid-trending", action="store_true", help="网格全时段激活(默认仅震荡态)")
+    ap.add_argument("--v3-gold-bottom-ride", action="store_true",
+                    help="黄金筑底回补通道(低点20日+MA20转正买入, 创新低才退出)")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
                     help="衰竭退出仅对浮盈≥此值的仓生效(0=无门槛)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
