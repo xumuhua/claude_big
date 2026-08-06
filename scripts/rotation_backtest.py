@@ -361,9 +361,13 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            b_arm_dd=-0.25, b_bottom_age=20, b_stop=-0.12, b_exit_ma=60,
            b_total_cap=0.20, gold_buf=0.02, use_llm_exit=True, dust=0.02,
            ndx_w=0.50, gold_w=0.50,
-           oh_ext=0.25, oh_r20=0.12, stag_ext=0.12, stag_r250=0.20, stag_r60=0.0,
+           oh_ext=0.275, oh_r20=0.12, stag_ext=0.12, stag_r250=0.20, stag_r60=0.0,
            oh_re_dd=-0.08, use_oh=True, oh_cool=20, use_stag=False,
-           oh_re_age=20, oh_re_slope=False):
+           oh_re_age=20, oh_re_slope=False,
+           sb_days=0, sb_re_days=5, sb_to="cash"):
+    """sb_days>0: 慢性破位换防(用户20260806迭代轮1)——核心票连续sb_days日收于
+    MA250×0.98下方 → 袖珍转sb_to(cash/banks); 重新站上MA250满sb_re_days日 → 回归。
+    与OH止盈正交: OH是过热前瞻止盈, SB是慢熊确认换防(2022型)。"""
     """过热/滞涨收紧止盈(用户20260806): 核心常态永不卖出, 过热武装态下 diff5<0 坚决止盈。
     oh: 冲顶武装= 偏离MA250≥oh_ext ∧ ret20≥oh_r20 (泡沫加速)
     stag: 滞涨武装= 偏离≥stag_ext ∧ ret250≥stag_r250 ∧ ret60≤stag_r60 (长牛后动力衰竭)
@@ -405,6 +409,9 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
         llm_tl.sort(key=lambda x: x[0])
     llm_state = {"idx": -1, "exit": set(), "block": set()}
     b_pending_low = {}             # 信号日暂存底部参考低
+    sb_streak = {}                 # t -> 连续低于MA250×0.98天数
+    sb_out = {}                    # t -> True (换防中)
+    sb_re = {}                     # t -> 重新站上MA250天数
     oh_ref = {}                    # t -> 止盈卖出日收盘价 (回补参照)
     oh_low_age = {}                # t -> 止盈后低点计数器用最近低
     oh_armed = {}                  # t -> True (武装闩锁: 直到真调整<MA60或触发才解除)
@@ -510,12 +517,32 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         del oh_ref[t]
                         oh_low_age.pop(t, None)
                         oh_coold[t] = days[min(i + oh_cool, len(days) - 1)]   # 回补后冷却
-        # 纳指: 永持 ndx_w (过热止盈例外)
+        # 纳指: 永持 ndx_w (过热止盈/慢性破位例外)
         if listed.loc[day, NDX]:
-            if NDX not in pos and NDX not in oh_ref:
+            # 慢性破位状态机
+            if sb_days and np.isfinite(ma250.loc[day, NDX]):
+                if c[NDX] < ma250.loc[day, NDX] * 0.98:
+                    sb_streak[NDX] = sb_streak.get(NDX, 0) + 1
+                    sb_re[NDX] = 0
+                else:
+                    sb_streak[NDX] = 0
+                    sb_re[NDX] = sb_re.get(NDX, 0) + 1
+                if not sb_out.get(NDX) and sb_streak[NDX] >= sb_days:
+                    sb_out[NDX] = True
+                    trades.append((str(day.date()), "SB-OUT", TICKERS[NDX],
+                                   f"慢破{sb_streak[NDX]}日→{sb_to}"))
+                elif sb_out.get(NDX) and sb_re[NDX] >= sb_re_days:
+                    sb_out[NDX] = False
+                    trades.append((str(day.date()), "SB-IN", TICKERS[NDX], "收复MA250回归"))
+            blocked = NDX in oh_ref or sb_out.get(NDX)
+            if NDX not in pos and not blocked:
                 trades.append((str(day.date()), "CORE-IN", TICKERS[NDX], f"{ndx_w:.0%}永持"))
-            if NDX not in oh_ref:
+            if not blocked:
                 target[NDX] = ndx_w
+            elif sb_out.get(NDX) and sb_to == "banks":
+                for b in ["601398.SS", "601988.SS", "601939.SS", "601288.SS"]:
+                    if listed.loc[day, b] and np.isfinite(ma250.loc[day, b]) and c[b] > ma250.loc[day, b]:
+                        target[b] = target.get(b, 0) + ndx_w / 4
         # 黄金失势滞回
         if listed.loc[day, GOLD] and np.isfinite(ma250.loc[day, GOLD]):
             if not gold_off and c[GOLD] < ma250.loc[day, GOLD] * (1 - gold_buf):
@@ -867,7 +894,7 @@ def main():
     ap.add_argument("--v3-gold-w", type=float, default=0.50, help="v3.1黄金核心权重")
     ap.add_argument("--v3-b-total-cap", type=float, default=0.20, help="v3.1 B轨总上限")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
-    ap.add_argument("--v3-oh-ext", type=float, default=0.225, help="冲顶武装: 偏离MA250阈值")
+    ap.add_argument("--v3-oh-ext", type=float, default=0.275, help="冲顶武装: 偏离MA250阈值")
     ap.add_argument("--v3-use-stag", action="store_true", help="启用滞涨武装(默认关, 假信号多)")
     ap.add_argument("--v3-oh-r20", type=float, default=0.12, help="冲顶武装: ret20阈值")
     ap.add_argument("--v3-stag-ext", type=float, default=0.12, help="滞涨武装: 偏离阈值")
