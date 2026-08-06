@@ -360,7 +360,13 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
 def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            b_arm_dd=-0.25, b_bottom_age=20, b_stop=-0.12, b_exit_ma=60,
            b_total_cap=0.20, gold_buf=0.02, use_llm_exit=True, dust=0.02,
-           ndx_w=0.50, gold_w=0.50):
+           ndx_w=0.50, gold_w=0.50,
+           oh_ext=0.25, oh_r20=0.12, stag_ext=0.12, stag_r250=0.20, stag_r60=0.0,
+           oh_re_dd=-0.08, use_oh=True, oh_cool=20, use_stag=False):
+    """过热/滞涨收紧止盈(用户20260806): 核心常态永不卖出, 过热武装态下 diff5<0 坚决止盈。
+    oh: 冲顶武装= 偏离MA250≥oh_ext ∧ ret20≥oh_r20 (泡沫加速)
+    stag: 滞涨武装= 偏离≥stag_ext ∧ ret250≥stag_r250 ∧ ret60≤stag_r60 (长牛后动力衰竭)
+    止盈后回补: 收盘>卖出日收盘(判错认错) 或 回撤≥|oh_re_dd|且低点≥10日且收盘>MA20(调整充分)"""
     days = closes.index.intersection(opens.index)
     listed = closes.notna()
     cshift = closes.shift(1)
@@ -398,6 +404,12 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
         llm_tl.sort(key=lambda x: x[0])
     llm_state = {"idx": -1, "exit": set(), "block": set()}
     b_pending_low = {}             # 信号日暂存底部参考低
+    oh_ref = {}                    # t -> 止盈卖出日收盘价 (回补参照)
+    oh_low_age = {}                # t -> 止盈后低点计数器用最近低
+    oh_armed = {}                  # t -> True (武装闩锁: 直到真调整<MA60或触发才解除)
+    oh_coold = {}                  # t -> 冷却截止日 (回补后oh_cool日内不再触发)
+    ma20c = closes.rolling(20).mean()
+    ma60c = closes.rolling(60).mean()
 
     cash, pos = 1.0, {}
     b_entry = {}                   # t -> {"px","low","est"} 入场价/底部参考低/趋势已成立
@@ -450,11 +462,56 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
         curve.append((day, cash + mv))
         # 3) 收盘目标装配
         target = {}
-        # 纳指: 永持 ndx_w
+        # 过热/滞涨收紧止盈状态机 (核心两票)
+        if use_oh:
+            for t in (NDX, GOLD):
+                if not (listed.loc[day, t] and np.isfinite(ma250.loc[day, t])):
+                    continue
+                v = c[t]
+                ext = v / ma250.loc[day, t] - 1
+                r5 = v / cshift[t] ** 0 if False else None
+                px5 = closes[t].iloc[max(0, i - 5):i + 1]
+                diff5 = v / px5.iloc[0] - 1 if len(px5) >= 6 else 0.0
+                r20 = v / closes[t].iloc[max(0, i - 20)] - 1 if i >= 20 else 0.0
+                r60 = v / closes[t].iloc[max(0, i - 60)] - 1 if i >= 60 else 0.0
+                r250 = v / closes[t].iloc[max(0, i - 250)] - 1 if i >= 250 else 0.0
+                in_pos = t in pos
+                # 武装闩锁: 极端态进入, 真调整(破MA60)才解除
+                if ext >= oh_ext and r20 >= oh_r20:
+                    oh_armed[t] = "冲顶"
+                elif use_stag and ext >= stag_ext and r250 >= stag_r250 and r60 <= stag_r60:
+                    oh_armed.setdefault(t, "滞涨")
+                if np.isfinite(ma60c.loc[day, t]) and v < ma60c.loc[day, t]:
+                    oh_armed.pop(t, None)
+                if in_pos and t not in oh_ref and oh_armed.get(t) and day > oh_coold.get(t, pd.Timestamp.min):
+                    if diff5 < 0:
+                        oh_ref[t] = v
+                        tag = oh_armed.pop(t)
+                        trades.append((str(day.date()), "OH-OUT", TICKERS[t],
+                                       f"{tag} ext{ext:+.0%} r20{r20:+.0%} r60{r60:+.0%} diff5{diff5:+.1%}"))
+                elif t in oh_ref:
+                    # 止盈后跟踪低点
+                    lo = oh_low_age.get(t, [v, 0])
+                    if v < lo[0]:
+                        oh_low_age[t] = [v, 0]
+                    else:
+                        oh_low_age[t] = [lo[0], lo[1] + 1]
+                    back_newhigh = v > oh_ref[t]
+                    retrace = v / oh_ref[t] - 1 <= oh_re_dd
+                    bottomed = oh_low_age[t][1] >= 10 and np.isfinite(ma20c.loc[day, t]) and v > ma20c.loc[day, t]
+                    if back_newhigh or (retrace and bottomed):
+                        why = "创新高认错回补" if back_newhigh else "调整充分回补"
+                        trades.append((str(day.date()), "OH-IN", TICKERS[t],
+                                       f"{why} 止盈价{oh_ref[t]:.2f}现{v:.2f}"))
+                        del oh_ref[t]
+                        oh_low_age.pop(t, None)
+                        oh_coold[t] = days[min(i + oh_cool, len(days) - 1)]   # 回补后冷却
+        # 纳指: 永持 ndx_w (过热止盈例外)
         if listed.loc[day, NDX]:
-            if NDX not in pos:
+            if NDX not in pos and NDX not in oh_ref:
                 trades.append((str(day.date()), "CORE-IN", TICKERS[NDX], f"{ndx_w:.0%}永持"))
-            target[NDX] = ndx_w
+            if NDX not in oh_ref:
+                target[NDX] = ndx_w
         # 黄金失势滞回
         if listed.loc[day, GOLD] and np.isfinite(ma250.loc[day, GOLD]):
             if not gold_off and c[GOLD] < ma250.loc[day, GOLD] * (1 - gold_buf):
@@ -514,7 +571,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                             trades.append((str(day.date()), "DEF-IN", TICKERS[b], "黄金失势防御"))
             else:
                 gw = max(gold_w - b_sum, 0.0)
-                if listed.loc[day, GOLD]:
+                if listed.loc[day, GOLD] and GOLD not in oh_ref:
                     target[GOLD] = gw
                     if GOLD not in pos:
                         trades.append((str(day.date()), "CORE-IN", TICKERS[GOLD], f"{gw:.1%}"))
@@ -805,6 +862,14 @@ def main():
     ap.add_argument("--v3-ndx-w", type=float, default=0.50, help="v3.1纳指核心权重")
     ap.add_argument("--v3-gold-w", type=float, default=0.50, help="v3.1黄金核心权重")
     ap.add_argument("--v3-b-total-cap", type=float, default=0.20, help="v3.1 B轨总上限")
+    ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
+    ap.add_argument("--v3-oh-ext", type=float, default=0.225, help="冲顶武装: 偏离MA250阈值")
+    ap.add_argument("--v3-use-stag", action="store_true", help="启用滞涨武装(默认关, 假信号多)")
+    ap.add_argument("--v3-oh-r20", type=float, default=0.12, help="冲顶武装: ret20阈值")
+    ap.add_argument("--v3-stag-ext", type=float, default=0.12, help="滞涨武装: 偏离阈值")
+    ap.add_argument("--v3-stag-r250", type=float, default=0.20, help="滞涨武装: ret250阈值")
+    ap.add_argument("--v3-stag-r60", type=float, default=0.0, help="滞涨武装: ret60上限")
+    ap.add_argument("--v3-oh-cool", type=int, default=20, help="回补后再触发冷却日数")
     ap.add_argument("--v3-a-ma", type=int, default=250, help="A轨趋势MA(0=纯持有仅LLM退出)")
     ap.add_argument("--grid", action="store_true")
     args = ap.parse_args()
@@ -821,7 +886,12 @@ def main():
                             b_stop=args.v3_b_stop, b_exit_ma=args.v3_b_exit_ma,
                             b_total_cap=args.v3_b_total_cap,
                             use_llm_exit=not args.v3_no_llm_exit,
-                            ndx_w=args.v3_ndx_w, gold_w=args.v3_gold_w)
+                            ndx_w=args.v3_ndx_w, gold_w=args.v3_gold_w,
+                            use_oh=not args.v3_no_oh,
+                            oh_ext=args.v3_oh_ext, oh_r20=args.v3_oh_r20,
+                            stag_ext=args.v3_stag_ext, stag_r250=args.v3_stag_r250,
+                            stag_r60=args.v3_stag_r60, oh_cool=args.v3_oh_cool,
+                            use_stag=args.v3_use_stag)
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():
