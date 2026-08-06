@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "多数权益类标的动量为负且跌破MA60，仅防御型银行、商品类资产动量居前，市场风险偏好低迷",
   "assets": {
     "513100.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "1月收益-13%，较MA60低10.1%，动量分-0.56排名垫底，下行压力大"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤13.7%，近20日跌12.5%，MA20斜率-4.0%",
+      "macro_logic": "美联储释放加息预期，压制美股科技成长估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "3月收益-17.6%，距60日高点跌20.2%，动量为负，下行风险高"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤36.3%，52周分位1%，近5日跌8.6%",
+      "macro_logic": "美债利率上行+互联网监管政策压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "1月收益-9%，跌破MA60及MA250，动量分-0.47，高波动下行风险大"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤23.2%，近20日跌10.3%，MA20斜率-6.2%",
+      "macro_logic": "国内流动性边际收紧，成长股估值消化",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.01微正，1月收益-0.8%，波动较低，避险价值显现但赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤6.7%，MA20斜率1.0%，波动比0.99",
+      "macro_logic": "美联储加息预期压制与俄乌地缘避险支撑多空交织",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "1月收益11.6%，距60日高点为0，商品属性突出，抗通胀避险价值足"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点0%（创新高），近20日涨11.0%，vs MA20%5.0%",
+      "macro_logic": "OPEC+减产执行+俄乌地缘紧张推升油价预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "160723.SZ": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "1月收益12.4%，距60日高点为0，商品属性突出，抗通胀避险价值足"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点0%（创新高），近20日涨11.6%，vs MA20%5.1%",
+      "macro_logic": "OPEC+减产执行+俄乌地缘紧张推升油价预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.03，站稳MA60，年化波动仅10.2%，高股息防御价值突出"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤16.8%，近20日涨0.4%，MA20斜率1.3%",
+      "macro_logic": "市场风险偏好下行，高股息防御属性获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.14排名第2，站稳MA60，高股息低波动，弱市防御性强"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤8.0%，近20日涨1.3%，MA20斜率1.5%",
+      "macro_logic": "市场风险偏好下行，高股息防御属性获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "动量分0.15排名第1，1月收益2%，站稳MA60，为当前防御板块首选"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤21%属深回撤，低点117日未破，MA20斜率3.1%",
+      "macro_logic": "市场风险偏好下行，高股息防御属性获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.75,
-      "reason": "动量分0.09排名第3，站稳MA60，高股息属性，弱市避险价值高"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤13.5%，近20日涨0.7%，MA20斜率1.2%",
+      "macro_logic": "市场风险偏好下行，高股息防御属性获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本月为首次分析，无上月评级校验记录",
-  "summary": "本月处于risk_off阶段，成长类权益标的普遍破位下行，优先配置动量排名靠前的建行、中行、农行等高股息防御标的，少量配置原油、黄金对冲风险，回避破位的科技类成长标的",
+  "factor_chains": "美联储加息预期→美债利率上行→科技成长承压、高股息占优；俄乌地缘紧张→原油涨价→通胀预期抬升",
+  "prev_month_review": "上月未对标的出具明确判定，本月结合2022年初宏观环境及量价数据完成全池判定",
+  "summary": "本月全池无标的站上MA250，整体偏防御。优先配置原油类跟随地缘+减产逻辑，标配银行高股息对冲成长下行风险，黄金少量做避险对冲，暂规避科技成长类标的。",
+  "version": 2,
   "month": "202201",
   "asof": "20220128",
   "model": "bot-20250308205057-5kjf4"

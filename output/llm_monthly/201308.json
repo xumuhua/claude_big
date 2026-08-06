@@ -1,60 +1,58 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "仅纳指ETF动量分微正，其余可统计标的动量均为负，银行类标的全部跌破MA250，整体下行压力大",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.3,
-      "reason": "动量分0.01排第1，3月收益1.7%，站稳MA60上方，相对走势最强"
-    },
-    "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无当期量化特征数据，暂无法判断走势方向"
-    },
-    "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无当期量化特征数据，暂不做趋势判断"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤2.1%，52周分位74%，近20日跌1.3%、近60日涨1.6%，无明确趋势",
+      "macro_logic": "2013年5月美联储释放Taper预期，美股科技板块震荡",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无当期量化特征数据，走势方向不明"
-    },
-    "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无当期量化特征数据，暂维持中性评级"
-    },
-    "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无当期量化特征数据，暂不给出多空判断"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤1.4%，52周分位84%，近20日涨8.3%，站MA20上方3.4%",
+      "macro_logic": "2013年4月黄金暴跌后，印度等国实物购金需求大增推动反弹",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.65
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "3月收益-7.2%，跌破MA250达2.9%，动量分-0.5，走势偏弱"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤12.8%，52周分位30%，MA20/60斜率均为负，近60日跌7.8%",
+      "macro_logic": "2013年6月国内钱荒+利率市场化改革预期，压制银行股估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "3月收益-11.4%，较MA250低6.1%，动量分-0.55，下行趋势明确"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤17.7%，低点49个交易日未破，近5日涨1.1%，MA20斜率接近走平",
+      "macro_logic": "钱荒冲击后，银行股高股息价值阶段性显现，短线资金流入",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.55
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "3月收益-12.6%，跌破MA250达4%，动量分垫底，下行压力大"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤16.3%，52周分位34%，MA20/60斜率均为负，近60日跌11.3%",
+      "macro_logic": "2013年6月国内钱荒+利率市场化改革预期，压制银行股估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分-0.47排第2，1月收益0%，走势弱但优于其余银行标的"
+      "phase": "筑底",
+      "phase_evidence": "深回撤23.5%，52周分位仅8%，低点221个交易日未破，近20日微涨0.4%",
+      "macro_logic": "深跌后高股息优势凸显，长线配置资金逐步进场",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本月为首次分析，无上月评级记录，无过往操作业绩可供校验",
-  "summary": "本月处于risk_off区间，需大幅降低权益仓位，仅少量配置相对强势的纳指ETF，规避所有破位下行的银行标的，其余无数据标的暂不参与，保持组合高防御性",
+  "factor_chains": "美联储Taper预期→美债上行、美元走强→黄金承压、纳指震荡；国内去杠杆+6月钱荒→流动性收紧→银行股估值受压",
+  "prev_month_review": "本次为基准日首次分析，无上月历史判定，无需进行校验复盘",
+  "summary": "本月采取防御配置思路，优先配置深跌筑底、高股息的农行，轻仓黄金对冲风险，纳指震荡暂观望，回避仍处下降通道的工行、建行，中行信号不明确暂观察",
+  "version": 2,
   "month": "201308",
   "asof": "20130830",
   "model": "bot-20250308205057-5kjf4"

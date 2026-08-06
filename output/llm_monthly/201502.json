@@ -1,60 +1,90 @@
 {
-  "regime": "risk_on",
-  "regime_reason": "在池6只标的动量分全部为正，银行板块占据动量前三，整体趋势向好，无系统性破位信号",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "1月收益5.5%、3月收益4.6%，站稳MA60，动量分0.28，趋势向好"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.1%，52周分位100%，MA20/60斜率为正，涨速平稳",
+      "macro_logic": "美联储维持低利率，美股科技龙头盈利稳定增长支撑纳指",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期有效量化特征数据，方向暂不明，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "基准日未上市，无有效行情数据",
+      "macro_logic": "无对应可跟踪驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期有效量化特征数据，方向暂不明，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "基准日未上市，无有效行情数据",
+      "macro_logic": "无对应可跟踪驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "1月收益-3.9%，12月收益-6%，动量分仅0.05，趋势偏弱"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-9.4%，52周分位46%，近20日-4.6%、近60日+6.1%",
+      "macro_logic": "美联储加息预期升温，美元指数走强压制黄金价格",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期有效量化特征数据，方向暂不明，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "基准日未上市，无有效行情数据",
+      "macro_logic": "无对应可跟踪驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期有效量化特征数据，方向暂不明，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "基准日未上市，无有效行情数据",
+      "macro_logic": "无对应可跟踪驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "3月收益24.1%、12月收益37.1%，较MA250高22%，趋势向好"
+      "phase": "冲高",
+      "phase_evidence": "近120日涨30.9%，vs MA250+22%，近20日回撤8%，MA20斜率为负",
+      "macro_logic": "央行降准降息，A股牛市初期银行蓝筹获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "3月收益40.8%、12月收益63.1%，动量分0.29位列第二，趋势强劲"
+      "phase": "冲高",
+      "phase_evidence": "近120日涨53.4%，vs MA250+37.1%，近20日回撤15.1%",
+      "macro_logic": "央行降准降息，A股牛市初期银行蓝筹获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.47位列第一，3月收益35.6%、12月收益46.8%，趋势最强"
+      "phase": "冲高",
+      "phase_evidence": "近120日涨40.2%，vs MA250+26.6%，近20日回撤8.5%",
+      "macro_logic": "央行降准降息，A股牛市初期银行蓝筹获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "3月收益31.5%、12月收益42.7%，动量分0.29位列第三，趋势强劲"
+      "phase": "冲高",
+      "phase_evidence": "近120日涨36.3%，vs MA250+24.5%，近20日回撤10.7%",
+      "macro_logic": "央行降准降息，A股牛市初期银行蓝筹获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
     }
   },
-  "prev_month_review": "本月为首次开展策略分析，无上期评级记录，无需进行业绩校验与复盘",
-  "summary": "本月处于risk_on区间，整体仓位可偏积极，核心配置动量排名前三的建行、中行、农行，次配纳指ETF、工行，黄金ETF趋势偏弱暂观望，其余无有效数据标的维持中性",
+  "factor_chains": "央行降准降息→A股流动性宽松→银行蓝筹估值修复；美联储加息预期→美元走强→黄金承压，低利率支撑纳指上行",
+  "prev_month_review": "2015年1月无有效阶段判定，本月基于2月末行情及同期宏观因子首次出具评估结论",
+  "summary": "本月优先配置上升趋势明确的纳指ETF，银行板块短期涨幅过大进入冲高回落阶段暂规避，黄金处于震荡区间观望，未上市标的暂不纳入配置",
+  "version": 2,
   "month": "201502",
   "asof": "20150227",
   "model": "bot-20250308205057-5kjf4"

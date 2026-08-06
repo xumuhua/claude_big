@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "全池标的动量分均为负，多数权益类资产跌破中短期均线，无进攻性方向，处于风险规避区间",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "6月收益14.8%但1月跌4.1%，距60日高点跌5.4%，跌破MA60，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-5.4%，52周分位74%，vs MA20为-3.2%，MA20斜率1.2%",
+      "macro_logic": "美联储释放Taper信号压制美股科技，板块盈利仍有支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "3月收益-24.8%，距60日高点跌20.1%，跌破MA60达8.9%，动量排名末位"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-25.6%，52周分位8%，低点距今27交易日，MA20斜率0",
+      "macro_logic": "中概监管政策密集落地，美债收益率上行压制估值",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.65
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "3月收益-12.2%，距60日高点跌14.8%，跌破MA60达8.6%，高beta风险高"
+      "phase": "震荡",
+      "phase_evidence": "距高点回撤-14.8%，52周分位40%，近5日微涨0.3%，无明确趋势",
+      "macro_logic": "国内流动性边际收敛，硬科技产业政策支撑估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "近12月收益-10.9%，跌破MA60及MA250，动量分-0.39，短期无上涨驱动"
+      "phase": "筑底",
+      "phase_evidence": "回撤-13.2%，52周分位10%，波动比0.89，低点距今142交易日",
+      "macro_logic": "美联储Taper预期推高实际利率，压制黄金，预期已充分定价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无对应量化特征数据，走势不确定性高，暂不做方向性判断"
+      "phase": "震荡",
+      "phase_evidence": "无当期量价特征数据，无明确趋势信号",
+      "macro_logic": "OPEC+有序增产，全球经济复苏推升原油需求",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.3
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无对应量化特征数据，走势不确定性高，暂不做方向性判断"
+      "phase": "震荡",
+      "phase_evidence": "无当期量价特征数据，无明确趋势信号",
+      "macro_logic": "OPEC+有序增产，全球经济复苏推升原油需求",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.3
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "1月收益1.7%，仅略低于MA60，动量排第3，高股息防御性强"
+      "phase": "筑底",
+      "phase_evidence": "回撤-16.8%，52周分位12%，低点距今37交易日，MA20斜率2.0%",
+      "macro_logic": "国内经济下行预期升温，高股息银行获防御资金偏好",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分-0.04排全池第一，1月收益1.7%，站上MA60，防御属性突出"
+      "phase": "筑底",
+      "phase_evidence": "回撤-9.2%，52周分位18%，低点距今39交易日，MA20斜率1.7%",
+      "macro_logic": "国内经济下行预期升温，高股息防御属性凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "1月收益3.5%但3月跌9.4%，距60日高点跌10.5%，弹性不足"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-21.2%，52周分位15%，低点距今37交易日，近20日涨2.1%",
+      "macro_logic": "国内经济下行预期，低估值高股息板块迎来修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "1月收益0.7%，距60日高点跌3.3%，略低于MA60，波动较小"
+      "phase": "筑底",
+      "phase_evidence": "回撤-14.0%，52周分位8%，低点距今38交易日，MA20斜率1.8%",
+      "macro_logic": "国内经济下行预期，红利防御属性吸引资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本次为策略首次月度评级，无上月持仓及评级记录，无相关复盘内容",
-  "summary": "当前处于risk_off区间，整体以防御配置为核心，优先配置动量排名靠前的中行、工行等高股息银行标的，严控权益仓位，规避恒生科技、科创50等高波动破位资产，其余标的暂以观望为主",
+  "factor_chains": "美联储Taper预期→美债利率上行、美元走强→全球成长股承压、黄金估值压制；国内经济下行预期→红利类防御资产获资金偏好",
+  "prev_month_review": "上月未对各标的给出明确阶段判定与逻辑，无历史判断可校验，本月基于最新数据首次出具判定",
+  "summary": "本月优先配置筑底的银行板块获取高股息防御收益，逢低布局估值充分调整的恒生科技、黄金ETF，纳指、科创50暂观望，原油类因数据不足暂不配置，整体以防御为主",
+  "version": 2,
   "month": "202109",
   "asof": "20210930",
   "model": "bot-20250308205057-5kjf4"

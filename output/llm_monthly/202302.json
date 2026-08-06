@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "7成标的动量分为正，高股息银行类动量居前，风险与防御资产分化，无系统性风险",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "动量分0.07排第5，站在MA60上方2.3%，近12月收益-4.6%，方向暂不明"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-13.6%，近20日涨2.8%、近5日跌1.3%，波动比0.82",
+      "macro_logic": "美联储加息节奏放缓，美股科技估值修复遇短期回调",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "1月收益-11.4%，距60日高点跌13.3%，跌破MA60达6.9%，短期压力大"
+      "phase": "下降",
+      "phase_evidence": "深回撤23.9%，近20日跌8.9%，MA20斜率-2.3%，跌破MA20",
+      "macro_logic": "美债利率反弹，港股科技承压，前期政策利好充分定价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.5,
-      "reason": "动量分-0.09为负，3月收益-4.3%，跌破MA60 0.3%，下行概率较高"
+      "phase": "筑底",
+      "phase_evidence": "深回撤20.4%，低点204日未破，MA20斜率2.2%，波动比0.8",
+      "macro_logic": "国内科创产业支持政策出台，流动性边际宽松",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分0.01偏低，近6月收益6.2%，站在MA250上方3.8%，赔率一般"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.5%，52周分位80%，近120日涨5.7%，站上MA250",
+      "macro_logic": "全球央行购金潮，美联储加息放缓美元走弱",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "501018.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "动量分-0.4垫底，3月收益-10%，跌破MA250达8.8%，下行风险突出"
+      "phase": "下降",
+      "phase_evidence": "深回撤24%，近60日跌10.1%，MA20斜率-2.6%，跌破MA60",
+      "macro_logic": "全球经济需求预期走弱，OPEC减产力度不及预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "160723.SZ": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.15排倒数第二，3月收益-6.3%，跌破MA250 7.5%，风险大于机会"
+      "phase": "下降",
+      "phase_evidence": "深回撤26.8%，近60日跌5.6%，MA60斜率-3.3%",
+      "macro_logic": "全球经济需求预期走弱，OPEC减产力度不及预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.11排第4，3月收益2.9%，持平MA60，高股息防御属性较强"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-11.2%，近20日跌0.5%，波动比0.45",
+      "macro_logic": "红利风格占优，弱市下防御资金流入",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.36居首，3月收益5.9%，站在MA250上方2.7%，上行趋势明确"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3%，52周分位70%，近120日涨7%，站上MA250",
+      "macro_logic": "红利风格占优，弱市下防御资金持续流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.28排第3，3月收益5.2%，年化波动仅6.2%，收益风险比优异"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-11.2%，近20日涨0.5%，波动比0.54",
+      "macro_logic": "红利风格占优，弱市下防御资金流入",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "动量分0.34排第2，3月收益5.0%，年化波动仅4.6%，防御价值突出"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5.5%，近20日涨0.7%，波动比0.5",
+      "macro_logic": "红利风格占优，弱市下防御资金流入",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     }
   },
-  "prev_month_review": "本次为策略首次月度评级，无过往评级及持仓复盘内容，后续将按月跟踪校验优化",
-  "summary": "本月市场呈结构分化格局，优先配置动量前列的中行、农行、建行等高股息防御标的，规避原油、科创50、恒生科技等动量为负的高波动品种，纳指、黄金暂持中性观望",
+  "factor_chains": "美联储加息节奏→美债利率/美元→黄金、海外成长股估值→国内流动性→A股成长/红利防御资产分化",
+  "prev_month_review": "上月未出具明确标的判定，本月基于量价数据及2023年2月前公开宏观信息完成全池判定",
+  "summary": "本月优先配置上升趋势的黄金、中国银行，逢低布局筑底的科创50，观望震荡的纳指及银行标的，规避下降趋势的恒生科技、原油类标的，整体均衡偏防御",
+  "version": 2,
   "month": "202302",
   "asof": "20230228",
   "model": "bot-20250308205057-5kjf4"

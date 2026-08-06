@@ -1,60 +1,90 @@
 {
-  "regime": "risk_on",
-  "regime_reason": "8/10标的动量分大于0，前三标的动量分均较高，风险资产整体赚钱效应较好",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.34排名第3，3月收益6.5%，站稳MA60，科技成长逻辑顺畅"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-1.7%，52周分位93.0%，MA20/60斜率为正，近60日涨8.0%",
+      "macro_logic": "美联储开启降息周期，美股AI龙头盈利超预期支撑估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.27排名第4，1月收益4.3%，站稳MA60，估值修复可期"
+      "phase": "上升",
+      "phase_evidence": "52周分位84.0%，近20日涨4.5%，MA20斜率2.4，较MA250高15.5%",
+      "macro_logic": "国内数字经济政策支持，美债利率下行，南向资金持续流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "588000.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.75排名第2，1月收益28.2%，较MA60高28%，成长趋势明确"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-1.5%，近20日涨29.4%，波动比1.57，较MA250高36.9%",
+      "macro_logic": "硬科技自主可控政策加码，流动性宽松推升高beta成长板块",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.14排名第5，1月收益1.9%，年化波动7.2%，避险属性下赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "52周分位80.0%，近60日微涨0.1%，波动比0.41，站上MA250",
+      "macro_logic": "美联储降息预期升温，全球央行持续购金托底价格",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.03排名第9，距60日高点跌16.6%，跌破MA60、MA250，趋势走弱"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-16.6%，低点98日未破，近5日微跌0.2%，波动比0.31",
+      "macro_logic": "OPEC+减产协议托底油价，需求端弱复苏压制上方空间",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分0.14排名第6，1月收益-6.1%，距60日高点跌22.1%，当前赔率一般"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-22.1%，低点98日未破，近5日持平，波动比0.26",
+      "macro_logic": "OPEC+减产协议托底油价，需求端弱复苏压制上方空间",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "动量分0.08排名第7，1月收益-1.7%，跌破MA60，仅具防御价值"
+      "phase": "震荡",
+      "phase_evidence": "52周分位74.0%，近5日跌2.6%，较MA20低2.6%，MA20斜率-0.9",
+      "macro_logic": "红利风格前期获资金偏好，息差改善预期支撑估值",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "动量分0.02排名第8，1月收益-0.5%，跌破MA60，高股息属性偏防御"
+      "phase": "震荡",
+      "phase_evidence": "52周分位75.0%，近5日跌3.2%，较MA20低1.6%，MA20斜率-0.6",
+      "macro_logic": "红利风格前期获资金偏好，息差改善预期支撑估值",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.17排名末尾，1月收益-4.4%，跌破MA60，短期趋势走弱"
+      "phase": "震荡",
+      "phase_evidence": "52周分位69.0%，近5日跌2.3%，较MA20低3.3%，MA20斜率-2.7",
+      "macro_logic": "红利风格前期获资金偏好，息差改善预期支撑估值",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.95,
-      "reason": "动量分0.94排名第1，3月收益27.4%，较MA60高11.1%，红利趋势强劲"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-3.8%，近20日涨10.9%，较MA250高30.9%，MA20斜率11.2",
+      "macro_logic": "红利风格资金抱团，高股息属性吸引配置盘集中流入",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
     }
   },
-  "prev_month_review": "本月为首次开展策略分析，无上月评级记录，无需进行复盘校验",
-  "summary": "本月整体风险偏好上行，优先超配动量前三的农行、科创50、纳指ETF，标配恒生科技、黄金，规避趋势走弱的南方原油、建行，其余银行标的仅作少量防御底仓，控制组合整体回撤",
+  "factor_chains": "美联储降息→美债利率下行→成长/黄金估值抬升；国内流动性宽松→科创/红利板块分化；OPEC减产→油价筑底",
+  "prev_month_review": "上月未给出明确标的阶段判定，本月基于最新量价及宏观因子完成首次判定，无误判情况",
+  "summary": "本月优先配置上升趋势的纳指ETF、恒生科技ETF，黄金ETF逢低布局；科创50、农行已冲高警惕回调，原油类耐心持有待筑底确认，其余银行股暂时规避",
+  "version": 2,
   "month": "202508",
   "asof": "20250829",
   "model": "bot-20250308205057-5kjf4"

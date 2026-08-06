@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "仅纳指ETF、黄金ETF动量分>0，银行类资产动量普遍为负，市场结构分化，无系统性行情或风险",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.62排第1，3月收益24.9%，较MA60高5.1%、MA250高18%，趋势向好"
+      "phase": "上升",
+      "phase_evidence": "近60日涨21.8%，MA20/60斜率为正，较250日高点回撤-10.2%",
+      "macro_logic": "2020年美联储无限量QE推升美股科技成长估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，趋势暂不明确，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "无有效量价特征支撑趋势判定",
+      "macro_logic": "中概股监管趋严与美债利率低位支撑形成对冲",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.5
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，趋势暂不明确，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "无有效量价特征支撑趋势判定",
+      "macro_logic": "科创板开板后流动性充裕，硬科技政策支持",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.5
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.75,
-      "reason": "动量分0.57排第2，3月收益17.1%，距60日高点仅0.4%，波动低趋势稳"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅-0.4%，近120日涨16.7%，波动比0.46",
+      "macro_logic": "美联储无限QE+全球疫情避险需求推升黄金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，趋势暂不明确，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "无有效量价特征支撑趋势判定",
+      "macro_logic": "OPEC+减产落地，疫情压制原油需求修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.5
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，趋势暂不明确，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "无有效量价特征支撑趋势判定",
+      "macro_logic": "OPEC+减产落地，疫情压制原油需求修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.5
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.17，6月收益-13.4%，较MA250低9.6%，下行趋势明确"
+      "phase": "下降",
+      "phase_evidence": "创250日新低（低点距今0交易日），近5日跌4.2%",
+      "macro_logic": "疫情后银行让利实体政策压制板块估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.02排第3，微幅站在MA60之上，方向不明赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "近20日涨0.9%，vs MA20/60均为0.1%，无明确趋势",
+      "macro_logic": "原油宝事件冲击逐步消化，估值修复动能弱",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.17，6月收益-11.1%，较MA250低8.4%，趋势走弱"
+      "phase": "震荡",
+      "phase_evidence": "近5日涨0.5%，近20日跌0.9%，短期无明确方向",
+      "macro_logic": "经济复苏预期弱，银行板块整体估值承压",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.09排第4，略低于MA60，6月收益-6.4%，方向不明"
+      "phase": "震荡",
+      "phase_evidence": "近5日涨0.9%，近20日跌0.6%，均线走平无趋势",
+      "macro_logic": "高股息属性吸引避险资金，板块整体承压",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本月为策略首次运行，无过往评级记录，无需进行校验复盘",
-  "summary": "本月核心配置纳指ETF、黄金ETF，两类资产动量靠前趋势明确，风险可控；防御端小仓位配置中行、农行，其余标的无明确信号暂不参与，整体仓位控制在6成左右，兼顾收益与波动",
+  "factor_chains": "新冠疫情全球爆发→美联储无限量QE→美元走弱+流动性宽松→黄金、美股科技上涨，国内银行让利政策压制银行估值",
+  "prev_month_review": "上月未对池内标的给出明确阶段判定，无验证依据，本月基于最新数据给出完整判定",
+  "summary": "本月优先配置趋势明确的纳指ETF、黄金ETF，规避处于下降通道的工商银行，其余震荡标的暂时观望，组合兼顾成长与避险，控制防御类仓位占比",
+  "version": 2,
   "month": "202006",
   "asof": "20200630",
   "model": "bot-20250308205057-5kjf4"

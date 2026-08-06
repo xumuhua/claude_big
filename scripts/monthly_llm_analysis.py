@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""ETF轮动池 月度豆包LLM分析管线 (claude_big)
+"""ETF轮动池 月度豆包LLM分析管线 v2 (claude_big) —— 阶段判定+宏观逻辑强度
 
-每月末一次豆包调用: 喂入全池量化特征(截至月末, 无lookahead) + 上月评级(链式连续),
-产出 资产级评级(看多/中性/看空+置信度) + 整体风险偏好(risk_on/neutral/risk_off),
-供 rotation_backtest.py --llm-mode 挂载指导交易。
+v2 设计(用户20260806指导): 宏观资产的核心是 阶段(筑底/上升/冲高/下降) × 宏观驱动逻辑
+× 逻辑强度。v1 评级式(看多/看空)已证伪——与量化信号信息同源零增量。
+v2 的增量在于: ①筑底成功识别(动量未转正前的早鸟信号, 例2026-07黄金)
+②事件级强逻辑归因(例2022-02俄乌战争→原油危机) ③逻辑衰竭预警(冲顶离场)。
 
-产物: output/llm_monthly/{YYYYMM}.json + {YYYYMM}.md
+每月末一次豆包调用: 喂入全池阶段证据特征(截至月末, 无lookahead) + 上月判定(链式),
+产出 per-asset {phase, macro_logic, logic_strength, logic_durability} + 池级因子链。
+产物: output/llm_monthly/{YYYYMM}.json + {YYYYMM}.md ("version": 2)
 
 用法:
   python3 scripts/monthly_llm_analysis.py --months 202607        # 指定月
-  python3 scripts/monthly_llm_analysis.py --all                  # 2013-08起全部月末(增量)
-  python3 scripts/monthly_llm_analysis.py --all --force          # 强制重跑
+  python3 scripts/monthly_llm_analysis.py --all --force          # 全量重跑
   python3 scripts/monthly_llm_analysis.py --all --workers 4
 """
 import argparse
@@ -105,7 +107,7 @@ def _parse_json_response(text: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# 特征构建
+# v2 阶段证据特征构建
 # ---------------------------------------------------------------------------
 
 def month_ends(days: pd.DatetimeIndex) -> list:
@@ -115,39 +117,52 @@ def month_ends(days: pd.DatetimeIndex) -> list:
 
 
 def build_features(closes: pd.DataFrame, T) -> tuple:
-    """截至 T 的全池特征表 (DataFrame) + 池级上下文 (dict)"""
+    """截至 T 的全池阶段证据特征表 (DataFrame) + 池级上下文 (dict)
+
+    特征为阶段判定设计(非动量复读):
+      位置(回撤/52周分位/低点距今) 趋势结构(vs MA + MA斜率) 节奏(ret加速结构) 波动状态
+    """
     c = closes.loc[:T]
+    ma20, ma60, ma250 = c.rolling(20).mean(), c.rolling(60).mean(), c.rolling(250).mean()
     vol20 = c.pct_change().rolling(20).std() * np.sqrt(244)
-    score = (0.5 * (c / c.shift(20) - 1) + 0.5 * (c / c.shift(60) - 1)) / vol20.replace(0, np.nan)
-    ma60, ma250 = c.rolling(60).mean(), c.rolling(250).mean()
+    vol120 = c.pct_change().rolling(120).std() * np.sqrt(244)
     rows = []
     for t, name in TICKERS.items():
         px = c[t].dropna()
-        if len(px) < 30:
+        if len(px) < 25:                     # vol20需21行; 长窗特征自动为None
             continue
         last = px.iloc[-1]
         def ret(n):
-            return (last / px.iloc[-n] - 1) if len(px) >= n else np.nan
-        hi60 = px.iloc[-60:].max()
+            return round((last / px.iloc[-n] - 1) * 100, 1) if len(px) > n else None
+        hi250, lo250 = px.iloc[-250:].max(), px.iloc[-250:].min()
+        lo_date = px.iloc[-250:].idxmin()
+        lo_days = len(px.loc[lo_date:]) - 1                    # 低点距今交易日数
+        pos52 = (last - lo250) / (hi250 - lo250) if hi250 > lo250 else np.nan
+        def ma_slope(ma):
+            if len(ma[t].dropna()) < 21:
+                return None
+            return round((ma[t].iloc[-1] / ma[t].iloc[-21] - 1) * 100, 1)
+        v20, v120 = vol20[t].iloc[-1], vol120[t].iloc[-1]
         rows.append({
             "代码": t, "名称": name, "类别": CLASSES[t],
-            "1月收益%": round(ret(22) * 100, 1),
-            "3月收益%": round(ret(66) * 100, 1) if len(px) >= 66 else None,
-            "6月收益%": round(ret(132) * 100, 1) if len(px) >= 132 else None,
-            "12月收益%": round(ret(244) * 100, 1) if len(px) >= 244 else None,
-            "年化波动%": round(vol20[t].iloc[-1] * 100, 1),
-            "距60日高点%": round((last / hi60 - 1) * 100, 1),
+            "距250日高点%": round((last / hi250 - 1) * 100, 1),
+            "52周区间分位%": round(pos52 * 100, 0) if np.isfinite(pos52) else None,
+            "低点距今交易日": lo_days,
+            "近5日%": ret(6), "近20日%": ret(21), "近60日%": ret(61), "近120日%": ret(121),
+            "vs MA20%": round((last / ma20[t].iloc[-1] - 1) * 100, 1) if np.isfinite(ma20[t].iloc[-1]) else None,
             "vs MA60%": round((last / ma60[t].iloc[-1] - 1) * 100, 1) if np.isfinite(ma60[t].iloc[-1]) else None,
             "vs MA250%": round((last / ma250[t].iloc[-1] - 1) * 100, 1) if np.isfinite(ma250[t].iloc[-1]) else None,
-            "动量分": round(score[t].iloc[-1], 2),
+            "MA20斜率%": ma_slope(ma20),
+            "MA60斜率%": ma_slope(ma60),
+            "vol20%": round(v20 * 100, 1) if np.isfinite(v20) else None,
+            "vol120%": round(v120 * 100, 1) if np.isfinite(v120) else None,
+            "波动比": round(v20 / v120, 2) if np.isfinite(v20) and np.isfinite(v120) and v120 > 0 else None,
         })
     feat = pd.DataFrame(rows)
-    feat["动量分"] = pd.to_numeric(feat["动量分"], errors="coerce")
-    feat["动量排名"] = feat["动量分"].rank(ascending=False, method="first").astype("Int64")
     ctx = {
-        "n_pass": int((feat["动量分"] > 0).sum()),
         "n_total": len(feat),
-        "top": feat.sort_values("动量分", ascending=False).head(3)[["名称", "动量分"]].values.tolist(),
+        "above_ma250": int((feat["vs MA250%"] > 0).sum()) if len(feat) else 0,
+        "deep_dd": feat.loc[feat["距250日高点%"] <= -20, "名称"].tolist() if len(feat) else [],
     }
     return feat, ctx
 
@@ -155,38 +170,57 @@ def build_features(closes: pd.DataFrame, T) -> tuple:
 def build_prompt(feat: pd.DataFrame, ctx: dict, T, prev: dict | None) -> str:
     asof = T.strftime("%Y-%m-%d")
     table = feat.to_csv(index=False)
-    prev_txt = "（本月为首次分析，无上月评级）"
+    prev_txt = "（本月为首次分析，无上月判定）"
     if prev:
         prev_txt = json.dumps({
-            "month": prev.get("month"), "regime": prev.get("regime"),
-            "ratings": {k: v.get("rating") for k, v in prev.get("assets", {}).items()},
+            "month": prev.get("month"),
+            "phases": {k: v.get("phase") for k, v in prev.get("assets", {}).items()},
+            "logics": {k: f"{v.get('macro_logic', '')[:20]}({v.get('logic_strength')})"
+                       for k, v in prev.get("assets", {}).items()},
         }, ensure_ascii=False)
     assets_desc = "\n".join(f"- {t} {ASSET_DESC[t]}" for t in TICKERS)
     return f"""你是一名宏观资产配置分析师，管理一个"全天候迷你池"轮动策略，标的如下：
 {assets_desc}
 
-【分析基准日】{asof}（月末）。以下量化特征表全部截至该日收盘：
+【分析基准日】{asof}（月末）。以下阶段证据特征表全部截至该日收盘：
 {table}
 
-池级状态：动量分>0 的标的 {ctx['n_pass']}/{ctx['n_total']}；动量前三：{ctx['top']}。
+池级状态：站上MA250的标的 {ctx['above_ma250']}/{ctx['n_total']}；深回撤(≤-20%)标的：{ctx['deep_dd']}。
 
-【上月你的评级】{prev_txt}
+【上月你的判定】{prev_txt}
+
+【你的任务】宏观资产的涨跌由多月级别的大逻辑驱动（战争/利率周期/汇率/政策/地缘/流动性），
+不会像个股一样因单日消息暴动。请对每个标的完成三步判断：
+
+1. **阶段判定** phase ∈ {{筑底, 上升, 冲高, 下降, 震荡}}：
+   - 筑底：深回撤后风险释放充分，止跌企稳（低点多日不再创新低、短期收益转正、波动收缩、MA20走平上翘）——即使中长期趋势仍向下
+   - 上升：价格站上走升的均线，稳健上涨（涨速可持续，未过度加速）
+   - 冲高：远离MA250过度拉伸、短期涨速远超长期、波动放大——泡沫化预警
+   - 下降：跌破走降的均线、持续创新低
+   - 震荡：无明确方向
+2. **宏观逻辑归因** macro_logic：驱动该资产当前趋势的具体宏观事件/因子，**必须点名具体事件**
+   （如"俄乌战争推升油价""美联储加息压制成长股""央行购金潮"），不允许写"市场情绪"这类空话。
+3. **逻辑强度** logic_strength ∈ {{强, 中, 弱}} 与 **持续性** logic_durability ∈ {{持续, 衰竭}}：
+   强=事件级/政策级驱动且仍在发酵（可跟随）；衰竭=逻辑已充分定价或正在逆转（准备离场）。
 
 【纪律要求】
-1. 分析基准日为 {asof}，只允许使用以上数据和该日期之前的公开宏观知识；严禁引用该日期之后的实际走势或事件。
-2. 每个评级必须引用上表数据佐证（如"3月收益-12%且跌破MA250"），不允许空泛判断。
-3. 先自我校验上月评级（对了什么、错了什么、教训），再给本月判断。
-4. 评级含义："看多"=未来1-3个月预期正收益且风险可控；"看空"=预期下跌或风险远大于机会；"中性"=方向不明或赔率一般。confidence 取 0~1。
-5. regime 定义：risk_on=风险资产整体顺风可积极；neutral=结构分化正常轮动；risk_off=宏观环境恶劣（流动性冲击/系统性风险/多数资产破位），应大幅降低权益仓位。
+1. 分析基准日为 {asof}，只允许使用以上数据和该日期之前的公开宏观知识；严禁引用之后的实际走势或事件。
+2. phase_evidence 必须引用上表数据（如"回撤-25%/低点23日未破/波动比0.6"）。
+3. 先自我校验上月判定（阶段判对了吗？逻辑还在吗？误判必须承认），再给本月判断。
+4. confidence 取 0~1，表示你对该标的阶段判定的把握。
 
 【输出格式】严格输出一个 JSON 对象（不要输出其他文字）：
 {{
-  "regime": "risk_on|neutral|risk_off",
-  "regime_reason": "80字内",
   "assets": {{
-    "513100.SS": {{"rating": "看多|中性|看空", "confidence": 0.0, "reason": "60字内,须引数据"}},
+    "513100.SS": {{"phase": "筑底|上升|冲高|下降|震荡",
+                  "phase_evidence": "50字内,须引数据",
+                  "macro_logic": "50字内,点名具体事件/因子",
+                  "logic_strength": "强|中|弱",
+                  "logic_durability": "持续|衰竭",
+                  "confidence": 0.0}},
     "...所有池中标的代码..."
   }},
+  "factor_chains": "100字内: 当前最重要的跨资产因子链条(如 地缘冲突→原油→通胀→利率→成长股承压)",
   "prev_month_review": "80字内",
   "summary": "150字内的本月配置思路"
 }}"""
@@ -201,27 +235,34 @@ def analyze_month(closes, T, prev, force=False):
     js_path = os.path.join(OUT_DIR, f"{ym}.json")
     md_path = os.path.join(OUT_DIR, f"{ym}.md")
     if os.path.exists(js_path) and not force:
-        return ym, "skip"
+        old = json.load(open(js_path, encoding="utf-8"))
+        if old.get("version") == 2:                # v2 产物才跳过, v1 一律重跑
+            return ym, "skip"
     feat, ctx = build_features(closes, T)
     if len(feat) < 3:
         return ym, "too-early"
     prompt = build_prompt(feat, ctx, T, prev)
     raw = call_doubao_api(prompt)
     doc = _parse_json_response(raw)
+    doc["version"] = 2
     doc.setdefault("month", ym)
     doc["asof"] = T.strftime("%Y%m%d")
     doc["model"] = MODEL_ID
-    # 补齐缺失标的为中性
+    # 补齐缺失标的
     for t in feat["代码"]:
-        doc.setdefault("assets", {}).setdefault(t, {"rating": "中性", "confidence": 0.5, "reason": "LLM未覆盖"})
+        doc.setdefault("assets", {}).setdefault(t, {
+            "phase": "震荡", "phase_evidence": "LLM未覆盖", "macro_logic": "",
+            "logic_strength": "弱", "logic_durability": "衰竭", "confidence": 0.3})
     with open(js_path, "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=2)
-    md = [f"# ETF池月度分析 {ym}（基准日 {doc['asof']}，{MODEL_ID}）\n",
-          f"**regime**: {doc.get('regime')} — {doc.get('regime_reason', '')}\n",
-          "| 标的 | 评级 | 置信度 | 理由 |", "|---|---|---|---|"]
+    md = [f"# ETF池月度阶段分析 {ym}（基准日 {doc['asof']}，{MODEL_ID}，v2）\n",
+          "**因子链**: " + doc.get("factor_chains", "") + "\n",
+          "| 标的 | 阶段 | 逻辑(强度/持续) | 证据 | 置信度 |", "|---|---|---|---|---|"]
     for t in feat["代码"]:
         a = doc["assets"][t]
-        md.append(f"| {TICKERS[t]}({t}) | {a.get('rating')} | {a.get('confidence')} | {a.get('reason', '')} |")
+        md.append(f"| {TICKERS[t]}({t}) | {a.get('phase')} | {a.get('macro_logic', '')} "
+                  f"({a.get('logic_strength')}/{a.get('logic_durability')}) "
+                  f"| {a.get('phase_evidence', '')} | {a.get('confidence')} |")
     md += ["", f"**上月校验**: {doc.get('prev_month_review', '')}", "",
            f"**配置思路**: {doc.get('summary', '')}"]
     with open(md_path, "w", encoding="utf-8") as f:

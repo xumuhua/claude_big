@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "动量分>0标的仅2/6，仅纳指、黄金趋势向好，银行板块普遍负动量，结构分化明显",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.99排第1，1月收益29%，创60日新高，远超MA60、MA250"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点0%，52周分位100%，较MA250高48.2%，短期涨幅远超长期",
+      "macro_logic": "美联储零利率+无限QE放水，推升美股科技股估值",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无截至基准日的量化特征数据，缺乏判断依据"
+      "phase": "震荡",
+      "phase_evidence": "暂无当期量价数据",
+      "macro_logic": "无明确驱动事件信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无截至基准日的量化特征数据，缺乏判断依据"
+      "phase": "震荡",
+      "phase_evidence": "暂无当期量价数据",
+      "macro_logic": "无明确驱动事件信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.11排第2，3月收益6.8%，站稳MA60、MA250"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-5.8%，近20日-1.9%近5日1.6%，vs MA20 -0.9%",
+      "macro_logic": "美联储宽松推升黄金后高位盘整，疫情避险逻辑部分定价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无截至基准日的量化特征数据，缺乏判断依据"
+      "phase": "震荡",
+      "phase_evidence": "暂无当期量价数据",
+      "macro_logic": "无明确驱动事件信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无截至基准日的量化特征数据，缺乏判断依据"
+      "phase": "震荡",
+      "phase_evidence": "暂无当期量价数据",
+      "macro_logic": "无明确驱动事件信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.5,
-      "reason": "动量分-0.22，3月收益-4.1%，跌破MA60、MA250，距60日高点跌11.4%"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-17.5%，52周分位0%，MA20斜率-2.3%，近60日跌4.2%",
+      "macro_logic": "政策要求2020年银行业向实体经济让利1.5万亿，压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.38排第6，3月收益-5.5%，跌破MA60、MA250，距60日高点跌15.2%"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-15.2%，52周分位0%，MA20斜率-4.4%，近60日跌6.3%",
+      "macro_logic": "政策要求2020年银行业向实体经济让利1.5万亿，压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "动量分-0.09排第3，1月收益1.3%为银行最优，仍跌破MA250"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-17.2%，52周分位10%，MA20斜率-2.9%，近60日跌3.1%",
+      "macro_logic": "政策要求2020年银行业向实体经济让利1.5万亿，压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.37，3月收益-6.4%，跌破MA60、MA250，距60日高点跌14.6%"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-14.6%，52周分位0%，MA20斜率-2.9%，近60日跌5.9%",
+      "macro_logic": "政策要求2020年银行业向实体经济让利1.5万亿，压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     }
   },
-  "prev_month_review": "本次为首次月度分析，无上月评级记录，无需进行校验复盘",
-  "summary": "本月市场结构分化，优先配置高动量纳指ETF作为进攻核心，黄金ETF作为对冲仓位，规避动量走弱的多数银行标的，无有效数据标的暂不参与，整体仓位控制在4-5成",
+  "factor_chains": "美联储无限QE→美元走弱+实际利率下行→美股科技、黄金上涨；国内银行让利政策→银行板块估值承压",
+  "prev_month_review": "上月未对所有标的给出有效判定，无历史校验依据，本月基于最新量价及宏观数据首次出具评估结论",
+  "summary": "本月优先规避处于下降趋势的银行板块，纳指ETF处于冲高阶段警惕回调风险，黄金高位震荡暂观望，无明确趋势的其余标的暂不配置，等待信号明朗后再做布局",
+  "version": 2,
   "month": "202008",
   "asof": "20200831",
   "model": "bot-20250308205057-5kjf4"

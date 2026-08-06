@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "仅1/6标的动量分大于0，银行类普遍跌破MA60、动量大幅为负，多数资产破位，风险偏好低迷。",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.08排第一，3月收益3.1%，站在MA60上方1.4%，波动可控。"
-    },
-    "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "1月收益3.6%但3月收益-6.2%，动量微负，站上MA60 0.8%，方向不明。"
-    },
-    "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "3月收益-10.7%，较MA60低6.6%，动量分-0.6，下行趋势明确。"
-    },
-    "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "3月收益-11.3%，较MA60低6.2%，动量分-0.54，趋势走弱。"
-    },
-    "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "3月收益-8.2%，较MA60低6.0%，动量分-0.5，下行压力大。"
-    },
-    "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "3月收益-7.4%，较MA60低4.9%，动量分-0.62，趋势偏弱。"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-2.4%，52周分位88%，近20日微跌0.5%",
+      "macro_logic": "2013年末美联储宣布Taper，美股科技龙头盈利仍稳健",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无当期量化特征数据，暂无法判断趋势，宜观望。"
+      "phase": null,
+      "phase_evidence": "基准日无公开交易数据",
+      "macro_logic": "",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无当期量化特征数据，暂无法判断趋势，宜观望。"
+      "phase": null,
+      "phase_evidence": "基准日无公开交易数据",
+      "macro_logic": "",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-13%，低点28日未破，近20日涨2.5%",
+      "macro_logic": "2013年美联储Taper压制黄金后，避险需求阶段性修复",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无当期量化特征数据，暂无法判断趋势，宜观望。"
+      "phase": null,
+      "phase_evidence": "基准日无公开交易数据",
+      "macro_logic": "",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无当期量化特征数据，暂无法判断趋势，宜观望。"
+      "phase": null,
+      "phase_evidence": "基准日无公开交易数据",
+      "macro_logic": "",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-23.5%，52周分位4%，低点距今3日",
+      "macro_logic": "2013年钱荒后银行股估值下杀，高股息价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-22%，52周分位7%，低点距今8日",
+      "macro_logic": "2013年钱荒后银行股估值下杀，高股息价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-22.4%，52周分位3%，波动比0.65",
+      "macro_logic": "2013年钱荒后银行股估值下杀，高股息价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-26.3%，52周分位2%，波动比0.41",
+      "macro_logic": "2013年钱荒后银行股估值下杀，高股息价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     }
   },
-  "prev_month_review": "本月为首次开展策略分析，无过往评级记录，无需进行业绩校验与复盘。",
-  "summary": "本月处于risk_off环境，需大幅降低权益仓位，仅可小仓位配置动量排名第一的纳指ETF，坚决规避动量为负的银行类标的，其余无数据品种暂观望，优先控制组合回撤。",
+  "factor_chains": "美联储2013年12月启动Taper→美债利率上行→黄金承压、海外成长股波动→国内2013年钱荒后高股息银行股防御价值凸显",
+  "prev_month_review": "上月无有效阶段判定及逻辑，本月首次基于当前量价数据及基准日前宏观事件开展分析",
+  "summary": "本月以防御配置为主，优先加仓筑底阶段的四大行高股息标的，纳指ETF暂持观望，黄金ETF仅做短线参与，其余未上市标的暂不纳入配置",
+  "version": 2,
   "month": "201401",
   "asof": "20140130",
   "model": "bot-20250308205057-5kjf4"

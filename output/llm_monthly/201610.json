@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "动量分>0标的占5/6，银行板块动量居前，黄金动量为负，整体结构分化，无系统性风险",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "3月收益5.5%，站稳MA60，动量分0.18排第4，赔率一般"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.2%，52周分位89%，MA20/60斜率为正，近120日涨15.1%",
+      "macro_logic": "2016年美国科技龙头盈利稳健，美联储加息节奏缓于预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无基准日对应量化数据，方向不明暂观望"
+      "phase": null,
+      "phase_evidence": "2016年10月尚未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无基准日对应量化数据，方向不明暂观望"
+      "phase": null,
+      "phase_evidence": "2016年10月尚未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.18排最后，跌破MA60，1月、3月收益均为负"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5.3%，MA20/60斜率为负，近5日涨1%但近60日跌2.9%",
+      "macro_logic": "2016年美国大选不确定性叠加美联储加息预期反复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无基准日对应量化数据，方向不明暂观望"
+      "phase": null,
+      "phase_evidence": "2016年10月尚未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无基准日对应量化数据，方向不明暂观望"
+      "phase": null,
+      "phase_evidence": "2016年10月尚未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.24排第3，3月收益3.5%，防御属性较强"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-8.8%，52周分位51%，短均线走平，近60日涨3.3%",
+      "macro_logic": "2016年国内高股息资产获险资配置，利率低位支撑类债价值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分0.16排第5，跌破MA250，1月收益为0，弹性不足"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-21.7%，低点166日未破，近20日涨0.9%，波动比0.61",
+      "macro_logic": "2016年银行不良率预期边际改善，估值修复逻辑启动",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.42居首，6月收益9.1%，站稳MA60、MA250，趋势向好"
+      "phase": "上升",
+      "phase_evidence": "近120日涨11.4%，vs MA250+2.8%，MA60斜率1.5，波动比0.55",
+      "macro_logic": "2016年建行盈利优于行业，南向资金加配港股上市内资行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.28排第2，年化波动仅6.8%，收益与防御性兼具"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5.1%，52周分位61%，均线走平，近20日涨1.6%",
+      "macro_logic": "2016年农行县域业务优势凸显，高股息吸引长期资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本次为首次策略分析，无上月评级记录，无相关复盘内容",
-  "summary": "当前市场结构分化，优先配置动量居前的建行、农行、工行等高股息防御标的，纳指ETF中性配置，规避黄金ETF，其余无数据标的暂观望，整体仓位维持6成左右",
+  "factor_chains": "2016年美联储加息预期反复→美元/美债利率波动→美股、黄金估值变动；国内流动性宽松→红利类资产获资金偏好",
+  "prev_month_review": "上月未作出有效判定，本月基于首次披露的量价数据及同期宏观因子完成全池首次评级",
+  "summary": "本月优先配置上升趋势的纳指ETF、建设银行，底部布局企稳的中国银行，标配黄金ETF对冲美国大选不确定性，其余银行标的作为防御底仓，未上市标的暂不配置",
+  "version": 2,
   "month": "201610",
   "asof": "20161031",
   "model": "bot-20250308205057-5kjf4"

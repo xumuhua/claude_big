@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "9成标的动量分>0，无系统性破位信号，各类资产表现分化，处于正常轮动格局",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "1月收益-3.5%，较MA60高1.6%，动量分0.25排第5，短期存调整压力"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-3.5%，52周分位87%，近20日-2.8%，MA60斜率4.0",
+      "macro_logic": "美联储2024Q4开启降息，AI科技龙头盈利稳健增长",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "513180.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "1月收益3%，6月收益28.4%，距60日高点仅-0.3%，站稳MA60"
+      "phase": "冲高",
+      "phase_evidence": "52周分位94%，vs MA250达22.7%，MA20斜率-0.5，近120日涨32.6%",
+      "macro_logic": "国内数字经济政策支持，美债利率下行，南向资金流入",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "动量分-0.08全池最低，1月收益-6.7%，跌破MA60，距60日高点跌10.7%"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-11.5%，52周分位72%，MA20斜率-3.3，MA60斜率0.3",
+      "macro_logic": "国内硬科技产业政策支持，流动性宽松",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.47全池第一，1月收益4.5%，距60日高点仅-0.1%，波动低防御强"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-0.1%，52周分位99%，MA20斜率2.4，近20日涨4.4%",
+      "macro_logic": "美联储降息，全球央行购金潮，中东地缘冲突避险",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "501018.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.33全池第二，1月收益6.2%，3月收益6.4%，站稳MA60"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-5.9%，52周分位63%，MA60斜率2.2，近20日涨6.9%",
+      "macro_logic": "OPEC+减产协议延长，中东地缘冲突推升油价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "1月收益6%站稳MA60，但6月、12月收益为负，长期趋势偏弱"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-8.8%，52周分位51%，MA60斜率2.0，近20日涨6.6%",
+      "macro_logic": "OPEC+减产协议延长，中东地缘冲突推升油价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.68
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "3月收益11.4%，较MA60高6%，高股息防御属性突出，动量分0.24排第6"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-1.9%，52周分位94%，MA20斜率3.0，近5日涨3.8%",
+      "macro_logic": "红利风格占优，机构高股息配置需求，资金避险",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.28全池第三，3月收益11%，较MA60高4.9%，防御属性优异"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-1.4%，52周分位95%，MA20斜率3.4，近60日涨11.7%",
+      "macro_logic": "红利风格占优，机构高股息配置需求，资金避险",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.06排第9，1月收益-3.3%，站稳MA60但短期走势偏弱"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.8%，52周分位86%，MA20斜率0.7，近5日涨3.0%",
+      "macro_logic": "红利风格占优，机构高股息配置需求，资金避险",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.12排第8，1月收益-2.6%，站稳MA60但收益弹性一般"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.9%，52周分位88%，MA20斜率1.1，近5日涨3.0%",
+      "macro_logic": "红利风格占优，机构高股息配置需求，资金避险",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     }
   },
-  "prev_month_review": "本月为首次开展策略分析，无上月评级数据，无相关复盘校验内容",
-  "summary": "本月优先配置动量前三的黄金ETF、南方原油、中国银行，底仓搭配恒生科技、工商银行，规避科创50，其余标的暂时观望，整体仓位控制在7成，兼顾防御与收益弹性",
+  "factor_chains": "美联储降息→美债利率下行→全球流动性宽松→科技、黄金估值抬升；OPEC+减产+地缘冲突→油价上涨；国内避险需求推升高股息银行行情",
+  "prev_month_review": "上月未给出明确标的阶段判定，本月基于2025年1月末量价数据及当前宏观因子完成全标的评估",
+  "summary": "本月均衡配置，优先持有黄金ETF、四大行龙头，把握降息与红利行情；纳指ETF逢调整布局，恒生科技、科创50控制仓位逢低吸纳，原油小仓位跟踪，规避高溢价QDII",
+  "version": 2,
   "month": "202501",
   "asof": "20250127",
   "model": "bot-20250308205057-5kjf4"

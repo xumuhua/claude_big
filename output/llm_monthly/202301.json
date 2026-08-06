@@ -1,60 +1,90 @@
 {
-  "regime": "risk_on",
-  "regime_reason": "8/10标的动量分大于0，多数资产趋势向上，无系统性破位信号，风险资产环境友好",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "动量分0.05排名第8，3月收益微负0.1%，趋势信号不明确，赔率一般"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤18%，低点72日未破，近20日涨3.7%，站于MA20之上",
+      "macro_logic": "美联储加息放缓预期升温，压制美股科技的利率压力边际缓解",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "513180.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.88排名第1，3月收益42.7%，同时站稳MA60、MA250，趋势明确"
+      "phase": "上升",
+      "phase_evidence": "深回撤20.8%，近60日涨42.7%，MA20斜率5.1%，站上MA250",
+      "macro_logic": "中国平台经济政策转向支持，美债利率回落，南向资金持续流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "1月收益10%但低于MA250达4.3%，动量排名第7，方向不明"
+      "phase": "筑底",
+      "phase_evidence": "回撤24.2%，低点184日未破，近20日涨6.7%，MA20斜率0.7%走平上翘",
+      "macro_logic": "央行维持流动性宽松，科创产业支持政策密集出台",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.72排名第2，6月收益11.5%，年化波动仅6.7%，性价比突出"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤0.8%，52周分位93%，站上MA250+5.9%，MA20斜率2.1%",
+      "macro_logic": "全球央行购金潮，美元走弱，地缘冲突避险需求提升",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "501018.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.4排名第9，距60日高点跌16%，跌破MA60、MA250，趋势走弱"
+      "phase": "下降",
+      "phase_evidence": "回撤23.6%，近60日跌11.1%，MA20斜率-7%，跌破MA20",
+      "macro_logic": "全球经济衰退预期压制原油需求，OPEC减产力度不及市场预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "160723.SZ": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "动量分-0.51排名垫底，3月收益-7.3%，跌破MA60、MA250，风险较高"
+      "phase": "下降",
+      "phase_evidence": "回撤27.3%，近60日跌10%，MA20斜率-4.3%，跌破MA20",
+      "macro_logic": "全球经济衰退预期压制原油需求，OPEC减产力度不及市场预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.31排名第6，高股息属性，但低于MA250达3.9%，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "回撤11.3%，近20日涨1.4%，较MA250低3.9%，无明确趋势",
+      "macro_logic": "市场风险偏好回升，资金从高股息防御品种分流",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.6排名第3，3月收益5.2%，站稳MA60、MA250，防御属性突出"
+      "phase": "上升",
+      "phase_evidence": "距高点仅回撤3.3%，52周分位67%，站上MA250+2.6%，MA20斜率1.8%",
+      "macro_logic": "红利风格资金偏好，银行净息差改善预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.4排名第5，估值较低，但低于MA250达2.8%，趋势不明确"
+      "phase": "震荡",
+      "phase_evidence": "回撤11.9%，近20日涨2%，较MA250低2.8%，趋势不明",
+      "macro_logic": "市场风险偏好回升，资金从高股息防御品种分流",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "动量分0.41排名第4，接近MA250，高股息属性，收益预期一般"
+      "phase": "震荡",
+      "phase_evidence": "回撤6.1%，较MA250低0.6%，近20日涨2.1%，无明确趋势",
+      "macro_logic": "市场风险偏好回升，资金从高股息防御品种分流",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
     }
   },
-  "prev_month_review": "本次为策略首次发布，无上月评级记录，无过往绩效可供校验复盘",
-  "summary": "本月处于risk_on区间，优先重仓动量前三的恒生科技ETF、黄金ETF、中国银行，规避两只趋势走弱的原油标的，其余中性标的可小仓位作为卫星配置，整体仓位控制在7-8成",
+  "factor_chains": "美联储加息放缓→美债利率下行→黄金、港股科技、成长股估值修复；全球衰退预期→原油需求疲软→油价承压",
+  "prev_month_review": "上月未对标的出具明确阶段判定，本月基于最新量价与宏观因子首次形成完整判断，无误判需修正",
+  "summary": "本月优先配置上升趋势的黄金ETF、恒生科技ETF；逢低布局筑底的纳指ETF、科创50ETF；规避下降趋势的两类原油标的；银行高股息标的暂持有观望，不新增配置",
+  "version": 2,
   "month": "202301",
   "asof": "20230131",
   "model": "bot-20250308205057-5kjf4"

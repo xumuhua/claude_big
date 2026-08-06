@@ -1,60 +1,90 @@
 {
-  "regime": "risk_on",
-  "regime_reason": "10只标的中9只动量分大于0，权益、商品类多数收益向好，风险资产整体环境偏友好",
   "assets": {
     "513100.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "动量分-0.28排倒数第一，1月跌8.8%，跌破60日均线，短期弱势显著"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤9.7%，近20日跌8%，MA20斜率-2%，波动比0.89",
+      "macro_logic": "美联储通胀反复导致降息预期推迟，美股科技估值消化",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.58排第一，1月涨22.2%，站稳60日、250日均线，趋势性强"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅回撤6.8%，近20日涨24%，vs MA250高39.8%，波动比1.25",
+      "macro_logic": "国内数字经济政策加码+美债利率下行+南向资金持续流入",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
     },
     "588000.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.28排第四，1月涨10.1%，站稳60日、250日均线，高弹性向好"
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤4.5%，近20日涨11%，MA20斜率7%，波动比0.65",
+      "macro_logic": "国内硬科技产业政策支持+流动性宽松",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "动量分0.38排第二，1月涨4.2%，距60日高点仅回撤2.6%，走势稳健"
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤2.6%，近60日涨9.2%，MA20斜率7.3%，波动比1.34",
+      "macro_logic": "全球央行购金潮+美联储降息预期+中东地缘冲突",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.01接近零，1月跌4.3%，略低于60日均线，方向不明"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤9.3%，近20日跌3.8%，vs MA250-0.7%，波动比0.85",
+      "macro_logic": "OPEC+减产执行不及预期+原油需求复苏偏弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.02接近零，1月跌4%，略低于60日均线，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤11.4%，近20日跌3.7%，vs MA250-1.8%，波动比0.87",
+      "macro_logic": "OPEC+减产执行不及预期+原油需求复苏偏弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.38排第三，1月涨6.7%，站稳均线，高股息属性防御性强"
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤3.1%，近60日涨10.8%，MA60斜率4%，波动比0.79",
+      "macro_logic": "红利风格占优+弱市资金流入高股息防御标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.65,
-      "reason": "动量分0.21排第六，站稳60日、250日均线，高股息防御价值凸显"
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤2.9%，近60日涨7.1%，MA60斜率3.2%，波动比0.86",
+      "macro_logic": "红利风格占优+弱市资金流入高股息防御标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "动量分0.17排第七，略高于60日均线，收益弹性有限，赔率一般"
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤4.2%，近60日涨5.6%，MA60斜率2.5%，波动比0.73",
+      "macro_logic": "红利风格占优+弱市资金流入高股息防御标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.23排第五，站稳60日、250日均线，高股息属性防御性较好"
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤4.5%，近60日涨6.2%，MA60斜率2.6%，波动比0.7",
+      "macro_logic": "红利风格占优+弱市资金流入高股息防御标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     }
   },
-  "prev_month_review": "本次为策略首次运行，无上月评级数据，无需校验复盘",
-  "summary": "本月处于risk_on区间，优先配置动量前三的恒生科技ETF、黄金ETF、工商银行，标配科创50、农行、中行，原油与建行中性配置，规避短期弱势的纳指ETF，兼顾进攻与防御",
+  "factor_chains": "美联储降息预期反复→美债利率波动→科技/黄金/港股估值联动；国内稳增长+流动性宽松→科创/红利资产受益；地缘冲突推升避险溢价",
+  "prev_month_review": "上月未对池内标的给出明确阶段判定，本月结合最新量价及宏观因子完成全覆盖判定",
+  "summary": "本月优先配置上升趋势的科创50、黄金ETF及四大行高股息标的，回避短期冲高的恒生科技，纳指与原油暂观望，待信号明确后再布局",
+  "version": 2,
   "month": "202502",
   "asof": "20250228",
   "model": "bot-20250308205057-5kjf4"

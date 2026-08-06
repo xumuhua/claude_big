@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "仅3/10标的动量分正，权益类多数破位下跌，避险商品领涨，整体风险偏好低迷",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.01接近零轴，1月收益2.4%但3月收跌，短期方向不明"
+      "phase": "筑底",
+      "phase_evidence": "回撤-20.3%，低点12日未破，近20日涨4.0%，站上MA20",
+      "macro_logic": "美联储2022年激进加息压制科技估值，加息预期边际缓和",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.9,
-      "reason": "动量分-0.55排名垫底，12月收益-49.5%，大幅跌破长短均线"
+      "phase": "下降",
+      "phase_evidence": "回撤-52.2%，距低点仅1日，近20日跌18.9%，MA20斜率-16.5%",
+      "macro_logic": "美债利率上行+互联网监管余波+外资流出港股",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "1月收益5.4%但3月收跌，动量分-0.02接近零，趋势不明"
+      "phase": "筑底",
+      "phase_evidence": "回撤-30.9%，低点124日未破，近5日涨4.7%，站上MA20",
+      "macro_logic": "国内流动性宽松+硬科技产业政策支持，估值消化充分",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.25排名第一，3月收益4.4%，站稳长短均线，波动低"
+      "phase": "震荡",
+      "phase_evidence": "52周分位50%，波动比0.71，近60日涨1.6%，无明确单边趋势",
+      "macro_logic": "美联储加息压制金价，俄乌冲突提供避险支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "501018.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.13排名第三，1月收益6.6%，站稳MA60，趋势向好"
+      "phase": "震荡",
+      "phase_evidence": "52周分位69%，近20日涨10.6%，MA60斜率-0.6%，趋势不明",
+      "macro_logic": "俄乌冲突+OPEC减产支撑油价，需求预期疲软压制涨幅",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "160723.SZ": {
-      "rating": "看多",
-      "confidence": 0.75,
-      "reason": "动量分0.14排名第二，1月收益6.4%，站稳MA60，趋势明确"
+      "phase": "震荡",
+      "phase_evidence": "回撤-19.2%，52周分位61%，近20日涨11.1%，无明确趋势",
+      "macro_logic": "俄乌冲突+OPEC减产支撑油价，需求预期疲软压制涨幅",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.44，3月收益-5.9%，连续跌破长短均线，走势弱势"
+      "phase": "下降",
+      "phase_evidence": "52周分位0%，距低点0日，近5日跌4.8%，跌破MA20",
+      "macro_logic": "市场风险偏好抬升，红利风格资金流出",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.16，3月收益-2.3%，跌幅小于同业，方向不明"
+      "phase": "下降",
+      "phase_evidence": "回撤-9.6%，52周分位3%，近20日跌1.6%，跌破MA20",
+      "macro_logic": "市场风险偏好抬升，红利风格资金流出",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.44，3月收益-4.6%，连续跌破长短均线，走势疲软"
+      "phase": "下降",
+      "phase_evidence": "52周分位0%，距低点0日，近5日跌3.1%，跌破MA20",
+      "macro_logic": "市场风险偏好抬升，红利风格资金流出",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.65,
-      "reason": "动量分-0.31，3月收益-3.2%，跌破长短均线，短期偏弱"
+      "phase": "下降",
+      "phase_evidence": "回撤-11.0%，52周分位0%，近20日跌3.2%，跌破MA20",
+      "macro_logic": "市场风险偏好抬升，红利风格资金流出",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本次为全天候迷你池策略首次评级，无上月历史评级数据可供校验复盘",
-  "summary": "本月处于风险厌恶环境，优先配置动量靠前的黄金ETF、嘉实原油、南方原油三类资产，大幅降低权益仓位，对纳指、科创50、中行保持观望，规避恒生科技及其余银行标的",
+  "factor_chains": "美联储激进加息→美债利率上行→全球成长股承压+黄金压制；俄乌冲突→原油高企→通胀粘性→加息周期延长",
+  "prev_month_review": "上月无有效判定，本月基于量价及2022年10月底前的宏观因子完成全池判定，无误判需修正",
+  "summary": "本月优先左侧分批布局筑底的纳指ETF、科创50ETF；黄金、原油按震荡思路高抛低吸；回避下降趋势的恒生科技、银行股，整体仓位控制在5成内",
+  "version": 2,
   "month": "202210",
   "asof": "20221031",
   "model": "bot-20250308205057-5kjf4"

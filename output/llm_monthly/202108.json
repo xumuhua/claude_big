@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "仅1/8标的动量为正，多数权益资产破MA60、较60日高点跌幅较大，整体风险偏好低迷",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "3月收益16.7%，动量分0.84排第1，处60日高点，站稳MA60、MA250，趋势向好"
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤-1.5%，52周分位93%，MA20/60斜率为正，近120日涨25.8%",
+      "macro_logic": "美联储维持宽松货币政策，美股科技龙头盈利超预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "3月收益-17.7%，较60日高点跌20.5%，跌破MA60达9.4%，下行趋势明确"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-20.5%，低点距今7交易日未破，近5日涨2.2%，站上MA20",
+      "macro_logic": "互联网反垄断政策阶段性落地，利空出尽",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "1月收益-10.0%，较60日高点跌10.7%，跌破MA60达6.6%，短期压力较大"
+      "phase": "下降",
+      "phase_evidence": "近5日跌8.9%，近20日跌8%，MA20斜率-1.3，跌破MA20达7%",
+      "macro_logic": "国内流动性边际收紧，硬科技赛道估值承压",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "位于MA60上方，1月收益0.3%，动量分排第2，多空对冲趋势不明"
+      "phase": "震荡",
+      "phase_evidence": "近20日涨0.2%，近60日跌1.8%，MA20/60斜率均为-1.3，波动小",
+      "macro_logic": "美联储Taper预期与美元走弱对冲，金价窄幅波动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，暂无法判断走势，保持中性"
+      "phase": "震荡",
+      "phase_evidence": "暂无对应量价数据",
+      "macro_logic": "OPEC+逐步增产与全球需求复苏预期博弈",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.5
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，暂无法判断走势，保持中性"
+      "phase": "震荡",
+      "phase_evidence": "暂无对应量价数据",
+      "macro_logic": "OPEC+逐步增产与全球需求复苏预期博弈",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.5
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "3月收益-11.3%，跌破MA60、MA250，防御属性暂未显现"
+      "phase": "筑底",
+      "phase_evidence": "52周分位8%，低点距今17日未破，近20日涨0.9%",
+      "macro_logic": "上市银行中报业绩超预期，高股息属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "较60日高点仅跌3.2%，接近MA60，动量分排第3，相对偏防御"
+      "phase": "筑底",
+      "phase_evidence": "52周分位13%，低点距今19日未破，近5日涨0.3%站上MA20",
+      "macro_logic": "上市银行中报业绩超预期，高股息属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "3月收益-15.6%，较60日高点跌14.1%，跌破MA60、MA250，走势偏弱"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-22.8%，52周分位9%，低点距今17日未破，近20日涨1.9%",
+      "macro_logic": "上市银行中报业绩超预期，高股息属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.52排名垫底，跌破MA60、MA250，短期下行压力大"
+      "phase": "筑底",
+      "phase_evidence": "52周分位12%，低点距今18日未破，近5日涨0.7%站上MA20",
+      "macro_logic": "上市银行中报业绩超预期，高股息属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本次为策略首次运行，无过往评级可校验，后续将持续跟踪复盘优化配置逻辑",
-  "summary": "本月处于risk_off阶段，整体权益仓位控制在3成以内，核心配置趋势明确的纳指ETF，小仓位搭配黄金、中国银行做防御，其余资产暂时规避，防范系统性下行风险",
+  "factor_chains": "美联储宽松周期尾部→Taper预期升温→美债利率波动→成长股估值承压+黄金震荡+高股息资产防御价值凸显",
+  "prev_month_review": "上月无明确阶段判定，本月基于最新量价及宏观事件首次给出判断，无过往误判",
+  "summary": "本月优先配置趋势明确的纳指ETF作为进攻仓，左侧布局深回撤的恒生科技ETF，银行股作为防御底仓配置，科创50、黄金、原油暂观望控制组合波动",
+  "version": 2,
   "month": "202108",
   "asof": "20210831",
   "model": "bot-20250308205057-5kjf4"

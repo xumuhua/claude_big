@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "仅5成标的动量分大于0，商品、银行偏强，科技类整体走弱，结构分化明显，无系统性行情",
   "assets": {
     "513100.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "1月收益-4.8%，跌破MA60，动量分-0.35排名倒数第二，短期趋势走弱"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-7.1%，52周分位78%，近20日跌5.3%，vs MA20-3.7%",
+      "macro_logic": "美联储9月放鹰维持高利率预期压制美股科技",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "1月收益-9.8%，较60日高点回撤15.6%，动量分-0.28排名靠后"
+      "phase": "下降",
+      "phase_evidence": "距250日高点-15.6%，近20日跌9.2%，MA20斜率-3.7%",
+      "macro_logic": "美债收益率上行、港股流动性偏紧压制科技龙头",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "3月收益-11%，跌破MA250，动量分-0.42排名垫底，趋势走弱"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-23%，52周分位9%，低点距今5日，近5日涨3.1%",
+      "macro_logic": "国内半导体产业政策落地、A股流动性边际宽松",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "3月收益2.6%，接近MA60，动量分0.05，短期走势不明朗"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.2%，vs MA250+6.3%，MA20斜率2.4%",
+      "macro_logic": "全球央行购金潮、美联储加息周期临近尾声",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "501018.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "3月收益28.2%，创60日新高，站在均线之上，动量分0.79排第二"
+      "phase": "冲高",
+      "phase_evidence": "创52周新高，近60日涨25.6%，vs MA250+18.4%",
+      "macro_logic": "OPEC+持续减产、中东地缘紧张推升油价",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "160723.SZ": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "3月收益29.8%，创60日新高，站在均线之上，动量分0.84排第一"
+      "phase": "冲高",
+      "phase_evidence": "创52周新高，近60日涨27.5%，vs MA250+19.8%",
+      "macro_logic": "OPEC+持续减产、中东地缘紧张推升油价",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.45,
-      "reason": "1月收益2%，略高于MA60，动量分-0.03，方向不明"
+      "phase": "震荡",
+      "phase_evidence": "52周分位50%，近20日涨1.3%，vs MA20+0.8%",
+      "macro_logic": "弱市下资金偏好高股息防御标的，红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "6月收益9.9%，略低于MA60，动量分-0.11，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "52周分位49%，近20日涨0.5%，vs MA20+1.1%",
+      "macro_logic": "弱市下资金偏好高股息防御标的，红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "1月收益5.4%，站在MA60/250之上，动量分0.27排第三，趋势偏强"
+      "phase": "上升",
+      "phase_evidence": "52周分位59%，近20日涨5.0%，vs MA20+2.5%，MA20斜率2.7%",
+      "macro_logic": "弱市下资金偏好高股息防御标的，红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.65,
-      "reason": "3月收益3.2%，站在MA60/250之上，动量分0.23排第四，防御属性突出"
+      "phase": "上升",
+      "phase_evidence": "52周分位75%，近20日涨4.0%，vs MA20+2.6%，vs MA250+12.8%",
+      "macro_logic": "弱市下资金偏好高股息防御标的，红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本月为首次开展全天候迷你池策略评级，无上月历史评级可供校验复盘",
-  "summary": "本月优先配置动量靠前的嘉实、南方原油，标配建行、农行等高股息防御标的，规避科创50、纳指、恒生科技等趋势走弱的成长类标的，黄金、工行、中行暂观望，整体仓位维持中性。",
+  "factor_chains": "OPEC+减产推升油价→通胀粘性增强→美联储高利率维持更久→美债利率上行→科技成长承压、防御类资产占优",
+  "prev_month_review": "上月未出具有效判定，本月基于量价数据及2023年9月前公开宏观信息完成首次标的评估",
+  "summary": "本月优先配置高确定性黄金ETF及农行、建行等高股息标的，规避已充分定价的冲高原油，科创50可小仓位左侧布局，纳指、恒生科技暂观望",
+  "version": 2,
   "month": "202309",
   "asof": "20230928",
   "model": "bot-20250308205057-5kjf4"

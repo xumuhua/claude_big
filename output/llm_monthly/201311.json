@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "动量分>0标的占比4/6，资产表现分化，无系统性风险或全面上涨驱动",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.53排名第1，3月收益13.6%，较MA60高4.8%，趋势向好"
-    },
-    "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化跟踪数据，暂维持观察"
-    },
-    "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化跟踪数据，暂维持观察"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅-1.6%，52周分位91%，近60日涨14.2%，MA20/60斜率为正",
+      "macro_logic": "美联储QE3持续释放流动性，支撑美股科技龙头盈利估值双升",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-1.04排末尾，3月收益-10.1%，跌破MA60达6.1%，趋势走弱"
-    },
-    "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化跟踪数据，暂维持观察"
-    },
-    "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化跟踪数据，暂维持观察"
+      "phase": "下降",
+      "phase_evidence": "52周分位0%，刚创1日新低，近20日跌6.1%，MA20/60斜率为负",
+      "macro_logic": "美联储释放缩减QE预期，实际利率上行打压黄金估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.12，3月收益-3.1%，略低于MA60，方向不明"
+      "phase": "震荡",
+      "phase_evidence": "52周分位8%，近120日跌9.1%，波动比0.68，均线斜率小幅为负",
+      "macro_logic": "2013年国内钱荒后流动性偏紧，压制银行股估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.33排名第2，3月收益6.4%，站于MA60上方，趋势向好"
+      "phase": "筑底",
+      "phase_evidence": "近60日涨6.8%，MA60斜率1.7，波动比0.49，52周分位40%",
+      "macro_logic": "国内稳增长政策发力，高股息银行获避险资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.18，1月收益2.6%，略高于MA60，趋势偏强"
+      "phase": "筑底",
+      "phase_evidence": "近60日涨3.3%，MA20斜率1.8，波动比0.58，低位企稳",
+      "macro_logic": "国内稳增长政策发力，高股息银行获避险资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.31排名第3，3月收益4.8%，较MA60高2.7%，趋势向好"
+      "phase": "筑底",
+      "phase_evidence": "近60日涨6.1%，MA20斜率2.4，低点82个交易日未破",
+      "macro_logic": "高股息属性凸显，避险资金流入叠加稳增长政策支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价数据，无明确趋势信号",
+      "macro_logic": "暂无观测到明确驱动的宏观事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.1
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价数据，无明确趋势信号",
+      "macro_logic": "暂无观测到明确驱动的宏观事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.1
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价数据，无明确趋势信号",
+      "macro_logic": "暂无观测到明确驱动的宏观事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.1
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价数据，无明确趋势信号",
+      "macro_logic": "暂无观测到明确驱动的宏观事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.1
     }
   },
-  "prev_month_review": "本次为首次月度分析，无上期评级记录，无过往绩效校验内容",
-  "summary": "当前处于结构分化行情，优先配置动量排名前三的纳指ETF、中国银行、农业银行，回避趋势走弱的黄金ETF，其余标的中性观察，仓位向高动量品种倾斜，控制组合整体波动",
+  "factor_chains": "美联储缩减QE预期升温→美实际利率上行→黄金承压、美股科技估值边际受压，国内钱荒后流动性偏紧压制A股估值",
+  "prev_month_review": "上月无有效阶段判定，本月基于首次披露的量价数据及当期宏观事件给出判断，无误判",
+  "summary": "本月优先配置3成仓位上升趋势明确的纳指ETF，其次配置2成仓位筑底的中行、农行、建行高股息标的，规避下降趋势的黄金ETF，其余无数据标的暂不参与，整体仓位控制在5成",
+  "version": 2,
   "month": "201311",
   "asof": "20131129",
   "model": "bot-20250308205057-5kjf4"

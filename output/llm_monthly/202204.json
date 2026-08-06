@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "六成标的动量为正，商品、防御类表现占优，成长类普遍破位，整体呈结构分化行情",
   "assets": {
     "513100.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "1月收益-7.5%，跌破MA60及MA250，动量分-0.2排名靠后"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-15%，52周分位26%，MA20斜率1.1、MA60斜率-2.9",
+      "macro_logic": "2022年3月美联储开启加息周期，压制美股科技成长估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "3月收益-19.6%，较60日高点跌近20%，动量分-0.2排名靠后"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-45.9%，低点距今31日，近5日涨13.2%",
+      "macro_logic": "2022年4月中央释放平台经济政策回暖信号，压制缓解",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.9,
-      "reason": "3月收益-28.4%，较MA250低29.6%，动量分-0.51排名垫底"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-41%，低点距今3交易日，近5日微涨0.3%",
+      "macro_logic": "2022年4月国内疫情冲击，高beta成长股估值承压",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "1月收益2.6%、3月8.9%，站稳MA60，动量分0.47排名第2"
+      "phase": "上升",
+      "phase_evidence": "距高点仅-2.9%，52周分位77%，近60日涨7.4%，MA60斜率2.3",
+      "macro_logic": "2022年俄乌冲突爆发+欧美高通胀，推升黄金避险抗通胀需求",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "501018.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "3月收益30.7%，较MA60高9.4%，动量分0.56排名第1"
+      "phase": "上升",
+      "phase_evidence": "近60日涨31.4%，52周分位68%，vs MA60+9.4%",
+      "macro_logic": "2022年俄乌冲突引发原油供给担忧，OPEC挺价推升油价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "160723.SZ": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "3月收益32.8%，较MA60高8.5%，动量分0.45排名第3"
+      "phase": "上升",
+      "phase_evidence": "近60日涨33.1%，52周分位62%，vs MA60+8.5%",
+      "macro_logic": "2022年俄乌冲突引发原油供给担忧，OPEC挺价推升油价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "1月收益1.3%站稳MA60，动量分0.11，高股息防御属性凸显"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-11.3%，近20日涨1.5%，近5日跌1.2%",
+      "macro_logic": "2022年4月A股调整，高股息银行获避险资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "3月收益3.9%，站稳MA60、MA250，动量分0.19排名第4"
+      "phase": "上升",
+      "phase_evidence": "距高点仅-3.9%，52周分位66%，MA20斜率4.9",
+      "macro_logic": "2022年4月A股调整，高股息银行获避险资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "1月收益-2.6%略低于MA60，动量分微负，下跌空间有限"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-15.3%，近20日跌1.9%，vs MA20-1.8%",
+      "macro_logic": "弱市下高股息防御属性支撑，资金轮动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.65,
-      "reason": "3月收益2.7%，站稳MA60、MA250，动量分0.18排名第5"
+      "phase": "上升",
+      "phase_evidence": "52周分位36%，近60日涨3.4%，MA20斜率3.2",
+      "macro_logic": "2022年4月A股调整，高股息银行获避险资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本月为首次开展策略分析，无上月评级记录，无需进行业绩校验",
-  "summary": "本月优先配置动量排名前三的南方原油、黄金ETF、嘉实原油，增配高股息国有银行做防御，回避破位的科创50、恒生科技、纳指等成长类标的，整体均衡控仓",
+  "factor_chains": "2022年俄乌冲突→原油、黄金上涨→通胀高企→美联储加息→全球成长股承压；国内疫情冲击→A股弱市→高股息银行受青睐",
+  "prev_month_review": "上月未对池内标的作出任何有效阶段与逻辑判定，本月首次基于当期数据及宏观事件完成全池评估",
+  "summary": "本月优先配置上升趋势明确的黄金、原油类资产，逐步布局深回撤后筑底的恒生科技、科创50，标配高股息银行防御，纳指暂观望等待加息逻辑边际缓和",
+  "version": 2,
   "month": "202204",
   "asof": "20220429",
   "model": "bot-20250308205057-5kjf4"

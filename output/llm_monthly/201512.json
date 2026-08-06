@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "动量分>0标的占3/6，风险资产与防御资产走势分化，无系统性涨跌信号，属正常轮动行情",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.42排名第1，3月收益11.8%，站稳MA60/MA250，创60日新高"
+      "phase": "上升",
+      "phase_evidence": "距250日高点0%/近60日涨12.1%/MA60斜率3.1/站稳MA250",
+      "macro_logic": "2015年美国科技龙头盈利稳健，12月美联储首次加息落地利空出尽",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化指标数据，暂无法判断趋势方向"
+      "phase": null,
+      "phase_evidence": "2015年底未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化指标数据，暂无法判断趋势方向"
+      "phase": null,
+      "phase_evidence": "2015年底未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.1，12月收益-6.7%，跌破MA250，距60日高点回撤7.5%"
+      "phase": "筑底",
+      "phase_evidence": "回撤14.4%/低点102日未破/近20日涨2.1%/MA20走平",
+      "macro_logic": "美联储加息落地美元冲高回落，黄金避险抗通胀需求抬升",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化指标数据，暂无法判断趋势方向"
+      "phase": null,
+      "phase_evidence": "2015年底未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化指标数据，暂无法判断趋势方向"
+      "phase": null,
+      "phase_evidence": "2015年底未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分-0.04，跌破MA250，3月收益4.8%有防御属性，赔率一般"
+      "phase": "筑底",
+      "phase_evidence": "回撤20.9%/低点85日未破/MA60斜率1.2",
+      "macro_logic": "2015年A股股灾过后，避险资金偏好高股息银行标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分-0.04，12月收益-9.3%，跌破MA250，防御属性一般"
+      "phase": "筑底",
+      "phase_evidence": "回撤28.4%/低点85日未破/MA60斜率1.5",
+      "macro_logic": "2015年A股股灾过后，避险资金偏好高股息银行标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.08排名第2，3月收益9.7%，站稳MA60，防御属性突出"
+      "phase": "筑底",
+      "phase_evidence": "回撤22.6%/低点85日未破/近60日涨9.5%/MA60斜率2.4",
+      "macro_logic": "2015年A股股灾过后，避险资金偏好高股息银行标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.55,
-      "reason": "动量分0.05排名第3，3月收益4.5%，站稳MA60，股息优势显著"
+      "phase": "筑底",
+      "phase_evidence": "回撤22.0%/低点85日未破/MA60斜率1.3",
+      "macro_logic": "2015年A股股灾过后，避险资金偏好高股息银行标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     }
   },
-  "prev_month_review": "本期为首次开展策略分析，无上一期评级记录，无需进行绩效校验",
-  "summary": "本月处于结构分化轮动行情，优先配置动量前三的纳指ETF、建行、农行，仓位分别为40%、25%、20%，剩余15%留作流动性，规避黄金等破位标的，暂无系统性加减仓信号",
+  "factor_chains": "2015年12月美联储首次加息→美元短期冲高→黄金筑底→美股科技盈利支撑走强→A股避险资金流向高股息银行",
+  "prev_month_review": "上月无有效阶段判定，本月基于2015年末宏观事件及量价数据首次给出明确判断",
+  "summary": "本月优先配置趋势明确的纳指ETF作为成长敞口，逢低布局筑底的黄金ETF对冲风险，高股息四大行作为防御底仓，未上市标的暂不配置",
+  "version": 2,
   "month": "201512",
   "asof": "20151231",
   "model": "bot-20250308205057-5kjf4"

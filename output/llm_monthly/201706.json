@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "仅2只标的动量分大于0，动量前三均为高股息防御类银行标的，整体结构分化，无系统性行情",
   "assets": {
     "513100.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.16，1月收益-3.5%，跌破MA60，短期趋势走弱"
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤-5.7%，近120日涨10.3%，MA20、MA60斜率为正",
+      "macro_logic": "2017年美国科技龙头盈利高增，美联储渐进加息影响有限",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无当期有效量化特征数据，方向不明"
+      "phase": null,
+      "phase_evidence": "无2017年6月有效交易数据，标的未上市",
+      "macro_logic": "标的未上市，无驱动逻辑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无当期有效量化特征数据，方向不明"
+      "phase": null,
+      "phase_evidence": "无2017年6月有效交易数据，标的未上市",
+      "macro_logic": "标的未上市，无驱动逻辑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.65,
-      "reason": "动量分-0.2排名末尾，1月收益-2%，跌破MA250，趋势偏弱"
+      "phase": "震荡",
+      "phase_evidence": "52周分位40%，近60日跌1.6%，MA20、MA60斜率接近走平",
+      "macro_logic": "2017年6月美联储加息压制金价，地缘风险托底",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无当期有效量化特征数据，方向不明"
+      "phase": null,
+      "phase_evidence": "无2017年6月有效交易数据，标的未上市",
+      "macro_logic": "标的未上市，无驱动逻辑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无当期有效量化特征数据，方向不明"
+      "phase": null,
+      "phase_evidence": "无2017年6月有效交易数据，标的未上市",
+      "macro_logic": "标的未上市，无驱动逻辑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.21排名第1，3月收益12%，站稳MA60及MA250，趋势向好"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅-1.3%，52周分位93%，近120日涨19.6%",
+      "macro_logic": "2017年国内利率上行，银行净息差改善，红利风格受追捧",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分-0.05接近0，1月小幅收跌，趋势不明朗"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-1.1%，52周分位93%，MA60斜率接近0",
+      "macro_logic": "2017年国内利率上行，银行净息差改善，红利风格受追捧",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0排名第3，1月收益-4.2%，虽站稳长期均线但短期走弱"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-4.7%，近120日涨13.1%，MA20、MA60斜率为正",
+      "macro_logic": "2017年国内利率上行，银行净息差改善，红利风格受追捧",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.12排名第2，3月收益8.3%，站稳中短期均线，趋势向好"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-1.7%，52周分位88%，近120日涨13.6%",
+      "macro_logic": "2017年国内利率上行，银行净息差改善，红利风格受追捧",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
     }
   },
-  "prev_month_review": "本月为首次开展策略分析，无上一期评级记录，无需校验历史表现",
-  "summary": "本月整体为结构分化行情，优先配置动量靠前的工行、农行等高股息国有银行标的，规避短期趋势走弱的纳指ETF、黄金ETF，其余无有效数据标的暂不配置，保持组合防御性",
+  "factor_chains": "美联储渐进加息→美债利率上行→黄金承压、科技成长估值约束；国内去杠杆推升利率→银行净息差改善→红利风格占优",
+  "prev_month_review": "上月未对任何标的给出有效判定，本月基于2017年6月末量价及宏观环境首次给出判定",
+  "summary": "本月优先配置盈利驱动的纳指ETF、仍有上升空间的建行，逢高止盈已处冲高阶段的工行、中行、农行，黄金暂观望，未上市标的不纳入配置",
+  "version": 2,
   "month": "201706",
   "asof": "20170630",
   "model": "bot-20250308205057-5kjf4"

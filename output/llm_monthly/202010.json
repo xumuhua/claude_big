@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "池内仅2只标的动量分大于0，无系统性风险信号，结构分化明显，属于正常轮动区间",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.14居全池第一，12月收益44.9%，短期1月回撤8.7%后性价比修复"
-    },
-    "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化特征数据，暂无明确趋势信号，暂观望"
-    },
-    "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化特征数据，暂无明确趋势信号，暂观望"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤19.9%，近5日跌5.7%，MA20斜率-4.6%/MA60斜率5.2%",
+      "macro_logic": "2020年美联储无限QE托底，美国大选前不确定性压制科技股",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分-0.28排名末位，3月收益-4.2%，跌破MA60，当前赔率一般"
-    },
-    "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化特征数据，暂无明确趋势信号，暂观望"
-    },
-    "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化特征数据，暂无明确趋势信号，暂观望"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤11.1%，近20日微涨0.3%，MA20斜率-2.7%，波动比0.69",
+      "macro_logic": "2020年黄金见顶后美元反弹，通胀预期阶段性降温压制金价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.04排第3，1月收益0%，回撤幅度小，兼具防御与震荡特征"
+      "phase": "筑底",
+      "phase_evidence": "距高点回撤18.1%，52周分位3%，低点距今19交易日，MA20斜率0.7%",
+      "macro_logic": "2020年银行让利政策落地，高股息价值凸显估值触底",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "动量分-0.26排第5，3月收益-6.7%，跌破MA250，短期趋势偏弱"
+      "phase": "下降",
+      "phase_evidence": "52周分位0%，今日创阶段新低，近20日跌0.6%，vs MA250 -8.9%",
+      "macro_logic": "疫情冲击资产质量担忧+让利政策持续压制估值",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.14排第2，1月收益1.9%，站稳MA60，高股息防御属性凸显"
+      "phase": "筑底",
+      "phase_evidence": "距高点回撤16%，近20日涨2.6%，MA20斜率2.1%，波动比0.84",
+      "macro_logic": "经济复苏预期修复银行资产质量，估值启动修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分-0.12排第4，3月收益-3.7%，跌破MA60，震荡趋势为主"
+      "phase": "筑底",
+      "phase_evidence": "52周分位2%，低点距今33交易日，近20日收平，MA20斜率0.3%",
+      "macro_logic": "银行让利利空逐步消化，高股息防御价值显现",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": "无明确驱动事件跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": "无明确驱动事件跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": "无明确驱动事件跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": "无明确驱动事件跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     }
   },
-  "prev_month_review": "本月为策略首次运行，无上期评级记录，无需进行业绩校验与经验总结",
-  "summary": "本月结构分化行情下，优先配置动量靠前的纳指ETF、建设银行作为进攻端，搭配高股息银行标的构建防御底仓，其余无明确趋势标的暂观望，整体仓位控制在5成左右",
+  "factor_chains": "美联储无限QE→全球流动性宽松支撑权益/黄金；美国大选不确定性抬升风险资产波动；国内银行让利落地→银行股估值筑底",
+  "prev_month_review": "上月未对标的做出明确阶段判定，本月基于最新量价及宏观数据首次出具判断，无过往误判",
+  "summary": "本月以筑底的工行、建行、农行为核心防御底仓，震荡期的纳指ETF、黄金ETF可逢低定投布局，规避仍处于下降阶段的中行，无数据标的暂不配置",
+  "version": 2,
   "month": "202010",
   "asof": "20201030",
   "model": "bot-20250308205057-5kjf4"

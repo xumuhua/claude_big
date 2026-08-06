@@ -1,60 +1,90 @@
 {
-  "regime": "risk_on",
-  "regime_reason": "动量分>0标的占5/6，多数资产趋势向好，无系统性破位信号，风险资产整体环境友好",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分1.72排名第1，1月涨9.3%、3月涨17.3%，较MA60高9.7%，趋势强劲"
-    },
-    "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无截至2019年4月末有效量化特征数据，暂无法判断趋势"
-    },
-    "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无截至2019年4月末有效量化特征数据，暂无法判断趋势"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-0.2%，52周分位99%，近60日涨18.4%，vs MA250+12.2%",
+      "macro_logic": "2019年美联储暂停加息，美股科技龙头盈利超预期",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.17排名第6，1月跌0.5%、3月跌0.8%，较MA60低1.5%"
-    },
-    "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无截至2019年4月末有效量化特征数据，暂无法判断趋势"
-    },
-    "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无截至2019年4月末有效量化特征数据，暂无法判断趋势"
+      "phase": "震荡",
+      "phase_evidence": "52周分位58%，近60日跌1.8%，近120日涨1.7%，MA20斜率-1.1%",
+      "macro_logic": "美联储转鸽预期支撑金价，美元指数震荡压制涨幅",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.22排名第4，1月涨4.3%，较MA60高2.0%，防御属性突出"
+      "phase": "上升",
+      "phase_evidence": "52周分位72%，近60日涨5.6%，MA20斜率3.6%，vs MA250+4.7%",
+      "macro_logic": "2019年国内宽信用落地，高股息属性吸引配置资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.28排名第2，3月涨9.0%，较MA60高2.0%，高股息+趋势向好"
+      "phase": "上升",
+      "phase_evidence": "52周分位76%，近60日涨7.8%，MA20斜率2.9%，vs MA250+5.8%",
+      "macro_logic": "国内宽信用改善银行基本面，高股息配置需求提升",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.75,
-      "reason": "动量分0.25排名第3，3月涨11.5%，较MA60高3.8%，弹性优于同业"
+      "phase": "上升",
+      "phase_evidence": "52周分位79%，近60日涨9.9%，MA20斜率5.2%，vs MA250+7.3%",
+      "macro_logic": "国内宽信用落地，银行盈利预期改善，资金偏好高股息",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.06排名第5，1月涨0.8%，较MA60仅高0.3%，驱动力有限"
+      "phase": "上升",
+      "phase_evidence": "52周分位71%，近60日涨2.2%，MA20斜率1.4%，vs MA250+2.6%",
+      "macro_logic": "国内宽信用政策托底经济，高股息标的获避险资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
     }
   },
-  "prev_month_review": "本月为首次开展全天候迷你池策略评级，无上月历史评级记录，无需校验复盘",
-  "summary": "本月处于risk_on区间，优先配置动量前三的纳指ETF、中行、建行，适度配置工行，规避黄金ETF，农行及其余无有效数据标的暂观望，以成长+高股息防御组合为主控波动",
+  "factor_chains": "美联储2019年暂停加息→美债利率下行→美股科技走强、黄金获支撑；国内宽信用落地→银行基本面改善、高股息标的受追捧",
+  "prev_month_review": "上月未对各标的出具有效阶段判定，无历史验证依据，本月基于首次完整量价数据给出判断",
+  "summary": "本月优先配置处于上升趋势的四大行获取稳健股息收益，纳指ETF处于冲高区间谨慎追高，黄金暂观望，无有效数据标的暂不纳入配置",
+  "version": 2,
   "month": "201904",
   "asof": "20190430",
   "model": "bot-20250308205057-5kjf4"

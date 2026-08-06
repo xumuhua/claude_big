@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "仅2只标的动量分大于0，多数资产动量疲弱，整体呈结构分化格局，无系统性机会或风险",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.25排名第1，12月收益22.6%，站稳MA60，趋势向好"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-1.5%/52周分位94%/超MA250达12%/波动比1.49",
+      "macro_logic": "2021年美联储Taper前流动性宽松推升纳指科技股估值",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.24排最后，近6月跌29%，跌破MA60，趋势走弱"
+      "phase": "下降",
+      "phase_evidence": "回撤-32.1%/低点距今2日/MA20斜率-9.3/近120日-26.4%",
+      "macro_logic": "2021年互联网平台监管收紧+美债利率上行压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.02排第3，略低于MA60，短期方向不明，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "52周分位47%/vs MA20仅0.1%/近60日涨2.5%/近20日跌3.1%",
+      "macro_logic": "硬科技产业政策扶持+流动性宽松，估值消化期多空博弈",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.19排名第2，1月收益2%，站稳MA60，避险属性支撑"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-7.3%/52周分位36%/近60日涨1.7%/波动比0.92",
+      "macro_logic": "美联储Taper预期压制+高通胀支撑，金价多空博弈",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，方向不明，暂持观望态度"
+      "phase": null,
+      "phase_evidence": "无2021.12.31节点有效量价数据",
+      "macro_logic": "无对应可验证的公开驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，方向不明，暂持观望态度"
+      "phase": null,
+      "phase_evidence": "无2021.12.31节点有效量价数据",
+      "macro_logic": "无对应可验证的公开驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分-0.1排第5，近6月跌10.3%，跌破MA250，仅具防御属性"
+      "phase": "筑底",
+      "phase_evidence": "回撤-17.3%/低点距今98日/近20日涨0.4%/波动比0.64",
+      "macro_logic": "2021年底稳增长政策预期+高股息防御属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分-0.11排第6，近1月收益为0，略低于MA60，防御属性为主"
+      "phase": "筑底",
+      "phase_evidence": "回撤-9.2%/低点距今100日/vs MA60仅-0.3%/波动比0.65",
+      "macro_logic": "2021年底稳增长政策预期+高股息防御属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.14排第7，近6月跌12.1%，跌破MA250，趋势偏弱"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-22.7%/低点距今98日/MA20斜率0.9/波动比0.55",
+      "macro_logic": "2021年底稳增长政策预期+高股息防御属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.04排第4，持平MA60，近1月微涨，防御属性突出"
+      "phase": "筑底",
+      "phase_evidence": "回撤-14%/低点距今99日/vs MA60持平/波动比0.58",
+      "macro_logic": "2021年底稳增长政策预期+高股息防御属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     }
   },
-  "prev_month_review": "本次为策略首次运行，无上月评级可校验，后续将定期回溯评级效果优化策略",
-  "summary": "本月结构分化行情下，优先配置动量居前的纳指ETF与黄金ETF，合计仓位不超6成；科创50及农行、工行可小仓位配置做防御，规避趋势走弱的恒生科技、建行，原油类标的暂观望。",
+  "factor_chains": "美联储Taper落地→美债利率上行→全球科技成长股承压，国内稳增长预期抬升→高股息银行价值凸显，通胀高位托底黄金",
+  "prev_month_review": "上月未对标的做明确阶段判定，无历史校验依据，本月基于当前量价及宏观因子首次给出判定",
+  "summary": "本月以均衡防御为主：规避高位冲高的纳指，观望下降通道的恒生科技，小仓位布局震荡的科创50与黄金，逢低配置筑底的高股息银行，原油无数据暂不参与",
+  "version": 2,
   "month": "202112",
   "asof": "20211231",
   "model": "bot-20250308205057-5kjf4"

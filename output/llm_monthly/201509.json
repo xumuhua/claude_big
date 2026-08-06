@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "所有标的动量分均为负，多数权益类标的跌破MA60、MA250，整体风险偏好低迷",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量排第2但动量分为负，3月收益-4.3%，跌破MA60，短期赔率一般"
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌11.6%，MA20斜率-3.4，近20日跌5%，低于所有均线",
+      "macro_logic": "美联储加息预期升温，压制美股科技成长估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无基准日对应量化特征数据，走势方向不明"
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无基准日对应量化特征数据，走势方向不明"
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量排第1，距60日高点仅3.8%，站在MA60之上，避险属性凸显"
+      "phase": "筑底",
+      "phase_evidence": "距高点跌11.8%，低点41日未破，MA20斜率1.0，波动比0.93收缩",
+      "macro_logic": "加息预期利空充分释放，全球央行购金托底金价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.65
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无基准日对应量化特征数据，走势方向不明"
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "无基准日对应量化特征数据，走势方向不明"
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.5,
-      "reason": "3月收益-14.8%，跌破MA60、MA250，距60日高点回撤24.7%"
+      "phase": "筑底",
+      "phase_evidence": "深回撤25.4%，低点240日未破，近20日涨3.1%，短期止跌",
+      "macro_logic": "A股股灾风险释放，宽松货币政策支撑高股息估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量排第6，3月收益-18.6%，距60日高点回撤33.6%，趋势走弱"
+      "phase": "下降",
+      "phase_evidence": "深回撤33.6%，近20日跌3.6%，MA20斜率-6.4，低于所有均线",
+      "macro_logic": "股灾抛压延续，板块分化下个股估值仍承压",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "3月收益-21.8%，跌破MA60、MA250，距60日高点回撤30.7%"
+      "phase": "筑底",
+      "phase_evidence": "深回撤30.7%，低点230日未破，近20日微涨0.2%，波动比0.92收缩",
+      "macro_logic": "A股股灾风险释放，宽松货币政策支撑高股息估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.55,
-      "reason": "3月收益-14.1%，跌破MA60、MA250，距60日高点回撤26.6%"
+      "phase": "筑底",
+      "phase_evidence": "深回撤26.6%，低点230日未破，近20日涨1.7%，短期止跌",
+      "macro_logic": "A股股灾风险释放，宽松货币政策支撑高股息估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     }
   },
-  "prev_month_review": "本月为首次策略分析，无上月评级可校验，后续将跟踪动量信号有效性优化配置",
-  "summary": "当前处于risk_off环境，建议整体权益仓位控制在20%以内，优先配置动量居首的黄金ETF，规避趋势破位的银行类标的，纳指ETF暂观望，其余无数据标的暂不参与",
+  "factor_chains": "美联储加息预期升温→美元走强→压制黄金及美股科技；A股股灾+流动性宽松→高股息防御资产获资金青睐",
+  "prev_month_review": "上月无历史判定记录，本月为首次对已上市标的开展研判，无过往误判需修正",
+  "summary": "当前全池无标的站上MA250，整体处于低位区间，优先配置筑底的黄金ETF及工行、建行、农行等高股息防御标的，规避下降趋势的纳指ETF、中行，未上市标的暂不参与",
+  "version": 2,
   "month": "201509",
   "asof": "20150930",
   "model": "bot-20250308205057-5kjf4"

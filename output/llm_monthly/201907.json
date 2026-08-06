@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "动量分>0标的仅3/6，资产表现分化，无系统性行情信号，属结构轮动格局",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.25排第2，6月收益22.9%，较MA60、MA250高4.8%、10.5%"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.6%，52周分位98%，MA20斜率4.4%，近120日涨22%，波动比0.8",
+      "macro_logic": "2019年7月美联储首次降息，美元流动性宽松支撑美股科技估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "无当期量化特征数据，方向不明暂予中性"
+      "phase": null,
+      "phase_evidence": "无当期有效交易数据，标的未上市",
+      "macro_logic": "暂未识别明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "无当期量化特征数据，方向不明暂予中性"
+      "phase": null,
+      "phase_evidence": "无当期有效交易数据，标的未上市",
+      "macro_logic": "暂未识别明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.58排第1，3月收益14.3%，较MA60、MA250高5.3%、12.6%"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.4%，52周分位98%，MA60斜率4%，近60日涨13.5%",
+      "macro_logic": "美联储开启降息周期，实际利率下行，全球央行增配黄金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "无当期量化特征数据，方向不明暂予中性"
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": "暂未识别明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "无当期量化特征数据，方向不明暂予中性"
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": "暂未识别明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.05，1月收益-4.9%，较MA60低0.8%，方向不明"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-6.2%，52周分位55%，MA20斜率-3.1%，近20日跌0.5%",
+      "macro_logic": "国内货币政策稳健，高股息属性吸引防御资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.26排末尾，3月收益-4.6%，较MA60低0.9%"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-7.9%，52周分位45%，MA20斜率-1.4%，近20日跌1.6%",
+      "macro_logic": "国内货币政策稳健，高股息属性吸引防御资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.04排第3，6月收益15.5%，较MA60、MA250高2.2%、5.9%"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5%，52周分位74%，MA20斜率-0.8%，近60日涨3.7%",
+      "macro_logic": "国内货币政策稳健，高股息属性吸引防御资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.24，3月收益-3.7%，较MA60、MA250低1.5%、1.9%"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-8.4%，52周分位25%，MA20斜率-3%，近120日跌2.2%",
+      "macro_logic": "国内货币政策稳健，高股息属性吸引防御资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本次为策略首次运行，无上月评级记录，无需进行绩效复盘校验",
-  "summary": "本月重点配置动量前三的黄金ETF、纳指ETF、建行，合计仓位约7成，兼顾避险、成长、防御属性；回避动量为负的中行、农行，其余无数据标的暂观望，控制组合波动",
+  "factor_chains": "美联储降息→美元流动性宽松→实际利率下行→科技成长、黄金估值抬升；国内稳货币→高股息银行获防御资金偏好",
+  "prev_month_review": "上月未对标的作出有效阶段判定，本月基于当期量价数据及宏观事件完成首次判定",
+  "summary": "本月优先配置趋势明确的纳指ETF、黄金ETF，标配四大行作为防御底仓，无有效数据标的暂不纳入配置，组合整体攻守均衡",
+  "version": 2,
   "month": "201907",
   "asof": "20190731",
   "model": "bot-20250308205057-5kjf4"

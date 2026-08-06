@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "七成标的动量为正，红利类、纳指动量居前，科创、恒生科技破位，结构分化明显。",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.5排第2，3月收益19.9%，站在MA60、MA250上方，趋势向好。"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.2%，52周分位94%，MA20斜率3.4%，站在各均线上方",
+      "macro_logic": "美联储降息预期+AI科技巨头盈利增长驱动纳指走牛",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.58排第9，1月收益-19%，较60日高点跌28.2%，双均线破位。"
+      "phase": "下降",
+      "phase_evidence": "回撤-35.2%，52周分位0，创出新低，MA20斜率-10.8%",
+      "macro_logic": "美债利率高位+港股流动性收缩压制科技股估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "动量分-0.74排末位，1月收益-18.5%，跌破MA60、MA250，下行趋势明确。"
+      "phase": "下降",
+      "phase_evidence": "回撤-40.4%，52周分位0，创新低，MA20斜率-10.3%",
+      "macro_logic": "A股流动性偏紧+硬科技成长估值消化",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "动量分0.13，站在MA60、MA250上方，1月微跌0.3%，波动率低，赔率一般。"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.5%，52周分位97%，MA20/60斜率为正",
+      "macro_logic": "美联储降息预期+全球央行购金潮+地缘避险",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.55,
-      "reason": "动量分0.13，1月收益5.7%，3月收益-5.6%，趋势持续性待验证。"
+      "phase": "震荡",
+      "phase_evidence": "距高点-12%，MA20斜率1.7%，MA60斜率-3.6%，趋势不明",
+      "macro_logic": "OPEC+减产托底+红海地缘冲突支撑油价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "160723.SZ": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.18排第8，3月收益-13.1%，跌破MA60，下行压力较大。"
+      "phase": "震荡",
+      "phase_evidence": "距高点-18%，长短期均线斜率分化，无明确涨跌趋势",
+      "macro_logic": "OPEC+减产托底+红海地缘冲突支撑油价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "动量分0.61排第1，1月收益7.9%，创60日新高，站在双均线上方。"
+      "phase": "上升",
+      "phase_evidence": "距高点-2.5%，52周分位87%，MA20斜率3.2%，近20日涨6.8%",
+      "macro_logic": "A股弱市红利风格占优+高股息资产吸引资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.75,
-      "reason": "动量分0.42排第4，1月收益7.7%，创60日新高，高股息防御属性凸显。"
+      "phase": "上升",
+      "phase_evidence": "距高点-5.3%，52周分位82%，MA20斜率2.9%，近5日涨5.4%",
+      "macro_logic": "A股弱市红利风格占优+高股息资产吸引资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.44排第3，站在MA60、MA250上方，高股息风格占优。"
+      "phase": "上升",
+      "phase_evidence": "距高点-2.4%，52周分位88%，MA20斜率3.2%，近60日涨9.8%",
+      "macro_logic": "A股弱市红利风格占优+高股息资产吸引资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.75,
-      "reason": "动量分0.4排第5，1月收益6.3%，站在双均线上，高股息防御属性强。"
+      "phase": "上升",
+      "phase_evidence": "距高点-0.5%，52周分位98%，MA20斜率3.5%，走势稳健",
+      "macro_logic": "A股弱市红利风格占优+高股息资产吸引资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.95
     }
   },
-  "prev_month_review": "本次为策略首次评级，无上月历史评级可供校验复盘，后续将持续跟踪标的表现优化判断。",
-  "summary": "本月市场结构分化，优先配置动量靠前的四大行高股息标的，纳指ETF趋势向好可作为成长类配置，规避破位的科创50、恒生科技，黄金、原油中性对待，整体仓位均衡配置。",
+  "factor_chains": "美联储降息预期→美元走弱→黄金/纳指走强；国内弱市→红利风格占优→银行股上涨；美债高位→港股/科创成长承压",
+  "prev_month_review": "上月未出具明确判定，本月基于最新量价及宏观因子完成全池判定，无过往误判需修正",
+  "summary": "本月优先配置趋势确定性强的纳指ETF、黄金ETF及四大行高股息标的，规避处于下降通道的恒生科技、科创50，原油类暂观望，整体以防御+确定性成长为核心思路",
+  "version": 2,
   "month": "202401",
   "asof": "20240131",
   "model": "bot-20250308205057-5kjf4"

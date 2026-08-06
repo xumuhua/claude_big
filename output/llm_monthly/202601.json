@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "仅4成标的动量为正，商品类领涨，银行股普遍承压，无系统性机会或风险，结构分化显著",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "1月收益-1.7%、3月收益-5.9%，低于MA60 1.7%，动量分-0.12，短期偏弱"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5.9%，近20日跌1.2%，MA20斜率-1.3%，波动比0.65",
+      "macro_logic": "美联储利率高位震荡，美股科技龙头盈利增速放缓",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "1月收益1.3%、3月收益-9.5%，位于MA250附近，动量分-0.03，方向不明"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-14.2%，近20日涨2.7%，近60日跌4.0%，52周分位52%",
+      "macro_logic": "国内数字经济政策落地，美债利率区间波动",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "588000.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.35排第三，1月收益10.8%，较MA60高8.3%，趋势向上"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.2%，近20日涨12.1%，MA20斜率12.3%，站上MA250",
+      "macro_logic": "国内硬科技产业政策支持，流动性边际宽松",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.58排第二，1月收益17.7%，较MA60高16%，上涨动能充足"
+      "phase": "冲高",
+      "phase_evidence": "近20日涨18.6%，近60日涨26.7%，波动比1.59，较MA250高39%",
+      "macro_logic": "全球央行购金潮，中东地缘冲突升级推升避险需求",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
     },
     "501018.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "动量分0.69排第一，1月收益39.7%，创60日新高，趋势性强"
+      "phase": "冲高",
+      "phase_evidence": "创250日新高，近5日涨31.6%，近20日涨40.3%，波动比2.02",
+      "macro_logic": "OPEC+超预期减产，中东地缘冲突推升油价",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.29，1月收益19.7%，但距60日高点跌9.1%，波动达62.4%，赔率一般"
+      "phase": "上升",
+      "phase_evidence": "近20日涨20.0%，近60日涨15.7%，MA60斜率6.0%，波动比2.23",
+      "macro_logic": "油价上行周期，QDII额度溢价支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.73，1月收益-7.6%，较MA60低7.9%，下跌趋势明确"
+      "phase": "下降",
+      "phase_evidence": "近20日跌8.6%，近60日跌10.9%，MA20斜率-5.0%，低于MA20",
+      "macro_logic": "红利风格回调，市场风险偏好回升资金分流",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.44，1月收益-5.3%，较MA60低5.7%，走势偏弱"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-14.6%，低点距今80日，近5日涨1.9%，波动比0.78",
+      "macro_logic": "高股息防御价值凸显，年度分红期临近",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.65,
-      "reason": "动量分-0.51，1月收益-5.4%，较MA60低5.5%，下行压力大"
+      "phase": "下降",
+      "phase_evidence": "近20日跌6.0%，近60日跌8.0%，MA20斜率-2.3%，较MA20低2.4%",
+      "macro_logic": "红利板块资金流出，净息差收窄预期升温",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "动量分-0.77排最后，1月收益-11.7%，较MA60低12.4%，下跌动能充足"
+      "phase": "下降",
+      "phase_evidence": "深回撤21.8%，近20日跌12.5%，MA20斜率-6.5%，较MA20低6.3%",
+      "macro_logic": "前期红利风格涨幅过大，估值回归调整",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
     }
   },
-  "prev_month_review": "本次为策略首次评级，无上期业绩校验记录，后续将按月跟踪准确率优化轮动逻辑",
-  "summary": "本月市场结构分化，优先高配动量前三的南方原油、黄金ETF、科创50，仓位合计占6成左右，全面规避银行类标的，纳指、恒生科技、嘉实原油暂保持观望，均衡组合风险收益比",
+  "factor_chains": "中东地缘冲突→原油上涨→通胀抬升→美债利率高位→科技成长分化+黄金避险溢价+红利风格回调",
+  "prev_month_review": "上月未出具明确标的阶段判定，无历史校验依据，本月基于最新量价及宏观因子完成全池判定",
+  "summary": "本月优先配置上升趋势的科创50ETF，逐步减仓冲高的南方原油，黄金逢高兑现部分收益，银行板块待中行筑底信号明确后布局防御，纳指、恒生科技暂时观望",
+  "version": 2,
   "month": "202601",
   "asof": "20260130",
   "model": "bot-20250308205057-5kjf4"

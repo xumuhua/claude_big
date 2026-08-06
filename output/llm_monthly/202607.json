@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "7成标的动量分>0，无系统性破位，红利类领涨成长类分化，整体呈结构轮动特征",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "1月收益-2.1%跌破MA60，动量分0.01排第7，短期方向不明"
+      "phase": "震荡",
+      "phase_evidence": "距250日高回撤10.7%，52周分位65%，MA20斜率-3%，MA60斜率3.8%",
+      "macro_logic": "美联储加息预期扰动，AI科技龙头盈利仍有支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "6月收益-22%，较MA250低13.6%，长期趋势走弱"
+      "phase": "筑底",
+      "phase_evidence": "深回撤30.5%，低点25日未破，近20日涨6.8%，MA20斜率2.9%",
+      "macro_logic": "数字经济政策支持，南向资金流入，美债利率边际缓和",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "1月跌18.5%，较60日高点回落26.3%跌破MA60，弱势明显"
+      "phase": "下降",
+      "phase_evidence": "近20日跌17.8%，较MA20低12.2%，波动比1.52，回撤26.3%",
+      "macro_logic": "流动性边际收紧，硬科技产业政策落地不及预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "3月收益-14.8%，动量分-0.62排末尾，短期趋势下行"
+      "phase": "下降",
+      "phase_evidence": "回撤24.8%，MA20/60斜率-2.5%/-4.6%，近120日跌24.8%",
+      "macro_logic": "美联储加息预期抬升实际利率，美元走强压制黄金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "1月收益35.4%，但年化波动83.1%，风险较高赔率一般"
+      "phase": "冲高",
+      "phase_evidence": "近20日涨32.3%，较MA250高30.6%，MA20斜率8.1%",
+      "macro_logic": "OPEC+减产超预期，中东地缘风险抬升原油供给溢价",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "1月收益32%，但年化波动86.4%，波动过高方向不明"
+      "phase": "冲高",
+      "phase_evidence": "近20日涨29.2%，较MA250高26.9%，MA20斜率8.0%",
+      "macro_logic": "OPEC+减产超预期，中东地缘风险抬升原油供给溢价",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "1月收益13.3%，高于MA60达8.1%，动量分排第2，趋势向好"
+      "phase": "上升",
+      "phase_evidence": "回撤3.9%，近20日涨13.5%，MA20斜率3.7%，站上MA250",
+      "macro_logic": "红利风格占优，弱市避险资金流入高股息国有行",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "1月收益8.6%，高于MA250达7.2%，动量分排第4，趋势向上"
+      "phase": "上升",
+      "phase_evidence": "回撤3.7%，近20日涨9.0%，站上MA250，波动比1.26",
+      "macro_logic": "红利风格占优，弱市避险资金流入高股息国有行",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.78
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.46排第1，距60日高点仅回落1.1%，趋势最强"
+      "phase": "冲高",
+      "phase_evidence": "回撤1.1%，52周分位95%，近20日涨14.3%，较MA250高15.2%",
+      "macro_logic": "红利风格极致演绎，资金抢筹高股息龙头",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "1月收益15.4%，高于MA60达6.7%，动量分排第3，趋势向好"
+      "phase": "筑底",
+      "phase_evidence": "回撤19.7%，低点20日未破，近20日涨16.9%，MA20斜率1.4%",
+      "macro_logic": "低估值高股息叠加基本面修复，获资金补涨",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "上月看空黄金判断正确，看多纳指、科创及看空原油、恒生科技判断错误，应优先参考动量信号",
-  "summary": "本月为结构轮动行情，优先配置动量居前的建行、工行、农行等高股息银行标的，回避科创50、黄金、恒生科技等趋势走弱品种，纳指、原油暂观望，均衡控制仓位",
+  "factor_chains": "美联储加息预期→美债利率上行→黄金承压、科技成长波动，OPEC+减产+中东地缘→原油冲高，资金避险→高股息银行占优",
+  "prev_month_review": "上月未出具有效标的判定，本月首次基于2026年7月末全量数据完成全池标的判定",
+  "summary": "优先配置上升趋势的工行、中行，逢低布局筑底的恒生科技、农行，规避下降的黄金、科创50，冲高的原油、建行逢高止盈，纳指暂观望",
+  "version": 2,
   "month": "202607",
   "asof": "20260731",
   "model": "bot-20250308205057-5kjf4"

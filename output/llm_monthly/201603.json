@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "仅2只标的动量分大于0，资产表现分化，无系统性上行机会也未出现全面破位风险",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "动量分-0.13排名第4，3月收益-2.7%，站稳MA60但长期动量偏弱"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-5.1%，站MA250+3%，MA20斜率2.8%，近120日涨10.1%",
+      "macro_logic": "2016年3月美联储暂缓加息，美股科技龙头盈利稳健",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "基准日无有效交易量化数据，暂不配置"
+      "phase": null,
+      "phase_evidence": "无基准日前有效交易数据",
+      "macro_logic": "标的未上市，无有效驱动逻辑",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "基准日无有效交易量化数据，暂不配置"
+      "phase": null,
+      "phase_evidence": "无基准日前有效交易数据",
+      "macro_logic": "标的未上市，无有效驱动逻辑",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.39排名第1，3月收益14.1%，同时站稳MA60、MA250"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.8%，52周分位79%，近60日涨14%，MA60斜率5.2%",
+      "macro_logic": "美联储暂缓加息，全球负利率叠加避险需求推升黄金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "基准日无有效交易量化数据，暂不配置"
+      "phase": null,
+      "phase_evidence": "无基准日前有效交易数据",
+      "macro_logic": "标的未上市，无有效驱动逻辑",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.0,
-      "reason": "基准日无有效交易量化数据，暂不配置"
+      "phase": null,
+      "phase_evidence": "无基准日前有效交易数据",
+      "macro_logic": "标的未上市，无有效驱动逻辑",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.06排名第3，1月收益4.6%，站稳MA60但仍低于MA250"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-25.7%，低点144日未破，近20日涨4.1%，MA20斜率6.4%",
+      "macro_logic": "2016年初A股熔断后，高股息防御资产获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.32排名第5，3月收益-16.9%，同时跌破MA60、MA250"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-39.5%，低点25日未破，近20日涨3.4%，波动比0.75",
+      "macro_logic": "A股熔断后风险偏好下行，高股息标的防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "动量分-0.46排名第6，3月收益-17.8%，距60日高点跌16.1%"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-35.1%，低点23日未破，近20日涨3%，波动比0.61",
+      "macro_logic": "A股熔断后风险偏好下行，高股息标的防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.06排名第2，1月收益4.6%，站稳MA60，距60日高点仅1.8%"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-22.9%，低点144日未破，近20日涨3.6%，站MA60+3.5%",
+      "macro_logic": "A股熔断后风险偏好下行，高股息标的防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本月为策略首次运行，无上月评级可供复盘校验，后续将逐月跟踪业绩归因",
-  "summary": "本月优先配置动量排名居前的黄金ETF、农业银行，合计仓位控制在4-5成，规避趋势破位的中行、建行，纳指、工行暂观望，其余无数据标的暂不参与，整体偏防御",
+  "factor_chains": "美联储暂缓加息→美债实际利率下行→纳指/黄金估值修复；A股熔断后风险偏好低迷→高股息银行获防御资金流入",
+  "prev_month_review": "上月未对各标的出具有效阶段判定，本月基于当期交易数据及宏观事件首次完成判定",
+  "summary": "本月优先配置上升趋势的黄金ETF、纳指ETF获取弹性，底仓配置筑底的高股息国有银行增强防御性，未上市无有效数据标的暂不纳入配置，整体结构攻守均衡。",
+  "version": 2,
   "month": "201603",
   "asof": "20160331",
   "model": "bot-20250308205057-5kjf4"

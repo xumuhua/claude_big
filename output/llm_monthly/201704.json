@@ -1,60 +1,90 @@
 {
-  "regime": "risk_on",
-  "regime_reason": "6个有数据标的中5个动量分大于0，整体趋势向上，无系统性破位信号，风险资产环境友好",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "动量分0.45排第1，近12月收益32.9%，位于MA60、MA250之上，趋势明确"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-1%，52周分位96%，MA60斜率2.5，近120日涨16.2%",
+      "macro_logic": "2017年美股科技龙头盈利超预期，美元走弱抬升QDII收益",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，无明确趋势信号，暂持中性"
+      "phase": null,
+      "phase_evidence": "2017年4月未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，无明确趋势信号，暂持中性"
+      "phase": null,
+      "phase_evidence": "2017年4月未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.44排第2，年化波动仅8%，位于MA60、MA250之上，收益稳定"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.9%，MA20斜率2.6，近60日涨5.8%，波动比0.72",
+      "macro_logic": "2017年法国大选避险，美联储3月加息利空出尽",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，无明确趋势信号，暂持中性"
+      "phase": null,
+      "phase_evidence": "2017年4月未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，无明确趋势信号，暂持中性"
+      "phase": null,
+      "phase_evidence": "2017年4月未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.38，近12月收益14.0%，位于MA60、MA250之上，趋势向好"
+      "phase": "冲高",
+      "phase_evidence": "创250日新高，52周分位100%，波动比1.2，vs MA250+8.9%",
+      "macro_logic": "2017年供给侧改革改善银行资产质量，红利风格资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.65,
-      "reason": "动量分-0.01为负，近1月收益-1.4%，跌破MA60，短期趋势偏弱"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-3.8%，MA20斜率-1.1，近20日跌1.6%，波动比0.83",
+      "macro_logic": "银行板块内部分化，中行盈利增速不及同业",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.21，近6月收益16.1%，虽趋势向上但动量排名靠后"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.5%，52周分位98%，MA60斜率2.3，近120日涨13%",
+      "macro_logic": "供给侧改革推升银行资产质量，高股息吸引配置资金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.75,
-      "reason": "动量分0.43排第3，近1月收益3.0%，处于60日高点，高股息防御性强"
+      "phase": "冲高",
+      "phase_evidence": "创250日新高，52周分位100%，波动比1.19，近5日涨3%",
+      "macro_logic": "供给侧改革+红利风格驱动，银行板块估值修复",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     }
   },
-  "prev_month_review": "本次为策略首次运行，无上一期评级记录，暂无复盘内容",
-  "summary": "本月处于risk_on区间，优先配置动量排名前三的纳指ETF、黄金ETF、农业银行，关注工行、建行配置机会，规避走势偏弱的中国银行，其余无数据标的暂观望，仓位维持8成左右，兼顾成长与防御",
+  "factor_chains": "美联储加息周期→美元/美债利率波动→黄金/科技成长估值波动；国内供给侧改革→企业盈利修复→红利风格占优→银行股抬升",
+  "prev_month_review": "上月未对标的作出有效判定，本月首次覆盖已上市有交易数据的6只标的，其余标的暂无可跟踪数据",
+  "summary": "本月优先配置趋势明确的纳指ETF、建行，布局黄金ETF的避险价值；工行、农行处于冲高阶段可持有不宜追高，中行震荡暂规避，未上市标的不纳入配置",
+  "version": 2,
   "month": "201704",
   "asof": "20170428",
   "model": "bot-20250308205057-5kjf4"

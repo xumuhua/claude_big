@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "7成标的动量分大于0，无系统性风险或全面上涨信号，资产结构分化，处于正常轮动阶段",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.95排第1，1月收益13.9%、3月收益20.3%，距60日高点仅-0.4%，趋势强劲"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅-0.4%，52周分位98%，近60日涨22.7%，MA20斜率6.2",
+      "macro_logic": "2023年AI产业行情爆发，美联储加息进入尾声流动性预期改善",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "动量分-0.35排末位，3月收益-10.4%，跌破MA60、MA250，趋势走弱"
+      "phase": "下降",
+      "phase_evidence": "深回撤-25.8%，近20日跌6%，MA20斜率-5.6，跌破MA20/60/250",
+      "macro_logic": "美债利率上行压制估值，互联网行业政策预期偏弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.09排第7，仅略低于MA60，短期趋势不明，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-10.7%，近20日跌3.2%，MA60斜率0.8，无明确涨跌趋势",
+      "macro_logic": "国内流动性边际宽松，硬科技政策支持但业绩落地缓慢",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.42排第2，3月收益8.7%，站稳MA60、MA250，趋势向好"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-1.2%，52周分位93%，MA20/60斜率均为正",
+      "macro_logic": "全球央行购金潮，美元走弱，地缘冲突风险升温",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "501018.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.18，6月收益-15.8%，跌破MA250，下行趋势明确"
+      "phase": "下降",
+      "phase_evidence": "深回撤-27.1%，近120日跌15.6%，MA20/60斜率均为负",
+      "macro_logic": "OPEC减产不及预期，全球经济复苏偏弱压制原油需求",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "160723.SZ": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "动量分-0.3，3月收益-6.2%，跌破MA60、MA250，走势偏弱"
+      "phase": "下降",
+      "phase_evidence": "深回撤-26.3%，创52周新低（低点距今0日），近60日跌5.8%",
+      "macro_logic": "OPEC减产不及预期，全球经济复苏偏弱压制原油需求",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "动量分0.18排第5，3月收益12.3%，距60日高点-8.9%，赔率一般"
+      "phase": "上升",
+      "phase_evidence": "近60日涨11.8%，站上MA250，MA20/60斜率均为正",
+      "macro_logic": "国企估值重塑政策催化，红利风格资产获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.55,
-      "reason": "动量分0.23排第4，3月收益20.7%，但距60日高点-14.5%，波动较大"
+      "phase": "上升",
+      "phase_evidence": "近120日涨23.8%，较MA250高19.5%，MA20/60斜率均为正",
+      "macro_logic": "国企估值重塑政策催化，高股息资产防御价值凸显",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "动量分0.18排第6，3月收益14.1%，距60日高点-9%，弹性有限"
+      "phase": "上升",
+      "phase_evidence": "近60日涨12.9%，52周分位65%，MA20/60斜率均为正",
+      "macro_logic": "国企估值重塑政策催化，红利风格资产获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.26排第3，3月收益20.1%，站稳MA60、MA250，趋势稳健"
+      "phase": "上升",
+      "phase_evidence": "近120日涨22.2%，较MA250高17.8%，MA20/60斜率均为正",
+      "macro_logic": "国企估值重塑政策催化，高股息资产防御价值凸显",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     }
   },
-  "prev_month_review": "本期为首次发布策略评级，无往期评级可回溯校验，后续将按月复盘优化策略判断",
-  "summary": "本月优先配置动量前三的纳指ETF、黄金ETF、农业银行，规避趋势破位的恒生科技、两类原油标的，科创50及其余银行暂观望，整体仓位控制在6成，均衡成长与防御属性",
+  "factor_chains": "美联储货币政策→美债利率/美元→港股科技、黄金、纳指估值；国企估值重塑→银行行情；AI产业趋势→纳指上行；地缘风险影响商品定价",
+  "prev_month_review": "上月未对所有标的给出明确阶段判定，无历史校验依据，本月基于最新量价及宏观因子首次给出判断",
+  "summary": "本月优先配置趋势明确的纳指ETF、黄金ETF及四大行高股息标的，规避处于下降通道的原油、恒生科技，科创50暂观望，整体兼顾成长弹性与防御安全",
+  "version": 2,
   "month": "202305",
   "asof": "20230531",
   "model": "bot-20250308205057-5kjf4"

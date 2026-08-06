@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "截至2013.9.30，池内动量分>0标的共0/6，风险资产无正向趋势，需降低权益仓位",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "1月收益5.4%，距60日高点仅回撤2%，但无有效动量支撑，趋势不明"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2%，52周分位83%，近20日涨4.8%，MA20斜率2.2%，站于MA20/60之上",
+      "macro_logic": "2013年9月美联储宣布暂缓退出QE3，利好美股科技成长",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无基准日对应量化数据，暂无法判断走势"
+      "phase": null,
+      "phase_evidence": "2013年9月尚未上市，无有效交易数据",
+      "macro_logic": "无对应驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无基准日对应量化数据，暂无法判断走势"
+      "phase": null,
+      "phase_evidence": "2013年9月尚未上市，无有效交易数据",
+      "macro_logic": "无对应驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "1月收益-6.4%，距60日高点回撤6.4%，短期下行趋势明确"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-6.4%，52周分位29%，近5日涨0.7%，MA20斜率为0",
+      "macro_logic": "美联储QE退出预期升温，实际利率上行压制金价，短期跌后暂企稳",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无基准日对应量化数据，暂无法判断走势"
+      "phase": null,
+      "phase_evidence": "2013年9月尚未上市，无有效交易数据",
+      "macro_logic": "无对应驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.1,
-      "reason": "无基准日对应量化数据，暂无法判断走势"
+      "phase": null,
+      "phase_evidence": "2013年9月尚未上市，无有效交易数据",
+      "macro_logic": "无对应驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "1月收益微跌0.3%，高股息属性有防御性，无明确涨跌信号"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-13.5%，52周分位27%，近20日微跌0.3%，无明确趋势",
+      "macro_logic": "2013年国内利率高位运行，压制银行估值，高股息托底弱企稳",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "1月收益5.7%，银行板块涨幅靠前，但无有效动量支撑"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-13.7%，52周分位35%，近20/60日涨5.3%，MA20斜率3.7%",
+      "macro_logic": "2013年9月信贷数据向好，银行短期盈利预期边际改善",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "1月收益1.2%，走势平稳，无明确趋势信号"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-15.4%，52周分位38%，近20日微涨1.7%，无明确趋势",
+      "macro_logic": "国内利率上行与经济弱复苏交织，银行估值上下两难",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "1月收益1.6%，但年化波动达38.9%，回撤幅度偏大"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-22.6%（深回撤），低点240日未破，近20日涨2%，MA20斜率2.9%",
+      "macro_logic": "22%深回撤后高股息价值凸显，弱市防御资金入场托底",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     }
   },
-  "prev_month_review": "本次为首次分析，无上月评级记录，无需做校验复盘",
-  "summary": "当前处于risk_off区间，无正向动量标的，建议严控整体权益仓位，以高股息国有银行为防御底仓，纳指ETF可小仓位跟踪观察，黄金短期回避，无数据标的暂不配置",
+  "factor_chains": "美联储暂缓QE退出→美股科技走强、黄金承压；国内利率高位→银行股估值压制，高股息防御价值凸显",
+  "prev_month_review": "上月全部标的无有效判定，本月基于当期量价与宏观事件完成首次判定，无历史误判",
+  "summary": "本月优先配置上升趋势明确的纳指ETF、筑底的农业银行，波段参与短期走势向好的中国银行，其余标的暂观望，未上市品种暂不纳入配置",
+  "version": 2,
   "month": "201309",
   "asof": "20130930",
   "model": "bot-20250308205057-5kjf4"

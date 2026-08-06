@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "全池7个披露动量分的标的均为负，无正动量标的，多数资产破位，风险偏好低迷",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量排名第2，动量分-0.16，12月收益37%，距60日高点回落7.3%，略低于MA60"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤17.5%，低点194日未破，波动比0.35，近5日涨1.8%",
+      "macro_logic": "2020年美联储零利率+QE政策支撑美股科技板块估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无披露量化特征数据，驱动因子不明，暂给予中性评级"
+      "phase": "null",
+      "phase_evidence": "无当期有效量价运行数据",
+      "macro_logic": "无对应驱动因子可验证",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.35,
-      "reason": "仅披露1月收益1.4%，距60日高点回落2.1%，其余动量数据缺失"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤2.1%，近5日涨2.9%，站上MA20",
+      "macro_logic": "2020年科创板注册制改革+半导体产业政策扶持",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量排名第1，动量分-0.02为全池最高，1月收益3.8%，略低于MA60"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤12.1%，低点195日未破，近20日涨2.7%",
+      "macro_logic": "2020年全球宽松通胀预期+美元走弱支撑金价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无披露量化特征数据，商品属性波动大，注意移仓损耗"
+      "phase": "null",
+      "phase_evidence": "无当期有效量价运行数据",
+      "macro_logic": "无对应驱动因子可验证",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无披露量化特征数据，商品属性波动大，注意移仓损耗"
+      "phase": "null",
+      "phase_evidence": "无当期有效量价运行数据",
+      "macro_logic": "无对应驱动因子可验证",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量排名第3，动量分-0.25，1月收益-8.4%，跌破MA60、MA250"
+      "phase": "下降",
+      "phase_evidence": "52周分位9%，近20日跌7.2%，MA20斜率-1.6%，跌破均线",
+      "macro_logic": "2020年银行让利实体政策压制板块估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.65,
-      "reason": "动量排名第5，动量分-0.35，1月收益-4.5%，跌破MA60、MA250"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤17.8%，52周分位3%，低点7日，近5日微涨0.3%",
+      "macro_logic": "让利政策利空逐步定价，高股息属性吸引避险资金",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.5
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量排名第4，动量分-0.34，1月收益-14.1%，距60日高点回落14.1%"
+      "phase": "下降",
+      "phase_evidence": "近20日大跌14%，MA20斜率-3.7%，跌破MA20、MA60",
+      "macro_logic": "让利实体+息差收窄预期压制估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "动量排名第6，动量分-0.46为全池最低，1月收益-5.7%，跌破MA60、MA250"
+      "phase": "筑底",
+      "phase_evidence": "52周分位仅2%，距250高点回撤16.5%，低点1日，近5日平",
+      "macro_logic": "高股息防御属性凸显，利空已接近充分定价",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.4
     }
   },
-  "prev_month_review": "首次开展评级，无上月评级记录，无需校验复盘",
-  "summary": "本月处于risk_off区间，全池无正动量标的，整体权益仓位建议控制在2成以内，优先小仓位配置动量居前的黄金ETF、纳指ETF，规避破位的银行板块，原油类标的暂观望",
+  "factor_chains": "2020年全球央行宽松+美元走弱→黄金、海外权益估值抬升，国内产业/监管政策驱动A股科创、银行板块分化",
+  "prev_month_review": "上月未出具任何标的阶段判定，无历史校验项，本月首次完成全池标的维度评估",
+  "summary": "本月优先配置上升趋势的科创50ETF，逢低布局筑底的纳指ETF、黄金ETF；银行端仅配置跌势衰竭的中行、农行做防御，回避仍处下降通道的工行、建行，无数据标的暂不参与",
+  "version": 2,
   "month": "202012",
   "asof": "20201231",
   "model": "bot-20250308205057-5kjf4"

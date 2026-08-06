@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "9/10标的动量分大于0，无系统性风险，资产间动量分化显著，符合结构轮动特征",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量排名第1，3月收益24.4%，较MA60高11.8%、MA250高24.9%，趋势明确"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点0%/52周分位100%/超MA250达24.9%/近120日涨37.7%",
+      "macro_logic": "2023年AI产业爆发叠加美联储加息放缓预期，推升美股科技龙头估值",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "1月收益7.6%但3月收益-0.7%，动量分0.12排第6，短期方向不明"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤17.9%/52周分位55%/近20日涨10.5%但近60日跌3.6%",
+      "macro_logic": "2023年平台经济政策转暖，美债利率高位震荡，南向资金流入波动",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.23排第10，1月收益-3.5%，跌破MA60、MA250，趋势偏弱"
+      "phase": "震荡",
+      "phase_evidence": "距高点回撤14.4%/52周分位40%/近20日跌4.1%/低于MA250达2.6%",
+      "macro_logic": "2023年上半年国内流动性宽松不及预期，硬科技政策利好未完全落地",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "6月收益10.6%、较MA250高8.5%，但1月收益仅1.1%，短期动量一般"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤1.6%/52周分位91%/站MA250达8.5%/MA60斜率1.4%",
+      "macro_logic": "2023年全球央行购金潮，叠加美联储加息接近尾声美元走弱预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "3月收益6.6%但6月收益-13.4%，跌破MA250，趋势持续性存疑"
+      "phase": "筑底",
+      "phase_evidence": "深回撤20%/低点67日未破/近20日涨2.2%/波动比0.72收缩",
+      "macro_logic": "2023年OPEC+减产计划落地，原油需求弱复苏叠加地缘风险支撑油价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "160723.SZ": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "3、6、12月收益均为负，跌破MA250，动量分仅0.02排第9，趋势偏弱"
+      "phase": "筑底",
+      "phase_evidence": "距高点回撤19.9%/低点19日未破/近20日涨1.8%/短期止跌",
+      "macro_logic": "2023年OPEC+减产计划落地，原油需求弱复苏支撑油价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "6月收益12.1%，较MA250高7.8%，动量分0.18排第4，防御属性突出"
+      "phase": "上升",
+      "phase_evidence": "站MA250达7.8%/近120日涨11.6%/MA60斜率3.2%/短期回调",
+      "macro_logic": "2023年红利风格占优，银行高股息属性吸引避险资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量排名第2，3月收益12.7%，较MA250高17.7%，高股息趋势向好"
+      "phase": "上升",
+      "phase_evidence": "站MA250达17.7%/近120日涨23.7%/MA60斜率5.1%/短期回调",
+      "macro_logic": "2023年红利风格占优，高股息银行获避险资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "6月收益11.2%但1月收益-3.1%，动量分0.07排第8，趋势一般"
+      "phase": "上升",
+      "phase_evidence": "站MA250达8.1%/近120日涨11.6%/MA60斜率2.3%/短期回调",
+      "macro_logic": "2023年红利风格占优，高股息银行获避险资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量排名第3，3月收益13.9%，较MA250高16.4%，高股息趋势明确"
+      "phase": "上升",
+      "phase_evidence": "站MA250达16.4%/近120日涨21.7%/MA60斜率5.2%/短期小幅回调",
+      "macro_logic": "2023年红利风格占优，高股息银行获避险资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
     }
   },
-  "prev_month_review": "本次为首次月度分析，无上月评级记录，无需进行业绩校验与复盘",
-  "summary": "本月为结构分化行情，优先配置动量靠前的纳指ETF、中国银行、农业银行，黄金ETF可作为对冲配置，规避科创50、嘉实原油等偏弱标的，整体仓位控制在7成左右",
+  "factor_chains": "美联储加息接近尾声→美元走弱→黄金/纳指估值修复；国内红利风格占优→银行走强；OPEC+减产→原油筑底",
+  "prev_month_review": "上月未对各标的给出明确阶段判定，本月基于当前数据完成全维度判定，无过往误判需修正",
+  "summary": "本月优先配置黄金、高股息银行等确定性品种，纳指处冲高区域可逐步止盈，原油筑底可小仓位布局，恒生科技、科创50震荡期暂观望，保持均衡仓位控制波动",
+  "version": 2,
   "month": "202306",
   "asof": "20230630",
   "model": "bot-20250308205057-5kjf4"

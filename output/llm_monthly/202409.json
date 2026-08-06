@@ -1,60 +1,90 @@
 {
-  "regime": "risk_on",
-  "regime_reason": "7/10标的动量分大于0，恒生科技、黄金、科创50动量居前，风险资产整体景气度较高，无系统性破位信号",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "近1/3月收益为负，较60日高点跌10.1%，跌破MA60，动量分负，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤10.1%，近20日微涨0.1%，MA20斜率0.4接近走平",
+      "macro_logic": "2024年9月美联储维持高利率，纳指科技股估值消化",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量排名第1，近1/3月收益37.4%/30.4%，创60日新高，站稳MA60/250"
+      "phase": "冲高",
+      "phase_evidence": "创250日新高，近5日涨29.9%，较MA250高30.3%，波动比1.4",
+      "macro_logic": "2024年Q3平台经济政策松绑+美债利率下行+南向资金流入",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "588000.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量排名第3，近1/3月收益34.9%/26.7%，创60日新高，显著高于MA60"
+      "phase": "冲高",
+      "phase_evidence": "创250日新高，近5日涨40.9%，波动比2.05，短期超涨明显",
+      "macro_logic": "2024年Q3科创支持政策加码+A股流动性宽松",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "动量排名第2，年化波动仅9.7%，近6月收益17.3%，站稳长短均线"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤0.6%，MA20/60斜率为正，近120日涨9.4%",
+      "macro_logic": "2024年全球央行购金潮+地缘冲突升温+美联储降息预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "501018.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "近1/3/6/12月收益全负，跌破MA60/250，动量分-0.38排名倒数第二"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤15.5%，MA20斜率-5.5，近60日跌11%",
+      "macro_logic": "2024年Q3 OPEC+增产预期+全球原油需求走弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "160723.SZ": {
-      "rating": "看空",
-      "confidence": 0.75,
-      "reason": "动量排名倒数第1，各周期收益全负，较MA250低11.5%，趋势走弱"
+      "phase": "筑底",
+      "phase_evidence": "深回撤28.7%，低点距今11交易日未破，短期跌幅收窄",
+      "macro_logic": "2024年Q3油价超跌+OPEC+减产博弈升温",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.05偏低，近1月收益-4.8%，高于MA60/250，防御属性较强"
+      "phase": "冲高",
+      "phase_evidence": "近5日涨8%，较MA20高6.8%，vol20%达33.8远超vol120%",
+      "macro_logic": "2024年Q3弱市资金抱团高股息+红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.55,
-      "reason": "动量分0.11排名第4，近1月收益-2.3%，站稳长短均线，股息稳定"
+      "phase": "冲高",
+      "phase_evidence": "近5日涨6.6%，较MA20高5.1%，52周分位达88%",
+      "macro_logic": "2024年Q3弱市资金抱团高股息+红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.05偏低，近1月收益-4.0%，高于MA60/250，高股息防御"
+      "phase": "冲高",
+      "phase_evidence": "近5日涨8%，较MA20高7.4%，波动比达1.68",
+      "macro_logic": "2024年Q3弱市资金抱团高股息+红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.55,
-      "reason": "动量分0.11排名第5，近1月收益-2.8%，站稳长短均线，弱市避风港"
+      "phase": "冲高",
+      "phase_evidence": "近5日涨3.9%，较MA20高4.5%，52周分位达88%",
+      "macro_logic": "2024年Q3弱市资金抱团高股息+红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本月为策略首次评级，无上月业绩校验内容，后续将逐月跟踪收益与动量逻辑匹配度",
-  "summary": "本月处于risk_on区间，优先重仓配置动量前三的恒生科技、黄金ETF、科创50，规避趋势走弱的两类原油，银行标的小仓位做防御底仓，纳指ETF当前动量偏弱暂时观望",
+  "factor_chains": "美联储利率政策→美债利率→全球科技股估值+黄金定价，国内政策/流动性→A股/港股科技+红利风格，OPEC+政策+地缘→原油价格",
+  "prev_month_review": "上月未出具明确标的阶段判定，无历史误判，本月基于量价及宏观因子首次给出判断",
+  "summary": "本月优先配置上升趋势的黄金ETF，规避短期超涨的科创50、恒生科技及四大行，关注筑底的嘉实原油左侧机会，纳指ETF暂观望，回避南方原油",
+  "version": 2,
   "month": "202409",
   "asof": "20240930",
   "model": "bot-20250308205057-5kjf4"

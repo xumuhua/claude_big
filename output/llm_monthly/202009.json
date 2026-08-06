@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "仅1/6标的动量分>0，多数资产距60日高点回落超8%，整体风险偏好低迷，无趋势性机会",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "唯一动量分>0标的，3月收益20.3%、6月收益50.9%，站稳MA60，长期动量占优"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤14.1%，近20日跌12.3%，MA20/60斜率均为7.2%，波动比1.74",
+      "macro_logic": "美联储无限QE推升科技股估值，大选前短期波动加大",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无截至基准日对应量化特征数据，暂维持中性评级"
+      "phase": null,
+      "phase_evidence": "无当期有效运行数据",
+      "macro_logic": "无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无截至基准日对应量化特征数据，暂维持中性评级"
+      "phase": null,
+      "phase_evidence": "无当期有效运行数据",
+      "macro_logic": "无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.09排名第二，1月收益-4.7%跌破MA60，短期走弱但避险属性尚存"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤9.3%，MA20斜率-2.9%，MA60斜率1.3%，波动比0.86",
+      "macro_logic": "全球宽松抗通胀需求支撑，前期大涨后短期获利回吐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无截至基准日对应量化特征数据，暂维持中性评级"
+      "phase": null,
+      "phase_evidence": "无当期有效运行数据",
+      "macro_logic": "无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无截至基准日对应量化特征数据，暂维持中性评级"
+      "phase": null,
+      "phase_evidence": "无当期有效运行数据",
+      "macro_logic": "无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分-0.64，1月收益-0.8%跌破MA250，高股息属性可对冲下行风险"
+      "phase": "筑底",
+      "phase_evidence": "52周分位3%，回撤18.1%，低点距今3个交易日，波动比0.43",
+      "macro_logic": "银行1.5万亿让利政策落地，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.89排名垫底，3月收益-8.6%，距60日高点回落15.1%，走势偏弱"
+      "phase": "筑底",
+      "phase_evidence": "52周分位1%，回撤17.3%，低点距今17个交易日，波动比0.54",
+      "macro_logic": "银行1.5万亿让利政策落地，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "动量分-0.7，3月收益-3.3%跌破MA250，高股息属性托底，跌幅有限"
+      "phase": "筑底",
+      "phase_evidence": "52周分位6%，回撤17.9%，低点距今47个交易日，波动比0.5",
+      "macro_logic": "银行1.5万亿让利政策落地，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "动量分-0.84，3月收益-6.5%，距60日高点回落12.9%，短期走势疲弱"
+      "phase": "筑底",
+      "phase_evidence": "52周分位5%，回撤15.7%，低点距今17个交易日，波动比0.51",
+      "macro_logic": "银行1.5万亿让利政策落地，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     }
   },
-  "prev_month_review": "本月为首次开展全天候迷你池策略评级，无上月评级记录可校验复盘",
-  "summary": "本月处于risk_off区间，整体降低权益仓位，核心配置唯一动量为正的纳指ETF，辅以黄金ETF和高股息工行、建行做防御，无数据标的暂不配置，严控组合回撤",
+  "factor_chains": "美联储无限QE→全球流动性宽松→黄金/美股科技估值抬升，A股弱市→资金转向高股息银行防御",
+  "prev_month_review": "2020年8月无有效标的运行数据，未出具明确阶段判定，本次为首份月度结论，无误判",
+  "summary": "本月以防御配置为主，优先布局筑底阶段的四大行高股息标的，纳指、黄金处于震荡期暂观望，无数据标的暂不纳入配置，控制整体仓位波动",
+  "version": 2,
   "month": "202009",
   "asof": "20200930",
   "model": "bot-20250308205057-5kjf4"

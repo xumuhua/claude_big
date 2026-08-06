@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "动量分正标的占4/6，银行类动量居前，黄金、纳指动量为负，整体结构分化，无系统性信号",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "动量分-0.14，较60日高点跌18.6%，跌破MA60，短期趋势偏弱"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-18.6%，MA20斜率-2.9%，MA60斜率1.7%，无明确趋势",
+      "macro_logic": "美联储零利率政策+新冠疫苗研发突破利好美股科技风险资产",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化特征数据，多空方向暂不明确"
+      "phase": "震荡",
+      "phase_evidence": "无给定量价数据，无法判定明确趋势",
+      "macro_logic": "无明确公开驱动事件数据支撑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化特征数据，多空方向暂不明确"
+      "phase": "震荡",
+      "phase_evidence": "无给定量价数据，无法判定明确趋势",
+      "macro_logic": "无明确公开驱动事件数据支撑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分-0.62垫底，近3月跌11.6%，跌破MA250，趋势走弱"
+      "phase": "下降",
+      "phase_evidence": "近20日跌7.8%，MA20/MA60斜率均为-2.6%，跌破均线持续走弱",
+      "macro_logic": "新冠疫苗研发突破压制避险需求，美元反弹打压黄金价格",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化特征数据，多空方向暂不明确"
+      "phase": "震荡",
+      "phase_evidence": "无给定量价数据，无法判定明确趋势",
+      "macro_logic": "无明确公开驱动事件数据支撑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.2,
-      "reason": "无当期量化特征数据，多空方向暂不明确"
+      "phase": "震荡",
+      "phase_evidence": "无给定量价数据，无法判定明确趋势",
+      "macro_logic": "无明确公开驱动事件数据支撑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.31排第2，1月涨8.1%，站稳MA60与MA250，趋势向好"
+      "phase": "上升",
+      "phase_evidence": "近20日涨7.7%，MA20斜率1.5%，站上走升均线，涨势稳健",
+      "macro_logic": "国内经济复苏，银行三季报业绩改善，高股息吸引资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.17，距60日高点仅跌0.9%，站稳MA60，防御属性凸显"
+      "phase": "筑底",
+      "phase_evidence": "低点距今21交易日未破，波动比0.59，短期收益转正止跌",
+      "macro_logic": "银行板块估值修复启动，低估值标的获资金左侧布局",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.5
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量分0.67排第1，创60日新高，近1月涨13.7%，趋势最强"
+      "phase": "冲高",
+      "phase_evidence": "52周分位87%，近20日涨14.6%，短期涨速远超长期，接近前高",
+      "macro_logic": "红利风格资金抱团，建行基本面优异获资金增持涨幅过大",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.21排第3，距60日高点仅跌0.9%，站稳MA60，股息优势突出"
+      "phase": "震荡",
+      "phase_evidence": "近20日涨3.8%，MA60斜率-0.3%，均线走势分化无明确方向",
+      "macro_logic": "银行板块修复行情分化，农行基本面中庸缺乏明确催化",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.5
     }
   },
-  "prev_month_review": "本月为首次分析，无上月评级记录，无过往交易复盘内容",
-  "summary": "本月处于结构分化行情，优先配置动量靠前的建行、工行、农行等高股息防御标的，规避趋势走弱的黄金ETF，纳指暂观望，其余无数据标的暂不参与，维持中性仓位",
+  "factor_chains": "新冠疫苗研发突破→避险情绪回落黄金承压，经济复苏预期升温→银行等顺周期资产修复，美债收益率上行预期压制成长估值",
+  "prev_month_review": "上月未对池内标的作出明确阶段判定，无历史判断偏差需修正，本月首次完成全池评估",
+  "summary": "本月优先配置处于上升趋势的工商银行，回避下降通道的黄金ETF，短期冲高的建设银行可逐步止盈，纳指、中行、农行暂观望，无量价数据标的暂不配置",
+  "version": 2,
   "month": "202011",
   "asof": "20201130",
   "model": "bot-20250308205057-5kjf4"

@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "仅1/6标的动量分>0，多数资产破位，2020年3月全球疫情引发流动性冲击，系统性风险较高",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "1月收益-12.5%，距60日高点跌26.2%，跌破MA60，动量分-0.15，赔率一般"
-    },
-    "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期有效量化特征数据，暂无明确多空信号"
-    },
-    "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期有效量化特征数据，暂无明确多空信号"
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-26.2%，近20日跌13.1%，MA20斜率-14%",
+      "macro_logic": "新冠疫情全球爆发引发美股流动性危机，科技股遭抛售",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.12为唯一正值，3月收益8.6%，站稳MA60，避险需求支撑"
-    },
-    "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期有效量化特征数据，暂无明确多空信号"
-    },
-    "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期有效量化特征数据，暂无明确多空信号"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤-3.8%，52周分位86%，近5日涨1.8%",
+      "macro_logic": "美联储无限QE+全球避险升温，黄金抗通胀价值凸显",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "3月收益-13.3%，跌破MA250，动量分-0.41排名末尾，下行压力大"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-14.3%，低点距今8交易日，近5日涨0.6%",
+      "macro_logic": "A股受疫情冲击调整，高股息银行获防御资金布局",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.33排第3，3月收益-5.9%，防御属性下下跌空间有限"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-13.6%，低点距今41交易日，近5日平盘",
+      "macro_logic": "A股受疫情冲击调整，高股息银行获防御资金布局",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "3月收益-12.6%，跌破MA250，动量分-0.34排名靠后，下行风险高"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-18.3%，低点距今6交易日，近5日跌0.5%",
+      "macro_logic": "A股受疫情冲击调整，高股息银行获防御资金布局",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "3月收益-9.2%，跌破MA250，动量分-0.37排名靠后，下跌压力较大"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-13.4%，低点距今6交易日，近5日涨0.6%",
+      "macro_logic": "A股受疫情冲击调整，高股息银行获防御资金布局",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期运行数据，无明确趋势信号",
+      "macro_logic": "暂无明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期运行数据，无明确趋势信号",
+      "macro_logic": "暂无明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期运行数据，无明确趋势信号",
+      "macro_logic": "暂无明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无当期运行数据，无明确趋势信号",
+      "macro_logic": "暂无明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
     }
   },
-  "prev_month_review": "本月为策略首次运行，无上月评级可校验，后续将逐月跟踪绩效，优化配置逻辑",
-  "summary": "本月处于risk_off阶段，整体权益仓位控制在3成以内，优先配置唯一动量为正的黄金ETF，纳指ETF可小仓位试探左侧机会，规避基本面走弱的银行标的，无信号标的暂不参与",
+  "factor_chains": "新冠疫情全球大流行→全球流动性危机+避险情绪抬升→美股暴跌、黄金走牛、高股息防御资产获资金青睐",
+  "prev_month_review": "上月未对各标的给出明确阶段判定，无历史判断可供校验，本月为首次出具判定结论",
+  "summary": "本月优先配置黄金ETF把握宽松+避险行情，底仓配置四大行对冲市场波动，纳指ETF待止跌信号明确后再布局，其余无数据标的暂观望",
+  "version": 2,
   "month": "202003",
   "asof": "20200331",
   "model": "bot-20250308205057-5kjf4"

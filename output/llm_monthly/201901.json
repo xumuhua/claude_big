@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "池中6只标的动量分大于0，剩余4只无正向动量，资产无系统性破位，呈结构分化格局",
   "assets": {
     "513100.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "1月收益7.3%，3月收益-2.2%，动量分0.09排第6，短期趋势不明"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-13.5%，近20日涨7.6%，MA20斜率1.1%，波动比0.77",
+      "macro_logic": "2018年美联储四次加息后接近周期尾端，纳指估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "未进入动量分>0标的池，无正向动量支撑，风险大于收益"
+      "phase": null,
+      "phase_evidence": "无2019年1月末有效量价数据，无法判定",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "未进入动量分>0标的池，高beta属性叠加无动量支撑，风险较高"
+      "phase": null,
+      "phase_evidence": "无2019年1月末有效量价数据，无法判定",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.25排第3，3月收益3.3%、6月收益6.7%，较MA250高4.9%"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅-0.8%，52周分位91%，MA20/60斜率均正，vs MA250+4.9%",
+      "macro_logic": "美联储加息接近尾声，实际利率下行叠加全球央行购金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "501018.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "未进入动量分>0标的池，商品属性叠加移仓损耗，机会不足"
+      "phase": null,
+      "phase_evidence": "无2019年1月末有效量价数据，无法判定",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "未进入动量分>0标的池，商品属性叠加移仓损耗，机会不足"
+      "phase": null,
+      "phase_evidence": "无2019年1月末有效量价数据，无法判定",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.36排第2，1月收益8.8%创60日新高，较MA60高5.9%"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-27%，近20日涨8.8%，MA20斜率1.2%，波动比0.79",
+      "macro_logic": "国内2019年初宽信用政策落地，高股息银行估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分0.21排第4，创60日新高，但较MA250低2.2%，赔率一般"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-22.7%，近20日涨3.7%，波动比0.66",
+      "macro_logic": "国内宽信用政策落地，高股息银行板块估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "动量分0.38排第1，1月收益13.1%创60日新高，较MA60高7.3%"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-27.9%，近20日涨12.9%，MA20斜率1.2%，波动比0.78",
+      "macro_logic": "国内宽信用政策落地，高股息银行估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分0.13排第5，1月收益5.7%，较MA250低0.8%，弹性有限"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-21.7%，近20日涨5.1%，波动比0.63",
+      "macro_logic": "国内宽信用政策落地，高股息银行估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
     }
   },
-  "prev_month_review": "本次为策略首次月度分析，无上月评级，无需进行复盘校验",
-  "summary": "本月市场结构分化，核心配置动量前三的建设银行、工商银行、黄金ETF，规避无正向动量的科技、原油类标的，整体仓位维持中性，兼顾防御性与对冲属性",
+  "factor_chains": "美联储加息周期临近尾声→实际利率下行→黄金走强、海外成长股估值修复；国内宽信用启动→红利银行板块估值修复",
+  "prev_month_review": "上月未出具有效阶段判定，本月首次基于2019年1月末量价及公开宏观数据给出判断",
+  "summary": "优先配置处于明确上升趋势的黄金ETF，纳指及四大行处于筑底阶段可分批低吸，其余标的无当期有效数据暂不配置，组合攻守均衡",
+  "version": 2,
   "month": "201901",
   "asof": "20190131",
   "model": "bot-20250308205057-5kjf4"

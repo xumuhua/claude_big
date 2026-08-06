@@ -13,6 +13,7 @@
   - 每10个交易日调仓: 全部 score>0 且过类上限(每类1只)的标的一律持有, 1/波动率加权, 单票≤35%
   - 每日风控: 持仓 score < -0.2(滞后带宽) → 次日开盘离场并冷却10日
   - 净值熔断: 策略净值 < MA150 → 空仓观望, 收回上方 → 恢复 (慢熊磨损失血的总闸)
+  - LLM退出侧(20260806 v2采纳): 豆包月度阶段判定=下降 → 持仓次日离场(只卖不买)
 用途:
   python3 scripts/rotation_backtest.py                       # 默认配方(推荐)
   python3 scripts/rotation_backtest.py --eq-ma 0             # 关熔断对照
@@ -75,7 +76,7 @@ def load_daily():
 def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_stock,
        vol_adj=False, exit_daily=False, class_cap=0, trend_ma=0, trail_stop=None,
        hyst=0.0, cooldown=0, inc_margin=0.0, weight_mode="equal", max_w=0.0, eq_ma=0,
-       llm_mode="off", llm_dir=None, llm_cap=0.5, llm_conf=0.6):
+       llm_mode="off", llm_dir=None, llm_cap=0.5, llm_conf=0.6, llm_bottom_w=0.5, llm_exit_conf=0.0):
     """现金+份额双账本; 信号日收盘打分, 次日09:31成交; 留仓不收费, 买卖各收分类费率
 
     vol_adj:    score /= 20日波动率 (避免高波原油霸占排名)
@@ -91,9 +92,16 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
     max_w:      单标的权重上限(超出部分留现金), 0=不限
     eq_ma:      >0 时启用净值曲线熔断: 策略净值收盘 < 其MA(eq_ma) → 次日起空仓,
                 收回MA上方 → 次日恢复。权重皆为比例制, 空仓期信号照常演进, 故后处理精确等价。
-    llm_mode:   off=不用; veto=LLM看空标的禁入场; scale=risk_off月仓位×llm_cap; both=两者
+    llm_mode:   off=不用;
+                v1(已证伪档): veto=看空禁入场; scale=risk_off月仓位×llm_cap; both=两者
+                v2(阶段判定): phase=全开(早鸟+veto+下降退出); phase-bottom=仅早鸟;
+                              phase-exit=仅冲高衰竭veto+下降退出
+                v2 阶段→动作映射(用户20260806方法论):
+                  筑底+逻辑强/中+conf≥llm_conf → 早鸟入场(绕过score闸门, 权重×llm_bottom_w)
+                  冲高+逻辑衰竭 → 禁入场 (强+持续的冲高不veto——强逻辑行情会延续)
+                  下降 → 禁入场 + 持仓次日退出(比score确认更早)
                 LLM 月度产物在 llm_dir 下({YYYYMM}.json, 月末晚间生成), asof<=当日即生效,
-                与信号 T+1 纪律一致。veto 不强制已持仓次日卖出(避免抖动), 由正常风控退出。
+                与信号 T+1 纪律一致。
     """
     days = closes.index.intersection(opens.index)
     score = sum(w * (closes / closes.shift(lb) - 1) for w, lb in zip(weights, lookbacks))
@@ -120,17 +128,26 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
 
     cash, pos = 1.0, {}             # pos: ticker -> 份额
     peak = {}                       # ticker -> 买入后最高收盘价 (移动止损用)
+    early_entry = {}                # ticker -> 早鸟入场价 (v2筑底逆势仓: 持有保护+硬止损)
     cool = {}                       # ticker -> 冷却截止日 (风控离场后)
     pending = None                  # 待执行目标权重
     curve, trades = [], []
 
-    llm_state = {"veto": set(), "regime": None, "idx": -1}
+    llm_state = {"veto": set(), "regime": None, "idx": -1,
+                 "early": set(), "exit": set()}     # v2: 早鸟/下降退出集合
 
     def eligible(t, day):
         """t 在 day 是否允许(再)入场"""
         if cooldown and day <= cool.get(t, day - pd.Timedelta(days=1)):
             return False
-        if llm_mode in ("veto", "both") and t in llm_state["veto"]:  # LLM 看空 veto (仅禁入场)
+        # v2 早鸟: 筑底+强/中逻辑 → 绕过 score/MA 闸门 (逆势入场, 权重另限)
+        if llm_mode in ("phase", "phase-bottom") and t in llm_state["early"]:
+            return True
+        if llm_mode in ("veto", "both") and t in llm_state["veto"]:  # v1 看空 veto
+            return False
+        if llm_mode in ("phase", "phase-exit") and t in llm_state["veto"]:  # v2 下降+冲高衰竭 veto
+            return False
+        if llm_mode == "phase-top" and t in llm_state["veto_top"]:   # v2 仅冲高衰竭 veto
             return False
         s = score.loc[day, t]
         if not np.isfinite(s) or s <= gate:
@@ -143,6 +160,10 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
 
     def holdable(t, day):
         """t 在 day 是否允许继续持有 (滞后带宽: 需明显破闸才离场)"""
+        if llm_mode in ("phase", "phase-exit", "phase-top", "phase-sell") and t in llm_state["exit"]:
+            return False                              # v2: 阶段=下降 → 不可持有(调仓日同样生效)
+        if llm_mode in ("phase", "phase-bottom") and t in early_entry and t in llm_state["early"]:
+            return True                               # v2: 早鸟持有保护(筑底判定仍有效时不被震出)
         s = score.loc[day, t]
         if not np.isfinite(s) or s <= gate - hyst:
             return False
@@ -158,11 +179,36 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
         while llm_state["idx"] + 1 < len(llm_tl) and llm_tl[llm_state["idx"] + 1][0] <= day:
             llm_state["idx"] += 1
             doc = llm_tl[llm_state["idx"]][1]
-            llm_state["regime"] = doc.get("regime")
-            llm_state["veto"] = {
-                t for t, a in doc.get("assets", {}).items()
-                if a.get("rating") == "看空" and float(a.get("confidence", 0) or 0) >= llm_conf
-            }
+            if doc.get("version") == 2:
+                # v2 阶段schema: veto拆两档(下降/冲高衰竭)便于消融
+                llm_state["regime"] = None
+                llm_state["early"] = {
+                    t for t, a in doc.get("assets", {}).items()
+                    if a.get("phase") == "筑底" and a.get("logic_strength") in ("强", "中")
+                    and float(a.get("confidence", 0) or 0) >= llm_conf
+                }
+                llm_state["veto_dn"] = {
+                    t for t, a in doc.get("assets", {}).items() if a.get("phase") == "下降"
+                }
+                llm_state["exit"] = {
+                    t for t, a in doc.get("assets", {}).items()
+                    if a.get("phase") == "下降"
+                    and float(a.get("confidence", 0) or 0) >= llm_exit_conf
+                }
+                llm_state["veto_top"] = {
+                    t for t, a in doc.get("assets", {}).items()
+                    if a.get("phase") == "冲高" and a.get("logic_durability") == "衰竭"
+                }
+                llm_state["veto"] = llm_state["veto_dn"] | llm_state["veto_top"]
+            else:
+                # v1 评级schema
+                llm_state["regime"] = doc.get("regime")
+                llm_state["early"], llm_state["exit"] = set(), set()
+                llm_state["veto_top"], llm_state["veto_dn"] = set(), set()
+                llm_state["veto"] = {
+                    t for t, a in doc.get("assets", {}).items()
+                    if a.get("rating") == "看空" and float(a.get("confidence", 0) or 0) >= llm_conf
+                }
         # 1) 开盘执行昨日信号
         if pending is not None:
             fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
@@ -180,6 +226,7 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
                 else:
                     fees += n * px * fee_of(t)
                     peak.pop(t, None)
+                    early_entry.pop(t, None)
                     trades.append((str(day.date()), "SELL", TICKERS[t], f"{n * px / total:.1%}"))
             # 新买入: 按目标权重分配
             for t, w in pending.items():
@@ -191,6 +238,8 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
                 alloc = total * w
                 new_pos[t] = alloc * (1 - fee_of(t)) / px
                 peak[t] = px
+                if llm_mode in ("phase", "phase-bottom") and t in llm_state["early"]:
+                    early_entry[t] = px
                 fees += alloc * fee_of(t)
                 trades.append((str(day.date()), "BUY", TICKERS[t], f"{w:.0%}"))
             mv_open = sum(n * px_of(t) for t, n in new_pos.items() if np.isfinite(px_of(t)))
@@ -218,6 +267,9 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
                     if not eligible(t, day):
                         continue
                     eff = s[t]
+                # v2 早鸟: score 为负也保留候选资格, 按微正分参与排名(靠后可入选)
+                if llm_mode in ("phase", "phase-bottom") and t in llm_state["early"]:
+                    eff = max(s[t] if np.isfinite(s[t]) else 0.0, 0.01) + (inc_margin if t in pos else 0.0)
                 cand.append((t, eff))
             cand.sort(key=lambda x: -x[1])
             picks, cls_cnt = [], {}
@@ -229,7 +281,7 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
                 cls_cnt[cl] = cls_cnt.get(cl, 0) + 1
                 if topk and len(picks) >= topk:
                     break
-            # 权重: 等权或1/波动率; max_w封顶, 余量留现金
+            # 权重: 等权或1/波动率; max_w封顶, 余量留现金; 早鸟票权重上限×llm_bottom_w
             if picks:
                 if weight_mode == "invvol":
                     iv = {t: 1.0 / max(vol20.loc[day, t], 0.05) for t in picks}
@@ -239,6 +291,10 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
                     new_target = {t: 1.0 / len(picks) for t in picks}
                 if max_w > 0:
                     new_target = {t: min(w, max_w) for t, w in new_target.items()}
+                if llm_mode in ("phase", "phase-bottom"):
+                    bw = max_w * llm_bottom_w if max_w > 0 else llm_bottom_w
+                    new_target = {t: min(w, bw) if t in llm_state["early"] and t not in pos else w
+                                  for t, w in new_target.items()}
                 # LLM regime 仓位缩放: risk_off 月总仓位×cap, 余量现金
                 if llm_mode in ("scale", "both") and llm_state["regime"] == "risk_off":
                     new_target = {t: w * llm_cap for t, w in new_target.items()}
@@ -247,13 +303,20 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
             # 持仓不变则不触发交易
             if set(new_target) != set(pos) or pending is not None:
                 pending = new_target
-        elif (exit_daily or trail_stop) and pos:
-            # 非调仓日的每日风控: 持仓明显破闸(滞后带宽)/破趋势/触发移动止损 → 次日离场
+        elif (exit_daily or trail_stop or llm_mode in ("phase", "phase-exit", "phase-top", "phase-sell")) and pos:
+            # 非调仓日的每日风控: 持仓明显破闸(滞后带宽)/破趋势/移动止损/LLM下降判定 → 次日离场
             bad = []
             for t in pos:
                 if not (listed.loc[day, t] and np.isfinite(c.get(t, np.nan))):
                     continue
-                if exit_daily and not holdable(t, day):
+                if t in early_entry and c[t] / early_entry[t] - 1 <= -0.08:
+                    bad.append(t)                     # v2: 早鸟成本锚定硬止损-8%(逆势仓纪律)
+                    trades.append((str(day.date()), "EARLY-STOP", TICKERS[t],
+                                   f"{c[t] / early_entry[t] - 1:.1%}"))
+                elif llm_mode in ("phase", "phase-exit", "phase-top", "phase-sell") and t in llm_state["exit"]:
+                    bad.append(t)
+                    trades.append((str(day.date()), "LLM-EXIT", TICKERS[t], "阶段=下降"))
+                elif exit_daily and not holdable(t, day):
                     bad.append(t)
                     trades.append((str(day.date()), "RISK-OFF", TICKERS[t], "score破闸/破趋势"))
                 elif trail_stop and peak.get(t) and c[t] / peak[t] - 1 <= trail_stop:
@@ -328,11 +391,15 @@ def main():
     ap.add_argument("--weight-mode", choices=["equal", "invvol"], default="invvol")
     ap.add_argument("--max-w", type=float, default=0.35, help="单标的权重上限(0=不限)")
     ap.add_argument("--eq-ma", type=int, default=150, help="净值熔断MA窗口(0=不用)")
-    ap.add_argument("--llm-mode", choices=["off", "veto", "scale", "both"], default="off",
-                    help="veto=看空禁入场, scale=risk_off仓位缩放, both=两者")
+    ap.add_argument("--llm-mode",
+                    choices=["off", "veto", "scale", "both", "phase", "phase-bottom", "phase-exit", "phase-top", "phase-sell"],
+                    default="phase-sell",
+                    help="v1证伪档: veto/scale/both; v2阶段档: phase全开/phase-bottom仅早鸟/phase-exit仅退出侧")
     ap.add_argument("--llm-dir", default=os.path.join(os.path.dirname(DATA), "output", "llm_monthly"))
-    ap.add_argument("--llm-riskoff-cap", type=float, default=0.5, help="risk_off月仓位乘数")
-    ap.add_argument("--llm-min-conf", type=float, default=0.6, help="评级置信度门槛")
+    ap.add_argument("--llm-riskoff-cap", type=float, default=0.5, help="risk_off月仓位乘数(v1)")
+    ap.add_argument("--llm-min-conf", type=float, default=0.6, help="LLM判定置信度门槛")
+    ap.add_argument("--llm-bottom-w", type=float, default=0.5, help="早鸟票权重上限折扣(逆势半仓)")
+    ap.add_argument("--llm-exit-conf", type=float, default=0.0, help="下降退出置信度门槛(0=不过滤)")
     ap.add_argument("--grid", action="store_true")
     args = ap.parse_args()
 
@@ -346,7 +413,8 @@ def main():
               hyst=args.hyst, cooldown=args.cooldown, inc_margin=args.inc_margin,
               weight_mode=args.weight_mode, max_w=args.max_w, eq_ma=args.eq_ma,
               llm_mode=args.llm_mode, llm_dir=args.llm_dir,
-              llm_cap=args.llm_riskoff_cap, llm_conf=args.llm_min_conf)
+              llm_cap=args.llm_riskoff_cap, llm_conf=args.llm_min_conf,
+              llm_bottom_w=args.llm_bottom_w, llm_exit_conf=args.llm_exit_conf)
     if args.grid:
         print("\n== 参数网格稳健性 ==")
         for lb, wt in [([20, 60], [0.5, 0.5]), ([10, 30], [0.5, 0.5]),

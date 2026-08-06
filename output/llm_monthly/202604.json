@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "池中8/10标的动量分大于0，无系统性风险，各类资产表现分化，符合结构轮动特征",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "1月收益17.0%，MA60偏离7.9%，动量分0.3，长期科技成长逻辑顺畅，风险可控"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2%/52周分位94%/近20日涨11.8%/MA20斜率6.4",
+      "macro_logic": "AI算力需求爆发，美股科技龙头盈利超预期，美联储降息预期支撑",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "3月收益-16.5%，较MA250低14.3%，动量分-0.29排名末尾，下行趋势明确"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-28.4%/52周分位10%/低点18日未破/近20日涨1.8%",
+      "macro_logic": "数字经济政策支持，美债利率下行，南向资金逐步流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "588000.SS": {
-      "rating": "看多",
-      "confidence": 0.75,
-      "reason": "1月收益24.9%，创60日新高，MA60偏离11.7%，高景气成长趋势清晰"
+      "phase": "冲高",
+      "phase_evidence": "创250日新高/52周分位100%/近20日涨20.8%/vs MA250达24.5%",
+      "macro_logic": "硬科技产业政策加持，流动性宽松，AI赛道资金抱团",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "3月收益仅1.8%，较60日高点回落13.7%，动量分-0.06，赔率一般"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-13.7%/52周分位66%/MA20斜率0.5/波动比0.85",
+      "macro_logic": "全球央行购金潮，中东地缘冲突，美联储降息预期降温",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "501018.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "3月收益88.5%，MA60偏离15.1%，动量分0.45排名第三，趋势强劲"
+      "phase": "冲高",
+      "phase_evidence": "近60日涨70.3%/vs MA250达61.6%/MA60斜率22.6/波动比1.23",
+      "macro_logic": "OPEC+超预期减产，中东地缘冲突升级，原油库存超预期下降",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
     },
     "160723.SZ": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "12月收益86.3%，动量分0.5位列第一，上行趋势明确，注意移仓损耗"
+      "phase": "冲高",
+      "phase_evidence": "深回撤-21.1%/近60日涨70.7%/vs MA250达56%/MA60斜率20.6",
+      "macro_logic": "OPEC+超预期减产，中东地缘冲突升级，原油库存超预期下降",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "1月收益-2.5%，较MA250低1.1%，动量分偏低，防御属性凸显但弹性不足"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-10.3%/52周分位38%/近20日跌1.7%/波动比0.91",
+      "macro_logic": "红利风格资金偏好，经济弱复苏，银行净息差企稳",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "3月收益5.7%，MA60偏离3.7%，动量分0.18，防御属性下收益空间有限"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-8.6%/52周分位51%/近20日跌2%/波动比0.88",
+      "macro_logic": "红利风格资金偏好，经济弱复苏，银行净息差企稳",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.65
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "3月收益10.3%，创60日新高，动量分0.5并列第一，红利风格占优趋势明确"
+      "phase": "上升",
+      "phase_evidence": "创250日新高/52周分位100%/近60日涨14.1%/MA20斜率3.3",
+      "macro_logic": "红利风格资金抱团，业绩超预期，净息差改善幅度领先",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.55,
-      "reason": "1月收益3.3%，较60日高点回落3.8%，动量分偏低，防御属性为主弹性一般"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-19.4%/52周分位48%/近20日涨3.4%/MA60斜率-2",
+      "macro_logic": "红利风格资金偏好，经济弱复苏，银行净息差企稳",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     }
   },
-  "prev_month_review": "本次为策略首次月度评级，无上月评级记录可校验，后续将逐月跟踪绩效归因优化策略",
-  "summary": "本月为结构轮动行情，优先高配动量前三的建行、嘉实原油、南方原油，辅以科创50、纳指ETF把握成长机会，规避下行趋势明确的恒生科技，黄金及剩余银行标的低配或观望，整体维持中等仓位",
+  "factor_chains": "中东地缘冲突→OPEC+减产→原油上涨→通胀粘性→美联储降息放缓→成长股估值承压、黄金震荡",
+  "prev_month_review": "上月无有效判定记录，本月首次基于量价、均线及宏观因子完成全池标的研判，无历史误判",
+  "summary": "本月配置：标配纳指ETF捕捉AI红利，左侧布局筑底的恒生科技，止盈冲高的科创50、原油类标的，标配建行拿红利收益，黄金做对冲，其余银行低配，规避追高过度拉伸品种",
+  "version": 2,
   "month": "202604",
   "asof": "20260430",
   "model": "bot-20250308205057-5kjf4"

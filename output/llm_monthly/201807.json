@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "动量分>0标的占4/6，资产走势分化，无系统性机会或风险，符合中性轮动特征",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.41排名第1，近3月收益19%，较MA60高5.5%，上行趋势明确"
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅-2.8%，52周分位88%，MA20/60斜率5.8%/5.5%",
+      "macro_logic": "美国税改落地推升盈利，2018年中美股科技龙头财报超预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，走势暂不明确，观望为宜"
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据，无明确趋势信号",
+      "macro_logic": "无明确当期驱动事件，趋势待观察",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，走势暂不明确，观望为宜"
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据，无明确趋势信号",
+      "macro_logic": "无明确当期驱动事件，趋势待观察",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.5,
-      "reason": "动量分-0.06排名末位，近6月收益-4%，跌破MA250，趋势偏弱"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-5.2%，低点距今9日，MA20斜率0.2%，波动比0.73",
+      "macro_logic": "中美贸易摩擦升温，避险需求抬升，美元阶段性见顶",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，走势暂不明确，观望为宜"
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据，无明确趋势信号",
+      "macro_logic": "无明确当期驱动事件，趋势待观察",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无当期量化特征数据，走势暂不明确，观望为宜"
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据，无明确趋势信号",
+      "macro_logic": "无明确当期驱动事件，趋势待观察",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.07排名第3，近1月收益11.2%，站稳MA60，短期强势"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-27.1%，低点距今21日，近20日涨9.9%，短期止跌",
+      "macro_logic": "国内去杠杆下A股风险偏好下行，银行高股息防御属性凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601988.SS": {
-      "rating": "看空",
-      "confidence": 0.5,
-      "reason": "动量分-0.04排第5，近12月收益-10.6%，同时跌破MA60、MA250"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-23.9%，低点距今8日，短期收益转正，止跌企稳",
+      "macro_logic": "国内去杠杆下A股风险偏好下行，银行半年报盈利稳健",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "动量分0.06排第4，近1月收益12.7%，略低于MA60，走势待确认"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-28.5%，低点距今21日，近20日涨10.9%，反弹动能较强",
+      "macro_logic": "国内去杠杆下A股风险偏好下行，银行高股息获资金增持",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.08排名第2，近1月收益9.6%，较MA60高0.8%，防御属性突出"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-23.4%，低点距今20日，近20日涨10.0%，反弹明确",
+      "macro_logic": "国内去杠杆下A股风险偏好下行，银行高股息防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     }
   },
-  "prev_month_review": "本月为首次分析，无上月评级记录，无历史策略校验内容",
-  "summary": "本月优先配置动量排名前三标的，核心仓位配纳指ETF把握成长收益，辅以农行、工行等高股息标的做防御，规避动量为负的黄金、中行，其余无数据标的暂不参与，整体维持中等仓位。",
+  "factor_chains": "国内去杠杆→A股防御风格占优；中美贸易摩擦→避险情绪抬升；美联储加息+美股盈利支撑纳指强势",
+  "prev_month_review": "上月未出具明确的标的阶段与逻辑判定，本月为策略首次正式月度研判，无历史误判需修正",
+  "summary": "本月以纳指ETF为核心进攻仓位，四大行高股息标的为防御底仓，黄金ETF做避险对冲，其余无明确趋势标的暂观望，整体仓位控制在6成左右",
+  "version": 2,
   "month": "201807",
   "asof": "20180731",
   "model": "bot-20250308205057-5kjf4"

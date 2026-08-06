@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "仅2/10标的动量分>0，科创50、纳指ETF动量占优，其余多数资产趋势走弱，结构分化显著",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "3月收益28.4%，站稳MA60，动量分0.35排名第2，科技成长逻辑明确"
+      "phase": "上升",
+      "phase_evidence": "距250日高点-6.8%/52周分位80%/MA20、MA60斜率为正/近60日涨31.7%",
+      "macro_logic": "AI算力需求爆发推升美股科技龙头盈利，美联储加息预期缓和",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "近1月跌8.5%，跌破MA60、MA250，动量分-0.23排名靠后，压力较大"
+      "phase": "筑底",
+      "phase_evidence": "深回撤-35.3%/52周分位7%/低点距今2交易日/近5日涨1.4%",
+      "macro_logic": "中国数字经济政策支持，美债利率上行压力阶段性缓解",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "588000.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "近1月涨27.1%、3月涨72.5%，创60日新高，动量分1.2排名第1，趋势极强"
+      "phase": "冲高",
+      "phase_evidence": "创250日新高/52周分位100%/近60日涨77%/较MA250高60.5%",
+      "macro_logic": "国内硬科技产业政策加码，流动性宽松支撑高beta成长板块",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "近1月跌10.9%，距60日高点回撤17%，跌破MA60，短期趋势走弱"
+      "phase": "下降",
+      "phase_evidence": "深回撤-25.3%/MA20、MA60斜率为负/近20日跌10.4%",
+      "macro_logic": "美联储加息预期升温，美元走强压制黄金估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "501018.SS": {
-      "rating": "看空",
-      "confidence": 0.85,
-      "reason": "近1月跌20%、3月跌40.3%，距60日高点回撤40.9%，动量排名倒数第二"
+      "phase": "下降",
+      "phase_evidence": "深回撤-40.9%/MA60斜率-3.5%/近60日跌34.2%",
+      "macro_logic": "OPEC增产预期叠加全球需求疲软，油价持续下行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "160723.SZ": {
-      "rating": "看空",
-      "confidence": 0.85,
-      "reason": "近1月跌18.1%、3月跌44%，动量分-0.42排名倒数第一，下跌趋势明确"
+      "phase": "下降",
+      "phase_evidence": "深回撤-44.0%/52周分位24%/近60日跌33.1%",
+      "macro_logic": "OPEC增产预期叠加全球需求疲软，油价持续下行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "近1月跌2.1%，跌破MA60、MA250，高股息有一定支撑，方向不明"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-14.9%/52周分位11%/MA20、MA60斜率接近0",
+      "macro_logic": "红利风格阶段性回调，市场风险偏好抬升分流资金",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.65
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "近3月涨4.6%，站稳MA250，高股息具备防御价值，短期波动有限"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-9.1%/52周分位49%/近5日跌6.8%",
+      "macro_logic": "红利风格阶段性回调，市场风险偏好抬升分流资金",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
     },
     "601939.SS": {
-      "rating": "中性",
-      "confidence": 0.6,
-      "reason": "近3月涨3.3%，站稳MA250，估值低股息稳定，防御属性突出"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-10.0%/52周分位49%/近20日跌4.5%",
+      "macro_logic": "红利风格阶段性回调，市场风险偏好抬升分流资金",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "近3月跌6.6%，跌破MA60、MA250，短期走弱，高股息有一定支撑"
+      "phase": "下降",
+      "phase_evidence": "深回撤-29.3%/52周分位12%/MA20斜率-2.3%/近60日跌9.4%",
+      "macro_logic": "红利风格阶段性回调，市场风险偏好抬升分流资金",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.65
     }
   },
-  "prev_month_review": "本月为首次开展该策略分析，无上月评级可校验，后续将逐月回溯优化判断逻辑",
-  "summary": "本月市场结构分化，进攻端优先配置动量居前的科创50、纳指ETF，防御端少量配置中行、建行等高股息标的，规避原油、黄金、恒生科技等趋势走弱品种，整体仓位控制在5成",
+  "factor_chains": "美联储利率预期主导全球资产：加息预期抬升压制黄金、原油估值；国内流动性+硬科技政策推升科创50，AI趋势支撑纳指上行",
+  "prev_month_review": "上月未出具具体标的判定结论，本月基于2026年6月末全量量价数据，首次完成全部标的的状态判定与宏观归因",
+  "summary": "本月优先配置上升趋势的纳指ETF，逢低布局筑底的恒生科技ETF，对冲高的科创50逐步止盈，回避下降趋势的黄金、原油与农行，暂时观望银行类防御标的，控制组合波动",
+  "version": 2,
   "month": "202606",
   "asof": "20260630",
   "model": "bot-20250308205057-5kjf4"

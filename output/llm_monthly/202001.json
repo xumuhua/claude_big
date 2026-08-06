@@ -1,60 +1,90 @@
 {
-  "regime": "risk_off",
-  "regime_reason": "截至2020-01-23，池内仅2只标的动量分>0，多数权益资产动量为负，整体风险偏好低迷",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.79排名第1，近1月涨9.2%、近3月涨21.1%，较MA60高10.5%，趋势强势"
-    },
-    "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无该日有效量化特征数据，暂无法判断趋势，保持中性"
-    },
-    "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无该日有效量化特征数据，暂无法判断趋势，保持中性"
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅-0.1%，52周分位100%，较MA250高24.1%，波动比1.27",
+      "macro_logic": "2019年美联储三次降息，美股科技龙头盈利持续超预期",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "518800.SS": {
-      "rating": "看多",
-      "confidence": 0.6,
-      "reason": "动量分0.12排名第2，近1月涨3.1%，较MA250高9.8%，避险属性突出"
-    },
-    "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无该日有效量化特征数据，暂无法判断趋势，保持中性"
-    },
-    "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.3,
-      "reason": "无该日有效量化特征数据，暂无法判断趋势，保持中性"
+      "phase": "上升",
+      "phase_evidence": "52周分位83%，近120日涨8.9%，MA20斜率3.6%，站稳MA250",
+      "macro_logic": "2019年全球央行购金潮，美联储降息周期开启美元走弱",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
     },
     "601398.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.23，近1月跌2.4%，较MA60低2.1%，股息防御属性均衡"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-4.8%，较MA250高0.6%，近20日跌1.9%，无明确趋势",
+      "macro_logic": "高股息属性吸引避险资金，2019年末社融数据弱于预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "动量分-0.22位列动量前三，近1月跌1.6%，防御属性凸显，赔率一般"
+      "phase": "筑底",
+      "phase_evidence": "52周分位仅18%，低点249日未破，跌速持续收窄，MA20走平",
+      "macro_logic": "银行板块估值处历史低位，高股息防御价值逐步凸显",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.4,
-      "reason": "动量分-0.4，近3月跌5.6%，较MA250低2.5%，短期趋势走弱"
+      "phase": "下降",
+      "phase_evidence": "近120日跌5.8%，MA60斜率-0.4%向下，跌破MA60、MA250",
+      "macro_logic": "2019年末经济下行压力大，市场担忧银行资产质量",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
-      "rating": "看空",
-      "confidence": 0.4,
-      "reason": "动量分-0.3，近1月跌4.3%，较MA250低3.1%，短期下行压力大"
+      "phase": "震荡",
+      "phase_evidence": "52周分位27%，低点101日未破，近20日跌4.1%，无明确趋势",
+      "macro_logic": "高股息防御属性与经济下行担忧交织，缺乏明确驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，暂未观测到明确趋势信号",
+      "macro_logic": "暂无明确事件驱动的趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，暂未观测到明确趋势信号",
+      "macro_logic": "暂无明确事件驱动的趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，暂未观测到明确趋势信号",
+      "macro_logic": "暂无明确事件驱动的趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，暂未观测到明确趋势信号",
+      "macro_logic": "暂无明确事件驱动的趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
     }
   },
-  "prev_month_review": "本月为首次分析，无上月评级，无相关复盘内容",
-  "summary": "本月处于risk_off区间，优先配置动量靠前的纳指ETF、黄金ETF，银行类标的以防御配置为主，其余无有效数据标的暂观望，严控整体权益仓位水平",
+  "factor_chains": "2019年美联储开启降息周期→全球流动性宽松→美股科技、黄金上行→国内经济下行压力→银行板块估值分化",
+  "prev_month_review": "上月无明确阶段判定，本期基于当期量价及宏观事件首次给出判断，无过往误判需修正",
+  "summary": "本月优先配置上升趋势的黄金ETF，冲高的纳指ETF可逐步止盈，银行板块选取高股息标的做防御底仓，无数据标的暂观望，组合整体偏均衡防御",
+  "version": 2,
   "month": "202001",
   "asof": "20200123",
   "model": "bot-20250308205057-5kjf4"

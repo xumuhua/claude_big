@@ -1,60 +1,90 @@
 {
-  "regime": "risk_on",
-  "regime_reason": "池内5/6标的动量分大于0，多数权益类标的创60日新高，整体风险偏好上行",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.9,
-      "reason": "动量排名第1，12月收益23.2%，创60日新高，年化波动仅8.2%，性价比优"
+      "phase": "上升",
+      "phase_evidence": "距250日高点0%，近120日涨12.7%，MA20/60斜率为正，波动比0.68",
+      "macro_logic": "2014年美国经济复苏，美联储维持低利率，科技股盈利增长",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
     },
     "513180.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "暂无对应量化特征数据，无明确多空信号，暂观望"
+      "phase": "震荡",
+      "phase_evidence": "无当期有效交易数据，无明确趋势信号",
+      "macro_logic": "未上市，无有效驱动因子跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "588000.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "暂无对应量化特征数据，无明确多空信号，暂观望"
+      "phase": "震荡",
+      "phase_evidence": "无当期有效交易数据，无明确趋势信号",
+      "macro_logic": "未上市，无有效驱动因子跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "518800.SS": {
-      "rating": "看空",
-      "confidence": 0.8,
-      "reason": "动量分-0.37排末尾，3月收益-8.8%，跌破MA60及MA250，趋势走弱"
+      "phase": "筑底",
+      "phase_evidence": "回撤-14.9%，低点15日未破，近5日涨0.3%，vs MA20+0.8%",
+      "macro_logic": "美联储加息预期升温美元走强，黄金超跌后止跌企稳",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "暂无对应量化特征数据，无明确多空信号，暂观望"
+      "phase": "震荡",
+      "phase_evidence": "无当期有效交易数据，无明确趋势信号",
+      "macro_logic": "未上市，无有效驱动因子跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "暂无对应量化特征数据，无明确多空信号，暂观望"
+      "phase": "震荡",
+      "phase_evidence": "无当期有效交易数据，无明确趋势信号",
+      "macro_logic": "未上市，无有效驱动因子跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
     },
     "601398.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量排名第3，1月收益12.5%，站在均线之上，创60日新高"
+      "phase": "冲高",
+      "phase_evidence": "近20日涨10.1%，vs MA20+8.3%，MA20斜率5.8%，波动比1.49",
+      "macro_logic": "2014年11月央行降息，流动性宽松驱动低估值银行上涨",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
     },
     "601988.SS": {
-      "rating": "看多",
-      "confidence": 0.75,
-      "reason": "动量排名第4，1月收益22.9%，创60日新高，趋势向上但波动偏高"
+      "phase": "冲高",
+      "phase_evidence": "近20日涨18.1%，vs MA20+12.4%，MA20斜率10.5%，波动比1.87",
+      "macro_logic": "2014年11月央行降息，流动性宽松驱动低估值银行上涨",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
     },
     "601939.SS": {
-      "rating": "看多",
-      "confidence": 0.85,
-      "reason": "动量排名第2，6月收益17.8%，站在均线之上，创60日新高"
+      "phase": "冲高",
+      "phase_evidence": "近20日涨12.4%，vs MA20+10.2%，MA20斜率4.7%，波动比1.52",
+      "macro_logic": "2014年11月央行降息，流动性宽松驱动低估值银行上涨",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
     },
     "601288.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量排名第5，1月收益14%，创60日新高，趋势向好"
+      "phase": "冲高",
+      "phase_evidence": "近20日涨11.3%，vs MA20+9.7%，MA20斜率5.0%，波动比1.67",
+      "macro_logic": "2014年11月央行降息，流动性宽松驱动低估值银行上涨",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
     }
   },
-  "prev_month_review": "本月为首次分析，无上月评级可校验，后续将持续跟踪动量信号有效性",
-  "summary": "本月处于risk_on区间，优先配置动量前三标的：纳指ETF、建设银行、工商银行，适度控制高波动银行仓位对冲风险，规避趋势走弱的黄金ETF，其余无信号标的暂观望。",
+  "factor_chains": "央行降息→国内流动性宽松→银行股估值修复；美联储加息预期→美元走强→黄金承压，美国经济复苏支撑纳指上行",
+  "prev_month_review": "上月未对所有标的出具有效判定，无历史判断可校验，本月基于当期数据首次给出结论",
+  "summary": "本月优先配置上升趋势明确的纳指ETF；黄金处于筑底阶段可小仓位左侧布局；四大银行已进入冲高阶段，短期涨幅过大需逐步止盈；其余未上市标的暂不配置",
+  "version": 2,
   "month": "201411",
   "asof": "20141128",
   "model": "bot-20250308205057-5kjf4"

@@ -1,60 +1,90 @@
 {
-  "regime": "neutral",
-  "regime_reason": "仅2只标的动量分大于0，多数资产动量偏弱，结构分化显著，无系统性风险信号",
   "assets": {
     "513100.SS": {
-      "rating": "看多",
-      "confidence": 0.7,
-      "reason": "动量分0.19排第2，近1月涨10.9%，较MA60高6.3%，短期趋势向好"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-16.6%，低点30日未破，近20日涨11.1%，MA20斜率2.2%",
+      "macro_logic": "美联储7月加息75bp落地，市场预期加息节奏放缓",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "513180.SS": {
-      "rating": "看空",
-      "confidence": 0.6,
-      "reason": "近1月跌10.8%，较MA250低18.4%，距60日高点回撤14.9%，趋势偏弱"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-40.8%，低点92日未破，波动比0.64",
+      "macro_logic": "互联网监管政策落地，美债利率上行压制估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "588000.SS": {
-      "rating": "看多",
-      "confidence": 0.8,
-      "reason": "动量分0.34排首位，近3月涨23.3%，较MA60高2.7%，成长趋势明确"
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-31.6%，低点64日未破，近60日涨14.6%",
+      "macro_logic": "国内出台科创支持政策，流动性边际宽松",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "518800.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "近3月跌4.5%，略低于MA60，较MA250高0.6%，多空因素博弈"
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-7.8%，52周分位39%，波动比0.95无明确趋势",
+      "macro_logic": "美联储加息压制金价，俄乌冲突提供避险支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
     },
     "501018.SS": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "近6月涨38.0%，近1月跌5.0%，距60日高点回撤13%，短期波动较大"
+      "phase": "震荡",
+      "phase_evidence": "52周分位69%，近120日涨31.1%，近20日跌2.4%无明确趋势",
+      "macro_logic": "俄乌冲突推升油价，OPEC减产支撑价格高位",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "160723.SZ": {
-      "rating": "中性",
-      "confidence": 0.4,
-      "reason": "近6月涨39.2%，近1月跌7.0%，较MA60低4.8%，短期走势偏弱"
+      "phase": "震荡",
+      "phase_evidence": "52周分位61%，近120日涨32%，近20日跌4.7%无明确趋势",
+      "macro_logic": "俄乌冲突推升油价，OPEC减产支撑价格高位",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
     },
     "601398.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分垫底，近1月跌8.2%，较MA250低6.2%，短期趋势走弱"
+      "phase": "筑底",
+      "phase_evidence": "52周分位9%，低点10日未破，近20日跌8.2%跌幅收窄",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601988.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "近1月跌6.1%，较MA60低4.3%，高股息属性支撑，下跌空间有限"
+      "phase": "筑底",
+      "phase_evidence": "52周分位23%，低点238日未破，近20日跌6.1%",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.65
     },
     "601939.SS": {
-      "rating": "看空",
-      "confidence": 0.7,
-      "reason": "动量分排第9，近1月跌8.1%，较MA250低6.8%，短期趋势走弱"
+      "phase": "筑底",
+      "phase_evidence": "52周分位9%，低点10日未破，近20日跌8.4%跌幅收窄",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     },
     "601288.SS": {
-      "rating": "中性",
-      "confidence": 0.5,
-      "reason": "近1月跌5.6%，较MA250低4.3%，高股息提供安全垫，赔率一般"
+      "phase": "筑底",
+      "phase_evidence": "52周分位26%，低点10日未破，近20日跌5.3%跌幅收窄",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
     }
   },
-  "prev_month_review": "本次为首次月度分析，无上期评级记录，无相关复盘内容",
-  "summary": "本月为结构分化行情，优先配置动量居前的科创50、纳指ETF，规避趋势走弱的工行、建行、恒生科技，原油、黄金、剩余银行标的暂观望，整体仓位控制在5成左右，以成长类权益为核心",
+  "factor_chains": "美联储加息→美债利率上行→全球成长股估值承压；俄乌冲突→原油高位→通胀黏性→加息预期反复；国内稳增长→宽信用→A股估值修复",
+  "prev_month_review": "上月未出具明确标的判定，本月基于2022年7月末公开宏观数据及量价指标首次给出完整判断",
+  "summary": "本月优先布局筑底的科创50、纳指ETF，标配原油博弈地缘溢价，黄金对冲尾部风险，银行逢低布局赚股息，暂时规避短期仍有回调压力的恒生科技",
+  "version": 2,
   "month": "202207",
   "asof": "20220729",
   "model": "bot-20250308205057-5kjf4"
