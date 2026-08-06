@@ -370,7 +370,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            nuke_stop=0.28, nuke_win=500,
            v_arm_dd=-0.35, v_ret5=0.08, v_trail=-0.15, v_arm_profit=0.15,
            use_events=True, events_dir=None, events_hold="all",
-           ev_exhaust_profit=0.0):
+           ev_exhaust_profit=0.0, b_arm_win=500, b_wave=False, w_cool=10):
     """V反早鸟(用户20260806: 如何吃到2026-07-02原油触底反弹):
     脉冲资产的底是V形不是平台——深跌武装(v_arm_dd)后等爆发式反转确认
     (收盘>MA10 且 5日收益≥v_ret5), 次日进场; 创新低立即证伪止损;
@@ -394,6 +394,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     maX = closes.rolling(b_exit_ma).mean()
     hi250 = closes.rolling(250).max()
     hi_nuke = closes.rolling(nuke_win).max()
+    hi_arm = closes.rolling(b_arm_win, min_periods=60).max()   # B轨武装用高点(防滚出逃逸)
     GOLD, NDX = "518800.SS", "513100.SS"
     BANKS = ["601398.SS", "601988.SS", "601939.SS", "601288.SS"]
 
@@ -429,6 +430,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
         llm_tl.sort(key=lambda x: x[0])
     llm_state = {"idx": -1, "exit": set(), "block": set(), "asof": None,
                  "exhaust": set(), "hold": set()}
+    w_coold = {}                   # W仓退出后冷却截止日
     b_pending_low = {}             # 信号日暂存底部参考低
     b_pending_kind = {}            # 信号日暂存入仓类型(V/B)
     sb_streak = {}                 # t -> 连续低于MA250×0.98天数
@@ -494,9 +496,9 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 new_pos[t] = total * w * (1 - fee_of(t)) / px
                 fees += total * w * fee_of(t)
                 if t in B_TRACK:
-                    b_entry[t] = {"px": px, "low": b_pending_low.pop(t, None), "est": False,
-                                  "d": day}
-                    b_entry[t]["kind"] = "V" if b_pending_kind.pop(t, None) == "V" else "B"
+                    kind = b_pending_kind.pop(t, "B")
+                    b_entry[t] = {"px": px, "low": b_pending_low.pop(t, None),
+                                  "est": kind == "W", "d": day, "kind": kind}
             mv_open = sum(n * px_of(t) for t, n in new_pos.items() if np.isfinite(px_of(t)))
             cash = total - mv_open - fees
             pos = new_pos
@@ -643,7 +645,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                                    f"dd{c[t] / hi250.loc[day, t] - 1:.0%}/低点{low_age[t][i]}日"))
                 elif v_arm_dd:
                     # V反早鸟: 深跌武装 + 爆发反转确认(收盘>MA10 且 5日收益≥v_ret5)
-                    dd_now = c[t] / hi250.loc[day, t] - 1 if np.isfinite(hi250.loc[day, t]) else 0
+                    dd_now = c[t] / hi_arm.loc[day, t] - 1 if np.isfinite(hi_arm.loc[day, t]) else 0
                     if dd_now <= v_arm_dd:
                         lo = v_arm_low.get(t)
                         v_arm_low[t] = c[t] if lo is None else min(lo, c[t])
@@ -659,6 +661,19 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         trades.append((str(day.date()), "V-IN", TICKERS[t],
                                        f"dd{dd_now:.0%}/5日{r5:+.0%}/V反早鸟"))
                         v_arm_low.pop(t, None)
+                    elif b_wave:
+                        # 主升搭乘: 站上MA250+MA60走升+LLM持续 → 不进深跌弹药, 直接趋势跟随
+                        if day <= w_coold.get(t, pd.Timestamp.min):
+                            continue
+                        m60s = maX[t].iloc[max(0, i - 20):i + 1]
+                        wave_ok = (np.isfinite(ma250.loc[day, t]) and c[t] > ma250.loc[day, t]
+                                   and len(m60s) >= 21 and maX[t].iloc[-1] > m60s.iloc[0]
+                                   and t in llm_state["hold"])
+                        if wave_ok:
+                            b_active[t] = cap
+                            b_pending_kind[t] = "W"
+                            trades.append((str(day.date()), "W-IN", TICKERS[t],
+                                           "主升搭乘(MA250上+LLM持续)"))
             else:
                 be = b_entry.get(t, {})
                 # 趋势成立标记: 收盘曾站上MA(b_exit_ma)
@@ -668,13 +683,19 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     be["peak"] = max(be.get("peak", be["px"]), c[t])
                 doc_fresh = (llm_state["asof"] is not None and be
                              and llm_state["asof"] > be["d"])
+                if be and be.get("kind") == "W" and be.get("low") is None:
+                    be["low"] = c[t] * 0.5       # W仓不用新低证伪: 锚定到不可能值
                 new_low = be and be.get("low") is not None and c[t] < be["low"]
                 # 叙事护航仅保护浮盈仓(逻辑拿住利润, 不用来扛浮亏); events_hold=all 则全保护
                 hold_ok = (use_events and events_hold != "off" and doc_fresh
                            and t in llm_state["hold"]
                            and (events_hold == "all" or (be and c[t] >= be["px"])))
-                trend_end = (be.get("est") and np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t]
-                             and not hold_ok)
+                if be and be.get("kind") == "W":
+                    trend_end = (np.isfinite(ma250.loc[day, t]) and c[t] < ma250.loc[day, t] * 0.98
+                                 and not hold_ok)
+                else:
+                    trend_end = (be.get("est") and np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t]
+                                 and not hold_ok)
                 llm_down = (use_llm_exit and t in llm_state["exit"] and doc_fresh
                             and (not use_events or (be and c[t] / be["px"] - 1 >= ev_exhaust_profit)))
                 llm_exhaust = (use_events and doc_fresh and t in llm_state["exhaust"]
@@ -928,7 +949,7 @@ def bt_v3(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     if b_deep and i >= 250 and np.isfinite(closes[t].iloc[i - 250]):
                         if c[t] / closes[t].iloc[i - 250] - 1 >= 1.0:   # 年涨幅≥100%=超级主浪后
                             arm_line = min(b_arm_dd, -0.35)
-                    armed = np.isfinite(hi250.loc[day, t]) and c[t] / hi250.loc[day, t] - 1 <= arm_line
+                    armed = np.isfinite(hi_arm.loc[day, t]) and c[t] / hi_arm.loc[day, t] - 1 <= arm_line
                     trig = (armed and low_age[t][i] >= b_bottom_age
                             and np.isfinite(ma20.loc[day, t]) and c[t] > ma20.loc[day, t]
                             and np.isfinite(ma20_slope.loc[day, t]) and ma20_slope.loc[day, t] > 0
@@ -1062,6 +1083,9 @@ def main():
     ap.add_argument("--v3-no-events", action="store_true", help="关闭事件级LLM跟踪(默认开)")
     ap.add_argument("--v3-events-hold", choices=["profit", "all", "off"], default="all",
                     help="叙事护航范围: profit=仅浮盈仓(默认)/all=全部/off=关闭护航只留衰竭退出")
+    ap.add_argument("--v3-b-arm-win", type=int, default=500, help="B轨武装高点窗口(500=防滚出逃逸)")
+    ap.add_argument("--v3-b-wave", action="store_true", help="主升搭乘: MA250上+MA60升+LLM持续时持有B票")
+    ap.add_argument("--v3-w-cool", type=int, default=10, help="W仓退出后冷却交易日数")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
                     help="衰竭退出仅对浮盈≥此值的仓生效(0=无门槛)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
@@ -1108,7 +1132,9 @@ def main():
                             use_events=not args.v3_no_events,
                             events_dir=os.path.join(os.path.dirname(DATA), "output", "llm_events"),
                             events_hold=args.v3_events_hold,
-                            ev_exhaust_profit=args.v3_ev_exhaust_profit)
+                            ev_exhaust_profit=args.v3_ev_exhaust_profit,
+                            b_arm_win=args.v3_b_arm_win, b_wave=args.v3_b_wave,
+                            w_cool=args.v3_w_cool)
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():
