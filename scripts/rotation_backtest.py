@@ -370,7 +370,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            nuke_stop=0.28, nuke_win=500,
            v_arm_dd=-0.35, v_ret5=0.08, v_trail=-0.15, v_arm_profit=0.15,
            use_events=True, events_dir=None, events_hold="all",
-           ev_exhaust_profit=0.0, b_arm_win=500, b_wave=False, w_cool=10):
+           ev_exhaust_profit=0.0, b_arm_win=500, b_wave=False, w_cool=10,
+           w2_on=True, w2_ext=0.20, w2_exit_buf=1.0):
     """V反早鸟(用户20260806: 如何吃到2026-07-02原油触底反弹):
     脉冲资产的底是V形不是平台——深跌武装(v_arm_dd)后等爆发式反转确认
     (收盘>MA10 且 5日收益≥v_ret5), 次日进场; 创新低立即证伪止损;
@@ -429,7 +430,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         pass
         llm_tl.sort(key=lambda x: x[0])
     llm_state = {"idx": -1, "exit": set(), "block": set(), "asof": None,
-                 "exhaust": set(), "hold": set()}
+                 "exhaust": set(), "hold": set(), "strong": set()}
     w_coold = {}                   # W仓退出后冷却截止日
     b_pending_low = {}             # 信号日暂存底部参考低
     b_pending_kind = {}            # 信号日暂存入仓类型(V/B)
@@ -469,6 +470,11 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             llm_state["hold"] = {t for t, a in doc.get("assets", {}).items()
                                  if a.get("logic_durability") == "持续"
                                  and a.get("phase") in ("筑底", "上升", "震荡")}
+            # W2强逻辑闸门: 强+持续+非冲高/下降 (主升浪鲁棒逻辑支撑, 用户20260806)
+            llm_state["strong"] = {t for t, a in doc.get("assets", {}).items()
+                                   if a.get("logic_strength") == "强"
+                                   and a.get("logic_durability") == "持续"
+                                   and a.get("phase") in ("筑底", "上升", "震荡")}
         # 1) 开盘执行
         if pending is not None:
             fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
@@ -498,7 +504,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 if t in B_TRACK:
                     kind = b_pending_kind.pop(t, "B")
                     b_entry[t] = {"px": px, "low": b_pending_low.pop(t, None),
-                                  "est": kind == "W", "d": day, "kind": kind}
+                                  "est": kind in ("W", "W2"), "d": day, "kind": kind}
             mv_open = sum(n * px_of(t) for t, n in new_pos.items() if np.isfinite(px_of(t)))
             cash = total - mv_open - fees
             pos = new_pos
@@ -661,8 +667,24 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         trades.append((str(day.date()), "V-IN", TICKERS[t],
                                        f"dd{dd_now:.0%}/5日{r5:+.0%}/V反早鸟"))
                         v_arm_low.pop(t, None)
+                    elif w2_on:
+                        # W2主升浪: 强逻辑闸门(强+持续+非冲高) + 慢确认(MA60上方+走升+不追高)
+                        if day <= w_coold.get(t, pd.Timestamp.min):
+                            continue
+                        m60v = maX.loc[day, t]
+                        m60s = maX[t].iloc[max(0, i - 20):i + 1]
+                        ext60 = c[t] / m60v - 1 if np.isfinite(m60v) else 9.9
+                        w2_ok = (t in llm_state["strong"]
+                                 and np.isfinite(m60v) and c[t] > m60v
+                                 and len(m60s) >= 21 and maX[t].iloc[-1] > m60s.iloc[0]
+                                 and 0 < ext60 <= w2_ext)
+                        if w2_ok:
+                            b_active[t] = cap
+                            b_pending_kind[t] = "W2"
+                            trades.append((str(day.date()), "W2-IN", TICKERS[t],
+                                           f"主升浪(强逻辑+MA60上方+ext{ext60:+.0%})"))
                     elif b_wave:
-                        # 主升搭乘: 站上MA250+MA60走升+LLM持续 → 不进深跌弹药, 直接趋势跟随
+                        # 主升搭乘(已证伪, 保留备查)
                         if day <= w_coold.get(t, pd.Timestamp.min):
                             continue
                         m60s = maX[t].iloc[max(0, i - 20):i + 1]
@@ -683,14 +705,17 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     be["peak"] = max(be.get("peak", be["px"]), c[t])
                 doc_fresh = (llm_state["asof"] is not None and be
                              and llm_state["asof"] > be["d"])
-                if be and be.get("kind") == "W" and be.get("low") is None:
-                    be["low"] = c[t] * 0.5       # W仓不用新低证伪: 锚定到不可能值
+                if be and be.get("kind") in ("W", "W2") and be.get("low") is None:
+                    be["low"] = c[t] * 0.5       # W/W2仓不用新低证伪: 锚定到不可能值
                 new_low = be and be.get("low") is not None and c[t] < be["low"]
                 # 叙事护航仅保护浮盈仓(逻辑拿住利润, 不用来扛浮亏); events_hold=all 则全保护
                 hold_ok = (use_events and events_hold != "off" and doc_fresh
                            and t in llm_state["hold"]
                            and (events_hold == "all" or (be and c[t] >= be["px"])))
-                if be and be.get("kind") == "W":
+                if be and be.get("kind") == "W2":
+                    trend_end = (np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t] * w2_exit_buf
+                                 and not hold_ok)
+                elif be and be.get("kind") == "W":
                     trend_end = (np.isfinite(ma250.loc[day, t]) and c[t] < ma250.loc[day, t] * 0.98
                                  and not hold_ok)
                 else:
@@ -874,6 +899,11 @@ def bt_v3(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             llm_state["hold"] = {t for t, a in doc.get("assets", {}).items()
                                  if a.get("logic_durability") == "持续"
                                  and a.get("phase") in ("筑底", "上升", "震荡")}
+            # W2强逻辑闸门: 强+持续+非冲高/下降 (主升浪鲁棒逻辑支撑, 用户20260806)
+            llm_state["strong"] = {t for t, a in doc.get("assets", {}).items()
+                                   if a.get("logic_strength") == "强"
+                                   and a.get("logic_durability") == "持续"
+                                   and a.get("phase") in ("筑底", "上升", "震荡")}
         # 1) 开盘执行昨日信号
         if pending is not None:
             fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
@@ -1086,6 +1116,9 @@ def main():
     ap.add_argument("--v3-b-arm-win", type=int, default=500, help="B轨武装高点窗口(500=防滚出逃逸)")
     ap.add_argument("--v3-b-wave", action="store_true", help="主升搭乘: MA250上+MA60升+LLM持续时持有B票")
     ap.add_argument("--v3-w-cool", type=int, default=10, help="W仓退出后冷却交易日数")
+    ap.add_argument("--v3-no-w2", action="store_true", help="关闭W2主升浪(默认开, 用户20260806)")
+    ap.add_argument("--v3-w2-ext", type=float, default=0.20, help="W2不追高: 偏离MA60上限")
+    ap.add_argument("--v3-w2-exit-buf", type=float, default=1.0, help="W2退出: 破MA60缓冲(默认1.0=直接破MA60)")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
                     help="衰竭退出仅对浮盈≥此值的仓生效(0=无门槛)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
@@ -1134,7 +1167,8 @@ def main():
                             events_hold=args.v3_events_hold,
                             ev_exhaust_profit=args.v3_ev_exhaust_profit,
                             b_arm_win=args.v3_b_arm_win, b_wave=args.v3_b_wave,
-                            w_cool=args.v3_w_cool)
+                            w_cool=args.v3_w_cool, w2_on=not args.v3_no_w2,
+                            w2_ext=args.v3_w2_ext, w2_exit_buf=args.v3_w2_exit_buf)
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():
