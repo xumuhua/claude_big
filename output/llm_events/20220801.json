@@ -1,24 +1,25 @@
 {
+  "new_events": "2022年7月美联储加息75bp落地，国内出台科创支持政策、互联网监管政策落地，俄乌冲突持续",
   "assets": {
     "513100.SS": {
       "phase": "筑底",
-      "phase_evidence": "回撤-16.8%，低点31日未破，近20日涨10.5%，MA20斜率3.1%",
-      "macro_logic": "美联储7月加息75bp落地，市场加息预期边际缓和",
+      "phase_evidence": "距250日高点回撤-16.8%，低点31交易日未破，近20日涨10.5%，MA20斜率3.1%上翘",
+      "macro_logic": "美联储7月加息75bp落地，市场预期后续加息节奏放缓",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-40.6%，低点93交易日未破，近60日涨8.2%",
+      "macro_logic": "互联网监管政策落地，美债利率上行短期压制估值",
       "logic_strength": "中",
       "logic_durability": "持续",
       "confidence": 0.7
     },
-    "513180.SS": {
-      "phase": "筑底",
-      "phase_evidence": "深回撤-40.6%，低点93日未破，近60日涨8.2%，波动比0.63",
-      "macro_logic": "互联网监管政策落地，美债利率上行压制估值",
-      "logic_strength": "中",
-      "logic_durability": "持续",
-      "confidence": 0.6
-    },
     "588000.SS": {
       "phase": "筑底",
-      "phase_evidence": "深回撤-30.7%，低点65日未破，近60日涨17.3%，MA60斜率4.0%",
+      "phase_evidence": "距250日高点回撤-30.7%，低点65交易日未破，近60日涨17.3%",
       "macro_logic": "国内出台科创支持政策，流动性边际宽松",
       "logic_strength": "强",
       "logic_durability": "持续",
@@ -26,15 +27,15 @@
     },
     "518800.SS": {
       "phase": "震荡",
-      "phase_evidence": "回撤-7.8%，近20日-1.4%、近60日-4.5%，波动比0.94",
+      "phase_evidence": "距250日高点回撤-7.8%，52周分位39%，近20/60日收益正负交替",
       "macro_logic": "美联储加息压制金价，俄乌冲突提供避险支撑",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.7
+      "confidence": 0.85
     },
     "501018.SS": {
       "phase": "震荡",
-      "phase_evidence": "52周分位70%，近120日涨30.5%，近20日-3.7%，波动比0.74",
+      "phase_evidence": "距250日高点回撤-13.6%，52周分位70%，短期涨跌交替无明确趋势",
       "macro_logic": "俄乌冲突推升油价，OPEC减产支撑价格高位",
       "logic_strength": "强",
       "logic_durability": "持续",
@@ -42,7 +43,7 @@
     },
     "160723.SZ": {
       "phase": "震荡",
-      "phase_evidence": "52周分位63%，近120日涨32.1%，近20日-5.2%，波动比0.65",
+      "phase_evidence": "距250日高点回撤-18.4%，52周分位63%，短期涨跌交替无明确趋势",
       "macro_logic": "俄乌冲突推升油价，OPEC减产支撑价格高位",
       "logic_strength": "强",
       "logic_durability": "持续",
@@ -50,40 +51,40 @@
     },
     "601398.SS": {
       "phase": "筑底",
-      "phase_evidence": "回撤-10.3%，52周分位7%，低点距今11日，波动比1.56",
-      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "phase_evidence": "距250日高点回撤-10.3%，低点11交易日未破，52周分位仅7%",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金入场",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.7
+      "confidence": 0.6
     },
     "601988.SS": {
       "phase": "筑底",
-      "phase_evidence": "回撤-8.7%，52周分位17%，低点239日未破，波动比1.85",
-      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "phase_evidence": "距250日高点回撤-8.7%，低点239交易日未破，低位震荡充分",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金入场",
       "logic_strength": "中",
       "logic_durability": "持续",
       "confidence": 0.65
     },
     "601939.SS": {
       "phase": "筑底",
-      "phase_evidence": "回撤-13%，52周分位6%，低点距今11日，波动比1.48",
-      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "phase_evidence": "距250日高点回撤-13.0%，低点11交易日未破，52周分位仅6%",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金入场",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.7
+      "confidence": 0.6
     },
     "601288.SS": {
       "phase": "筑底",
-      "phase_evidence": "回撤-8.4%，52周分位24%，低点距今11日，波动比1.83",
-      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "phase_evidence": "距250日高点回撤-8.4%，低点11交易日未破，52周分位24%",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金入场",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.7
+      "confidence": 0.65
     }
   },
-  "factor_chains": "美联储加息→美债利率上行→成长股估值承压；俄乌冲突→原油高位→通胀粘性→加息延续；国内稳增长→科创、银行修复",
-  "prev_month_review": "上月判定整体符合走势，仅恒生科技短期回调未改筑底趋势，核心驱动逻辑均未发生逆转",
-  "summary": "本月优先配置强政策驱动的筑底品种科创50、纳指ETF，标配原油、黄金对冲通胀与避险风险，底仓配置高股息银行防御，恒生科技等待企稳信号再加仓。",
+  "factor_chains": "俄乌冲突→原油高位→通胀高企→美联储加息→美债利率上行→全球成长股估值承压；国内地产风险→防御资金偏好高股息资产",
+  "prev_month_review": "上月成长、商品类阶段与逻辑判定准确，银行板块误判筑底，实际仍在探底，高股息逻辑仍成立待验证",
+  "summary": "本月优先配置政策强驱动的科创50，逢低布局筑底的纳指ETF、恒生科技，标配原油、黄金对冲通胀与避险风险，银行板块观望待明确企稳信号",
   "version": 2,
   "month": "20220801",
   "asof": "20220801",

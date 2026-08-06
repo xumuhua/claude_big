@@ -369,7 +369,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            oh_park_banks=False, oh_exit_sig="ma10", b_tranche=False, b_dedup=False,
            nuke_stop=0.28, nuke_win=500,
            v_arm_dd=-0.35, v_ret5=0.08, v_trail=-0.15, v_arm_profit=0.15,
-           use_events=False, events_dir=None, events_hold="profit",
+           use_events=True, events_dir=None, events_hold="all",
            ev_exhaust_profit=0.0):
     """V反早鸟(用户20260806: 如何吃到2026-07-02原油触底反弹):
     脉冲资产的底是V形不是平台——深跌武装(v_arm_dd)后等爆发式反转确认
@@ -461,8 +461,9 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             if not doc.get("_event"):
                 llm_state["block"] = llm_state["block"] & llm_state["exit"]
             llm_state["asof"] = llm_tl[llm_state["idx"]][0]
+            # 衰竭才退出; 冲高+持续不退(强逻辑冲顶会延续, v2/v3.4结论)
             llm_state["exhaust"] = {t for t, a in doc.get("assets", {}).items()
-                                    if a.get("logic_durability") == "衰竭" or a.get("phase") == "冲高"}
+                                    if a.get("logic_durability") == "衰竭"}
             llm_state["hold"] = {t for t, a in doc.get("assets", {}).items()
                                  if a.get("logic_durability") == "持续"
                                  and a.get("phase") in ("筑底", "上升", "震荡")}
@@ -846,8 +847,9 @@ def bt_v3(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             if not doc.get("_event"):
                 llm_state["block"] = llm_state["block"] & llm_state["exit"]
             llm_state["asof"] = llm_tl[llm_state["idx"]][0]
+            # 衰竭才退出; 冲高+持续不退(强逻辑冲顶会延续, v2/v3.4结论)
             llm_state["exhaust"] = {t for t, a in doc.get("assets", {}).items()
-                                    if a.get("logic_durability") == "衰竭" or a.get("phase") == "冲高"}
+                                    if a.get("logic_durability") == "衰竭"}
             llm_state["hold"] = {t for t, a in doc.get("assets", {}).items()
                                  if a.get("logic_durability") == "持续"
                                  and a.get("phase") in ("筑底", "上升", "震荡")}
@@ -1057,8 +1059,8 @@ def main():
     ap.add_argument("--v3-v-ret5", type=float, default=0.08, help="V反确认5日收益")
     ap.add_argument("--v3-v-trail", type=float, default=-0.15, help="V仓浮盈后移动止盈")
     ap.add_argument("--v3-v-arm-profit", type=float, default=0.15, help="V仓移动止盈启动浮盈")
-    ap.add_argument("--v3-events", action="store_true", help="启用事件级LLM(output/llm_events)跟踪B/V仓")
-    ap.add_argument("--v3-events-hold", choices=["profit", "all", "off"], default="profit",
+    ap.add_argument("--v3-no-events", action="store_true", help="关闭事件级LLM跟踪(默认开)")
+    ap.add_argument("--v3-events-hold", choices=["profit", "all", "off"], default="all",
                     help="叙事护航范围: profit=仅浮盈仓(默认)/all=全部/off=关闭护航只留衰竭退出")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
                     help="衰竭退出仅对浮盈≥此值的仓生效(0=无门槛)")
@@ -1103,7 +1105,7 @@ def main():
                             nuke_stop=args.v3_nuke_stop, nuke_win=args.v3_nuke_win,
                             v_arm_dd=args.v3_v_arm_dd or None, v_ret5=args.v3_v_ret5,
                             v_trail=args.v3_v_trail, v_arm_profit=args.v3_v_arm_profit,
-                            use_events=args.v3_events,
+                            use_events=not args.v3_no_events,
                             events_dir=os.path.join(os.path.dirname(DATA), "output", "llm_events"),
                             events_hold=args.v3_events_hold,
                             ev_exhaust_profit=args.v3_ev_exhaust_profit)

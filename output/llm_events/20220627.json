@@ -1,56 +1,57 @@
 {
+  "new_events": "2022年6月美联储加息75bp创1994年来最大幅度，国内稳增长及平台经济支持政策落地，俄乌冲突持续僵持",
   "assets": {
     "513100.SS": {
       "phase": "筑底",
-      "phase_evidence": "距250日高点-21.4%，低点6日未破，近5日涨5.2%，vs MA20+0.6%",
-      "macro_logic": "2022年美联储加息周期压制美股科技股估值",
+      "phase_evidence": "距250日高点回撤-21.4%，52周分位17%，低点6日未破，近5日涨5.2%，vs MA20%为0.6%",
+      "macro_logic": "美联储连续加息压制科技估值，利空已逐步被市场定价",
       "logic_strength": "中",
-      "logic_durability": "持续",
+      "logic_durability": "衰竭",
       "confidence": 0.7
     },
     "513180.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-37.6%，近20日涨19.9%，MA20斜率12.9%，vs MA60+17.7%",
-      "macro_logic": "2022年4月政治局会议明确支持平台经济健康发展",
+      "phase_evidence": "距250日高点回撤-37.6%，低点68日未破，近20日涨19.9%，MA20斜率12.9%",
+      "macro_logic": "2022年4月政治局会议明确平台经济健康发展，政策底确认",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "588000.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤-31%，低点40日未破，近20日涨11.2%，MA20斜率9.5%",
+      "macro_logic": "2022年4月央行降准释放流动性，硬科技产业政策支持",
       "logic_strength": "强",
       "logic_durability": "持续",
       "confidence": 0.85
     },
-    "588000.SS": {
-      "phase": "上升",
-      "phase_evidence": "距250日高点-31%，近20日涨11.2%，MA20斜率9.5%，vs MA60+7.8%",
-      "macro_logic": "2022年4月央行降准释放流动性，硬科技政策支持",
-      "logic_strength": "强",
-      "logic_durability": "持续",
-      "confidence": 0.8
-    },
     "518800.SS": {
       "phase": "震荡",
-      "phase_evidence": "距250日高点-5.2%，近5/20日涨跌幅-0.2%/-1.7%，vs MA20-0.3%",
-      "macro_logic": "俄乌冲突避险需求与美联储加息抬升实际利率双向博弈",
+      "phase_evidence": "距250日高点回撤-5.2%，52周分位59%，近20日涨-1.7%，波动比0.85",
+      "macro_logic": "俄乌冲突避险需求与美联储加息抬升实际利率形成对冲",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.75
+      "confidence": 0.8
     },
     "501018.SS": {
       "phase": "冲高",
-      "phase_evidence": "52周分位78%，近120日涨57.8%，近5/20日跌1.2%/2.2%",
+      "phase_evidence": "近120日涨57.8%，52周分位78%，距250日高点回撤-10.1%，波动比0.66",
       "macro_logic": "俄乌冲突叠加OPEC减产，原油供需缺口持续",
       "logic_strength": "强",
       "logic_durability": "衰竭",
-      "confidence": 0.8
+      "confidence": 0.75
     },
     "160723.SZ": {
       "phase": "冲高",
-      "phase_evidence": "52周分位70%，近120日涨61.5%，近20日跌2.5%，vs MA20-4.7%",
+      "phase_evidence": "近120日涨61.5%，52周分位70%，近20日涨-2.5%，波动比0.6",
       "macro_logic": "俄乌冲突叠加OPEC减产，原油供需缺口持续",
       "logic_strength": "强",
       "logic_durability": "衰竭",
-      "confidence": 0.8
+      "confidence": 0.75
     },
     "601398.SS": {
       "phase": "震荡",
-      "phase_evidence": "距250日高点-10.5%，近20日涨0.9%，vs MA20+0.4%，波幅窄",
+      "phase_evidence": "距250日高点回撤-10.5%，52周分位26%，近20日涨0.9%，vs MA20%为0.4%",
       "macro_logic": "市场风险偏好低位，高股息银行防御价值凸显",
       "logic_strength": "中",
       "logic_durability": "持续",
@@ -58,15 +59,15 @@
     },
     "601988.SS": {
       "phase": "震荡",
-      "phase_evidence": "52周分位84%，近20日涨0.9%，vs MA20+1.0%，波幅窄",
+      "phase_evidence": "距250日高点回撤-1.5%，52周分位84%，近20日涨0.9%，vs MA250%为4.5%",
       "macro_logic": "市场风险偏好低位，高股息银行防御价值凸显",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.9
+      "confidence": 0.85
     },
     "601939.SS": {
       "phase": "震荡",
-      "phase_evidence": "距250日高点-11.1%，近20日跌0.3%，vs MA20+0.2%，波幅窄",
+      "phase_evidence": "距250日高点回撤-11.1%，52周分位30%，近20日涨-0.3%，波动比0.57",
       "macro_logic": "市场风险偏好低位，高股息银行防御价值凸显",
       "logic_strength": "中",
       "logic_durability": "持续",
@@ -74,16 +75,16 @@
     },
     "601288.SS": {
       "phase": "震荡",
-      "phase_evidence": "距250日高点-8.0%，近20日跌1.0%，vs MA20+0%，波幅窄",
+      "phase_evidence": "距250日高点回撤-8.0%，52周分位30%，近20日涨-1.0%，vs MA20%为0",
       "macro_logic": "市场风险偏好低位，高股息银行防御价值凸显",
       "logic_strength": "中",
       "logic_durability": "持续",
       "confidence": 0.9
     }
   },
-  "factor_chains": "俄乌冲突→原油上行→全球通胀高企→美联储加息抬升实际利率→成长股估值承压、避险资产多空博弈",
-  "prev_month_review": "上月判定基本准确，深回撤科技类筑底、原油冲高、其余震荡的判断符合走势，核心驱动逻辑未发生逆转",
-  "summary": "本月优先配置上升趋势的恒生科技、科创50，逢低布局筑底的纳指ETF，持有高股息银行防御，逐步止盈冲高的原油，黄金暂持有观望，保持仓位均衡",
+  "factor_chains": "美联储加息→美债利率上行→全球科技成长估值承压；俄乌冲突→原油涨价→通胀高企→加息预期强化；国内政策托底→港股及A股成长修复",
+  "prev_month_review": "上月对科技筑底、原油冲高、黄金银行震荡的判定基本符合走势，仅中国银行走势偏强超预期，核心逻辑仍在",
+  "summary": "本月优先配置政策驱动的恒生科技、科创50上升品种，逢低布局纳指ETF筑底仓位，黄金、高股息银行作为防御底仓，逐步减仓冲高的原油类标的规避回落风险",
   "version": 2,
   "month": "20220627",
   "asof": "20220627",

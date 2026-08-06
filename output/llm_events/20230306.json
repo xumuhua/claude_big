@@ -1,24 +1,25 @@
 {
+  "new_events": "2023年1-2月美联储加息放缓至25BP，全球央行2022年购金量创历史新高，国内出台科创、数字经济支持政策",
   "assets": {
     "513100.SS": {
-      "phase": "上升",
-      "phase_evidence": "距250日高点-12%，MA20斜率4.8%，近5日涨2.2%，站上MA20/60",
-      "macro_logic": "美联储加息节奏放缓，美股科技龙头盈利支撑估值修复",
-      "logic_strength": "中",
-      "logic_durability": "持续",
-      "confidence": 0.75
-    },
-    "513180.SS": {
-      "phase": "筑底",
-      "phase_evidence": "距250日高点-15.8%，低点距今85日，近5日涨5%，波动比0.82",
-      "macro_logic": "平台经济政策暖风释放，美债利率阶段性见顶",
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤12%，52周分位40%，近20日涨0.7%，波动比0.87",
+      "macro_logic": "美联储加息节奏放缓，美股科技估值修复遇短期阻力",
       "logic_strength": "中",
       "logic_durability": "持续",
       "confidence": 0.7
     },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤15.8%，低点距今85交易日，近5日涨5%，波动比0.82",
+      "macro_logic": "美债利率上行压力缓解，国内数字经济支持政策出台",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
     "588000.SS": {
       "phase": "筑底",
-      "phase_evidence": "距250日高点-18.8%，低点距今208日，MA20斜率0.2%走平",
+      "phase_evidence": "距250日高点回撤18.8%，低点距今208交易日，MA20斜率0.2%",
       "macro_logic": "国内科创产业支持政策落地，流动性边际宽松",
       "logic_strength": "中",
       "logic_durability": "持续",
@@ -26,39 +27,39 @@
     },
     "518800.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-1.3%，52周分位90%，近120日涨8.9%，站上MA250",
-      "macro_logic": "全球央行购金潮，美联储加息放缓美元走弱",
+      "phase_evidence": "距250日高点仅回撤1.3%，52周分位90%，近120日涨8.9%",
+      "macro_logic": "全球央行购金潮，美联储加息放缓带动美元走弱",
       "logic_strength": "强",
       "logic_durability": "持续",
-      "confidence": 0.85
+      "confidence": 0.9
     },
     "501018.SS": {
       "phase": "筑底",
-      "phase_evidence": "深回撤-22.2%，低点距今236日，近5日涨2.3%，波动比0.53",
-      "macro_logic": "全球经济需求预期走弱，OPEC减产力度不及预期",
+      "phase_evidence": "深回撤22.2%，52周分位22%，近20日涨3.4%，低点距今236日",
+      "macro_logic": "全球需求走弱预期充分定价，OPEC减产力度不及预期",
       "logic_strength": "中",
       "logic_durability": "衰竭",
-      "confidence": 0.65
+      "confidence": 0.6
     },
     "160723.SZ": {
       "phase": "筑底",
-      "phase_evidence": "深回撤-26%，低点距今248日，近20日涨2.4%，波动比0.69",
-      "macro_logic": "全球经济需求预期走弱，OPEC减产力度不及预期",
+      "phase_evidence": "深回撤26%，52周分位20%，近20日涨2.4%，低点距今248日",
+      "macro_logic": "全球需求走弱预期充分定价，OPEC减产力度不及预期",
       "logic_strength": "中",
       "logic_durability": "衰竭",
-      "confidence": 0.65
+      "confidence": 0.6
     },
     "601398.SS": {
       "phase": "震荡",
-      "phase_evidence": "距250日高点-10.1%，52周分位37%，MA20斜率-0.4%，无明确趋势",
-      "macro_logic": "红利风格占优，弱市下防御资金阶段性流入",
+      "phase_evidence": "距250日高点回撤10.1%，52周分位37%，近20日涨1.4%，波动比0.56",
+      "macro_logic": "红利风格占优，弱市下防御性资金小幅流入",
       "logic_strength": "弱",
       "logic_durability": "持续",
       "confidence": 0.8
     },
     "601988.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点仅-0.6%，52周分位94%，近120日涨8.5%，MA60斜率1.6%",
+      "phase_evidence": "距250日高点仅回撤0.6%，52周分位94%，近120日涨8.5%",
       "macro_logic": "红利风格占优，弱市下防御资金持续流入",
       "logic_strength": "中",
       "logic_durability": "持续",
@@ -66,24 +67,24 @@
     },
     "601939.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-8.5%，近20日涨3.9%，MA60斜率1.3%，站上所有短均线",
-      "macro_logic": "红利风格占优，弱市下防御资金加速流入",
+      "phase_evidence": "距250日高点回撤8.5%，52周分位51%，近20日涨3.9%",
+      "macro_logic": "红利风格占优，弱市下防御性资金流入提速",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.75
+      "confidence": 0.7
     },
     "601288.SS": {
-      "phase": "震荡",
-      "phase_evidence": "距250日高点-4.5%，52周分位63%，近20日涨1.4%，无明确单边趋势",
-      "macro_logic": "红利风格占优，弱市下防御资金阶段性流入",
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤4.5%，52周分位63%，近20日涨1.4%",
+      "macro_logic": "红利风格占优，弱市下防御性资金稳步流入",
       "logic_strength": "弱",
       "logic_durability": "持续",
-      "confidence": 0.75
+      "confidence": 0.7
     }
   },
-  "factor_chains": "美联储加息节奏放缓→美元、美债利率下行→黄金上涨、科技成长估值修复；国内弱复苏→红利防御风格占优；全球需求偏弱压制原油",
-  "prev_month_review": "上月判定整体符合预期，仅原油企稳、恒生科技止跌略超预期，其余标的阶段、逻辑均验证有效",
-  "summary": "本月优先配置上升趋势的黄金、中行、建行；逢低布局筑底的恒生科技、原油标的；纳指、工行、农行等震荡标的可持作底仓，科创50待趋势明确再加仓",
+  "factor_chains": "美联储加息节奏→美债利率/美元波动→黄金、美股科技、港股科技估值联动；国内政策+流动性→科创、银行红利风格；全球需求预期→原油价格",
+  "prev_month_review": "上月判断整体契合走势，黄金、中行上升趋势验证，纳指、原油符合预期，仅恒生科技止跌未续降，偏差较小",
+  "summary": "本月优先配置强逻辑的黄金ETF、高景气银行标的，标配纳指ETF、科创50，逢低布局筑底的恒生科技、原油类标的，均衡配置平衡波动",
   "version": 2,
   "month": "20230306",
   "asof": "20230306",

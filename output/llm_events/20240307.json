@@ -1,56 +1,57 @@
 {
+  "new_events": "2024年1月美联储释放年内降息信号，2月国内出台平台经济支持政策，OPEC+延长减产至2024年底",
   "assets": {
     "513100.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-1.8%，52周分位95%，MA20/60斜率为正，涨速稳健",
-      "macro_logic": "AI产业驱动美股科技盈利，美联储降息预期发酵",
+      "phase_evidence": "距250日高点-1.8%，52周分位95%，近60日涨15.7%，MA20斜率5.5%",
+      "macro_logic": "AI产业驱动美股科技盈利增长，美联储降息预期升温",
       "logic_strength": "强",
       "logic_durability": "持续",
       "confidence": 0.9
     },
     "513180.SS": {
       "phase": "筑底",
-      "phase_evidence": "深回撤-27.6%，低点20日未破，近20日涨11.7%，MA20斜率0.4上翘",
-      "macro_logic": "平台经济政策支持，美债利率见顶回落，南向资金流入",
+      "phase_evidence": "回撤-27.6%，52周分位22%，低点距今20日，近20日涨11.7%",
+      "macro_logic": "平台经济政策暖风，美债利率见顶，南向资金流入",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.75
+      "confidence": 0.7
     },
     "588000.SS": {
       "phase": "筑底",
-      "phase_evidence": "深回撤-31.3%，低点18日未破，近20日涨15.2%，MA20接近走平",
-      "macro_logic": "硬科技产业政策落地，A股流动性边际宽松",
+      "phase_evidence": "回撤-31.3%，52周分位25%，低点距今18日，近20日涨15.2%",
+      "macro_logic": "硬科技支持政策落地，A股流动性边际宽松",
       "logic_strength": "中",
       "logic_durability": "持续",
       "confidence": 0.7
     },
     "518800.SS": {
       "phase": "上升",
-      "phase_evidence": "创250日新高，52周分位100%，MA20/60斜率为正，波动平稳",
-      "macro_logic": "全球央行购金潮，美联储降息预期，中东地缘局势扰动",
+      "phase_evidence": "创250日新高，52周分位100%，近60日涨6.5%，MA斜率均正",
+      "macro_logic": "全球央行购金潮，美联储降息预期，中东地缘风险升温",
       "logic_strength": "强",
       "logic_durability": "持续",
       "confidence": 0.95
     },
     "501018.SS": {
       "phase": "震荡",
-      "phase_evidence": "52周分位54%，近20日涨-0.7%，MA60斜率接近0，无明确趋势",
-      "macro_logic": "OPEC+减产托底油价，需求复苏预期偏弱",
+      "phase_evidence": "距250日高点-12.6%，52周分位54%，近60日涨3.3%，MA60斜率负",
+      "macro_logic": "OPEC+减产托底油价，需求端复苏预期偏弱",
       "logic_strength": "中",
       "logic_durability": "持续",
       "confidence": 0.8
     },
     "160723.SZ": {
       "phase": "震荡",
-      "phase_evidence": "深回撤-23.6%，低点185日未破，近60日涨-4.6%，无明确趋势",
+      "phase_evidence": "回撤-23.6%，52周分位31%，近20日跌6.8%，波动比0.42",
       "macro_logic": "移仓损耗压制净值，油价无明确趋势，走势偏弱",
       "logic_strength": "弱",
       "logic_durability": "持续",
-      "confidence": 0.8
+      "confidence": 0.85
     },
     "601398.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-1.8%，52周分位92%，MA20/60斜率为正，涨势稳健",
+      "phase_evidence": "距250日高点-1.8%，52周分位92%，近60日涨13%，MA20斜率7.9%",
       "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
       "logic_strength": "强",
       "logic_durability": "持续",
@@ -58,7 +59,7 @@
     },
     "601988.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-0.7%，52周分位98%，MA20/60斜率为正，涨势稳健",
+      "phase_evidence": "距250日高点-0.7%，52周分位98%，近60日涨14%，MA20斜率9.1%",
       "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
       "logic_strength": "强",
       "logic_durability": "持续",
@@ -66,7 +67,7 @@
     },
     "601939.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-1.3%，52周分位94%，MA20/60斜率为正，涨势稳健",
+      "phase_evidence": "距250日高点-1.3%，52周分位94%，近60日涨11.6%，MA20斜率5.8%",
       "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
       "logic_strength": "强",
       "logic_durability": "持续",
@@ -74,16 +75,16 @@
     },
     "601288.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-1.4%，52周分位96%，MA20/60斜率为正，涨势稳健",
+      "phase_evidence": "距250日高点-1.4%，52周分位96%，近60日涨18.6%，MA20斜率10.4%",
       "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
       "logic_strength": "强",
       "logic_durability": "持续",
       "confidence": 0.9
     }
   },
-  "factor_chains": "美联储货币政策周期→美债利率/美元→美股/黄金/港股科技走势，地缘扰动大宗商品，弱市推升红利风格",
-  "prev_month_review": "上月所有标的阶段判定基本准确，驱动逻辑均持续未逆转，仅嘉实原油走势偏弱但仍符合震荡判定",
-  "summary": "本月优先配置上升趋势的纳指ETF、黄金ETF、国有行标的，逢低布局筑底的恒生科技、科创50，原油类暂时观望，均衡配置兼顾攻防",
+  "factor_chains": "美联储降息预期→美债利率下行→美元走弱→黄金、成长股估值修复；红利风格占优→银行股上行；OPEC+减产托底油价",
+  "prev_month_review": "上月判定整体准确，各标的驱动逻辑均未逆转，仅科创50MA20小幅走弱，符合筑底阶段特征",
+  "summary": "本月优先配置确定性强的黄金、纳指ETF、四大行，关注恒生科技、科创50筑底后的布局机会，原油类暂时观望，回避移仓损耗高的嘉实原油",
   "version": 2,
   "month": "20240307",
   "asof": "20240307",

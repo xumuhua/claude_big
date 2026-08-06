@@ -1,56 +1,57 @@
 {
+  "new_events": "2024年2月美联储议息会议释放年内降息信号，OPEC+宣布延长减产至年底，国内出台数字经济支持政策",
   "assets": {
     "513100.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-0.2%，52周分位99%，MA20/60斜率为正，近60日涨10.2%",
-      "macro_logic": "AI产业高景气驱动美股科技盈利，美联储降息预期升温",
+      "phase_evidence": "距250日高点-0.2%，52周分位99%，近60日涨10.2%，MA20/60斜率为正",
+      "macro_logic": "AI产业驱动美股科技盈利，美联储年内降息预期支撑估值",
       "logic_strength": "强",
       "logic_durability": "持续",
-      "confidence": 0.9
+      "confidence": 0.95
     },
     "513180.SS": {
       "phase": "筑底",
-      "phase_evidence": "深回撤-24.2%，低点35日未破，MA20斜率7.7%，近20日涨1.3%",
-      "macro_logic": "平台经济政策暖风，美债利率见顶回落，南向资金流入",
+      "phase_evidence": "深回撤-24.2%，低点距今35交易日未破，MA20斜率7.7%上翘",
+      "macro_logic": "平台经济政策支持，美债利率见顶回落，南向资金流入",
       "logic_strength": "中",
       "logic_durability": "持续",
       "confidence": 0.7
     },
     "588000.SS": {
       "phase": "筑底",
-      "phase_evidence": "深回撤-34%，低点33日未破，MA20斜率8.1%，波动比0.84",
+      "phase_evidence": "深回撤-34%，52周分位18%，低点距今33交易日未破，MA20斜率8.1%",
       "macro_logic": "硬科技产业支持政策落地，A股流动性边际宽松",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.6
+      "confidence": 0.75
     },
     "518800.SS": {
       "phase": "上升",
-      "phase_evidence": "创52周新高，近20日涨8%，MA20/60斜率为正，vs MA250涨11.4%",
-      "macro_logic": "全球央行购金潮，美联储降息预期，中东地缘冲突",
+      "phase_evidence": "创250日新高，近20日涨8%，MA20/60斜率为正，波动比1.16",
+      "macro_logic": "全球央行购金潮，美联储降息预期，中东地缘冲突升温",
       "logic_strength": "强",
       "logic_durability": "持续",
       "confidence": 0.9
     },
     "501018.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-8.6%，52周分位68%，近60日涨9.8%，MA20/60斜率为正",
-      "macro_logic": "OPEC+减产托底油价，需求端复苏预期升温",
+      "phase_evidence": "近60日涨9.8%，MA20/60斜率为正，距250日高点-8.6%",
+      "macro_logic": "OPEC+延长减产托底油价，全球需求复苏预期升温",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.7
+      "confidence": 0.8
     },
     "160723.SZ": {
       "phase": "震荡",
-      "phase_evidence": "深回撤-20.8%，近60日跌2.8%，MA60斜率-2.2%，无明确趋势",
-      "macro_logic": "移仓损耗压制净值，油价无明确单边趋势",
+      "phase_evidence": "深回撤-20.8%，近60日跌2.8%，MA20/60斜率为负，波动比0.45",
+      "macro_logic": "移仓损耗压制净值，油价走势弱于市场预期",
       "logic_strength": "弱",
       "logic_durability": "持续",
-      "confidence": 0.6
+      "confidence": 0.85
     },
     "601398.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-4.2%，52周分位78%，近60日涨8.9%，MA60斜率3.4%",
+      "phase_evidence": "近60日涨8.9%，MA60斜率3.4%，vs MA250为8.5%",
       "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
       "logic_strength": "强",
       "logic_durability": "持续",
@@ -58,7 +59,7 @@
     },
     "601988.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-4.8%，52周分位82%，近120日涨15.3%，MA60斜率3.6%",
+      "phase_evidence": "近120日涨15.3%，MA60斜率3.6%，vs MA250为10.8%",
       "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
       "logic_strength": "强",
       "logic_durability": "持续",
@@ -66,24 +67,24 @@
     },
     "601939.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-5%，52周分位73%，近60日涨5.6%，MA60斜率2.6%",
+      "phase_evidence": "近60日涨5.6%，MA60斜率2.6%，vs MA250为6.8%",
       "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
       "logic_strength": "强",
       "logic_durability": "持续",
-      "confidence": 0.8
+      "confidence": 0.85
     },
     "601288.SS": {
       "phase": "上升",
-      "phase_evidence": "距250日高点-3.9%，52周分位87%，近60日涨13.6%，MA60斜率5.2%",
+      "phase_evidence": "近60日涨13.6%，MA60斜率5.2%，vs MA250为15%",
       "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
       "logic_strength": "强",
       "logic_durability": "持续",
-      "confidence": 0.9
+      "confidence": 0.95
     }
   },
-  "factor_chains": "美联储降息预期→美债利率下行、美元走弱→黄金/科技成长估值修复，OPEC+减产托底油价，弱市红利风格获偏好",
-  "prev_month_review": "上月判定整体准确，纳指、黄金、四大行上升逻辑持续，恒生科技、科创50筑底及原油震荡判断均验证，无误判",
-  "summary": "本月优先配置趋势确定性高的纳指ETF、黄金ETF及高股息银行标的，逢低布局筑底的恒生科技、科创50，关注南方原油机会，规避嘉实原油",
+  "factor_chains": "美联储降息预期→实际利率下行→黄金/成长股估值抬升，OPEC+减产+地缘→油价支撑，红利风格占优→银行股跑赢",
+  "prev_month_review": "上月判定整体准确，纳指、黄金、银行股上升走势符合预期，恒生科技、科创50筑底、原油震荡判断成立，核心逻辑未变",
+  "summary": "本月优先配置纳指ETF、黄金ETF、高股息银行股等确定性上升标的，跟踪恒生科技、科创50筑底后介入机会，规避嘉实原油，南方原油轻仓布局",
   "version": 2,
   "month": "20240328",
   "asof": "20240328",

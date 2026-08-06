@@ -1,89 +1,90 @@
 {
+  "new_events": "2022年11月地产融资三支箭出台，12月疫情防控新十条发布，美联储12月加息幅度下调至50bp",
   "assets": {
     "513100.SS": {
       "phase": "筑底",
-      "phase_evidence": "回撤-24.2%，低点距今51交易日，波动比0.76，MA20斜率-0.9",
-      "macro_logic": "美联储加息节奏边际放缓，美债收益率回落支撑估值",
+      "phase_evidence": "距250日高点回撤-24.2%，52周分位4%，低点距今51交易日未破，MA20斜率-0.9",
+      "macro_logic": "美联储12月加息幅度下调至50bp，加息节奏边际放缓",
       "logic_strength": "中",
       "logic_durability": "持续",
-      "confidence": 0.7
+      "confidence": 0.75
     },
     "513180.SS": {
       "phase": "上升",
-      "phase_evidence": "近20日涨15%，站MA20+1.9%，MA20斜率15.7，波动比1.15",
-      "macro_logic": "平台经济政策暖风+疫情防控优化+南向资金流入",
+      "phase_evidence": "近20日涨幅15.0%，MA20斜率15.7%，站稳MA60，vs MA60为13.6%",
+      "macro_logic": "平台经济政策暖风+疫情防控新十条+南向资金持续流入",
       "logic_strength": "强",
       "logic_durability": "持续",
       "confidence": 0.9
     },
     "588000.SS": {
       "phase": "震荡",
-      "phase_evidence": "回撤-34.9%，近20日跌7.9%，MA20斜率-4.9，波动比0.61",
+      "phase_evidence": "距250日高点回撤-34.9%，近20日跌幅7.9%，vs MA20为-6.3%，无明确趋势",
       "macro_logic": "国内流动性中性偏松，硬科技暂无强产业政策催化",
       "logic_strength": "弱",
       "logic_durability": "持续",
-      "confidence": 0.6
+      "confidence": 0.7
     },
     "518800.SS": {
       "phase": "上升",
-      "phase_evidence": "站MA250+3.7%，MA20斜率1.1，MA60斜率1.6，波动比1.01",
-      "macro_logic": "美联储加息放缓预期+多国央行购金，美元走弱",
+      "phase_evidence": "近60日涨幅4.6%，MA20斜率1.1%，站稳MA250，vs MA250为3.7%",
+      "macro_logic": "美联储加息放缓预期+多国央行购金，美元指数走弱",
       "logic_strength": "中",
       "logic_durability": "持续",
       "confidence": 0.8
     },
     "501018.SS": {
       "phase": "震荡",
-      "phase_evidence": "近20日跌4.1%，MA20斜率-3.2，波动比0.31，距高点-18.2%",
-      "macro_logic": "OPEC+减产托底油价，全球需求走弱预期压制上行",
+      "phase_evidence": "近20日跌幅4.1%，vs MA60为-3.3%，波动比0.31，无明确趋势",
+      "macro_logic": "OPEC+减产托底油价，全球衰退预期压制原油需求",
       "logic_strength": "中",
-      "logic_durability": "衰竭",
-      "confidence": 0.7
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "160723.SZ": {
       "phase": "震荡",
-      "phase_evidence": "回撤-24.5%，近20日跌4.4%，MA20斜率-5.5，波动比0.39",
-      "macro_logic": "OPEC+减产托底油价，全球需求走弱预期压制上行",
+      "phase_evidence": "距250日高点回撤-24.5%，近20日跌幅4.4%，vs MA60为-4.2%",
+      "macro_logic": "OPEC+减产托底油价，全球衰退预期压制原油需求",
       "logic_strength": "中",
-      "logic_durability": "衰竭",
-      "confidence": 0.7
+      "logic_durability": "持续",
+      "confidence": 0.6
     },
     "601398.SS": {
       "phase": "震荡",
-      "phase_evidence": "近20日跌1.6%，vs MA20 -0.6%，MA20斜率3.0，波动比1.01",
-      "macro_logic": "地产融资支持政策修复资产质量，弱市资金偏好防御",
-      "logic_strength": "中",
-      "logic_durability": "衰竭",
-      "confidence": 0.8
+      "phase_evidence": "近20日跌幅1.6%，vs MA20为-0.6%，MA20斜率3.0%，短期回调",
+      "macro_logic": "地产融资三支箭出台，修复银行资产质量预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601988.SS": {
       "phase": "震荡",
-      "phase_evidence": "近20日收平，vs MA20 -0.3%，MA20斜率2.9，波动比0.89",
-      "macro_logic": "地产融资支持政策修复资产质量，弱市资金偏好防御",
-      "logic_strength": "中",
-      "logic_durability": "衰竭",
+      "phase_evidence": "近20日涨幅0%，vs MA20为-0.3%，站稳MA60，vs MA60为1.5%",
+      "macro_logic": "地产融资三支箭出台，修复银行资产质量预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
       "confidence": 0.8
     },
     "601939.SS": {
       "phase": "震荡",
-      "phase_evidence": "近20日跌0.5%，vs MA20 -0.7%，MA20斜率4.0，波动比1.3",
-      "macro_logic": "地产融资支持政策修复资产质量，弱市资金偏好防御",
-      "logic_strength": "中",
-      "logic_durability": "衰竭",
-      "confidence": 0.8
+      "phase_evidence": "近20日跌幅0.5%，vs MA20为-0.7%，MA20斜率4.0%，短期回调",
+      "macro_logic": "地产融资三支箭出台，修复银行资产质量预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
     },
     "601288.SS": {
       "phase": "震荡",
-      "phase_evidence": "近20日收平，vs MA20 -0.2%，MA20斜率3.5，波动比0.69",
-      "macro_logic": "地产融资支持政策修复资产质量，弱市资金偏好防御",
-      "logic_strength": "中",
-      "logic_durability": "衰竭",
+      "phase_evidence": "近20日涨幅0%，vs MA20为-0.2%，站稳MA60，vs MA60为1.3%",
+      "macro_logic": "地产融资三支箭出台，修复银行资产质量预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
       "confidence": 0.8
     }
   },
-  "factor_chains": "美联储加息边际放缓→美债利率回落、美元走弱→黄金、纳指修复；国内防疫优化+地产支持→风险偏好抬升→恒生科技、银行修复；全球需求走弱压制油价",
-  "prev_month_review": "上月对恒生科技、黄金、纳指、科创、原油的判定基本准确，国有行上升逻辑已出现钝化，整体误判率较低",
-  "summary": "本月优先配置上升趋势明确、逻辑强的恒生科技与黄金，逢低布局筑底的纳指ETF，防御端保留部分高股息国有行，规避缺乏催化的科创50与需求压制的原油，均衡配置控波动",
+  "factor_chains": "美联储加息放缓→美债利率下行、美元走弱→利好黄金、港股科技、纳指；国内地产+防疫政策优化→修复银行资产质量预期",
+  "prev_month_review": "上月判断整体符合趋势，仅银行板块因短期回调暂离上升通道，其余标的核心驱动逻辑均未逆转",
+  "summary": "本月优先配置强驱动的恒生科技，标配黄金资产，纳指、国有行逢低布局，原油需求偏弱暂观望，科创50无强催化维持低配",
   "version": 2,
   "month": "20221223",
   "asof": "20221223",
