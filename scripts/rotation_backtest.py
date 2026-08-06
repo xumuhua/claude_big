@@ -366,12 +366,13 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            oh_re_age=20, oh_re_slope=False,
            sb_days=0, sb_re_days=5, sb_to="cash",
            b_priority=True, b_deep=False, b_trail=-0.20, b_llm_bottom=False,
-           oh_park_banks=False, oh_exit_sig="ma10", b_tranche=False, b_dedup=False,
+           oh_park_banks=False, oh_exit_sig="rsidn", b_tranche=False, b_dedup=False,
            nuke_stop=0.28, nuke_win=500,
            v_arm_dd=-0.35, v_ret5=0.08, v_trail=-0.15, v_arm_profit=0.15,
            use_events=True, events_dir=None, events_hold="all",
            ev_exhaust_profit=0.0, b_arm_win=500, b_wave=False, w_cool=10,
-           w2_on=True, w2_ext=0.20, w2_exit_buf=1.0):
+           w2_on=True, w2_ext=0.20, w2_exit_buf=1.0,
+           oh_arm_mode="ext", oh_rsi=80.0, b_rsi_exit=0.0, tr2_ratio=0.0, oh_re_delay=60):
     """V反早鸟(用户20260806: 如何吃到2026-07-02原油触底反弹):
     脉冲资产的底是V形不是平台——深跌武装(v_arm_dd)后等爆发式反转确认
     (收盘>MA10 且 5日收益≥v_ret5), 次日进场; 创新低立即证伪止损;
@@ -441,12 +442,21 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     nuke_out = {}                  # t -> True (核按钮清仓中, 等严格筑底回补)
     nuke_low = {}                  # t -> [低点价, 低点年龄]
     oh_ref = {}                    # t -> 止盈卖出日收盘价 (回补参照)
+    oh_ref_d = {}                  # t -> 止盈日 (认错回补冷静期用)
     oh_low_age = {}                # t -> 止盈后低点计数器用最近低
     oh_armed = {}                  # t -> True (武装闩锁: 直到真调整<MA60或触发才解除)
     oh_coold = {}                  # t -> 冷却截止日 (回补后oh_cool日内不再触发)
     ma20c = closes.rolling(20).mean()
     ma60c = closes.rolling(60).mean()
     ma10c = closes.rolling(10).mean()
+
+    def _rsi(px, n):
+        d = px.diff()
+        up = d.clip(lower=0).ewm(alpha=1 / n, adjust=False).mean()
+        dn = (-d.clip(upper=0)).ewm(alpha=1 / n, adjust=False).mean()
+        return 100 - 100 / (1 + up / dn.replace(0, np.nan))
+    rsi14 = _rsi(closes, 14)
+    rsi5 = _rsi(closes, 5)
 
     cash, pos = 1.0, {}
     b_entry = {}                   # t -> {"px","low","est"} 入场价/底部参考低/趋势已成立
@@ -504,7 +514,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 if t in B_TRACK:
                     kind = b_pending_kind.pop(t, "B")
                     b_entry[t] = {"px": px, "low": b_pending_low.pop(t, None),
-                                  "est": kind in ("W", "W2"), "d": day, "kind": kind}
+                                  "est": kind in ("W", "W2"), "d": day, "kind": kind,
+                                  "tr1": bool(tr2_ratio)}
             mv_open = sum(n * px_of(t) for t, n in new_pos.items() if np.isfinite(px_of(t)))
             cash = total - mv_open - fees
             pos = new_pos
@@ -557,7 +568,15 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                                            f"严格筑底回补 低点{nuke_low[t][1]}日"))
                             nuke_low.pop(t, None)
                 # 武装闩锁: 极端态进入, 真调整(破MA60)才解除
-                if ext >= oh_ext and r20 >= oh_r20:
+                r14v = rsi14.loc[day, t] if t in rsi14.columns else np.nan
+                rsi_arm = np.isfinite(r14v) and r14v >= oh_rsi
+                if oh_arm_mode == "rsi":
+                    if rsi_arm:
+                        oh_armed[t] = "冲顶RSI"
+                elif oh_arm_mode == "either":
+                    if (ext >= oh_ext and r20 >= oh_r20) or rsi_arm:
+                        oh_armed[t] = "冲顶"
+                elif ext >= oh_ext and r20 >= oh_r20:
                     oh_armed[t] = "冲顶"
                 elif use_stag and ext >= stag_ext and r250 >= stag_r250 and r60 <= stag_r60:
                     oh_armed.setdefault(t, "滞涨")
@@ -565,11 +584,15 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     oh_armed.pop(t, None)
                 if oh_exit_sig == "ma10":
                     sig_fire = np.isfinite(ma10c.loc[day, t]) and v < ma10c.loc[day, t]
+                elif oh_exit_sig == "rsidn":
+                    r5v = rsi5.loc[day, t] if t in rsi5.columns else np.nan
+                    sig_fire = np.isfinite(r5v) and r5v < 70
                 else:
                     sig_fire = diff5 < 0
                 if in_pos and t not in oh_ref and oh_armed.get(t) and day > oh_coold.get(t, pd.Timestamp.min):
                     if sig_fire:
                         oh_ref[t] = v
+                        oh_ref_d[t] = day
                         tag = oh_armed.pop(t)
                         trades.append((str(day.date()), "OH-OUT", TICKERS[t],
                                        f"{tag} ext{ext:+.0%} r20{r20:+.0%} r60{r60:+.0%} diff5{diff5:+.1%}"))
@@ -580,7 +603,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         oh_low_age[t] = [v, 0]
                     else:
                         oh_low_age[t] = [lo[0], lo[1] + 1]
-                    back_newhigh = v > oh_ref[t]
+                    back_newhigh = (v > oh_ref[t]
+                                    and (day - oh_ref_d.get(t, day)).days >= oh_re_delay)
                     retrace = v / oh_ref[t] - 1 <= oh_re_dd
                     bottomed = oh_low_age[t][1] >= oh_re_age and np.isfinite(ma20c.loc[day, t]) and v > ma20c.loc[day, t]
                     if bottomed and oh_re_slope:
@@ -591,6 +615,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         trades.append((str(day.date()), "OH-IN", TICKERS[t],
                                        f"{why} 止盈价{oh_ref[t]:.2f}现{v:.2f}"))
                         del oh_ref[t]
+                        oh_ref_d.pop(t, None)
                         oh_low_age.pop(t, None)
                         oh_coold[t] = days[min(i + oh_cool, len(days) - 1)]   # 回补后冷却
         # 纳指: 永持 ndx_w (过热止盈/慢性破位例外)
@@ -645,7 +670,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         and np.isfinite(ma20.loc[day, t]) and c[t] > ma20.loc[day, t]
                         and np.isfinite(ma20_slope.loc[day, t]) and ma20_slope.loc[day, t] > 0)
                 if trig:
-                    b_active[t] = cap * (0.5 if b_tranche else 1.0)
+                    b_active[t] = cap * (0.5 if b_tranche else (tr2_ratio if tr2_ratio else 1.0))
                     b_pending_low[t] = float(closes[t].iloc[max(0, i - 249):i + 1].min())
                     trades.append((str(day.date()), "B-IN", TICKERS[t],
                                    f"dd{c[t] / hi250.loc[day, t] - 1:.0%}/低点{low_age[t][i]}日"))
@@ -731,8 +756,11 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 v_trail_hit = (v_trail and be and be.get("kind") == "V"
                                and be["peak"] / be["px"] - 1 >= v_arm_profit
                                and c[t] / be["peak"] - 1 <= v_trail)
+                rsi_sell = (b_rsi_exit and be and np.isfinite(rsi14.loc[day, t])
+                            and rsi14.loc[day, t] >= b_rsi_exit
+                            and np.isfinite(ma10c.loc[day, t]) and c[t] < ma10c.loc[day, t])
                 if (not new_low and not trend_end and not llm_down and not stop
-                        and not trail and not v_trail_hit and not llm_exhaust):
+                        and not trail and not v_trail_hit and not llm_exhaust and not rsi_sell):
                     w_cap = cap
                     if b_tranche:
                         w_cap = cap * (1.0 if be and c[t] / be["px"] - 1 >= 0.05 else 0.5)
@@ -743,7 +771,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     reason = ("筑底失败创新低" if new_low else "趋势结束" if trend_end
                               else "LLM下降" if llm_down else "LLM逻辑衰竭" if llm_exhaust
                               else "移动止盈" if trail
-                              else "V反止盈" if v_trail_hit else "硬止损")
+                              else "V反止盈" if v_trail_hit else "RSI止盈" if rsi_sell else "硬止损")
                     trades.append((str(day.date()), "B-OUT", TICKERS[t], reason))
         # R14变体在CLI层用 b_dedup 控制: 两只原油同时active时留强去弱
         if b_dedup:
@@ -1101,7 +1129,7 @@ def main():
     ap.add_argument("--v3-b-deep", action="store_true", help="R4: 超级主浪后武装线降至-35%")
     ap.add_argument("--v3-b-trail", type=float, default=-0.20, help="B轨浮盈20%%后移动止盈(None=关)")
     ap.add_argument("--v3-oh-park-banks", action="store_true", help="R7: OH-out袖珍停银行")
-    ap.add_argument("--v3-oh-exit-sig", choices=["diff5", "ma10"], default="ma10", help="R8: OH退出信号")
+    ap.add_argument("--v3-oh-exit-sig", choices=["diff5", "ma10", "rsidn"], default="rsidn", help="OH退出信号(默认rsidn=RSI5拐头<70)")
     ap.add_argument("--v3-b-tranche", action="store_true", help="R12: B轨分批建仓(触发半仓,浮盈5%补齐)")
     ap.add_argument("--v3-b-dedup", action="store_true", help="R14: 原油类内去重(留回撤深的)")
     ap.add_argument("--v3-nuke-stop", type=float, default=0.28, help="核心核按钮止损(0=关, 默认0.28)")
@@ -1119,6 +1147,11 @@ def main():
     ap.add_argument("--v3-no-w2", action="store_true", help="关闭W2主升浪(默认开, 用户20260806)")
     ap.add_argument("--v3-w2-ext", type=float, default=0.20, help="W2不追高: 偏离MA60上限")
     ap.add_argument("--v3-w2-exit-buf", type=float, default=1.0, help="W2退出: 破MA60缓冲(默认1.0=直接破MA60)")
+    ap.add_argument("--v3-oh-arm-mode", choices=["ext", "rsi", "either"], default="ext", help="OH武装方式")
+    ap.add_argument("--v3-oh-rsi", type=float, default=80.0, help="RSI武装阈值(RSI14)")
+    ap.add_argument("--v3-b-rsi-exit", type=float, default=0.0, help="B轨RSI止盈(RSI14≥此值且破MA10, 0=关)")
+    ap.add_argument("--v3-tr2-ratio", type=float, default=0.0, help="分批建仓首仓比例(0=一次性, 0.7=70/30)")
+    ap.add_argument("--v3-oh-re-delay", type=int, default=60, help="认错回补距止盈最少自然日(默认60)")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
                     help="衰竭退出仅对浮盈≥此值的仓生效(0=无门槛)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
