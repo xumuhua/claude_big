@@ -369,7 +369,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            oh_park_banks=False, oh_exit_sig="ma10", b_tranche=False, b_dedup=False,
            nuke_stop=0.28, nuke_win=500,
            v_arm_dd=-0.35, v_ret5=0.08, v_trail=-0.15, v_arm_profit=0.15,
-           use_events=False, events_dir=None, events_hold="profit"):
+           use_events=False, events_dir=None, events_hold="profit",
+           ev_exhaust_profit=0.0):
     """V反早鸟(用户20260806: 如何吃到2026-07-02原油触底反弹):
     脉冲资产的底是V形不是平台——深跌武装(v_arm_dd)后等爆发式反转确认
     (收盘>MA10 且 5日收益≥v_ret5), 次日进场; 创新低立即证伪止损;
@@ -673,8 +674,10 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                            and (events_hold == "all" or (be and c[t] >= be["px"])))
                 trend_end = (be.get("est") and np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t]
                              and not hold_ok)
-                llm_down = use_llm_exit and t in llm_state["exit"] and doc_fresh
-                llm_exhaust = use_events and doc_fresh and t in llm_state["exhaust"]
+                llm_down = (use_llm_exit and t in llm_state["exit"] and doc_fresh
+                            and (not use_events or (be and c[t] / be["px"] - 1 >= ev_exhaust_profit)))
+                llm_exhaust = (use_events and doc_fresh and t in llm_state["exhaust"]
+                               and be and c[t] / be["px"] - 1 >= ev_exhaust_profit)
                 stop = be and c[t] / be["px"] - 1 <= b_stop
                 trail = (b_trail and be and be["peak"] / be["px"] - 1 >= 0.20
                          and c[t] / be["peak"] - 1 <= b_trail)
@@ -1057,6 +1060,8 @@ def main():
     ap.add_argument("--v3-events", action="store_true", help="启用事件级LLM(output/llm_events)跟踪B/V仓")
     ap.add_argument("--v3-events-hold", choices=["profit", "all", "off"], default="profit",
                     help="叙事护航范围: profit=仅浮盈仓(默认)/all=全部/off=关闭护航只留衰竭退出")
+    ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
+                    help="衰竭退出仅对浮盈≥此值的仓生效(0=无门槛)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
     ap.add_argument("--v3-oh-ext", type=float, default=0.275, help="冲顶武装: 偏离MA250阈值")
     ap.add_argument("--v3-use-stag", action="store_true", help="启用滞涨武装(默认关, 假信号多)")
@@ -1100,7 +1105,8 @@ def main():
                             v_trail=args.v3_v_trail, v_arm_profit=args.v3_v_arm_profit,
                             use_events=args.v3_events,
                             events_dir=os.path.join(os.path.dirname(DATA), "output", "llm_events"),
-                            events_hold=args.v3_events_hold)
+                            events_hold=args.v3_events_hold,
+                            ev_exhaust_profit=args.v3_ev_exhaust_profit)
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():
