@@ -362,7 +362,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            b_total_cap=0.20, gold_buf=0.02, use_llm_exit=True, dust=0.02,
            ndx_w=0.50, gold_w=0.50,
            oh_ext=0.25, oh_r20=0.12, stag_ext=0.12, stag_r250=0.20, stag_r60=0.0,
-           oh_re_dd=-0.08, use_oh=True, oh_cool=20, use_stag=False):
+           oh_re_dd=-0.08, use_oh=True, oh_cool=20, use_stag=False,
+           oh_re_age=20, oh_re_slope=False):
     """过热/滞涨收紧止盈(用户20260806): 核心常态永不卖出, 过热武装态下 diff5<0 坚决止盈。
     oh: 冲顶武装= 偏离MA250≥oh_ext ∧ ret20≥oh_r20 (泡沫加速)
     stag: 滞涨武装= 偏离≥stag_ext ∧ ret250≥stag_r250 ∧ ret60≤stag_r60 (长牛后动力衰竭)
@@ -498,7 +499,10 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         oh_low_age[t] = [lo[0], lo[1] + 1]
                     back_newhigh = v > oh_ref[t]
                     retrace = v / oh_ref[t] - 1 <= oh_re_dd
-                    bottomed = oh_low_age[t][1] >= 10 and np.isfinite(ma20c.loc[day, t]) and v > ma20c.loc[day, t]
+                    bottomed = oh_low_age[t][1] >= oh_re_age and np.isfinite(ma20c.loc[day, t]) and v > ma20c.loc[day, t]
+                    if bottomed and oh_re_slope:
+                        m20s = ma20c[t].iloc[max(0, i - 20):i + 1]
+                        bottomed = bottomed and len(m20s) >= 21 and ma20c[t].iloc[-1] > m20s.iloc[0]
                     if back_newhigh or (retrace and bottomed):
                         why = "创新高认错回补" if back_newhigh else "调整充分回补"
                         trades.append((str(day.date()), "OH-IN", TICKERS[t],
@@ -870,6 +874,8 @@ def main():
     ap.add_argument("--v3-stag-r250", type=float, default=0.20, help="滞涨武装: ret250阈值")
     ap.add_argument("--v3-stag-r60", type=float, default=0.0, help="滞涨武装: ret60上限")
     ap.add_argument("--v3-oh-cool", type=int, default=20, help="回补后再触发冷却日数")
+    ap.add_argument("--v3-oh-re-age", type=int, default=20, help="调整充分回补: 低点确认日数")
+    ap.add_argument("--v3-oh-re-slope", action="store_true", help="回补需MA20斜率转正(严格筑底)")
     ap.add_argument("--v3-a-ma", type=int, default=250, help="A轨趋势MA(0=纯持有仅LLM退出)")
     ap.add_argument("--grid", action="store_true")
     args = ap.parse_args()
@@ -891,7 +897,8 @@ def main():
                             oh_ext=args.v3_oh_ext, oh_r20=args.v3_oh_r20,
                             stag_ext=args.v3_stag_ext, stag_r250=args.v3_stag_r250,
                             stag_r60=args.v3_stag_r60, oh_cool=args.v3_oh_cool,
-                            use_stag=args.v3_use_stag)
+                            use_stag=args.v3_use_stag,
+                            oh_re_age=args.v3_oh_re_age, oh_re_slope=args.v3_oh_re_slope)
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():
