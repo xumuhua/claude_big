@@ -366,7 +366,11 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            oh_re_age=20, oh_re_slope=False,
            sb_days=0, sb_re_days=5, sb_to="cash",
            b_priority=True, b_deep=False, b_trail=-0.20, b_llm_bottom=False,
-           oh_park_banks=False, oh_exit_sig="ma10", b_tranche=False, b_dedup=False):
+           oh_park_banks=False, oh_exit_sig="ma10", b_tranche=False, b_dedup=False,
+           nuke_stop=0.28):
+    """nuke_stop>0: 核心核按钮止损——收盘价距250日高点回撤≤-nuke_stop → 清仓该票,
+    严格筑底(低点≥20日+MA20上穿+斜率>0)才回补。13年历史纳指最深-29%/黄金-21%,
+    -30%档在真实历史零误触发, 专为-70%型史诗崩盘准备。"""
     """sb_days>0: 慢性破位换防(用户20260806迭代轮1)——核心票连续sb_days日收于
     MA250×0.98下方 → 袖珍转sb_to(cash/banks); 重新站上MA250满sb_re_days日 → 回归。
     与OH止盈正交: OH是过热前瞻止盈, SB是慢熊确认换防(2022型)。"""
@@ -414,6 +418,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     sb_streak = {}                 # t -> 连续低于MA250×0.98天数
     sb_out = {}                    # t -> True (换防中)
     sb_re = {}                     # t -> 重新站上MA250天数
+    nuke_out = {}                  # t -> True (核按钮清仓中, 等严格筑底回补)
+    nuke_low = {}                  # t -> [低点价, 低点年龄]
     oh_ref = {}                    # t -> 止盈卖出日收盘价 (回补参照)
     oh_low_age = {}                # t -> 止盈后低点计数器用最近低
     oh_armed = {}                  # t -> True (武装闩锁: 直到真调整<MA60或触发才解除)
@@ -492,6 +498,29 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 r60 = v / closes[t].iloc[max(0, i - 60)] - 1 if i >= 60 else 0.0
                 r250 = v / closes[t].iloc[max(0, i - 250)] - 1 if i >= 250 else 0.0
                 in_pos = t in pos
+                # 核按钮: 史诗崩盘止损(与OH正交——OH管过热顶, nuke管无底洞)
+                if nuke_stop and np.isfinite(hi250.loc[day, t]):
+                    dd250 = v / hi250.loc[day, t] - 1
+                    if in_pos and t not in nuke_out and dd250 <= -nuke_stop:
+                        nuke_out[t] = True
+                        nuke_low[t] = [v, 0]
+                        trades.append((str(day.date()), "NUKE-OUT", TICKERS[t],
+                                       f"dd250{dd250:.0%}核按钮"))
+                    elif t in nuke_out:
+                        lo = nuke_low[t]
+                        if v < lo[0]:
+                            nuke_low[t] = [v, 0]
+                        else:
+                            nuke_low[t] = [lo[0], lo[1] + 1]
+                        m20s = ma20c[t].iloc[max(0, i - 20):i + 1]
+                        bottomed = (nuke_low[t][1] >= 20 and np.isfinite(ma20c.loc[day, t])
+                                    and v > ma20c.loc[day, t] and len(m20s) >= 21
+                                    and ma20c[t].iloc[-1] > m20s.iloc[0])
+                        if bottomed:
+                            del nuke_out[t]
+                            trades.append((str(day.date()), "NUKE-IN", TICKERS[t],
+                                           f"严格筑底回补 低点{nuke_low[t][1]}日"))
+                            nuke_low.pop(t, None)
                 # 武装闩锁: 极端态进入, 真调整(破MA60)才解除
                 if ext >= oh_ext and r20 >= oh_r20:
                     oh_armed[t] = "冲顶"
@@ -546,7 +575,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 elif sb_out.get(NDX) and sb_re[NDX] >= sb_re_days:
                     sb_out[NDX] = False
                     trades.append((str(day.date()), "SB-IN", TICKERS[NDX], "收复MA250回归"))
-            blocked = NDX in oh_ref or sb_out.get(NDX)
+            blocked = NDX in oh_ref or sb_out.get(NDX) or NDX in nuke_out
             if NDX not in pos and not blocked:
                 trades.append((str(day.date()), "CORE-IN", TICKERS[NDX], f"{ndx_w:.0%}永持"))
             if not blocked:
@@ -644,7 +673,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                             trades.append((str(day.date()), "DEF-IN", TICKERS[b], "黄金失势防御"))
             else:
                 gw = max(gold_w - b_sum, 0.0)
-                if listed.loc[day, GOLD] and GOLD not in oh_ref:
+                if listed.loc[day, GOLD] and GOLD not in oh_ref and GOLD not in nuke_out:
                     target[GOLD] = gw
                     if GOLD not in pos:
                         trades.append((str(day.date()), "CORE-IN", TICKERS[GOLD], f"{gw:.1%}"))
@@ -949,6 +978,7 @@ def main():
     ap.add_argument("--v3-oh-exit-sig", choices=["diff5", "ma10"], default="ma10", help="R8: OH退出信号")
     ap.add_argument("--v3-b-tranche", action="store_true", help="R12: B轨分批建仓(触发半仓,浮盈5%补齐)")
     ap.add_argument("--v3-b-dedup", action="store_true", help="R14: 原油类内去重(留回撤深的)")
+    ap.add_argument("--v3-nuke-stop", type=float, default=0.28, help="核心核按钮止损(0=关, 默认0.28)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
     ap.add_argument("--v3-oh-ext", type=float, default=0.275, help="冲顶武装: 偏离MA250阈值")
     ap.add_argument("--v3-use-stag", action="store_true", help="启用滞涨武装(默认关, 假信号多)")
@@ -986,7 +1016,8 @@ def main():
                             b_trail=args.v3_b_trail, b_llm_bottom=args.v3_b_llm_bottom,
                             oh_park_banks=args.v3_oh_park_banks,
                             oh_exit_sig=args.v3_oh_exit_sig, b_tranche=args.v3_b_tranche,
-                            b_dedup=getattr(args, "v3_b_dedup", False))
+                            b_dedup=getattr(args, "v3_b_dedup", False),
+                            nuke_stop=args.v3_nuke_stop)
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():
