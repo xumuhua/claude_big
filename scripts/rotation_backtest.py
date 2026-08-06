@@ -41,6 +41,10 @@ CLASSES = {
     "518800.SS": "gold", "501018.SS": "oil", "160723.SZ": "oil",
     "601398.SS": "bank", "601988.SS": "bank", "601939.SS": "bank", "601288.SS": "bank",
 }
+# v3 分轨(用户20260806): A=低波复利轨(趋势持有到反转), B=高波周期轨(底部反转等待)
+A_TRACK = {"513100.SS": 0.50, "518800.SS": 0.50,
+           "601398.SS": 0.125, "601988.SS": 0.125, "601939.SS": 0.125, "601288.SS": 0.125}
+B_TRACK = {"513180.SS": 0.15, "588000.SS": 0.15, "501018.SS": 0.125, "160723.SZ": 0.125}
 
 NAME = os.path.basename(DATA)
 
@@ -346,6 +350,390 @@ def bt(closes, opens, lookbacks, weights, topk, gate, reb_days, cost_etf, cost_s
     return eq, trades
 
 
+# ---------------------------------------------------------------------------
+# v3.1: 不可动核心+边缘增强 (20260806数据修正版)
+#   数据结论: 纳指/黄金的任何退出规则都输给永不卖出(空窗复亏纳指1.69x/黄金1.11x)
+#   核心: 纳指50%永持 + 黄金50%永持(可让渡≤20%给B轨)
+#   边缘: B轨底部反转(用户规则)从黄金袖珍出资; 黄金自身失势时换银行防御
+# ---------------------------------------------------------------------------
+
+def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
+           b_arm_dd=-0.25, b_bottom_age=20, b_stop=-0.12, b_exit_ma=60,
+           b_total_cap=0.20, gold_buf=0.02, use_llm_exit=True, dust=0.02,
+           ndx_w=0.50, gold_w=0.50):
+    days = closes.index.intersection(opens.index)
+    listed = closes.notna()
+    cshift = closes.shift(1)
+    ma250 = closes.rolling(250).mean()
+    ma20 = closes.rolling(20).mean()
+    ma20_slope = ma20 / ma20.shift(20) - 1
+    maX = closes.rolling(b_exit_ma).mean()
+    hi250 = closes.rolling(250).max()
+    GOLD, NDX = "518800.SS", "513100.SS"
+    BANKS = ["601398.SS", "601988.SS", "601939.SS", "601288.SS"]
+
+    low_age = {}
+    for t in B_TRACK:
+        px = closes[t].values
+        age = np.full(len(days), 10**9)
+        for i in range(len(days)):
+            if not np.isfinite(px[i]):
+                continue
+            j0 = max(0, i - 249)
+            w = px[j0:i + 1]
+            if np.isfinite(w).any():
+                age[i] = i - (j0 + int(np.nanargmin(w)))
+        low_age[t] = age
+
+    llm_tl = []
+    if llm_dir and os.path.isdir(llm_dir):
+        for fn in sorted(os.listdir(llm_dir)):
+            if fn.endswith(".json"):
+                try:
+                    doc = json.load(open(os.path.join(llm_dir, fn), encoding="utf-8"))
+                    if doc.get("version") == 2:
+                        llm_tl.append((pd.Timestamp(doc["asof"]), doc))
+                except Exception:
+                    pass
+        llm_tl.sort(key=lambda x: x[0])
+    llm_state = {"idx": -1, "exit": set(), "block": set()}
+    b_pending_low = {}             # 信号日暂存底部参考低
+
+    cash, pos = 1.0, {}
+    b_entry = {}                   # t -> {"px","low","est"} 入场价/底部参考低/趋势已成立
+    gold_off = False               # 黄金失势状态(滞回)
+    pending = None
+    curve, trades = [], []
+
+    for i, day in enumerate(days):
+        c, o, cp = closes.loc[day], opens.loc[day], cshift.loc[day]
+        while llm_state["idx"] + 1 < len(llm_tl) and llm_tl[llm_state["idx"] + 1][0] <= day:
+            llm_state["idx"] += 1
+            doc = llm_tl[llm_state["idx"]][1]
+            llm_state["exit"] = {t for t, a in doc.get("assets", {}).items()
+                                 if a.get("phase") == "下降"}
+            llm_state["block"] = llm_state["block"] & llm_state["exit"]
+        # 1) 开盘执行
+        if pending is not None:
+            fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
+            px_of = lambda t: o[t] if np.isfinite(o.get(t, np.nan)) else cp.get(t, np.nan)
+            total = cash + sum(n * px_of(t) for t, n in pos.items() if np.isfinite(px_of(t)))
+            fees, new_pos = 0.0, {}
+            for t, n in pos.items():
+                px = px_of(t)
+                if not np.isfinite(px):
+                    new_pos[t] = n
+                    continue
+                if t in pending:
+                    cur_mv, tgt_mv = n * px, total * pending[t]
+                    fees += abs(tgt_mv - cur_mv) * fee_of(t) * 0.5
+                    new_pos[t] = tgt_mv / px
+                else:
+                    fees += n * px * fee_of(t)
+                    b_entry.pop(t, None)
+            for t, w in pending.items():
+                if t in pos:
+                    continue
+                px = px_of(t)
+                if not np.isfinite(px) or px <= 0:
+                    continue
+                new_pos[t] = total * w * (1 - fee_of(t)) / px
+                fees += total * w * fee_of(t)
+                if t in B_TRACK:
+                    b_entry[t] = {"px": px, "low": b_pending_low.pop(t, None), "est": False}
+            mv_open = sum(n * px_of(t) for t, n in new_pos.items() if np.isfinite(px_of(t)))
+            cash = total - mv_open - fees
+            pos = new_pos
+            pending = None
+        # 2) 日终估值
+        mv = sum(n * c.get(t, np.nan) for t, n in pos.items() if np.isfinite(c.get(t, np.nan)))
+        curve.append((day, cash + mv))
+        # 3) 收盘目标装配
+        target = {}
+        # 纳指: 永持 ndx_w
+        if listed.loc[day, NDX]:
+            if NDX not in pos:
+                trades.append((str(day.date()), "CORE-IN", TICKERS[NDX], f"{ndx_w:.0%}永持"))
+            target[NDX] = ndx_w
+        # 黄金失势滞回
+        if listed.loc[day, GOLD] and np.isfinite(ma250.loc[day, GOLD]):
+            if not gold_off and c[GOLD] < ma250.loc[day, GOLD] * (1 - gold_buf):
+                gold_off = True
+                trades.append((str(day.date()), "GOLD-OFF", TICKERS[GOLD], "失势换银行"))
+            elif gold_off and c[GOLD] > ma250.loc[day, GOLD] * (1 + gold_buf):
+                gold_off = False
+                trades.append((str(day.date()), "GOLD-ON", TICKERS[GOLD], "复势回黄金"))
+        # B轨: 武装→触发→持有/退出
+        b_active = {}
+        for t, cap in B_TRACK.items():
+            if not (listed.loc[day, t] and np.isfinite(ma250.loc[day, t])):
+                continue
+            in_pos = t in pos
+            if not in_pos:
+                if t in llm_state["block"]:
+                    continue
+                armed = np.isfinite(hi250.loc[day, t]) and c[t] / hi250.loc[day, t] - 1 <= b_arm_dd
+                trig = (armed and low_age[t][i] >= b_bottom_age
+                        and np.isfinite(ma20.loc[day, t]) and c[t] > ma20.loc[day, t]
+                        and np.isfinite(ma20_slope.loc[day, t]) and ma20_slope.loc[day, t] > 0)
+                if trig:
+                    b_active[t] = cap
+                    b_pending_low[t] = float(closes[t].iloc[max(0, i - 249):i + 1].min())
+                    trades.append((str(day.date()), "B-IN", TICKERS[t],
+                                   f"dd{c[t] / hi250.loc[day, t] - 1:.0%}/低点{low_age[t][i]}日"))
+            else:
+                be = b_entry.get(t, {})
+                # 趋势成立标记: 收盘曾站上MA(b_exit_ma)
+                if np.isfinite(maX.loc[day, t]) and c[t] > maX.loc[day, t] and be:
+                    be["est"] = True
+                new_low = be and be.get("low") is not None and c[t] < be["low"]
+                trend_end = be.get("est") and np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t]
+                llm_down = use_llm_exit and t in llm_state["exit"]
+                stop = be and c[t] / be["px"] - 1 <= b_stop
+                if not new_low and not trend_end and not llm_down and not stop:
+                    b_active[t] = cap
+                else:
+                    if llm_down:
+                        llm_state["block"].add(t)
+                    reason = ("筑底失败创新低" if new_low else "趋势结束" if trend_end
+                              else "LLM下降" if llm_down else "硬止损")
+                    trades.append((str(day.date()), "B-OUT", TICKERS[t], reason))
+        b_sum = sum(b_active.values())
+        if b_sum > b_total_cap:
+            b_active = {t: w * b_total_cap / b_sum for t, w in b_active.items()}
+            b_sum = b_total_cap
+        target.update(b_active)
+        # 黄金/银行袖珍
+        if listed.loc[day, GOLD] or gold_off:
+            if gold_off:
+                # 黄金失势 → 银行防御(各行自身MA250过滤), B让位
+                for b in BANKS:
+                    if listed.loc[day, b] and np.isfinite(ma250.loc[day, b]) and c[b] > ma250.loc[day, b]:
+                        target[b] = 0.125
+                        if b not in pos:
+                            trades.append((str(day.date()), "DEF-IN", TICKERS[b], "黄金失势防御"))
+            else:
+                gw = max(gold_w - b_sum, 0.0)
+                if listed.loc[day, GOLD]:
+                    target[GOLD] = gw
+                    if GOLD not in pos:
+                        trades.append((str(day.date()), "CORE-IN", TICKERS[GOLD], f"{gw:.1%}"))
+        # 总和归一(银行防御时可能 nasdaq50+banks50+B20=120%)
+        tot = sum(target.values())
+        if tot > 1.0:
+            # 银行防御期: B轨先让位
+            excess = tot - 1.0
+            for t in list(target):
+                if t in B_TRACK and excess > 0:
+                    cut = min(target[t], excess)
+                    target[t] -= cut
+                    excess -= cut
+                    if target[t] <= 1e-9:
+                        del target[t]
+            tot = sum(target.values())
+            if tot > 1.0:
+                target = {t: w / tot for t, w in target.items()}
+        # 碎单过滤
+        total_now = cash + mv
+        cur_w = {t: n * c.get(t, np.nan) / total_now for t, n in pos.items()
+                 if np.isfinite(c.get(t, np.nan))} if total_now > 0 else {}
+        changed = (set(target) != set(cur_w)) or \
+                  any(abs(target.get(t, 0) - cur_w.get(t, 0)) >= dust for t in set(target) | set(cur_w))
+        if changed:
+            pending = target
+
+    eq = pd.Series(dict(curve)).sort_index()
+    return eq, trades
+
+
+# ---------------------------------------------------------------------------
+# v3: 分资产类别策略 (用户20260806指导)
+#   A轨(低波复利): 黄金/纳指/银行  趋势持有直到反转 (MA250 + LLM下降)
+#   B轨(高波周期): 恒科/科创/原油  底部反转等待 (深回撤武装→筑底确认→持有到趋势结束)
+# ---------------------------------------------------------------------------
+
+def bt_v3(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
+          a_exit_buf=0.02, a_entry_buf=0.01, alloc="normalize", a_ma=250,
+          b_arm_dd=-0.25, b_bottom_age=20, b_stop=-0.12,
+          b_llm_bottom=False, use_llm_exit=True, use_a=True, use_b=True,
+          dust=0.02, b_exit_ma=60):
+    """alloc: normalize=超100%按比例归一; priority=按 纳指>黄金>银行>B 优先填满(复利优先)"""
+    # 优先fill顺序
+    PRIORITY = ["513100.SS", "518800.SS", "601398.SS", "601988.SS", "601939.SS", "601288.SS",
+                "513180.SS", "588000.SS", "501018.SS", "160723.SZ"]
+    """事件驱动: 每日收盘判定, 次日09:31成交。各票目标权重=类上限(在场), 总和>1按比例归一"""
+    days = closes.index.intersection(opens.index)
+    listed = closes.notna()
+    cshift = closes.shift(1)
+    ma250 = closes.rolling(250).mean()
+    ma20 = closes.rolling(20).mean()
+    ma20_slope = ma20 / ma20.shift(20) - 1
+    maX = closes.rolling(b_exit_ma).mean()
+
+    # B轨每票: 250日低点距今交易日数 (预计算)
+    low_age = {}
+    for t in B_TRACK:
+        px = closes[t].values
+        age = np.full(len(days), 10**9)
+        for i in range(len(days)):
+            if not np.isfinite(px[i]):
+                continue
+            j0 = max(0, i - 249)
+            w = px[j0:i + 1]
+            if np.isfinite(w).any():
+                age[i] = i - (j0 + int(np.nanargmin(w)))
+        low_age[t] = age
+    hi250 = closes.rolling(250).max()
+
+    # LLM 月度状态 (复用v2 schema: 下降=退出, 筑底=B轨可选确认)
+    llm_tl = []
+    if llm_dir and os.path.isdir(llm_dir):
+        for fn in sorted(os.listdir(llm_dir)):
+            if fn.endswith(".json"):
+                try:
+                    doc = json.load(open(os.path.join(llm_dir, fn), encoding="utf-8"))
+                    if doc.get("version") == 2:
+                        llm_tl.append((pd.Timestamp(doc["asof"]), doc))
+                except Exception:
+                    pass
+        llm_tl.sort(key=lambda x: x[0])
+    llm_state = {"idx": -1, "exit": set(), "bottom": set(), "block": set()}
+
+    cash, pos = 1.0, {}
+    b_entry = {}                     # B轨入场价 (硬止损用)
+    pending = None
+    curve, trades = [], []
+
+    for i, day in enumerate(days):
+        c, o, cp = closes.loc[day], opens.loc[day], cshift.loc[day]
+        # 0) LLM 状态推进
+        while llm_state["idx"] + 1 < len(llm_tl) and llm_tl[llm_state["idx"] + 1][0] <= day:
+            llm_state["idx"] += 1
+            doc = llm_tl[llm_state["idx"]][1]
+            llm_state["exit"] = {t for t, a in doc.get("assets", {}).items()
+                                 if a.get("phase") == "下降"}
+            llm_state["bottom"] = {t for t, a in doc.get("assets", {}).items()
+                                   if a.get("phase") == "筑底"}
+            # 月度粘性: 新月报到达时, 仍判下降的维持封锁, 否则解除
+            llm_state["block"] = llm_state["block"] & llm_state["exit"]
+        # 1) 开盘执行昨日信号
+        if pending is not None:
+            fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
+            px_of = lambda t: o[t] if np.isfinite(o.get(t, np.nan)) else cp.get(t, np.nan)
+            total = cash + sum(n * px_of(t) for t, n in pos.items() if np.isfinite(px_of(t)))
+            fees, new_pos = 0.0, {}
+            for t, n in pos.items():
+                px = px_of(t)
+                if not np.isfinite(px):
+                    new_pos[t] = n
+                    continue
+                if t in pending:
+                    new_pos[t] = n
+                else:
+                    fees += n * px * fee_of(t)
+                    b_entry.pop(t, None)
+            for t, w in pending.items():
+                px = px_of(t)
+                if not np.isfinite(px) or px <= 0:
+                    continue
+                if t in pos:
+                    # 权重调整(归一化引起): 直接按目标重设份额, 差额收一次费
+                    cur_mv = pos[t] * px
+                    tgt_mv = total * w
+                    fees += abs(tgt_mv - cur_mv) * fee_of(t) * 0.5
+                    new_pos[t] = tgt_mv / px
+                else:
+                    new_pos[t] = total * w * (1 - fee_of(t)) / px
+                    fees += total * w * fee_of(t)
+                    if t in B_TRACK:
+                        b_entry[t] = px          # B轨入场价=实际成交(硬止损锚)
+            mv_open = sum(n * px_of(t) for t, n in new_pos.items() if np.isfinite(px_of(t)))
+            cash = total - mv_open - fees
+            pos = new_pos
+            pending = None
+        # 2) 日终估值
+        mv = sum(n * c.get(t, np.nan) for t, n in pos.items() if np.isfinite(c.get(t, np.nan)))
+        curve.append((day, cash + mv))
+        # 3) 收盘生成目标权重
+        target = {}
+        if use_a:
+            for t, cap in A_TRACK.items():
+                if not listed.loc[day, t]:
+                    continue
+                if a_ma and not np.isfinite(ma250.loc[day, t]):
+                    continue
+                in_pos = t in pos
+                if not in_pos:
+                    if t in llm_state["block"]:
+                        continue                     # LLM退出封锁: 等下月报
+                    if not a_ma or c[t] > ma250.loc[day, t] * (1 + a_entry_buf):
+                        target[t] = cap
+                        trades.append((str(day.date()), "A-IN", TICKERS[t], f"cap{cap:.1%}"))
+                else:
+                    rev = a_ma and c[t] < ma250.loc[day, t] * (1 - a_exit_buf)
+                    llm_down = use_llm_exit and t in llm_state["exit"]
+                    if not rev and not llm_down:
+                        target[t] = cap
+                    else:
+                        if llm_down:
+                            llm_state["block"].add(t)
+                        trades.append((str(day.date()), "A-OUT", TICKERS[t],
+                                       "破MA%d" % a_ma if rev else "LLM下降"))
+        if use_b:
+            for t, cap in B_TRACK.items():
+                if not (listed.loc[day, t] and np.isfinite(ma250.loc[day, t])):
+                    continue
+                in_pos = t in pos
+                if not in_pos:
+                    if t in llm_state["block"]:
+                        continue                     # LLM退出封锁: 等下月报
+                    armed = np.isfinite(hi250.loc[day, t]) and c[t] / hi250.loc[day, t] - 1 <= b_arm_dd
+                    trig = (armed and low_age[t][i] >= b_bottom_age
+                            and np.isfinite(ma20.loc[day, t]) and c[t] > ma20.loc[day, t]
+                            and np.isfinite(ma20_slope.loc[day, t]) and ma20_slope.loc[day, t] > 0
+                            and (not b_llm_bottom or t in llm_state["bottom"]))
+                    if trig:
+                        target[t] = cap
+                        trades.append((str(day.date()), "B-IN", TICKERS[t],
+                                       f"dd{c[t] / hi250.loc[day, t] - 1:.0%}/低点{low_age[t][i]}日"))
+                else:
+                    trend_end = np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t]
+                    llm_down = use_llm_exit and t in llm_state["exit"]
+                    stop = t in b_entry and c[t] / b_entry[t] - 1 <= b_stop
+                    if not trend_end and not llm_down and not stop:
+                        target[t] = cap
+                    else:
+                        if llm_down:
+                            llm_state["block"].add(t)
+                        reason = "趋势结束(破MA%d)" % b_exit_ma if trend_end else ("LLM下降" if llm_down else "硬止损")
+                        trades.append((str(day.date()), "B-OUT", TICKERS[t], reason))
+        # 组合装配: 超100%时 normalize=按比例 / priority=复利资产优先填满
+        if target:
+            tot = sum(target.values())
+            if tot > 1.0:
+                if alloc == "priority":
+                    filled, room = {}, 1.0
+                    for t in PRIORITY:
+                        if t in target and room > 0:
+                            filled[t] = min(target[t], room)
+                            room -= filled[t]
+                    target = filled
+                else:
+                    target = {t: w / tot for t, w in target.items()}
+        cur_w = {}
+        total_now = cash + mv
+        if total_now > 0:
+            cur_w = {t: n * c.get(t, np.nan) / total_now for t, n in pos.items()
+                     if np.isfinite(c.get(t, np.nan))}
+        changed = (set(target) != set(cur_w)) or \
+                  any(abs(target.get(t, 0) - cur_w.get(t, 0)) >= dust for t in set(target) | set(cur_w))
+        if changed:
+            pending = target
+
+    eq = pd.Series(dict(curve)).sort_index()
+    return eq, trades
+
+
 def metrics(eq, name=""):
     r = eq.pct_change().dropna()
     yrs = (eq.index[-1] - eq.index[0]).days / 365.25
@@ -400,6 +788,24 @@ def main():
     ap.add_argument("--llm-min-conf", type=float, default=0.6, help="LLM判定置信度门槛")
     ap.add_argument("--llm-bottom-w", type=float, default=0.5, help="早鸟票权重上限折扣(逆势半仓)")
     ap.add_argument("--llm-exit-conf", type=float, default=0.0, help="下降退出置信度门槛(0=不过滤)")
+    ap.add_argument("--strategy", choices=["v2", "v3", "v31"], default="v2",
+                    help="v2=量化轮动+LLM卖出侧; v3=分轨(A趋势持有+B底部反转, 用户20260806)")
+    ap.add_argument("--v3-a-exit-buf", type=float, default=0.02, help="A轨破MA250退出缓冲")
+    ap.add_argument("--v3-arm-dd", type=float, default=-0.25, help="B轨武装回撤门槛")
+    ap.add_argument("--v3-bottom-age", type=int, default=20, help="B轨低点确认交易日数")
+    ap.add_argument("--v3-b-stop", type=float, default=-0.12, help="B轨入场硬止损")
+    ap.add_argument("--v3-b-exit-ma", type=int, default=60, help="B轨趋势结束MA")
+    ap.add_argument("--v3-b-llm-bottom", action="store_true", help="B轨触发需LLM筑底确认")
+    ap.add_argument("--v3-no-llm-exit", action="store_true", help="关闭LLM下降退出(消融)")
+    ap.add_argument("--v3-no-a", action="store_true", help="关闭A轨(消融)")
+    ap.add_argument("--v3-no-b", action="store_true", help="关闭B轨(消融)")
+    ap.add_argument("--v3-a-entry-buf", type=float, default=0.01, help="A轨入场缓冲(防抖)")
+    ap.add_argument("--v3-alloc", choices=["normalize", "priority"], default="normalize",
+                    help="超100%分配: 按比例归一 / 复利优先填满")
+    ap.add_argument("--v3-ndx-w", type=float, default=0.50, help="v3.1纳指核心权重")
+    ap.add_argument("--v3-gold-w", type=float, default=0.50, help="v3.1黄金核心权重")
+    ap.add_argument("--v3-b-total-cap", type=float, default=0.20, help="v3.1 B轨总上限")
+    ap.add_argument("--v3-a-ma", type=int, default=250, help="A轨趋势MA(0=纯持有仅LLM退出)")
     ap.add_argument("--grid", action="store_true")
     args = ap.parse_args()
 
@@ -407,6 +813,57 @@ def main():
     closes = closes.loc[args.start:]
     opens = opens.loc[args.start:]
     print(f"回测区间: {closes.index[0].date()} -> {closes.index[-1].date()}  ({len(closes)} 交易日)")
+
+    if args.strategy == "v31":
+        eq, trades = bt_v31(closes, opens, llm_dir=args.llm_dir,
+                            cost_etf=args.cost_etf, cost_stock=args.cost_stock,
+                            b_arm_dd=args.v3_arm_dd, b_bottom_age=args.v3_bottom_age,
+                            b_stop=args.v3_b_stop, b_exit_ma=args.v3_b_exit_ma,
+                            b_total_cap=args.v3_b_total_cap,
+                            use_llm_exit=not args.v3_no_llm_exit,
+                            ndx_w=args.v3_ndx_w, gold_w=args.v3_gold_w)
+        metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
+        print("\n== 逐年收益 ==")
+        for y, v in yearly(eq).items():
+            print(f"  {y}: {v:+.1%}")
+        print(f"\n交易次数: {len(trades)}")
+        out = os.path.join(os.path.dirname(DATA), "output", "rotation_equity_v31.csv")
+        eq.to_csv(out, header=["equity"])
+        print("净值已存:", out)
+        return
+    if args.strategy == "v3":
+        eq, trades = bt_v3(closes, opens, llm_dir=args.llm_dir,
+                           cost_etf=args.cost_etf, cost_stock=args.cost_stock,
+                           a_exit_buf=args.v3_a_exit_buf, b_arm_dd=args.v3_arm_dd,
+                           b_bottom_age=args.v3_bottom_age, b_stop=args.v3_b_stop,
+                           b_exit_ma=args.v3_b_exit_ma,
+                           b_llm_bottom=args.v3_b_llm_bottom,
+                           use_llm_exit=not args.v3_no_llm_exit,
+                           use_a=not args.v3_no_a, use_b=not args.v3_no_b,
+                           a_entry_buf=args.v3_a_entry_buf, alloc=args.v3_alloc,
+                           a_ma=args.v3_a_ma)
+        metrics(eq, "v3分轨策略")
+        # 躺平基准三行
+        n = closes["513100.SS"].dropna()
+        g = closes["518800.SS"].dropna()
+        b4 = closes[["601398.SS", "601988.SS", "601939.SS", "601288.SS"]].dropna()
+        bank_eq = b4.div(b4.iloc[0]).mean(axis=1)
+        ng = (0.5 * n / n.iloc[0] + 0.5 * g / g.iloc[0]).dropna()
+        ngb = (0.4 * n / n.iloc[0] + 0.3 * g / g.iloc[0] + 0.3 * bank_eq).dropna()
+        metrics(n / n.iloc[0], "基准: 纯纳指")
+        metrics(ng, "基准: 50纳指+50黄金躺平")
+        metrics(ngb, "基准: 40纳指+30黄金+30银行躺平")
+        print("\n== 逐年收益 ==")
+        for y, v in yearly(eq).items():
+            print(f"  {y}: {v:+.1%}")
+        print(f"\n交易次数: {len(trades)}")
+        print("最近 16 笔:")
+        for tr in trades[-16:]:
+            print("  ", tr)
+        out = os.path.join(os.path.dirname(DATA), "output", "rotation_equity_v3.csv")
+        eq.to_csv(out, header=["equity"])
+        print("净值已存:", out)
+        return
 
     kw = dict(vol_adj=args.vol_adj, exit_daily=args.exit_daily,
               class_cap=args.class_cap, trend_ma=args.trend_ma, trail_stop=args.trail_stop,
