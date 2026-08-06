@@ -372,7 +372,12 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            use_events=True, events_dir=None, events_hold="all",
            ev_exhaust_profit=0.0, b_arm_win=500, b_wave=False, w_cool=10,
            w2_on=True, w2_ext=0.20, w2_exit_buf=1.0,
-           oh_arm_mode="ext", oh_rsi=80.0, b_rsi_exit=0.0, tr2_ratio=0.0, oh_re_delay=60):
+           oh_arm_mode="ext", oh_rsi=80.0, b_rsi_exit=0.0, tr2_ratio=0.0, oh_re_delay=60,
+           grid_on=True, grid_up=0.10, grid_down=0.07, grid_step=0.05, grid_rungs=2,
+           grid_mode="rsi", grid_regime=True):
+    """网格交易(用户20260806): 核心票过热减部分仓/回落回补。
+    step模式: 较参考价涨grid_up减grid_step仓位(最多grid_rungs档), 较减仓点跌grid_down回补。
+    rsi模式: RSI14≥75减仓, RSI14≤50回补。网格仅作用于正常持有态(oh_ref/nuke_out时暂停)。"""
     """V反早鸟(用户20260806: 如何吃到2026-07-02原油触底反弹):
     脉冲资产的底是V形不是平台——深跌武装(v_arm_dd)后等爆发式反转确认
     (收盘>MA10 且 5日收益≥v_ret5), 次日进场; 创新低立即证伪止损;
@@ -443,6 +448,9 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     nuke_low = {}                  # t -> [低点价, 低点年龄]
     oh_ref = {}                    # t -> 止盈卖出日收盘价 (回补参照)
     oh_ref_d = {}                  # t -> 止盈日 (认错回补冷静期用)
+    grid_ref = {}                  # t -> 网格参考价(上次动作价)
+    grid_trim = {}                 # t -> 当前已减出的权重
+    grid_rung_px = {}              # t -> 最近一档减仓价
     oh_low_age = {}                # t -> 止盈后低点计数器用最近低
     oh_armed = {}                  # t -> True (武装闩锁: 直到真调整<MA60或触发才解除)
     oh_coold = {}                  # t -> 冷却截止日 (回补后oh_cool日内不再触发)
@@ -639,11 +647,54 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             if NDX not in pos and not blocked:
                 trades.append((str(day.date()), "CORE-IN", TICKERS[NDX], f"{ndx_w:.0%}永持"))
             if not blocked:
-                target[NDX] = ndx_w
+                target[NDX] = max(ndx_w - grid_trim.get(NDX, 0.0), 0.0)
             elif sb_out.get(NDX) and sb_to == "banks":
                 for b in ["601398.SS", "601988.SS", "601939.SS", "601288.SS"]:
                     if listed.loc[day, b] and np.isfinite(ma250.loc[day, b]) and c[b] > ma250.loc[day, b]:
                         target[b] = target.get(b, 0) + ndx_w / 4
+        # 网格状态机 (核心两票, 正常持有态才运行)
+        if grid_on:
+            for t in (NDX, GOLD):
+                if not (listed.loc[day, t] and t in pos):
+                    if t not in pos:
+                        grid_trim[t] = 0.0
+                    continue
+                if t in oh_ref or t in nuke_out:
+                    continue
+                v = c[t]
+                # 震荡态闸门: 仅当价格贴MA250(±8%)且120日动量弱(|r120|≤10%)才开网格
+                if grid_regime:
+                    m250v = ma250.loc[day, t]
+                    r120v = v / closes[t].iloc[max(0, i - 120)] - 1 if i >= 120 else 9.9
+                    if not (np.isfinite(m250v) and abs(v / m250v - 1) <= 0.08 and abs(r120v) <= 0.10):
+                        if grid_trim.get(t, 0.0) > 0:      # 出震荡态: 强制回补
+                            grid_trim[t] = 0.0
+                            grid_rung_px.pop(t, None)
+                            grid_ref[t] = v
+                            trades.append((str(day.date()), "GRID-IN", TICKERS[t], "出震荡态回补"))
+                        continue
+                if t not in grid_ref:
+                    grid_ref[t] = v
+                    grid_trim[t] = 0.0
+                if grid_mode == "rsi":
+                    r14v = rsi14.loc[day, t]
+                    do_trim = np.isfinite(r14v) and r14v >= 75
+                    do_back = np.isfinite(r14v) and r14v <= 50
+                else:
+                    do_trim = v / grid_ref[t] - 1 >= grid_up
+                    do_back = (grid_rung_px.get(t) and v / grid_rung_px[t] - 1 <= -grid_down)
+                if do_trim and grid_trim[t] < grid_step * grid_rungs - 1e-9:
+                    grid_trim[t] = grid_trim.get(t, 0.0) + grid_step
+                    grid_rung_px[t] = v
+                    grid_ref[t] = v
+                    trades.append((str(day.date()), "GRID-OUT", TICKERS[t],
+                                   f"减{grid_step:.0%}(已减{grid_trim[t]:.0%})"))
+                elif do_back and grid_trim.get(t, 0.0) > 0:
+                    trades.append((str(day.date()), "GRID-IN", TICKERS[t],
+                                   f"回补{grid_trim[t]:.0%}"))
+                    grid_trim[t] = 0.0
+                    grid_rung_px.pop(t, None)
+                    grid_ref[t] = v
         # 黄金失势滞回
         if listed.loc[day, GOLD] and np.isfinite(ma250.loc[day, GOLD]):
             if not gold_off and c[GOLD] < ma250.loc[day, GOLD] * (1 - gold_buf):
@@ -807,7 +858,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         if b not in pos:
                             trades.append((str(day.date()), "DEF-IN", TICKERS[b], "黄金失势防御"))
             else:
-                gw = max(gold_w - b_sum, 0.0)
+                gw = max(gold_w - b_sum - grid_trim.get(GOLD, 0.0), 0.0)
                 if listed.loc[day, GOLD] and GOLD not in oh_ref and GOLD not in nuke_out:
                     target[GOLD] = gw
                     if GOLD not in pos:
@@ -1152,6 +1203,13 @@ def main():
     ap.add_argument("--v3-b-rsi-exit", type=float, default=0.0, help="B轨RSI止盈(RSI14≥此值且破MA10, 0=关)")
     ap.add_argument("--v3-tr2-ratio", type=float, default=0.0, help="分批建仓首仓比例(0=一次性, 0.7=70/30)")
     ap.add_argument("--v3-oh-re-delay", type=int, default=60, help="认错回补距止盈最少自然日(默认60)")
+    ap.add_argument("--v3-no-grid", action="store_true", help="关闭震荡态RSI网格(默认开)")
+    ap.add_argument("--v3-grid-mode", choices=["step", "rsi"], default="rsi")
+    ap.add_argument("--v3-grid-up", type=float, default=0.10, help="step模式: 减仓触发涨幅")
+    ap.add_argument("--v3-grid-down", type=float, default=0.07, help="step模式: 回补触发跌幅")
+    ap.add_argument("--v3-grid-step", type=float, default=0.05, help="每档减仓权重")
+    ap.add_argument("--v3-grid-rungs", type=int, default=2, help="最多档数")
+    ap.add_argument("--v3-grid-trending", action="store_true", help="网格全时段激活(默认仅震荡态)")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
                     help="衰竭退出仅对浮盈≥此值的仓生效(0=无门槛)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
