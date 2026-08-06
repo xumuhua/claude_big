@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点0%/52周分位100%/近20日涨19.2%/MA20斜率9.6%",
+      "macro_logic": "AI算力需求爆发，美股科技龙头盈利超预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤-25.5%/低点距今21日/近20日涨8.5%/MA20斜率0.7%",
+      "macro_logic": "数字经济政策支持，美债利率下行，南向资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "588000.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-2.4%/52周分位94%/近20日涨28.7%/波动比1.23",
+      "macro_logic": "硬科技产业政策加持，流动性宽松，AI赛道行情",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近60日跌4.8%/vs MA20 1.1%/vs MA60 0.8%/波动比0.8",
+      "macro_logic": "全球央行购金潮，中东地缘冲突，美联储降息预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "501018.SS": {
+      "phase": "下降",
+      "phase_evidence": "回撤-22.8%/近20日跌22.8%/vs MA20 -6.9%/MA20斜率-1.9%",
+      "macro_logic": "原油需求预期走弱，OPEC+减产利好已充分定价",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "下降",
+      "phase_evidence": "回撤-29%/近20日跌21.7%/vs MA20 -7.3%/MA20斜率-5.2%",
+      "macro_logic": "原油需求预期走弱，OPEC+减产利好已充分定价",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "vs MA20 0%/近20日涨0.8%/波动比0.87",
+      "macro_logic": "红利风格资金偏好，经济弱复苏，净息差承压",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "vs MA20 -1.5%/近20日跌2.1%/波动比0.77",
+      "macro_logic": "红利风格资金偏好，经济弱复苏，净息差承压",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "近60日涨11.1%/vs MA250 4.9%/MA60斜率2.5%",
+      "macro_logic": "红利风格资金抱团，业绩超预期，净息差改善",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "vs MA20 -0.1%/近20日涨3.1%/波动比0.8",
+      "macro_logic": "红利风格资金偏好，经济弱复苏，净息差承压",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "AI算力需求爆发→美股科技、A股硬科技走强；美联储降息预期+地缘支撑黄金；OPEC+减产逻辑定价充分→原油回落；弱复苏下红利风格占优",
+  "prev_month_review": "上月对纳指、恒生科技、科创50、黄金、银行类判定基本正确，原油类冲高回落判定有误，减产利好已充分定价",
+  "summary": "本月优先标配纳指ETF、建行（趋势逻辑明确），逢低布局筑底的恒生科技，控制科创50仓位（短期涨幅偏大），标配黄金对冲风险，规避原油类标的，其余银行做防御底仓",
+  "version": 2,
+  "month": "20260508",
+  "asof": "20260508",
+  "model": "bot-20250308205057-5kjf4"
+}

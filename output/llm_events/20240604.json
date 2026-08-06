@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤1.9%，52周分位94%，MA20斜率3.9%，近120日涨18%",
+      "macro_logic": "2024年AI产业盈利超预期+美联储降息预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距高点回撤16.5%，52周分位53%，近20日跌2.4%，无明确单边趋势",
+      "macro_logic": "国内数字经济支持政策+美债利率下行预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤28.3%，低点距今76日，MA20斜率0.3%，近5日涨2.6%",
+      "macro_logic": "半导体国产替代政策加码+A股流动性边际宽松",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤3.8%，52周分位83%，MA60斜率4.7%，近120日涨16.4%",
+      "macro_logic": "全球央行购金潮+美联储降息预期+中东地缘冲突",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距高点回撤12.3%，52周分位49%，近20日跌4.3%，无明确单边趋势",
+      "macro_logic": "OPEC+减产协议延续+中东地缘冲突支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "深回撤25%，低点距今243日未破，近20日跌4.5%，无明确趋势",
+      "macro_logic": "OPEC+减产支撑油价，移仓损耗压制表现",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤1.4%，52周分位92%，近120日涨13.7%，MA20斜率正",
+      "macro_logic": "2024年A股红利风格占优，高股息防御价值凸显",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距高点回撤5.9%，52周分位73%，近20日跌0.9%，无明确单边趋势",
+      "macro_logic": "红利风格支撑高股息价值，短期资金流动扰动",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距高点回撤3.9%，52周分位80%，近20日跌0.8%，无明确单边趋势",
+      "macro_logic": "红利风格支撑高股息价值，短期资金流动扰动",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤3.1%，52周分位88%，近120日涨20.8%，MA60斜率2.3%",
+      "macro_logic": "2024年A股红利风格占优，高股息防御价值凸显",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    }
+  },
+  "factor_chains": "美联储降息预期→美债利率下行→成长股估值修复，中东地缘+OPEC+减产→商品支撑，红利风格占优→银行股走强",
+  "prev_month_review": "上月8个标的阶段判定符合走势，仅嘉实原油筑底判定误判，核心驱动逻辑多数仍在发酵，整体准确率较高",
+  "summary": "本月优先配置上升趋势的纳指ETF、黄金ETF、工行、农行，逢低布局筑底的科创50，震荡类标的控制仓位参与，均衡配置对冲跨资产波动",
+  "version": 2,
+  "month": "20240604",
+  "asof": "20240604",
+  "model": "bot-20250308205057-5kjf4"
+}

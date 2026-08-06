@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-23.6%，低点16交易日未破，短期微涨",
+      "macro_logic": "美联储激进加息压制估值，加息放缓预期升温",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-44.8%，低点5交易日未破，近5日涨15.8%",
+      "macro_logic": "平台经济监管转向+美债利率见顶预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-26.9%，低点128日未破，近20日涨14.3%",
+      "macro_logic": "国内流动性宽松+硬科技产业政策支持",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "回撤-6.4%，52周分位50%，波动比0.62，均线走平",
+      "macro_logic": "美联储加息压制+俄乌冲突避险支撑",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位77%，近20日涨14.4%，站上MA20/MA60",
+      "macro_logic": "OPEC+减产+俄乌冲突推升油价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "上升",
+      "phase_evidence": "52周分位69%，近20日涨14.4%，站上MA20/MA60",
+      "macro_logic": "OPEC+减产+俄乌冲突推升油价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "低点1交易日，近5日跌3.8%，跌破MA20/MA60",
+      "macro_logic": "风险偏好抬升，红利风格资金流出",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位12%，低点74日未破，长短均线走平",
+      "macro_logic": "红利流出逻辑边际弱化，无新增驱动",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "低点1交易日，近5日跌2.4%，跌破MA20/MA60",
+      "macro_logic": "风险偏好抬升，红利风格资金流出",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "下降",
+      "phase_evidence": "低点2交易日，近5日跌1.8%，跌破MA20/MA60",
+      "macro_logic": "风险偏好抬升，红利风格资金流出",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "美联储加息预期放缓→美债利率见顶→科技成长估值修复；OPEC+减产+俄乌冲突→油价抬升→通胀韧性；国内复苏预期→风险偏好抬升→红利回调",
+  "prev_month_review": "上月判定整体准确率较高，纳指、科创、黄金、原油逻辑持续，恒生科技止跌转筑底，银行板块出现分化",
+  "summary": "本月优先增配筑底的恒生科技、科创50，逢低布局纳指ETF，持有原油类获取趋势收益，低配处于下降通道的国有银行，黄金暂时观望",
+  "version": 2,
+  "month": "20221104",
+  "asof": "20221104",
+  "model": "bot-20250308205057-5kjf4"
+}

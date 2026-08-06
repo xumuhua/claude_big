@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "创250日新高，52周分位100%，MA20/60斜率4.7/4.8，近20日涨7%",
+      "macro_logic": "美联储降息预期+AI科技巨头盈利增长驱动",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤31%，52周分位12%，近5日涨4.1%，低点距今6个交易日",
+      "macro_logic": "平台经济政策边际回暖+短期超跌修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤35.1%，52周分位16%，近5日涨8.3%，低点距今4个交易日",
+      "macro_logic": "硬科技产业政策支持+春季流动性边际宽松",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅-0.4%，52周分位97%，MA20/60斜率为正",
+      "macro_logic": "美联储降息预期+全球央行购金+地缘避险",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位46%，近60日跌4.2%，长短均线斜率分化无明确趋势",
+      "macro_logic": "OPEC+减产托底+红海地缘冲突支撑油价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "深回撤20%，52周分位41%，长短均线斜率分化无明确趋势",
+      "macro_logic": "OPEC+减产托底+原油需求预期偏弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3%，52周分位85%，MA20斜率4.7，近20日涨7.9%",
+      "macro_logic": "A股弱市红利风格占优+高股息资产吸引资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-5.5%，52周分位82%，MA20斜率4.1，近20日涨8.3%",
+      "macro_logic": "A股弱市红利风格占优+高股息资产吸引资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.5%，52周分位83%，MA20斜率3.3，近20日涨4.6%",
+      "macro_logic": "A股弱市红利风格占优+高股息资产吸引资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.2%，52周分位89%，MA20斜率4.5，近20日涨8.5%",
+      "macro_logic": "A股弱市红利风格占优+高股息资产吸引资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    }
+  },
+  "factor_chains": "美联储降息预期→实际利率下行→黄金、美股科技成长占优，红海地缘+OPEC+减产托油价，A股弱市→红利风格占优",
+  "prev_month_review": "上月对纳指、黄金、四大行、原油的阶段判定准确，逻辑有效；恒生科技、科创50前期下降判断正确，当前已止跌筑底",
+  "summary": "本月优先配置纳指ETF、黄金ETF、四大行等高确定性上升标的，小仓位左侧布局恒生科技、科创50筑底机会，原油类暂时观望",
+  "version": 2,
+  "month": "20240208",
+  "asof": "20240208",
+  "model": "bot-20250308205057-5kjf4"
+}

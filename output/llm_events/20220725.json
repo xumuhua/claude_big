@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-19.8%，低点26日未破，近20日+2%，MA20斜率-0.6%",
+      "macro_logic": "美联储激进加息压制科技，短期跌势放缓企稳",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-39.4%，低点88日未破，MA60斜率4.8%，近20日-9.5%",
+      "macro_logic": "政治局平台经济政策托底，美债利率上行压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-32.5%，低点60日未破，MA60斜率2.7%，近20日-2.4%",
+      "macro_logic": "国内流动性宽松，硬科技产业扶持政策加码",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "下降",
+      "phase_evidence": "距高点-9.9%，近20日-4.9%，MA20斜率-4.2%",
+      "macro_logic": "美联储激进加息压制金价，俄乌地缘支撑有限",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位61%，近20日-8.6%，MA20斜率-8.8%",
+      "macro_logic": "俄乌+OPEC减产支撑，衰退预期升温带动回调",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "下降",
+      "phase_evidence": "52周分位56%，近20日-8.3%，MA20斜率-8.6%",
+      "macro_logic": "俄乌+OPEC减产支撑，衰退预期升温带动回调",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "距高点-8.8%，低点6日未破，近20日-5.7%，MA20斜率-2.1%",
+      "macro_logic": "弱市高股息防御逻辑充分定价，短期回调",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距高点-7.2%，近20日-4.9%，MA20斜率-0.5%",
+      "macro_logic": "弱市高股息防御属性，多空博弈",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "距高点-11.8%，低点6日未破，近20日-6.3%，MA20斜率-3.0%",
+      "macro_logic": "弱市高股息防御逻辑充分定价，短期回调",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "下降",
+      "phase_evidence": "距高点-7.7%，低点6日未破，近20日-5.0%，MA20斜率-2.0%",
+      "macro_logic": "弱市高股息防御逻辑充分定价，短期回调",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    }
+  },
+  "factor_chains": "美联储激进加息→美债利率上行→全球成长、黄金承压；衰退预期→原油回调；国内弱复苏→高股息、硬科技分化",
+  "prev_month_review": "上月原油、银行上升判定部分误判，衰退预期下二者走弱；其余标的阶段判定基本符合预期",
+  "summary": "本月优先布局估值调整充分、政策托底的恒生科技、科创50筑底机会；黄金、原油短期走弱暂回避；银行防御逻辑定价充分以观望为主",
+  "version": 2,
+  "month": "20220725",
+  "asof": "20220725",
+  "model": "bot-20250308205057-5kjf4"
+}

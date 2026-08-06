@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤19.9%，低点26日未破，近20日涨5.3%，MA20斜率2.2%",
+      "macro_logic": "美联储加息预期边际放缓，科技成长估值压制缓解",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤38.8%，低点15日未破，近20日涨16.6%",
+      "macro_logic": "互联网监管政策转向+美债利率见顶回落，外资回流",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤29.8%，低点138日未破，近20日涨6.3%，波动比0.92",
+      "macro_logic": "国内流动性宽松+硬科技产业政策支持，估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤2.7%，52周分位79%，近60日涨5.2%，波动比1.01",
+      "macro_logic": "美联储加息压制+俄乌冲突避险支撑，多空博弈",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤15%，近20日涨2%，波动比0.67",
+      "macro_logic": "俄乌冲突+OPEC减产支撑油价，衰退预期压制需求",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤20.5%，近20日涨1.2%，波动比0.64",
+      "macro_logic": "OPEC减产+俄乌冲突支撑油价，需求预期偏弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤14.4%，低点11日未破，近20日跌4.1%，vs MA20+0.1%",
+      "macro_logic": "红利风格资金流出逻辑趋弱，逐步止跌",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤8.7%，52周分位12%，近20日跌1%",
+      "macro_logic": "红利风格资金流出逻辑充分定价，逐步企稳",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤15.7%，低点11日未破，近20日跌3.1%",
+      "macro_logic": "红利风格资金流出逻辑边际衰竭，止跌企稳",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤10%，低点12日未破，近20日跌2.4%",
+      "macro_logic": "红利风格资金流出逻辑接近充分定价，逐步筑底",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    }
+  },
+  "factor_chains": "美联储加息节奏边际放缓→美债利率回落→成长股估值修复；俄乌冲突+OPEC减产→原油支撑→通胀粘性约束政策放松空间",
+  "prev_month_review": "上月多数标的判定准确，仅恒生科技误判为下降，实际政策底已现，止跌反弹，原有压制逻辑边际转暖",
+  "summary": "本月优先配置超跌筑底、政策催化的恒生科技与科创50，逢低布局纳指ETF，保留黄金作为避险仓位，原油少量配置，银行类标的暂观望",
+  "version": 2,
+  "month": "20221118",
+  "asof": "20221118",
+  "model": "bot-20250308205057-5kjf4"
+}

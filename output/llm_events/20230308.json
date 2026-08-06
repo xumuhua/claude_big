@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-12.7%，vs MA20仅0.2%，各周期收益波动小",
+      "macro_logic": "美联储加息节奏放缓，美股科技估值修复遇短期阻力",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "下降",
+      "phase_evidence": "近20日跌6.9%，vs MA20 -3.8%，MA20斜率-5.7%",
+      "macro_logic": "美债利率反弹压制估值，前期平台政策利好已部分定价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-20%，低点距今210日未破，MA20斜率-0.3%接近走平",
+      "macro_logic": "国内科创产业支持政策落地，流动性边际宽松托底估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅-2.2%，52周分位83%，近120日涨7%",
+      "macro_logic": "全球央行大举购金，美联储加息放缓带动美元走弱",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "下降",
+      "phase_evidence": "深回撤-23%，近60日跌9%，MA60斜率-3.8%",
+      "macro_logic": "全球经济复苏预期走弱，OPEC减产力度不及市场预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "160723.SZ": {
+      "phase": "下降",
+      "phase_evidence": "深回撤-26.4%，近60日跌5.1%，MA60斜率-2.5%",
+      "macro_logic": "全球经济复苏预期走弱，OPEC减产力度不及市场预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距高点-9.1%，近20日涨2.3%，MA20斜率-0.1%接近走平",
+      "macro_logic": "红利风格占优，弱市下防御性资金阶段性流入",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅-0.3%，52周分位97%，近120日涨9.2%",
+      "macro_logic": "红利风格占优，弱市下防御性资金持续流入高股息标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨4.8%，vs MA250 2.4%，MA20斜率0.6%",
+      "macro_logic": "红利风格占优，弱市下防御性资金流入高股息标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨3.4%，vs MA250 3.4%，MA20斜率0.7%",
+      "macro_logic": "红利风格占优，弱市下防御性资金流入高股息标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "美联储加息节奏预期→美债利率/美元汇率→全球权益估值、黄金定价、大宗商品需求→跨资产价格轮动",
+  "prev_month_review": "上月判定整体准确率较高，黄金、中行上升、恒生科技、原油类下降逻辑均验证，部分银行标的由震荡转入上升符合趋势",
+  "summary": "本月优先配置逻辑强度高的黄金ETF、中国银行，关注科创50筑底后的配置机会，规避下降趋势的原油类、恒生科技，纳指ETF暂观望，高股息银行标的可适当加仓",
+  "version": 2,
+  "month": "20230308",
+  "asof": "20230308",
+  "model": "bot-20250308205057-5kjf4"
+}

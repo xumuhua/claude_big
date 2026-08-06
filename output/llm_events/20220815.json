@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-12.6%，低点距今41日，近20日涨10.7%，MA20斜率0.3",
+      "macro_logic": "美联储7月加息75bp落地，市场预期加息节奏放缓",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-35.4%，低点距今103日，波动比0.67",
+      "macro_logic": "互联网监管政策落地，美债利率上行压制估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-28.2%，低点距今75日，近20日涨6.8%，MA20斜率2.6",
+      "macro_logic": "国内出台科创支持政策，流动性边际宽松",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位49%，近60日-1.9%，近20日+4.5%，无明确趋势",
+      "macro_logic": "美联储加息压制金价，俄乌冲突提供避险支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位63%，近120日+22.8%，近60日-5.6%，波动比0.5",
+      "macro_logic": "俄乌冲突推升油价，OPEC减产支撑价格高位",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-21.7%，近120日+23.1%，近60日-7.1%",
+      "macro_logic": "俄乌冲突推升油价，OPEC减产支撑价格高位",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位4%，低点距今8日，MA20斜率-6.3，近60日-6.3%",
+      "macro_logic": "地产风险压制银行估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-9%，低点距今249日，近20日涨0.3%",
+      "macro_logic": "地产风险压制银行估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位5%，低点距今8日，MA20斜率-6.3，近60日-8.4%",
+      "macro_logic": "地产风险压制银行估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-8.7%，低点距今21日，近20日涨1.1%",
+      "macro_logic": "地产风险压制银行估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "俄乌冲突→原油高位→全球通胀高企→美联储加息→美债利率上行→成长股承压、美元压制黄金",
+  "prev_month_review": "上月多数标的阶段判定准确，仅工行、建行8月新创低点，原筑底判断误判；核心驱动逻辑均仍在发酵",
+  "summary": "本月优先配置筑底充分的科创50、纳指ETF，标配黄金对冲风险，原油逢低布局，暂规避未企稳的工行、建行，待银行股止跌后增配高股息标的，整体仓位均衡",
+  "version": 2,
+  "month": "20220815",
+  "asof": "20220815",
+  "model": "bot-20250308205057-5kjf4"
+}

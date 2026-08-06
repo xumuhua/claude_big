@@ -368,7 +368,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            b_priority=True, b_deep=False, b_trail=-0.20, b_llm_bottom=False,
            oh_park_banks=False, oh_exit_sig="ma10", b_tranche=False, b_dedup=False,
            nuke_stop=0.28, nuke_win=500,
-           v_arm_dd=-0.35, v_ret5=0.08, v_trail=-0.15, v_arm_profit=0.15):
+           v_arm_dd=-0.35, v_ret5=0.08, v_trail=-0.15, v_arm_profit=0.15,
+           use_events=False, events_dir=None, events_hold="profit"):
     """V反早鸟(用户20260806: 如何吃到2026-07-02原油触底反弹):
     脉冲资产的底是V形不是平台——深跌武装(v_arm_dd)后等爆发式反转确认
     (收盘>MA10 且 5日收益≥v_ret5), 次日进场; 创新低立即证伪止损;
@@ -409,17 +410,24 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
         low_age[t] = age
 
     llm_tl = []
-    if llm_dir and os.path.isdir(llm_dir):
-        for fn in sorted(os.listdir(llm_dir)):
-            if fn.endswith(".json"):
-                try:
-                    doc = json.load(open(os.path.join(llm_dir, fn), encoding="utf-8"))
-                    if doc.get("version") == 2:
-                        llm_tl.append((pd.Timestamp(doc["asof"]), doc))
-                except Exception:
-                    pass
+    dirs = [llm_dir] if llm_dir else []
+    if use_events and events_dir:
+        dirs.append(events_dir)
+    for dd_ in dirs:
+        if dd_ and os.path.isdir(dd_):
+            is_ev = use_events and events_dir and os.path.abspath(dd_) == os.path.abspath(events_dir)
+            for fn in sorted(os.listdir(dd_)):
+                if fn.endswith(".json"):
+                    try:
+                        doc = json.load(open(os.path.join(dd_, fn), encoding="utf-8"))
+                        if doc.get("version") == 2:
+                            doc["_event"] = is_ev
+                            llm_tl.append((pd.Timestamp(doc["asof"]), doc))
+                    except Exception:
+                        pass
         llm_tl.sort(key=lambda x: x[0])
-    llm_state = {"idx": -1, "exit": set(), "block": set(), "asof": None}
+    llm_state = {"idx": -1, "exit": set(), "block": set(), "asof": None,
+                 "exhaust": set(), "hold": set()}
     b_pending_low = {}             # 信号日暂存底部参考低
     b_pending_kind = {}            # 信号日暂存入仓类型(V/B)
     sb_streak = {}                 # t -> 连续低于MA250×0.98天数
@@ -449,8 +457,14 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             doc = llm_tl[llm_state["idx"]][1]
             llm_state["exit"] = {t for t, a in doc.get("assets", {}).items()
                                  if a.get("phase") == "下降"}
-            llm_state["block"] = llm_state["block"] & llm_state["exit"]
+            if not doc.get("_event"):
+                llm_state["block"] = llm_state["block"] & llm_state["exit"]
             llm_state["asof"] = llm_tl[llm_state["idx"]][0]
+            llm_state["exhaust"] = {t for t, a in doc.get("assets", {}).items()
+                                    if a.get("logic_durability") == "衰竭" or a.get("phase") == "冲高"}
+            llm_state["hold"] = {t for t, a in doc.get("assets", {}).items()
+                                 if a.get("logic_durability") == "持续"
+                                 and a.get("phase") in ("筑底", "上升", "震荡")}
         # 1) 开盘执行
         if pending is not None:
             fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
@@ -650,18 +664,25 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     be["est"] = True
                 if be:
                     be["peak"] = max(be.get("peak", be["px"]), c[t])
+                doc_fresh = (llm_state["asof"] is not None and be
+                             and llm_state["asof"] > be["d"])
                 new_low = be and be.get("low") is not None and c[t] < be["low"]
-                trend_end = be.get("est") and np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t]
-                llm_down = (use_llm_exit and t in llm_state["exit"]
-                            and llm_state["asof"] is not None
-                            and (not be or "d" not in be or llm_state["asof"] > be["d"]))
+                # 叙事护航仅保护浮盈仓(逻辑拿住利润, 不用来扛浮亏); events_hold=all 则全保护
+                hold_ok = (use_events and events_hold != "off" and doc_fresh
+                           and t in llm_state["hold"]
+                           and (events_hold == "all" or (be and c[t] >= be["px"])))
+                trend_end = (be.get("est") and np.isfinite(maX.loc[day, t]) and c[t] < maX.loc[day, t]
+                             and not hold_ok)
+                llm_down = use_llm_exit and t in llm_state["exit"] and doc_fresh
+                llm_exhaust = use_events and doc_fresh and t in llm_state["exhaust"]
                 stop = be and c[t] / be["px"] - 1 <= b_stop
                 trail = (b_trail and be and be["peak"] / be["px"] - 1 >= 0.20
                          and c[t] / be["peak"] - 1 <= b_trail)
                 v_trail_hit = (v_trail and be and be.get("kind") == "V"
                                and be["peak"] / be["px"] - 1 >= v_arm_profit
                                and c[t] / be["peak"] - 1 <= v_trail)
-                if not new_low and not trend_end and not llm_down and not stop and not trail and not v_trail_hit:
+                if (not new_low and not trend_end and not llm_down and not stop
+                        and not trail and not v_trail_hit and not llm_exhaust):
                     w_cap = cap
                     if b_tranche:
                         w_cap = cap * (1.0 if be and c[t] / be["px"] - 1 >= 0.05 else 0.5)
@@ -670,7 +691,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     if llm_down:
                         llm_state["block"].add(t)
                     reason = ("筑底失败创新低" if new_low else "趋势结束" if trend_end
-                              else "LLM下降" if llm_down else "移动止盈" if trail
+                              else "LLM下降" if llm_down else "LLM逻辑衰竭" if llm_exhaust
+                              else "移动止盈" if trail
                               else "V反止盈" if v_trail_hit else "硬止损")
                     trades.append((str(day.date()), "B-OUT", TICKERS[t], reason))
         # R14变体在CLI层用 b_dedup 控制: 两只原油同时active时留强去弱
@@ -784,15 +806,21 @@ def bt_v3(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
 
     # LLM 月度状态 (复用v2 schema: 下降=退出, 筑底=B轨可选确认)
     llm_tl = []
-    if llm_dir and os.path.isdir(llm_dir):
-        for fn in sorted(os.listdir(llm_dir)):
-            if fn.endswith(".json"):
-                try:
-                    doc = json.load(open(os.path.join(llm_dir, fn), encoding="utf-8"))
-                    if doc.get("version") == 2:
-                        llm_tl.append((pd.Timestamp(doc["asof"]), doc))
-                except Exception:
-                    pass
+    dirs = [llm_dir] if llm_dir else []
+    if use_events and events_dir:
+        dirs.append(events_dir)
+    for dd_ in dirs:
+        if dd_ and os.path.isdir(dd_):
+            is_ev = use_events and events_dir and os.path.abspath(dd_) == os.path.abspath(events_dir)
+            for fn in sorted(os.listdir(dd_)):
+                if fn.endswith(".json"):
+                    try:
+                        doc = json.load(open(os.path.join(dd_, fn), encoding="utf-8"))
+                        if doc.get("version") == 2:
+                            doc["_event"] = is_ev
+                            llm_tl.append((pd.Timestamp(doc["asof"]), doc))
+                    except Exception:
+                        pass
         llm_tl.sort(key=lambda x: x[0])
     llm_state = {"idx": -1, "exit": set(), "bottom": set(), "block": set()}
 
@@ -812,8 +840,14 @@ def bt_v3(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
             llm_state["bottom"] = {t for t, a in doc.get("assets", {}).items()
                                    if a.get("phase") == "筑底"}
             # 月度粘性: 新月报到达时, 仍判下降的维持封锁, 否则解除
-            llm_state["block"] = llm_state["block"] & llm_state["exit"]
+            if not doc.get("_event"):
+                llm_state["block"] = llm_state["block"] & llm_state["exit"]
             llm_state["asof"] = llm_tl[llm_state["idx"]][0]
+            llm_state["exhaust"] = {t for t, a in doc.get("assets", {}).items()
+                                    if a.get("logic_durability") == "衰竭" or a.get("phase") == "冲高"}
+            llm_state["hold"] = {t for t, a in doc.get("assets", {}).items()
+                                 if a.get("logic_durability") == "持续"
+                                 and a.get("phase") in ("筑底", "上升", "震荡")}
         # 1) 开盘执行昨日信号
         if pending is not None:
             fee_of = lambda t: cost_stock if t in STOCKS else cost_etf
@@ -1020,6 +1054,9 @@ def main():
     ap.add_argument("--v3-v-ret5", type=float, default=0.08, help="V反确认5日收益")
     ap.add_argument("--v3-v-trail", type=float, default=-0.15, help="V仓浮盈后移动止盈")
     ap.add_argument("--v3-v-arm-profit", type=float, default=0.15, help="V仓移动止盈启动浮盈")
+    ap.add_argument("--v3-events", action="store_true", help="启用事件级LLM(output/llm_events)跟踪B/V仓")
+    ap.add_argument("--v3-events-hold", choices=["profit", "all", "off"], default="profit",
+                    help="叙事护航范围: profit=仅浮盈仓(默认)/all=全部/off=关闭护航只留衰竭退出")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
     ap.add_argument("--v3-oh-ext", type=float, default=0.275, help="冲顶武装: 偏离MA250阈值")
     ap.add_argument("--v3-use-stag", action="store_true", help="启用滞涨武装(默认关, 假信号多)")
@@ -1060,7 +1097,10 @@ def main():
                             b_dedup=getattr(args, "v3_b_dedup", False),
                             nuke_stop=args.v3_nuke_stop, nuke_win=args.v3_nuke_win,
                             v_arm_dd=args.v3_v_arm_dd or None, v_ret5=args.v3_v_ret5,
-                            v_trail=args.v3_v_trail, v_arm_profit=args.v3_v_arm_profit)
+                            v_trail=args.v3_v_trail, v_arm_profit=args.v3_v_arm_profit,
+                            use_events=args.v3_events,
+                            events_dir=os.path.join(os.path.dirname(DATA), "output", "llm_events"),
+                            events_hold=args.v3_events_hold)
         metrics(eq, f"v3.1核心{args.v3_ndx_w:.0%}纳指/{args.v3_gold_w:.0%}黄金")
         print("\n== 逐年收益 ==")
         for y, v in yearly(eq).items():

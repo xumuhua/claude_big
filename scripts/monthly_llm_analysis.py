@@ -230,10 +230,12 @@ def build_prompt(feat: pd.DataFrame, ctx: dict, T, prev: dict | None) -> str:
 # 单月处理
 # ---------------------------------------------------------------------------
 
-def analyze_month(closes, T, prev, force=False):
-    ym = T.strftime("%Y%m")
-    js_path = os.path.join(OUT_DIR, f"{ym}.json")
-    md_path = os.path.join(OUT_DIR, f"{ym}.md")
+def analyze_month(closes, T, prev, force=False, out_dir=None, tag=None):
+    ym = tag or T.strftime("%Y%m")
+    od = out_dir or OUT_DIR
+    js_path = os.path.join(od, f"{ym}.json")
+    md_path = os.path.join(od, f"{ym}.md")
+    os.makedirs(od, exist_ok=True)
     if os.path.exists(js_path) and not force:
         old = json.load(open(js_path, encoding="utf-8"))
         if old.get("version") == 2:                # v2 产物才跳过, v1 一律重跑
@@ -273,6 +275,7 @@ def analyze_month(closes, T, prev, force=False):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--months", nargs="+", help="YYYYMM 列表")
+    ap.add_argument("--dates", nargs="+", help="YYYYMMDD 任意日期列表(事件级分析, 存output/llm_events)")
     ap.add_argument("--all", action="store_true", help="2013-08起全部月末")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--workers", type=int, default=4)
@@ -282,6 +285,35 @@ def main():
     _ensure_llm_keys()
     os.makedirs(OUT_DIR, exist_ok=True)
     closes, _ = load_daily()          # 不截断: 首月也需要60日+回溯窗口
+    if args.dates:
+        # 事件级: 取≤指定日的最近交易日, 以上月月报为链式上文
+        ev_dir = os.path.join(ROOT, "output", "llm_events")
+        me_all = month_ends(closes.index)
+        jobs = []
+        for ds in args.dates:
+            d = pd.Timestamp(ds)
+            T = closes.index[closes.index <= d][-1]
+            prev_me = [m for m in me_all if m < T]
+            prev = None
+            if prev_me:
+                p = os.path.join(OUT_DIR, f"{prev_me[-1].strftime('%Y%m')}.json")
+                if os.path.exists(p):
+                    prev = json.load(open(p))
+            jobs.append((T, prev))
+        ok = fail = 0
+        with ThreadPoolExecutor(max_workers=args.workers) as ex:
+            futs = {ex.submit(analyze_month, closes, T, prev, args.force,
+                              ev_dir, T.strftime("%Y%m%d")): T for T, prev in jobs}
+            for fu in as_completed(futs):
+                try:
+                    ym, st = fu.result()
+                    ok += st in ("ok", "skip")
+                    print(f"  {ym}: {st}")
+                except Exception as e:
+                    fail += 1
+                    print(f"  {futs[fu].strftime('%Y%m%d')}: FAIL {e}")
+        print(f"事件级完成: ok/skip={ok} fail={fail}")
+        return
     me = [T for T in month_ends(closes.index) if T >= pd.Timestamp(args.start)]
     if args.months:
         want = set(args.months)

@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-12.6%，近20日涨8.3%，MA20/60斜率为正，站上MA250",
+      "macro_logic": "美联储加息放缓预期支撑美股科技股估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-21.2%，近60日涨24.8%，MA20/60斜率为正",
+      "macro_logic": "平台经济支持政策落地+美债利率回落支撑估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-21.6%，低点188日未破，近20日涨6.5%，MA20斜率3.0",
+      "macro_logic": "央行流动性宽松+科创产业支持政策密集落地",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.4%，52周分位81%，MA20/60斜率为正",
+      "macro_logic": "全球央行购金潮+美元走弱+地缘冲突避险需求",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "501018.SS": {
+      "phase": "下降",
+      "phase_evidence": "深回撤-24.8%，近60日跌16%，MA20/60斜率为负，低于均线",
+      "macro_logic": "全球经济衰退预期压制原油需求",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "160723.SZ": {
+      "phase": "下降",
+      "phase_evidence": "深回撤-27.7%，近60日跌14.4%，MA20/60斜率为负，低于均线",
+      "macro_logic": "全球经济衰退预期压制原油需求",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-11.9%，近20日跌1.2%，均线无明确趋势",
+      "macro_logic": "市场风险偏好回升，资金从高股息品种分流",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.9%，52周分位61%，MA20/60斜率为正",
+      "macro_logic": "红利风格偏好+银行净息差改善预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-12.2%，近20日跌0.7%，均线走平无明确方向",
+      "macro_logic": "市场风险偏好回升，资金从高股息品种分流",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5.8%，近20日微涨0.3%，均线无明确趋势",
+      "macro_logic": "市场风险偏好回升，资金从高股息品种分流",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储加息节奏→美债利率/美元→全球成长股、黄金、港股估值；全球经济预期→原油需求→通胀→美联储政策；国内政策→风险偏好→科创/银行风格轮动",
+  "prev_month_review": "上月阶段判断整体准确，核心驱动逻辑如加息放缓、平台政策转向、购金潮均仍在发酵，无明显误判",
+  "summary": "本月优先配置趋势明确的恒生科技、黄金、纳指ETF，逢低布局筑底的科创50，规避下行的原油类标的，银行类仅作防御底仓，整体均衡偏成长",
+  "version": 2,
+  "month": "20230206",
+  "asof": "20230206",
+  "model": "bot-20250308205057-5kjf4"
+}
