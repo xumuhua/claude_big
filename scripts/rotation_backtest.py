@@ -374,7 +374,10 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            w2_on=True, w2_ext=0.20, w2_exit_buf=1.0,
            oh_arm_mode="ext", oh_rsi=80.0, b_rsi_exit=0.0, tr2_ratio=0.0, oh_re_delay=60,
            grid_on=True, grid_up=0.10, grid_down=0.07, grid_step=0.05, grid_rungs=2,
-           grid_mode="rsi", grid_regime=True, gold_bottom_ride=False):
+           grid_mode="rsi", grid_regime=True, gold_bottom_ride=False,
+           bank_mode="switch", overflow="priority"):
+    """bank_mode: switch=黄金失势才启用银行(默认) / indep=银行独立趋势控制(用户20260806)
+    overflow:  priority=银行让位再归一(默认) / normalize=总和>1全比例归一"""
     """网格交易(用户20260806): 核心票过热减部分仓/回落回补。
     step模式: 较参考价涨grid_up减grid_step仓位(最多grid_rungs档), 较减仓点跌grid_down回补。
     rsi模式: RSI14≥75减仓, RSI14≤50回补。网格仅作用于正常持有态(oh_ref/nuke_out时暂停)。"""
@@ -872,7 +875,26 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     if listed.loc[day, b] and np.isfinite(ma250.loc[day, b]) and c[b] > ma250.loc[day, b]:
                         target[b] = target.get(b, 0) + park_w / 4
         # 黄金/银行袖珍
-        if listed.loc[day, GOLD] or gold_off:
+        if bank_mode == "indep":
+            # 独立控制: 黄金按自身滞回(gold_off语义不变), 银行各自站MA250即持
+            if not gold_off:
+                gw = max(gold_w - b_sum - grid_trim.get(GOLD, 0.0), 0.0)
+                if listed.loc[day, GOLD] and GOLD not in oh_ref and GOLD not in nuke_out:
+                    target[GOLD] = gw
+                    if GOLD not in pos:
+                        trades.append((str(day.date()), "CORE-IN", TICKERS[GOLD], f"{gw:.1%}"))
+            for b in BANKS:
+                if not (listed.loc[day, b] and np.isfinite(ma250.loc[day, b])):
+                    continue
+                in_b = b in pos
+                if not in_b and c[b] > ma250.loc[day, b]:
+                    target[b] = 0.125
+                    trades.append((str(day.date()), "BANK-IN", TICKERS[b], "独立站上MA250"))
+                elif in_b and c[b] >= ma250.loc[day, b] * 0.98:
+                    target[b] = 0.125
+                elif in_b:
+                    trades.append((str(day.date()), "BANK-OUT", TICKERS[b], "独立破MA250"))
+        elif listed.loc[day, GOLD] or gold_off:
             if gold_off:
                 # 黄金失势 → 银行防御(各行自身MA250过滤), B让位
                 for b in BANKS:
@@ -889,20 +911,24 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
         # 总和归一(防御期可能 nasdaq50+banks50+B20=120%)
         tot = sum(target.values())
         if tot > 1.0:
-            # 削减顺序: b_priority=True→银行先让位(B保留); False→B先让位(原规则)
-            yield_order = (["601398.SS", "601988.SS", "601939.SS", "601288.SS"] if b_priority
-                           else list(B_TRACK))
-            excess = tot - 1.0
-            for t in yield_order:
-                if t in target and excess > 0:
-                    cut = min(target[t], excess)
-                    target[t] -= cut
-                    excess -= cut
-                    if target[t] <= 1e-9:
-                        del target[t]
-            tot = sum(target.values())
-            if tot > 1.0:
+            if overflow == "normalize":
+                # 用户20260806提案: 全比例归一(无优先级)
                 target = {t: w / tot for t, w in target.items()}
+            else:
+                # 削减顺序: b_priority=True→银行先让位(B保留); False→B先让位(原规则)
+                yield_order = (["601398.SS", "601988.SS", "601939.SS", "601288.SS"] if b_priority
+                               else list(B_TRACK))
+                excess = tot - 1.0
+                for t in yield_order:
+                    if t in target and excess > 0:
+                        cut = min(target[t], excess)
+                        target[t] -= cut
+                        excess -= cut
+                        if target[t] <= 1e-9:
+                            del target[t]
+                tot = sum(target.values())
+                if tot > 1.0:
+                    target = {t: w / tot for t, w in target.items()}
         # 碎单过滤
         total_now = cash + mv
         cur_w = {t: n * c.get(t, np.nan) / total_now for t, n in pos.items()
@@ -1235,6 +1261,10 @@ def main():
     ap.add_argument("--v3-grid-trending", action="store_true", help="网格全时段激活(默认仅震荡态)")
     ap.add_argument("--v3-gold-bottom-ride", action="store_true",
                     help="黄金筑底回补通道(低点20日+MA20转正买入, 创新低才退出)")
+    ap.add_argument("--v3-bank-mode", choices=["switch", "indep"], default="switch",
+                    help="银行: switch=黄金失势顶替(默认) / indep=独立趋势控制")
+    ap.add_argument("--v3-overflow", choices=["priority", "normalize"], default="priority",
+                    help="权重和>1时: 优先级填充(默认) / 全比例归一")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
                     help="衰竭退出仅对浮盈≥此值的仓生效(0=无门槛)")
     ap.add_argument("--v3-no-oh", action="store_true", help="关闭核心过热止盈(消融)")
