@@ -376,7 +376,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            grid_on=True, grid_up=0.10, grid_down=0.07, grid_step=0.05, grid_rungs=2,
            grid_mode="rsi", grid_regime=True, gold_bottom_ride=False,
            bank_mode="switch", overflow="priority",
-           crash_ladder=False, ladder_rungs=((-0.20, 0.30), (-0.30, 0.30))):
+           crash_ladder=True, ladder_rungs=((-0.20, 0.30), (-0.30, 0.30))):
     """崩盘梯形接回(用户20260807): 核心票保护性退出(OH/核按钮)后, 距退出参考价
     每跌一档接回一部分(ladder_rungs: (回撤, 累计占cap比例)); 筑底确认/创新高回补时补满。"""
     """bank_mode: switch=黄金失势才启用银行(默认) / indep=银行独立趋势控制(用户20260806)
@@ -922,9 +922,16 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
         elif listed.loc[day, GOLD] or gold_off:
             if gold_off:
                 # 黄金失势 → 银行防御(各行自身MA250过滤), B让位
+                # 梯形接回优先: 梯形黄金仓从银行池扣除(抄底doctrine优先于防御替换)
+                lw = 0.0
+                if (crash_ladder and GOLD not in nuke_out
+                        and ladder_fill.get(GOLD, 0.0) > 0):
+                    lw = gold_w * ladder_fill[GOLD]
+                    target[GOLD] = lw
+                bank_each = (0.5 - lw) / 4
                 for b in BANKS:
                     if listed.loc[day, b] and np.isfinite(ma250.loc[day, b]) and c[b] > ma250.loc[day, b]:
-                        target[b] = 0.125
+                        target[b] = bank_each
                         if b not in pos:
                             trades.append((str(day.date()), "DEF-IN", TICKERS[b], "黄金失势防御"))
             else:
@@ -1290,8 +1297,8 @@ def main():
                     help="黄金筑底回补通道(低点20日+MA20转正买入, 创新低才退出)")
     ap.add_argument("--v3-bank-mode", choices=["switch", "indep"], default="switch",
                     help="银行: switch=黄金失势顶替(默认) / indep=独立趋势控制")
-    ap.add_argument("--v3-crash-ladder", action="store_true",
-                    help="崩盘梯形接回: 退出参考价-20%%起建30%%底仓, 每-10%%加一档")
+    ap.add_argument("--v3-no-crash-ladder", action="store_true",
+                    help="关闭崩盘梯形接回(默认开: -20%%/-30%%各接30%%cap)")
     ap.add_argument("--v3-overflow", choices=["priority", "normalize"], default="priority",
                     help="权重和>1时: 优先级填充(默认) / 全比例归一")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
