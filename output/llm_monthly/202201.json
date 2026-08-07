@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤13.7%，近20日跌12.5%，MA20斜率-4.0%",
+      "macro_logic": "美联储释放加息预期，压制美股科技成长估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤36.3%，52周分位1%，近5日跌8.6%",
+      "macro_logic": "美债利率上行+互联网监管政策压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "588000.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤23.2%，近20日跌10.3%，MA20斜率-6.2%",
+      "macro_logic": "国内流动性边际收紧，成长股估值消化",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤6.7%，MA20斜率1.0%，波动比0.99",
+      "macro_logic": "美联储加息预期压制与俄乌地缘避险支撑多空交织",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点0%（创新高），近20日涨11.0%，vs MA20%5.0%",
+      "macro_logic": "OPEC+减产执行+俄乌地缘紧张推升油价预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "160723.SZ": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点0%（创新高），近20日涨11.6%，vs MA20%5.1%",
+      "macro_logic": "OPEC+减产执行+俄乌地缘紧张推升油价预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤16.8%，近20日涨0.4%，MA20斜率1.3%",
+      "macro_logic": "市场风险偏好下行，高股息防御属性获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤8.0%，近20日涨1.3%，MA20斜率1.5%",
+      "macro_logic": "市场风险偏好下行，高股息防御属性获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤21%属深回撤，低点117日未破，MA20斜率3.1%",
+      "macro_logic": "市场风险偏好下行，高股息防御属性获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤13.5%，近20日涨0.7%，MA20斜率1.2%",
+      "macro_logic": "市场风险偏好下行，高股息防御属性获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储加息预期→美债利率上行→科技成长承压、高股息占优；俄乌地缘紧张→原油涨价→通胀预期抬升",
+  "prev_month_review": "上月未对标的出具明确判定，本月结合2022年初宏观环境及量价数据完成全池判定",
+  "summary": "本月全池无标的站上MA250，整体偏防御。优先配置原油类跟随地缘+减产逻辑，标配银行高股息对冲成长下行风险，黄金少量做避险对冲，暂规避科技成长类标的。",
+  "version": 2,
+  "month": "202201",
+  "asof": "20220128",
+  "model": "bot-20250308205057-5kjf4"
+}

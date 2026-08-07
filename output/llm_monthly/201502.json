@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.1%，52周分位100%，MA20/60斜率为正，涨速平稳",
+      "macro_logic": "美联储维持低利率，美股科技龙头盈利稳定增长支撑纳指",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "基准日未上市，无有效行情数据",
+      "macro_logic": "无对应可跟踪驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "基准日未上市，无有效行情数据",
+      "macro_logic": "无对应可跟踪驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-9.4%，52周分位46%，近20日-4.6%、近60日+6.1%",
+      "macro_logic": "美联储加息预期升温，美元指数走强压制黄金价格",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "基准日未上市，无有效行情数据",
+      "macro_logic": "无对应可跟踪驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "基准日未上市，无有效行情数据",
+      "macro_logic": "无对应可跟踪驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "601398.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨30.9%，vs MA250+22%，近20日回撤8%，MA20斜率为负",
+      "macro_logic": "央行降准降息，A股牛市初期银行蓝筹获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨53.4%，vs MA250+37.1%，近20日回撤15.1%",
+      "macro_logic": "央行降准降息，A股牛市初期银行蓝筹获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
+    },
+    "601939.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨40.2%，vs MA250+26.6%，近20日回撤8.5%",
+      "macro_logic": "央行降准降息，A股牛市初期银行蓝筹获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨36.3%，vs MA250+24.5%，近20日回撤10.7%",
+      "macro_logic": "央行降准降息，A股牛市初期银行蓝筹获资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "央行降准降息→A股流动性宽松→银行蓝筹估值修复；美联储加息预期→美元走强→黄金承压，低利率支撑纳指上行",
+  "prev_month_review": "2015年1月无有效阶段判定，本月基于2月末行情及同期宏观因子首次出具评估结论",
+  "summary": "本月优先配置上升趋势明确的纳指ETF，银行板块短期涨幅过大进入冲高回落阶段暂规避，黄金处于震荡区间观望，未上市标的暂不纳入配置",
+  "version": 2,
+  "month": "201502",
+  "asof": "20150227",
+  "model": "bot-20250308205057-5kjf4"
+}

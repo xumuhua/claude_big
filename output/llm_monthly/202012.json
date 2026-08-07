@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤17.5%，低点194日未破，波动比0.35，近5日涨1.8%",
+      "macro_logic": "2020年美联储零利率+QE政策支撑美股科技板块估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "null",
+      "phase_evidence": "无当期有效量价运行数据",
+      "macro_logic": "无对应驱动因子可验证",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤2.1%，近5日涨2.9%，站上MA20",
+      "macro_logic": "2020年科创板注册制改革+半导体产业政策扶持",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤12.1%，低点195日未破，近20日涨2.7%",
+      "macro_logic": "2020年全球宽松通胀预期+美元走弱支撑金价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "501018.SS": {
+      "phase": "null",
+      "phase_evidence": "无当期有效量价运行数据",
+      "macro_logic": "无对应驱动因子可验证",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": "null",
+      "phase_evidence": "无当期有效量价运行数据",
+      "macro_logic": "无对应驱动因子可验证",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位9%，近20日跌7.2%，MA20斜率-1.6%，跌破均线",
+      "macro_logic": "2020年银行让利实体政策压制板块估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤17.8%，52周分位3%，低点7日，近5日微涨0.3%",
+      "macro_logic": "让利政策利空逐步定价，高股息属性吸引避险资金",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.5
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "近20日大跌14%，MA20斜率-3.7%，跌破MA20、MA60",
+      "macro_logic": "让利实体+息差收窄预期压制估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位仅2%，距250高点回撤16.5%，低点1日，近5日平",
+      "macro_logic": "高股息防御属性凸显，利空已接近充分定价",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.4
+    }
+  },
+  "factor_chains": "2020年全球央行宽松+美元走弱→黄金、海外权益估值抬升，国内产业/监管政策驱动A股科创、银行板块分化",
+  "prev_month_review": "上月未出具任何标的阶段判定，无历史校验项，本月首次完成全池标的维度评估",
+  "summary": "本月优先配置上升趋势的科创50ETF，逢低布局筑底的纳指ETF、黄金ETF；银行端仅配置跌势衰竭的中行、农行做防御，回避仍处下降通道的工行、建行，无数据标的暂不参与",
+  "version": 2,
+  "month": "202012",
+  "asof": "20201231",
+  "model": "bot-20250308205057-5kjf4"
+}

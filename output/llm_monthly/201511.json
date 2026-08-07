@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.3%，52周分位98%，vs MA250+9.1%，MA20斜率5.3%",
+      "macro_logic": "2015年美国科技龙头盈利超预期，美元走强支撑QDII收益",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "标的尚未上市，无有效量价特征数据",
+      "macro_logic": "无上市交易记录，无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "标的尚未上市，无有效量价特征数据",
+      "macro_logic": "无上市交易记录，无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "518800.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-16.2%，52周分位2%，MA20斜率-5.4%",
+      "macro_logic": "美联储12月加息预期升温，美元走强压制黄金价格",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "标的尚未上市，无有效量价特征数据",
+      "macro_logic": "无上市交易记录，无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "标的尚未上市，无有效量价特征数据",
+      "macro_logic": "无上市交易记录，无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-20.2%，低点距今248日，MA20斜率+2.8%",
+      "macro_logic": "2015年A股股灾后，避险资金偏好高股息国有行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-26.6%，低点距今248日，近20日涨6.8%",
+      "macro_logic": "2015年A股股灾后，避险资金偏好高股息国有行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-22.8%，低点距今249日，近20日涨6.3%",
+      "macro_logic": "2015年A股股灾后，避险资金偏好高股息国有行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-23.9%，低点距今248日，MA20斜率+2.8%",
+      "macro_logic": "2015年A股股灾后，避险资金偏好高股息国有行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储12月加息预期→美元走强→黄金承压、纳指受盈利支撑上行，A股股灾后避险资金流入高股息银行",
+  "prev_month_review": "2015年10月未对所有标的出具有效判定，无历史逻辑可校验，本月基于最新数据首次判定",
+  "summary": "本月优先配置上升趋势的纳指ETF获取成长收益，辅以筑底阶段的国有行获取股息与防御价值，规避下降趋势的黄金，未上市标的暂不参与",
+  "version": 2,
+  "month": "201511",
+  "asof": "20151130",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-1%，52周分位96%，vs MA250+9.5%，MA60斜率2.1",
+      "macro_logic": "2019年7月美联储首次降息，美股科技龙头盈利稳健",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "2019年8月尚未上市，无有效量价数据",
+      "macro_logic": "无对应驱动因子可跟踪",
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "2019年8月尚未上市，无有效量价数据",
+      "macro_logic": "无对应驱动因子可跟踪",
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-1.6%，52周分位94%，近60日涨18.4%，波动比1.54",
+      "macro_logic": "全球央行降息潮+中美贸易摩擦避险，央行购金需求上升",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无2019年8月有效量价数据",
+      "macro_logic": "无对应驱动因子可跟踪",
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无2019年8月有效量价数据",
+      "macro_logic": "无对应驱动因子可跟踪",
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-10.3%，52周分位24%，近20日跌3.1%，MA20斜率-3%",
+      "macro_logic": "2019年包商银行事件冲击，银行板块风险偏好下行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-12.4%，52周分位7%，近20日跌3%，MA20斜率-3.7%",
+      "macro_logic": "2019年包商银行事件冲击，银行板块风险偏好下行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-11.1%，52周分位43%，近20日跌4.3%，MA20斜率-3.2%",
+      "macro_logic": "2019年包商银行事件冲击，银行板块风险偏好下行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-13.5%，52周分位4%，近20日跌4.2%，低点距今4天",
+      "macro_logic": "2019年包商银行事件冲击，银行板块风险偏好下行",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储开启降息周期+中美贸易摩擦升温→黄金、美股科技走强→包商银行事件压制银行板块估值",
+  "prev_month_review": "上月未对各标的给出明确阶段判定，无历史误判，本月基于当前数据首次给出判定",
+  "summary": "本月优先配置上升趋势的纳指ETF，黄金ETF驱动逻辑坚实可逢低布局，银行板块处于下降趋势暂规避，其余未上市标的暂不纳入组合",
+  "version": 2,
+  "month": "201908",
+  "asof": "20190830",
+  "model": "bot-20250308205057-5kjf4"
+}

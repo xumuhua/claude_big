@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤2.5%，52周分位86%，近5日涨4.2%，vs MA20+2%，波动比2.04",
+      "macro_logic": "2018年初美联储加息预期落地，美股科技龙头盈利超预期支撑走势",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤6.3%，52周分位14%，短周期收益均负，vs MA250-2.4%",
+      "macro_logic": "2018年美联储开启加息周期，美元走强压制黄金价格",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤13.9%，近20日跌9.9%，vs MA250+17.8%，MA60斜率6.1%",
+      "macro_logic": "2017年供给侧改革改善银行资产质量，估值修复后短期回调",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤11.1%，近20日跌9.8%，vs MA250+8%，MA60斜率4.6%",
+      "macro_logic": "2017年供给侧改革改善银行资产质量，估值修复后短期回调",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤15.3%，近20日跌14.1%，vs MA250+21.1%，MA60斜率8.8%",
+      "macro_logic": "2017年供给侧改革改善银行资产质量，估值修复后短期回调",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤13.1%，近20日跌8.8%，vs MA250+12.4%，MA60斜率5.9%",
+      "macro_logic": "2017年供给侧改革改善银行资产质量，估值修复后短期回调",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储加息周期启动→美元走强压制黄金，美债利率上行→权益估值承压，国内供给侧改革→银行盈利修复",
+  "prev_month_review": "上月未出具有效判定，本月首次结合当期量价数据与宏观环境给出判断",
+  "summary": "本月优先配置盈利有支撑的纳指ETF及估值修复的银行类高股息标的，黄金受加息压制暂规避，无有效数据标的暂不参与",
+  "version": 2,
+  "month": "201802",
+  "asof": "20180228",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅-1%，52周分位96%，vs MA250达19%，短期涨幅远超均线",
+      "macro_logic": "特朗普税改推升美股科技企业盈利，资金持续流入成长板块",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无足量历史量价数据，无法判断趋势方向",
+      "macro_logic": "无明确政策/流动性驱动事件支撑趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.1
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无足量历史量价数据，无法判断趋势方向",
+      "macro_logic": "无明确政策/流动性驱动事件支撑趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.1
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤6.2%，52周分位20%，低点10日未破，近5日收涨",
+      "macro_logic": "中美贸易摩擦升温避险需求上升，美元指数阶段性见顶",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无足量历史量价数据，无法判断趋势方向",
+      "macro_logic": "无明确供需/地缘驱动事件支撑趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.1
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无足量历史量价数据，无法判断趋势方向",
+      "macro_logic": "无明确供需/地缘驱动事件支撑趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.1
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤29.8%，52周分位13%，低点44日未破，围绕MA20震荡",
+      "macro_logic": "去杠杆政策边际缓和，高股息银行获避险资金偏好",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤25.4%，52周分位8%，低点31日未破，近20日收涨",
+      "macro_logic": "去杠杆政策边际缓和，高股息银行获避险资金偏好",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤29.9%，52周分位18%，低点44日未破，站稳MA20上方",
+      "macro_logic": "去杠杆政策边际缓和，高股息银行获避险资金偏好",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤23.6%，52周分位22%，低点43日未破，MA20斜率拐头向上",
+      "macro_logic": "去杠杆政策边际缓和，高股息银行获避险资金偏好",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "中美贸易摩擦升级→避险情绪抬升→黄金/高股息银行占优，美联储加息预期压制权益成长估值",
+  "prev_month_review": "上月未对标的做出有效阶段判定与逻辑判断，本月首次完成全池标的覆盖分析",
+  "summary": "本月采取防御型配置思路，优先布局筑底的四大行与黄金ETF，高位纳指ETF暂不追高，其余无明确趋势标的保持观望，整体仓位控制在5成以内",
+  "version": 2,
+  "month": "201808",
+  "asof": "20180831",
+  "model": "bot-20250308205057-5kjf4"
+}

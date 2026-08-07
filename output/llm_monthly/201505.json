@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.4%，52周分位98%，MA20/MA60斜率为正，vs MA250+8.5%",
+      "macro_logic": "美联储维持零利率，美股科技龙头盈利持续稳健增长",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无2015年5月末有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无2015年5月末有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-10.4%，52周分位29%，长短周期收益分化，波动比0.5",
+      "macro_logic": "美联储年内加息预期升温，美元走强压制黄金价格",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无2015年5月末有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无2015年5月末有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "冲高",
+      "phase_evidence": "vs MA250+22%，近120日+26.7%，近20日回撤-6.1%，MA20斜率-2.3",
+      "macro_logic": "2015年A股牛市流动性宽松，高股息银行板块补涨",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "vs MA250+24.7%，近120日+28.5%，近20日回撤-10.5%，MA20斜率-3.9",
+      "macro_logic": "2015年A股牛市流动性宽松，高股息银行板块补涨",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "冲高",
+      "phase_evidence": "vs MA250+24.9%，近120日+33.3%，近20日回撤-7%，MA20斜率-3",
+      "macro_logic": "2015年A股牛市流动性宽松，高股息银行板块补涨",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "冲高",
+      "phase_evidence": "vs MA250+21%，近120日+28.6%，近20日回撤-8.1%，MA20斜率-4.2",
+      "macro_logic": "2015年A股牛市流动性宽松，高股息银行板块补涨",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储加息预期→美元走强压制黄金；A股流动性宽松→银行板块补涨；美联储零利率→美股科技盈利上行→纳指走升",
+  "prev_month_review": "上月未出具明确标的判定，无对错校验，本月基于2015年5月末数据首次给出判定",
+  "summary": "本月优先配置上升趋势明确的纳指ETF，黄金震荡可低配观望，四大行冲高信号明确建议逐步止盈，无数据标的暂不纳入配置",
+  "version": 2,
+  "month": "201505",
+  "asof": "20150529",
+  "model": "bot-20250308205057-5kjf4"
+}

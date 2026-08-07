@@ -1,0 +1,92 @@
+{
+  "new_events": "2022年10月OPEC+宣布减产200万桶/日，11月美联储释放加息放缓信号，国内平台经济监管边际放松",
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-19.8%，52周分位23%，低点距今21日，近5日涨4.9%，MA20斜率-0.7",
+      "macro_logic": "美联储释放加息放缓信号，科技估值压制边际缓解",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-43.5%，52周分位17%，低点距今10日，近5日涨2.4%，vs MA20%7.6%",
+      "macro_logic": "平台经济监管放松，美债利率上行压力缓解",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-30.3%，52周分位26%，低点距今133日，近20日涨7.1%",
+      "macro_logic": "国内流动性宽松，硬科技产业政策支持",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.8%，52周分位78%，近60日涨4.6%，MA20斜率1.5",
+      "macro_logic": "美联储加息放缓预期，美元走弱+俄乌冲突避险支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-12.4%，52周分位73%，近20日涨2.5%，波动比0.75",
+      "macro_logic": "OPEC+减产支撑油价，衰退预期压制需求",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-17.2%，52周分位65%，近20日涨2.5%，波动比0.69",
+      "macro_logic": "OPEC+减产支撑油价，衰退预期压制需求",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-14.8%，52周分位11%，低点距今6日，近5日涨1.5%",
+      "macro_logic": "红利风格资金流出趋缓，估值处于历史低位",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-8.1%，52周分位18%，近20日涨0%，vs MA20%0.6%",
+      "macro_logic": "红利风格资金流出趋缓，估值低位震荡",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.65
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-15.7%，52周分位12%，低点距今6日，近5日涨1.5%",
+      "macro_logic": "红利风格资金流出趋缓，估值处于历史低位",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-10%，52周分位18%，低点距今7日，近5日涨1.5%",
+      "macro_logic": "红利风格资金流出趋缓，估值处于历史低位",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    }
+  },
+  "factor_chains": "美联储加息节奏→美债利率/美元→科技股/黄金估值；OPEC+减产+俄乌冲突→油价→通胀→加息预期；国内政策→港股/科创/银行风格切换",
+  "prev_month_review": "上月纳指、科创筑底、黄金原油震荡、银行下降判定基本符合，恒生科技误判为下降，核心驱动逻辑多数仍在发酵",
+  "summary": "本月优先配置强驱动的恒生科技，逢低布局筑底阶段的纳指、科创50，持有黄金对冲波动，原油震荡观望，高股息银行暂低配",
+  "version": 2,
+  "month": "20221111",
+  "asof": "20221111",
+  "model": "bot-20250308205057-5kjf4"
+}

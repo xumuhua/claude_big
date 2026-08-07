@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅-2%，52周分位94%，vs MA250达23.1%，波动比1.31",
+      "macro_logic": "2023年生成AI技术突破抬升科技龙头盈利预期，美联储加息节奏放缓",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-7.1%，近20日跌4.8%，vs MA20仅-0.1%，52周分位81%",
+      "macro_logic": "国内平台经济政策边际放松，美债收益率高位震荡，南向资金流入波动",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤18.5%，低点距今4交易日，近5日涨6.2%，52周分位25%",
+      "macro_logic": "国内半导体产业政策支持，流动性边际宽松，硬科技赛道超跌反弹",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "创250日新高，52周分位100%，波动比0.42，MA20/60斜率均为正",
+      "macro_logic": "全球央行购金潮持续，美元指数走弱，地缘政治风险抬升",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "501018.SS": {
+      "phase": "上升",
+      "phase_evidence": "近60日涨15.9%，MA20斜率6.0%，MA60斜率4.9%，距250日高点-6.8%",
+      "macro_logic": "OPEC+持续减产，原油库存去化，地缘冲突支撑油价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "160723.SZ": {
+      "phase": "上升",
+      "phase_evidence": "近60日涨14.5%，MA20斜率5.9%，MA60斜率4.4%，距250日高点-6.6%",
+      "macro_logic": "OPEC+持续减产，原油库存去化，地缘冲突支撑油价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近60日跌6.9%，MA20斜率-1.2%，vs MA250为2.5%，52周分位45%",
+      "macro_logic": "国内银行净息差承压，红利风格资金配置需求分化",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近20日跌3.1%，MA20斜率-1.1%，52周分位48%，站上MA250",
+      "macro_logic": "国内银行净息差承压，红利风格资金配置需求分化",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近60日跌7.4%，MA20斜率-1.2%，52周分位42%，站上MA250",
+      "macro_logic": "国内银行净息差承压，红利风格资金配置需求分化",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近20日跌2.5%，MA20斜率-1.0%，52周分位63%，站上MA250",
+      "macro_logic": "国内银行净息差承压，红利风格资金配置需求分化",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    }
+  },
+  "factor_chains": "美联储加息接近尾声→美债收益率见顶预期→黄金/美股科技估值修复；OPEC+减产→油价上行→通胀韧性→利率高位压制成长；国内产业政策托底→港股/科创盈利修复",
+  "prev_month_review": "上月未对标的做出明确阶段判定，无历史判断偏差，本月基于量价及当期宏观因子形成完整判断",
+  "summary": "本月优先增配上升趋势的黄金、原油类资产；科创板筑底可小仓位左侧布局；纳指冲高警惕回调，严控仓位；恒生科技及银行类震荡标的暂观望，等待方向明确后再操作",
+  "version": 2,
+  "month": "202308",
+  "asof": "20230831",
+  "model": "bot-20250308205057-5kjf4"
+}

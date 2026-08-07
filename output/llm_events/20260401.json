@@ -1,0 +1,92 @@
+{
+  "new_events": "2026年3月美联储加息25BP，OPEC+官宣延长减产协议至2026年底，无其他改变定价框架的重大事件",
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点跌12.4%，近20日跌0.6%，vs MA20仅0.1%，无明确单边趋势",
+      "macro_logic": "美联储2026年一季度加息压制美股科技估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤29.7%，52周分位5%，低点距今1天仍创新低",
+      "macro_logic": "美债利率上行+中美科技摩擦压制港股科技估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点跌16.5%，近60日跌3.5%，无明确单边趋势",
+      "macro_logic": "国内流动性边际收紧与硬科技产业政策利好博弈",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近20日跌8.8%，近60日涨3.8%，MA20斜率-5.8%，无明确趋势",
+      "macro_logic": "全球央行购金潮+地缘冲突支撑，短期受美元走强压制",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近60日涨87.5%，较MA250高64.2%，波动比1.67，涨幅过度拉伸",
+      "macro_logic": "OPEC+减产+中东地缘冲突推升原油价格",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "160723.SZ": {
+      "phase": "冲高",
+      "phase_evidence": "近60日涨77.5%，较MA250高57.6%，波动比1.79，涨幅过度",
+      "macro_logic": "OPEC+减产+中东地缘冲突推升原油价格",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨7.1%，较MA20高3.5%，MA20斜率2.2%，稳健上涨",
+      "macro_logic": "红利风格占优+弱市资金流入高股息防御资产",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨9.7%，较MA20高6.7%，MA20斜率2.9%，走势稳健",
+      "macro_logic": "红利风格占优+弱市资金流入高股息防御资产",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨6.2%，较MA20高2.2%，MA20斜率5.5%，走势向好",
+      "macro_logic": "红利风格占优+弱市资金流入高股息防御资产",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤22.1%，近5日涨2.1%，MA20走平，止跌企稳",
+      "macro_logic": "红利风格修复+前期超跌反弹",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储加息→美债利率上行→科技成长股承压；OPEC+减产+地缘冲突→原油上涨→通胀粘性支撑利率高位；弱市下资金偏好高股息银行、黄金避险",
+  "prev_month_review": "上月对原油冲高、银行上升、恒生科技下降等判定基本正确，逻辑整体仍在，仅部分成长股走势略低于预期，无重大误判",
+  "summary": "本月规避冲高的原油类标的，低配受压的科技成长标的，增配稳健上升的国有银行高股息资产，标配黄金做避险对冲，保持组合均衡防御属性",
+  "version": 2,
+  "month": "20260401",
+  "asof": "20260401",
+  "model": "bot-20250308205057-5kjf4"
+}

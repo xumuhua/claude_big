@@ -1,0 +1,92 @@
+{
+  "new_events": "2022年7月美联储加息75bp，国内出台科创支持政策，互联网平台监管整改落地",
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤15.7%，低点距今48交易日未破，近20日涨幅5.8%",
+      "macro_logic": "美联储7月加息75bp落地，加息预期边际缓和",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤38.8%，52周分位21%，低点距今110交易日",
+      "macro_logic": "互联网监管落地，美债利率上行压制估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤31.6%，52周分位29%，MA20斜率4.1%上翘",
+      "macro_logic": "国内出台科创支持政策，流动性边际宽松",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤6.8%，各均线偏离度不足1%，无明确趋势",
+      "macro_logic": "美联储加息压制金价，俄乌冲突提供避险支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位69%，近120日涨幅18.9%，MA20斜率-1.3%",
+      "macro_logic": "俄乌冲突推升油价，OPEC减产支撑价格",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位62%，近120日涨幅18.2%，MA20斜率-2.8%",
+      "macro_logic": "俄乌冲突推升油价，OPEC减产支撑价格",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位0%，低点距今15交易日，MA20斜率-4.6%向下",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601988.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位3%，近20日跌幅2.6%，MA20斜率-4.9%向下",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位0%，低点距今15交易日，MA20斜率-4.8%向下",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位18%，近20日跌幅0.7%，MA20斜率-3.4%向下",
+      "macro_logic": "地产风险压制估值，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    }
+  },
+  "factor_chains": "美联储加息周期→美债利率上行→全球成长股估值承压；俄乌冲突→原油高位→通胀韧性→加息预期延续",
+  "prev_month_review": "上月成长、商品、黄金判定基本准确，银行股近期创新低，此前筑底判定有误，核心逻辑整体仍在",
+  "summary": "本月优先配置科创50（政策强驱动），适度布局纳指、恒生科技左侧仓位，原油、黄金做对冲，银行板块暂观望，整体仓位均衡偏防御",
+  "version": 2,
+  "month": "20220824",
+  "asof": "20220824",
+  "model": "bot-20250308205057-5kjf4"
+}

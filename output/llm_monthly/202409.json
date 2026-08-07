@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤10.1%，近20日微涨0.1%，MA20斜率0.4接近走平",
+      "macro_logic": "2024年9月美联储维持高利率，纳指科技股估值消化",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "冲高",
+      "phase_evidence": "创250日新高，近5日涨29.9%，较MA250高30.3%，波动比1.4",
+      "macro_logic": "2024年Q3平台经济政策松绑+美债利率下行+南向资金流入",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "588000.SS": {
+      "phase": "冲高",
+      "phase_evidence": "创250日新高，近5日涨40.9%，波动比2.05，短期超涨明显",
+      "macro_logic": "2024年Q3科创支持政策加码+A股流动性宽松",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤0.6%，MA20/60斜率为正，近120日涨9.4%",
+      "macro_logic": "2024年全球央行购金潮+地缘冲突升温+美联储降息预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤15.5%，MA20斜率-5.5，近60日跌11%",
+      "macro_logic": "2024年Q3 OPEC+增产预期+全球原油需求走弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤28.7%，低点距今11交易日未破，短期跌幅收窄",
+      "macro_logic": "2024年Q3油价超跌+OPEC+减产博弈升温",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601398.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近5日涨8%，较MA20高6.8%，vol20%达33.8远超vol120%",
+      "macro_logic": "2024年Q3弱市资金抱团高股息+红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近5日涨6.6%，较MA20高5.1%，52周分位达88%",
+      "macro_logic": "2024年Q3弱市资金抱团高股息+红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近5日涨8%，较MA20高7.4%，波动比达1.68",
+      "macro_logic": "2024年Q3弱市资金抱团高股息+红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近5日涨3.9%，较MA20高4.5%，52周分位达88%",
+      "macro_logic": "2024年Q3弱市资金抱团高股息+红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储利率政策→美债利率→全球科技股估值+黄金定价，国内政策/流动性→A股/港股科技+红利风格，OPEC+政策+地缘→原油价格",
+  "prev_month_review": "上月未出具明确标的阶段判定，无历史误判，本月基于量价及宏观因子首次给出判断",
+  "summary": "本月优先配置上升趋势的黄金ETF，规避短期超涨的科创50、恒生科技及四大行，关注筑底的嘉实原油左侧机会，纳指ETF暂观望，回避南方原油",
+  "version": 2,
+  "month": "202409",
+  "asof": "20240930",
+  "model": "bot-20250308205057-5kjf4"
+}

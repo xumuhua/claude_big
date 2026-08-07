@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.7%，52周分位88%，近120日涨10.8%，MA60斜率1.3",
+      "macro_logic": "2017年美股科技龙头盈利高增，美联储渐进加息压制有限",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无有效量价数据，标的未上市或流动性不足",
+      "macro_logic": "无有效驱动逻辑可跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无有效量价数据，标的未上市或流动性不足",
+      "macro_logic": "无有效驱动逻辑可跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5.6%，52周分位49%，MA20斜率-2.4，波动比1.07",
+      "macro_logic": "美联储加息周期启动，美元指数震荡，黄金无明确驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无有效量价数据，标的未上市或流动性不足",
+      "macro_logic": "无有效驱动逻辑可跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无有效量价数据，标的未上市或流动性不足",
+      "macro_logic": "无有效驱动逻辑可跟踪",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位94%，近60日涨14.6%，vs MA250+17.5%，波动比1.53",
+      "macro_logic": "供给侧改革改善银行资产质量，高股息属性吸引资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位100%创历史新高，近20日涨6.2%，波动比1.69",
+      "macro_logic": "供给侧改革改善银行资产质量，高股息属性吸引资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "601939.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位97%，近20日涨10.1%，vs MA250+18.7%，波动比1.2",
+      "macro_logic": "供给侧改革改善银行资产质量，高股息属性吸引资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
+    },
+    "601288.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位97%，近60日涨12.0%，vs MA250+13.7%，波动比1.59",
+      "macro_logic": "供给侧改革改善银行资产质量，高股息属性吸引资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
+    }
+  },
+  "factor_chains": "供给侧改革→银行盈利修复→银行股冲高；美联储渐进加息→美元震荡→黄金承压、美股科技盈利支撑上行",
+  "prev_month_review": "上月未出具任何有效标的判定，本月基于当期量价及宏观事件首次给出明确判断",
+  "summary": "本月国有银行普遍处于冲高阶段，逻辑接近充分定价需规避追高；可配置处于上升趋势的纳指ETF，黄金暂维持观望，未上市标的暂不参与",
+  "version": 2,
+  "month": "201707",
+  "asof": "20170731",
+  "model": "bot-20250308205057-5kjf4"
+}

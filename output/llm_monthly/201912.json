@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.7%，52周分位98%，近60日涨12.2%，MA20斜率3.3%",
+      "macro_logic": "2019年美联储三次降息释放流动性，美股科技龙头盈利稳健",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效交易数据，无法判定",
+      "macro_logic": "暂无明确驱动信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效交易数据，无法判定",
+      "macro_logic": "暂无明确驱动信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-5.2%，52周分位77%，近20日涨3.3%，MA20斜率1.2%",
+      "macro_logic": "2019年全球央行增持黄金，美联储降息压低实际利率",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效交易数据，无法判定",
+      "macro_logic": "暂无明确驱动信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无当期有效交易数据，无法判定",
+      "macro_logic": "暂无明确驱动信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.2%，52周分位84%，近60日涨5.8%，MA60斜率1.8%",
+      "macro_logic": "银行高股息价值凸显，2019年末险资等长期资金增配",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-8.4%，52周分位36%，近120日跌0.5%，均线走平",
+      "macro_logic": "基本面稳健但资金关注度较低，无明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-6.8%，52周分位65%，近120日跌3.1%，MA20斜率-0.4%",
+      "macro_logic": "无明确驱动事件，资金分歧较大，走势缺乏一致性",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-5.1%，52周分位61%，近60日涨6.0%，MA20斜率1.4%",
+      "macro_logic": "高股息属性获长期资金青睐，盈利表现稳健",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "2019年美联储三次降息释放流动性→科技成长估值抬升、实际利率下行支撑金价，高股息银行获防御资金青睐",
+  "prev_month_review": "上月未对标的出具有效判定，无校验依据，本月为基准日首次出具阶段判断",
+  "summary": "本月优先配置趋势明确的纳指ETF、黄金ETF，择优增配走势稳健的工行、农行，其余无明确信号标的暂观望，组合兼顾成长弹性与防御安全性",
+  "version": 2,
+  "month": "201912",
+  "asof": "20191231",
+  "model": "bot-20250308205057-5kjf4"
+}

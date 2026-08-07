@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-1.5%，52周分位93%，站上MA250，MA20/60斜率为正，波动比0.98",
+      "macro_logic": "2017年美国科技巨头盈利高增，渐进加息未压制成长估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据",
+      "macro_logic": "暂无明确宏观驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据",
+      "macro_logic": "暂无明确宏观驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位35%，近20/60/120日涨跌幅接近0，均线偏离度均<1%",
+      "macro_logic": "2018初美国通胀温和，美元指数震荡，黄金无明确趋势驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据",
+      "macro_logic": "暂无明确宏观驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据",
+      "macro_logic": "暂无明确宏观驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位100%，较MA250高35.6%，近20日涨21.4%，波动比1.39",
+      "macro_logic": "2017年A股红利风格演绎，银行估值修复+资金抱团",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位87%，较MA250高17.4%，近20日涨13.5%，波动比1.55",
+      "macro_logic": "红利风格驱动低估值高股息银行获资金抱团，估值快速抬升",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位93%，较MA250高42.3%，近60日涨35.9%，波动比1.67",
+      "macro_logic": "红利风格下建行盈利确定性高获资金抱团，估值修复到位",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位94%，较MA250高23.6%，近20日涨14.9%，波动比1.37",
+      "macro_logic": "红利风格行情下，农行高股息属性吸引防御资金流入",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "全球复苏预期→美股盈利上行→科技成长占优；国内红利风格演绎→银行估值冲高；通胀温和→黄金震荡",
+  "prev_month_review": "上月未对所有标的出具明确阶段与逻辑判定，无对错校验，本月为首次正式判定",
+  "summary": "本月优先配置处于上升趋势的纳指ETF，避开逻辑已衰竭的冲高银行标的，黄金暂观望，无有效数据标的暂不纳入配置，维持偏成长+低波动组合结构",
+  "version": 2,
+  "month": "201801",
+  "asof": "20180131",
+  "model": "bot-20250308205057-5kjf4"
+}

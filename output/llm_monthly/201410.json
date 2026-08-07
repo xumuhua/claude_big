@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅-0.9%，52周分位96%，vs MA250+10.2%，波动比1.46",
+      "macro_logic": "2014年美国经济复苏，科技龙头盈利高增，QE退出前流动性支撑",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "2014年10月尚未上市，无交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "2014年10月尚未上市，无交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-13.5%，52周分位1%，各周期收益均负，均线斜率向下",
+      "macro_logic": "2014年美联储退出QE3，美元走强压制黄金价格",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "2014年10月尚未上市，无交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "2014年10月尚未上市，无交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-5.9%，52周分位66%，vs MA20+4.2%，MA60斜率为正",
+      "macro_logic": "2014年国内定向降准，银行高股息属性吸引避险资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅-1.7%，52周分位88%，近5日涨6%，vs MA20+5.2%",
+      "macro_logic": "银行股估值修复，高股息属性吸引配置资金",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-6.7%，52周分位57%，vs MA20+2.7%，MA60斜率为正",
+      "macro_logic": "国内流动性边际宽松，高股息银行标的获资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-4.1%，52周分位71%，vs MA20+3.4%，MA60斜率为正",
+      "macro_logic": "高股息防御属性凸显，叠加估值修复行情驱动",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储2014年10月结束QE3→美元走强→黄金承压、纳指高位波动；国内定向降准→流动性宽松→高股息银行股估值修复",
+  "prev_month_review": "上月未对标的作出有效阶段判定，本月基于当前量价及2014年10月前宏观事件首次给出明确判定",
+  "summary": "本月核心配置处于上升趋势的工行、建行、农行等高股息防御标的，规避下行趋势的黄金，冲高的纳指严格控制仓位，未上市标的暂不纳入配置",
+  "version": 2,
+  "month": "201410",
+  "asof": "20141031",
+  "model": "bot-20250308205057-5kjf4"
+}

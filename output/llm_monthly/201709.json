@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-3%，52周分位86%，MA20斜率-0.3，近20日涨0%，无明确趋势",
+      "macro_logic": "2017年美联储9月宣布缩表，美股科技龙头盈利稳健",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无2017年9月前有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无2017年9月前有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.7%，MA20斜率1.0，近60日涨2.7%，站于MA250上方",
+      "macro_logic": "2017年朝核地缘风险升温，美元指数持续走弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无2017年9月前有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无2017年9月前有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-2.4%，52周分位92%，近120日涨25.3%，vs MA250+21.6%",
+      "macro_logic": "2017年国内供给侧改革推升银行资产质量，红利资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-4.4%，52周分位80%，MA60斜率4.5%，近120日涨13.8%",
+      "macro_logic": "2017年国内供给侧改革推升银行资产质量，红利资金抱团",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-2.2%，52周分位92%，近60日涨14.3%，vs MA250+16.4%",
+      "macro_logic": "2017年国内供给侧改革推升银行资产质量，红利资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.3%，52周分位89%，MA60斜率2.9%，近60日涨8.2%",
+      "macro_logic": "2017年国内供给侧改革推升银行资产质量，红利资金抱团",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "美联储9月宣布缩表→美债利率波动→美元/黄金走势分化，国内供给侧改革→银行资产质量修复→红利风格抱团",
+  "prev_month_review": "上月未对标的做出有效判定，本月首次基于当期价量及宏观数据开展分析，无过往误判",
+  "summary": "本月优先配置上升趋势的黄金ETF、中行、农行，纳指ETF震荡暂观望，规避冲高且逻辑接近衰竭的工行、建行，无有效数据标的暂不配置，整体风格偏防御",
+  "version": 2,
+  "month": "201709",
+  "asof": "20170929",
+  "model": "bot-20250308205057-5kjf4"
+}

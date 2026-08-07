@@ -1,0 +1,92 @@
+{
+  "new_events": "2022年6月美联储加息75bp，俄乌冲突持续，OPEC维持减产，国内稳经济政策落地",
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-22.3%，低点16日未破，近20日涨3.0%，波动比0.59",
+      "macro_logic": "美联储连续加息压制科技估值，6月加息利空阶段性落地",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-42.3%，低点78日未破，近60日涨12.8%，MA20斜率9.5%",
+      "macro_logic": "4月政治局会议明确平台经济健康发展，政策底确认",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-32.4%，低点50日未破，近60日涨8.8%，MA20斜率4.6%",
+      "macro_logic": "国内流动性宽松，硬科技产业扶持政策持续加码",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-9.8%，近20日跌6.7%，MA20斜率-1.7%，波动比0.82",
+      "macro_logic": "美联储加息压制金价，俄乌地缘冲突提供底部支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位67%，近120日涨36.7%，近20日回调11.7%，MA20斜率-2.0%",
+      "macro_logic": "俄乌冲突持续，OPEC减产支撑油价，短期涨多后回调",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位61%，近120日涨40.4%，近20日回调11.7%，MA20斜率-1.8%",
+      "macro_logic": "俄乌冲突持续，OPEC减产支撑油价，短期涨多后回调",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨2.6%，站上MA20、MA250，MA20斜率2.3%，波动比0.84",
+      "macro_logic": "弱市下资金偏好高股息防御标的，红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点回撤0%，52周分位100%，近20日涨3.4%，vs MA250+6.4%",
+      "macro_logic": "弱市下资金偏好高股息防御标的，涨幅已充分定价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-14.5%，近20日跌3.2%，vs MA20-4.0%，波动比1.4",
+      "macro_logic": "高股息标的内部分化，资金流出，无特殊利好支撑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-1.9%，52周分位70%，近20日涨1.3%，MA20斜率为0",
+      "macro_logic": "弱市下资金偏好高股息防御标的，多空博弈均衡",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储加息→美债利率上行→科技成长估值承压；俄乌冲突+OPEC减产→油价上涨→通胀高企→加息强化；弱市→高股息标的受青睐",
+  "prev_month_review": "上月阶段判定整体准确，核心驱动逻辑均未逆转，仅建设银行走势弱于前期预期",
+  "summary": "本月优先配置工行、农行等高股息防御标的，逢低布局深回撤的恒生科技、科创50，原油保留底仓，纳指、黄金、建行暂观望，整体仓位控制在6成左右",
+  "version": 2,
+  "month": "20220711",
+  "asof": "20220711",
+  "model": "bot-20250308205057-5kjf4"
+}

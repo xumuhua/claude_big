@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨21.9%，MA20斜率4.4%，站于MA250上方23.3%",
+      "macro_logic": "美联储2020年3月推出无限量QE，流动性宽松托底美股科技反弹",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据",
+      "macro_logic": "港股受疫情冲击叠加美债利率波动，无明确趋势",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "2020年4月尚未上市，无交易数据",
+      "macro_logic": "无有效交易驱动逻辑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅-0.6%，52周分位98%，近60日涨7.9%",
+      "macro_logic": "全球新冠疫情+美联储QE，避险抗通胀需求推升金价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据",
+      "macro_logic": "新冠疫情压制原油需求，WTI原油出现负价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价特征数据",
+      "macro_logic": "新冠疫情压制原油需求，WTI原油出现负价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤14%，低点29日未破，近5日涨2%，波动比0.53",
+      "macro_logic": "国内疫情受控，逆周期政策托底经济，银行估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤11.9%，低点62日未破，近20日收益持平",
+      "macro_logic": "高股息属性吸引避险资金，国内稳增长政策支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤14.7%，低点27日未破，近5日涨3.5%",
+      "macro_logic": "国内复工复产推进，银行不良预期改善",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤9.4%，低点27日未破，近20日涨2.4%，MA20斜率0.6%",
+      "macro_logic": "高股息防御价值凸显，稳信贷政策支撑业绩",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "新冠疫情全球大流行→美联储无限QE+国内逆周期政策→全球流动性宽松→黄金/美股科技上涨、国内银行估值修复",
+  "prev_month_review": "上月所有标的无有效阶段判定与逻辑，无历史校验依据，本月为首次出具明确判断",
+  "summary": "本月优先标配纳指ETF、黄金ETF把握流动性宽松行情，逢低布局四大行高股息标的作为防御底仓，未上市及无量价数据标的暂不配置，整体仓位控制在70%",
+  "version": 2,
+  "month": "202004",
+  "asof": "20200430",
+  "model": "bot-20250308205057-5kjf4"
+}

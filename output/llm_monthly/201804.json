@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5.7%，52周分位66%，近20日涨2.2%，波动比0.96",
+      "macro_logic": "2018年3月美联储加息压制美股科技股估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价数据，无明确趋势信号",
+      "macro_logic": "2018年4月10年期美债收益率破3%压制港股科技",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价数据，无明确趋势信号",
+      "macro_logic": "2018年A股流动性偏紧压制硬科技成长估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位16%，低点距今196日，MA20斜率0.2，波动比0.99",
+      "macro_logic": "2018年初中美贸易摩擦升温催生避险需求",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价数据，无明确趋势信号",
+      "macro_logic": "2017年底OPEC延长减产协议支撑油价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价数据，无明确趋势信号",
+      "macro_logic": "2017年底OPEC延长减产协议支撑油价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-22.6%，近5日涨1.4%，低点距今242日",
+      "macro_logic": "2018年A股风险偏好下行，高股息银行获避险资金青睐",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-19.7%，近5日涨1.1%，波动比0.84",
+      "macro_logic": "2018年A股风险偏好下行，高股息防御属性凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-23.8%，近5日涨1.5%，低点距今248日",
+      "macro_logic": "2018年A股风险偏好下行，高股息银行获避险资金青睐",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-19.8%，近5日涨1.9%，MA20斜率0.8",
+      "macro_logic": "2018年A股风险偏好下行，高股息防御属性凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "中美贸易摩擦升温→避险情绪抬升→高股息/黄金获配；美联储加息→美债收益率上行→科技成长估值承压",
+  "prev_month_review": "上月未对池内标的作出明确阶段判定，本月基于当期量价及宏观事件首次给出判断，无历史误判。",
+  "summary": "本月优先配置深回撤企稳的工行、建行为防御底仓，逢低布局筑底阶段的黄金ETF，纳指及无明确趋势标的暂时观望，控制组合波动。",
+  "version": 2,
+  "month": "201804",
+  "asof": "20180427",
+  "model": "bot-20250308205057-5kjf4"
+}

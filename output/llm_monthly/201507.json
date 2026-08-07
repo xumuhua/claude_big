@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位100%，近20日涨5.8%，MA20/60斜率为正，较MA250高9.5%",
+      "macro_logic": "美联储维持低利率，美股科技龙头盈利稳定增长驱动上行",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无2015年7月前有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无2015年7月前有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌17%，52周分位0%，创阶段新低，MA20斜率-4.4%",
+      "macro_logic": "美联储释放加息预期，美元走强压制黄金价格",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无2015年7月前有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无2015年7月前有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点跌16.6%，52周分位59%，较MA250高8.2%，短期回调",
+      "macro_logic": "A股股灾背景下，高股息银行股获避险资金偏好",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "深回撤20.5%，较MA250高15%，MA20斜率4.7%，近5日急跌11.2%",
+      "macro_logic": "A股大幅波动下，高股息银行短期被情绪错杀",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.65
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点跌19.1%，52周分位59%，较MA250高8.5%，短期下跌",
+      "macro_logic": "A股股灾背景下，高股息银行股获避险资金偏好",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点跌16.9%，52周分位60%，较MA250高6.3%，短期回调",
+      "macro_logic": "A股股灾背景下，高股息银行股获避险资金偏好",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储加息预期→美元走强→黄金承压、美股科技受益低利率→A股股灾→避险资金流入高股息银行",
+  "prev_month_review": "上月未给出有效阶段判定与逻辑，本月为首次对池内标的进行覆盖分析",
+  "summary": "本月优先配置上升趋势明确的纳指ETF作为成长端敞口，回避处于下降通道的黄金ETF，银行板块作为防御底仓均衡配置，未上市标的暂不参与",
+  "version": 2,
+  "month": "201507",
+  "asof": "20150731",
+  "model": "bot-20250308205057-5kjf4"
+}

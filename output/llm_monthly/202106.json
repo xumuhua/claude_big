@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-8.8%，近20日涨7.9%，MA20/60斜率均为正，波动比0.67",
+      "macro_logic": "2021年美联储维持零利率，美股科技龙头盈利持续超预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-1%，52周分位81%，近5日涨1.5%、近20日跌0.7%",
+      "macro_logic": "互联网反垄断政策阶段性落地，美债利率阶段性走平",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "588000.SS": {
+      "phase": "冲高",
+      "phase_evidence": "创250日新高，近60日涨28.3%，vs MA60达16.9%，波动比1.15",
+      "macro_logic": "国内硬科技产业政策密集出台，流动性宽松推升高beta成长",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.85
+    },
+    "518800.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤18.2%，近20日跌6.9%，MA20斜率-2.1%",
+      "macro_logic": "美联储释放taper信号，美债实际利率上行压制黄金估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无2021年6月30日收盘有效量价数据",
+      "macro_logic": "暂无明确可跟踪的驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无2021年6月30日收盘有效量价数据",
+      "macro_logic": "暂无明确可跟踪的驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-7.7%，52周分位39%，近20日微跌0.2%",
+      "macro_logic": "国内稳信用周期，银行高股息属性获防御资金青睐",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤20.4%，低点距今8交易日，近5日微涨0.3%止跌",
+      "macro_logic": "国有行估值大幅回调后，高股息安全边际凸显",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-12.3%，52周分位39%，近20日跌3.1%",
+      "macro_logic": "国内稳信用周期，银行高股息防御属性显现",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤19.4%，低点距今7交易日，近5日微跌0.3%",
+      "macro_logic": "国有行估值回调后安全边际逐步显现，下跌动能释放",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储taper预期升温→美债实际利率上行→黄金、离岸科技股承压；国内硬科技政策发力→科创50行情，高股息银行获防御资金布局",
+  "prev_month_review": "上月未对标的作出明确阶段判定，无对错校验，本月基于量价及宏观事件首次给出完整判定",
+  "summary": "本月优先配置上升趋势的纳指ETF，逢低布局筑底的中行、农行作为防御底仓，规避冲高的科创50及下降趋势的黄金，恒生科技暂观望，原油因数据不足暂不配置",
+  "version": 2,
+  "month": "202106",
+  "asof": "20210630",
+  "model": "bot-20250308205057-5kjf4"
+}

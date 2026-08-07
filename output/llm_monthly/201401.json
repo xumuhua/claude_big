@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-2.4%，52周分位88%，近20日微跌0.5%",
+      "macro_logic": "2013年末美联储宣布Taper，美股科技龙头盈利仍稳健",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "基准日无公开交易数据",
+      "macro_logic": "",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "基准日无公开交易数据",
+      "macro_logic": "",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-13%，低点28日未破，近20日涨2.5%",
+      "macro_logic": "2013年美联储Taper压制黄金后，避险需求阶段性修复",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "基准日无公开交易数据",
+      "macro_logic": "",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "基准日无公开交易数据",
+      "macro_logic": "",
+      "logic_strength": "",
+      "logic_durability": "",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-23.5%，52周分位4%，低点距今3日",
+      "macro_logic": "2013年钱荒后银行股估值下杀，高股息价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-22%，52周分位7%，低点距今8日",
+      "macro_logic": "2013年钱荒后银行股估值下杀，高股息价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-22.4%，52周分位3%，波动比0.65",
+      "macro_logic": "2013年钱荒后银行股估值下杀，高股息价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-26.3%，52周分位2%，波动比0.41",
+      "macro_logic": "2013年钱荒后银行股估值下杀，高股息价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储2013年12月启动Taper→美债利率上行→黄金承压、海外成长股波动→国内2013年钱荒后高股息银行股防御价值凸显",
+  "prev_month_review": "上月无有效阶段判定及逻辑，本月首次基于当前量价数据及基准日前宏观事件开展分析",
+  "summary": "本月以防御配置为主，优先加仓筑底阶段的四大行高股息标的，纳指ETF暂持观望，黄金ETF仅做短线参与，其余未上市标的暂不纳入配置",
+  "version": 2,
+  "month": "201401",
+  "asof": "20140130",
+  "model": "bot-20250308205057-5kjf4"
+}

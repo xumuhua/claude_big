@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤-11.1%，vs MA250+20.2%，近120日涨20.4%，MA20斜率13.4%",
+      "macro_logic": "2020年3月美联储推出无限QE政策，释放流动性推升美股科技估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅-1.6%，52周分位94%，近120日涨18.3%，MA60斜率2.5%",
+      "macro_logic": "美联储放水导致实际利率下行，叠加新冠疫情全球避险需求推升黄金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-14.8%，52周分位13%，低点距今47日，近5日涨1.4%",
+      "macro_logic": "国内疫情后稳增长政策托底，高股息属性吸引防御资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-11.3%，52周分位6%，低点距今5日，近5日涨0.9%",
+      "macro_logic": "国内稳增长政策托底，高股息防御价值获资金认可",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-15.5%，52周分位15%，低点距今45日，近5日涨0.8%",
+      "macro_logic": "国内稳增长政策托底，高股息属性具备防御配置价值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-11.0%，52周分位22%，低点距今45日，近5日涨0.9%",
+      "macro_logic": "国内稳增长政策托底，高股息防御属性吸引低风险资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无基准日有效量价数据，无明确趋势信号",
+      "macro_logic": "无明确持续驱动的宏观事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.2
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无基准日有效量价数据，无明确趋势信号",
+      "macro_logic": "无明确持续驱动的宏观事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.2
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无基准日有效量价数据，无明确趋势信号",
+      "macro_logic": "无明确持续驱动的宏观事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.2
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无基准日有效量价数据，无明确趋势信号",
+      "macro_logic": "无明确持续驱动的宏观事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.2
+    }
+  },
+  "factor_chains": "新冠疫情全球爆发→美联储无限QE+全球央行放水→实际利率下行→黄金、美股科技估值抬升，国内稳增长托底银行资产",
+  "prev_month_review": "上月所有标的均未给出明确阶段判定，本月基于最新量价及宏观数据首次出具判断，无误判",
+  "summary": "本月优先配置上升趋势明确的纳指ETF、黄金ETF，底部布局高股息四大行作为防御底仓，其余无明确趋势标的暂不配置，组合攻守均衡适配当前宏观环境",
+  "version": 2,
+  "month": "202005",
+  "asof": "20200529",
+  "model": "bot-20250308205057-5kjf4"
+}

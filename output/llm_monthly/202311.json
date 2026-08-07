@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-0.9%，52周分位97%，较MA250高16.3%，MA20斜率4.7%",
+      "macro_logic": "美联储11月暂停加息，美股AI龙头盈利超预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-15%，52周分位38%，近60日跌9.1%、近20日微涨0.6%",
+      "macro_logic": "美债利率高位压制，国内数字经济政策托底",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-25.1%，低点28日未破，MA20斜率1.3%，波动比0.79",
+      "macro_logic": "国内半导体产业政策支持，流动性边际宽松",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.6%，52周分位96%，MA20/60斜率为正，较MA250高6.9%",
+      "macro_logic": "美联储加息见顶，巴以冲突升级，全球央行购金潮",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-11.9%，52周分位56%，近20日跌5%、近120日涨12.1%",
+      "macro_logic": "OPEC+减产托价，欧美经济走弱压制需求预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-15.5%，52周分位55%，近20日跌10.3%、近60日涨10.6%",
+      "macro_logic": "OPEC+减产托价，地缘冲突扰动原油供需预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-9.2%，52周分位54%，较MA60高1.6%，波动比0.5",
+      "macro_logic": "红利风格占优，弱市下避险资金流入高股息标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-12.5%，52周分位61%，MA20斜率1.5%，波动比0.61",
+      "macro_logic": "红利风格占优，弱市下避险资金流入高股息标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-9%，52周分位60%，MA60斜率2%，近60日涨7%",
+      "macro_logic": "红利风格占优，弱市下避险资金流入高股息标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-5.9%，52周分位79%，较MA250高10.2%，波动比0.52",
+      "macro_logic": "红利风格占优，弱市下避险资金流入高股息标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    }
+  },
+  "factor_chains": "美联储加息见顶→美债利率回落→黄金/美股科技上涨，巴以冲突→原油波动，国内弱市→红利资产占优",
+  "prev_month_review": "2023年10月未对标的作出明确判定，本月首次基于量价数据及公开宏观因子形成完整判断",
+  "summary": "本月优先配置黄金ETF、高股息国有行标的，科创50可左侧布局底仓，纳指ETF警惕冲高回落风险，恒生科技、原油暂以观望为主，保持组合均衡",
+  "version": 2,
+  "month": "202311",
+  "asof": "20231130",
+  "model": "bot-20250308205057-5kjf4"
+}

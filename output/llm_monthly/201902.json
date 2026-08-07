@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨4.5%，站上MA250，低点39日未破，波动比0.56",
+      "macro_logic": "2019年1月美联储宣布暂停加息，利率压制缓解",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "标的未上市，无可用交易数据",
+      "macro_logic": "尚未发行，无驱动逻辑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "标的未上市，无可用交易数据",
+      "macro_logic": "尚未发行，无驱动逻辑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "近60日涨4.1%，距250日高点仅-2.3%，站上MA250",
+      "macro_logic": "美联储加息周期结束预期+全球央行购金潮推升金价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "标的未上市，无可用交易数据",
+      "macro_logic": "尚未发行，无驱动逻辑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "标的未上市，无可用交易数据",
+      "macro_logic": "尚未发行，无驱动逻辑",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨5.3%，近60日涨7.9%，MA20斜率6.6%，站上MA250",
+      "macro_logic": "2019年初国内宽信用落地，银行息差预期修复",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨7.0%，近60日涨7.3%，MA20斜率4.2%，站上MA250",
+      "macro_logic": "2019年初国内宽信用落地+红利风格资金偏好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨7.5%，近60日涨7.8%，MA20斜率9.3%，站上MA250",
+      "macro_logic": "2019年初国内宽信用落地，银行盈利预期改善",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨5.3%，近60日涨6.4%，MA20斜率4.6%，站上MA250",
+      "macro_logic": "2019年初国内宽信用落地+高股息属性获资金青睐",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    }
+  },
+  "factor_chains": "美联储暂停加息→实际利率下行→黄金、美股科技估值修复；国内宽信用落地→银行盈利改善→红利风格占优",
+  "prev_month_review": "上月无有效阶段判定，本月基于当期量价及宏观因子首次出具判断，无过往误判",
+  "summary": "本月优先配置四大行（宽信用+红利逻辑确定性强），标配纳指ETF、黄金ETF，未上市标的暂不纳入，整体仓位7成，均衡攻守",
+  "version": 2,
+  "month": "201902",
+  "asof": "20190228",
+  "model": "bot-20250308205057-5kjf4"
+}

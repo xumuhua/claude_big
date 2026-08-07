@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.6%，52周分位97%，近60日涨12.2%，MA20/60斜率为正",
+      "macro_logic": "2014年美国经济复苏，科技巨头盈利稳增，美联储维持低利率",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无可用量价数据",
+      "macro_logic": "无对应可验证驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无可用量价数据",
+      "macro_logic": "无对应可验证驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位48%，近20日跌0.9%，vs MA20 -0.6%，波动比1.11",
+      "macro_logic": "美国复苏推升实际利率，通胀温和压制黄金表现",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无可用量价数据",
+      "macro_logic": "无对应可验证驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无可用量价数据",
+      "macro_logic": "无对应可验证驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "近5日涨3.4%，近20日涨5.6%，vs MA60 +2.4%，MA60斜率0.2",
+      "macro_logic": "沪港通即将落地，外资流入预期推升低估值高股息银行股",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位62%，近5日涨4.6%，vs MA20 +4.4%，站上MA250",
+      "macro_logic": "沪港通落地预期催化，低估值银行板块估值修复",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "近5日涨4%，vol20/vol120达1.99，放量上涨，vs MA60+2.4%",
+      "macro_logic": "沪港通政策催化，低估值蓝筹标的获资金偏好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "近5日涨5%，近20日涨6.3%，vs MA250+2.2%，站上长期均线",
+      "macro_logic": "沪港通落地预期，高股息银行股防御价值凸显",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "2014年美国复苏→美联储QE退出预期→实际利率上行压制黄金；中国沪港通催化→低估值蓝筹修复；美股盈利上行→纳指走牛",
+  "prev_month_review": "上月未对任何标的给出明确判定，本月首次基于当前量价与基准日前公开宏观信息作出判断",
+  "summary": "本月优先配置盈利驱动、趋势明确的纳指ETF，增配受益沪港通预期的四大行高股息标的，黄金缺乏上行驱动暂观望，无数据标的暂不纳入配置",
+  "version": 2,
+  "month": "201407",
+  "asof": "20140731",
+  "model": "bot-20250308205057-5kjf4"
+}

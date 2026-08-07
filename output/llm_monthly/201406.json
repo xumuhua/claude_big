@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点0%，52周分位100%，MA20斜率5%，波动比0.59，涨势稳健",
+      "macro_logic": "2014年上半年美联储维持低利率，美股科技龙头盈利持续向好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无当期交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无当期交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-8.1%，52周分位53%，MA20/60斜率微负，短期反弹",
+      "macro_logic": "克里米亚事件提供避险支撑，美国经济复苏预期压制金价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无当期交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无当期交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-16.9%，52周分位20%，低点74日未破，近5日跌幅收窄",
+      "macro_logic": "国内经济下行压制银行估值，央行货币政策宽松预期升温",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-11.1%，52周分位24%，低点74日未破，波动比1.85",
+      "macro_logic": "资产质量担忧压制估值，宽松预期下高股息属性吸引配置资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-9.1%，52周分位45%，vs MA20/60为0.2%/2.1%，近20日涨2.2%",
+      "macro_logic": "资产质量优于同业，高股息属性吸引稳健资金，宽松预期支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-7.0%，52周分位56%，vs MA250 2.2%，MA20斜率3.6%",
+      "macro_logic": "三农业务优势凸显，高股息吸引配置盘，宽松预期推动估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储QE退出预期→美债收益率/美元波动→黄金、美股科技股估值变化→国内宽松预期→银行股估值修复",
+  "prev_month_review": "上月未对标的给出明确判定，无对错校验，本月基于最新量价与宏观数据首次给出判断",
+  "summary": "本月优先配置上升趋势明确的纳指ETF、建行、农行，逢低布局筑底的工行、中行，黄金暂观望，无数据标的暂不配置，仓位向高胜率品种倾斜",
+  "version": 2,
+  "month": "201406",
+  "asof": "20140630",
+  "model": "bot-20250308205057-5kjf4"
+}

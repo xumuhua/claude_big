@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.8%，52周分位96%，MA20/60斜率为正，超MA250达9.9%",
+      "macro_logic": "美国经济复苏叠加科技巨头盈利稳健增长，支撑纳指上行",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近20日跌2.7%，MA20斜率-0.4%，与MA60基本持平，波动比0.81",
+      "macro_logic": "英国脱欧避险情绪消化，美联储年底加息预期压制金价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "近20日涨4.4%，MA20/60斜率均正，超MA250达3.3%",
+      "macro_logic": "供给侧改革缓解银行不良预期，高股息吸引长期资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤20%，低点130日未破，近20日涨3.9%，MA20斜率3.3%",
+      "macro_logic": "银行板块估值修复行情带动超跌个股反弹",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "近120日涨10.9%，MA20/60斜率均正，超MA250达2.6%",
+      "macro_logic": "供给侧改革缓解银行不良预期，高股息吸引长期资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-4.7%，近20日涨3.2%，MA20/60斜率均正",
+      "macro_logic": "供给侧改革缓解银行不良预期，高股息吸引长期资金配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "2016年8月尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "2016年8月尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "2016年8月处于建仓期，无有效长期趋势数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "2016年8月处于建仓期，无有效长期趋势数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    }
+  },
+  "factor_chains": "美联储加息预期→美元走势→黄金/美股估值→人民币汇率→国内权益及跨境资产定价",
+  "prev_month_review": "上月为首次监测周期，无历史判定结果可校验，本月首次输出各标的阶段判断",
+  "summary": "本月优先配置上升趋势确定性高的纳指ETF、工行、建行、农行；黄金暂持有观望，逢低布局筑底的中行；其余无有效数据标的暂不纳入配置，组合偏均衡",
+  "version": 2,
+  "month": "201608",
+  "asof": "20160831",
+  "model": "bot-20250308205057-5kjf4"
+}

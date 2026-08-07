@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-4.9%/52周分位67%/近20日跌2.5%/波动比0.5",
+      "macro_logic": "2016年美联储暂缓加息，英国脱欧短期冲击下科技盈利仍稳",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无截至2016年6月的有效量价数据，无明确趋势",
+      "macro_logic": "暂无显著驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无截至2016年6月的有效量价数据，无明确趋势",
+      "macro_logic": "暂无显著驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "518800.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-0.5%/52周分位98%/近120日涨26.2%/波动比1.34",
+      "macro_logic": "2016年全球负利率+英国脱欧公投推升黄金避险需求",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无截至2016年6月的有效量价数据，无明确趋势",
+      "macro_logic": "暂无显著驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无截至2016年6月的有效量价数据，无明确趋势",
+      "macro_logic": "暂无显著驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤-23.3%/低点205日未破/近20日涨1.8%/波动比0.44",
+      "macro_logic": "2016年国内稳增长发力，银行高股息防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "下降",
+      "phase_evidence": "回撤-42.7%/52周分位4%/近20日跌4.5%/MA60斜率-1.0%",
+      "macro_logic": "坏账担忧压制估值，资金偏好头部国有行导致分化",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "回撤-36.4%/52周分位7%/近20日跌2.7%/vs MA20 -3.5%",
+      "macro_logic": "坏账担忧压制估值，资金偏好头部国有行导致分化",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤-22.5%/低点205日未破/近20日涨0.6%/波动比0.41",
+      "macro_logic": "2016年国内稳增长发力，银行高股息防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "英国脱欧→全球避险升温→黄金上涨→美联储加息预期延后→美股科技估值支撑→国内稳增长→高股息银行获配",
+  "prev_month_review": "上月未对标的给出有效判定，本月基于2016年6月末量价及宏观事件首次出具明确结论",
+  "summary": "本月优先配置筑底的工行、农行拿高股息防御收益，逢低布局震荡的纳指ETF，黄金处冲高阶段谨防追高，回避下降的中行、建行，其余标的无明确信号暂观望",
+  "version": 2,
+  "month": "201606",
+  "asof": "20160630",
+  "model": "bot-20250308205057-5kjf4"
+}

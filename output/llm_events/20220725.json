@@ -1,0 +1,92 @@
+{
+  "new_events": "2022年6月美联储加息75BP，为1994年来最大单次加息；国内6月出台稳经济一揽子接续政策",
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤19.8%，低点26日未破，近20日涨2.0%，波动比0.76",
+      "macro_logic": "美联储6月加息75BP落地，阶段性利空出尽",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤39.4%，低点88日未破，波动比0.57收缩，MA60斜率4.8%",
+      "macro_logic": "2022年4月政治局会议明确支持平台经济健康发展",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤32.5%，低点60日未破，近60日涨23.7%，MA60斜率2.7%",
+      "macro_logic": "国内流动性宽松，硬科技产业扶持政策加码",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "回撤9.9%，近20日跌4.9%，vs MA20为-1.0%，无明确趋势",
+      "macro_logic": "美联储加息压制金价，俄乌地缘冲突提供支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "下降",
+      "phase_evidence": "近20日跌8.6%，vs MA20为-4.0%，MA20斜率-8.8%",
+      "macro_logic": "全球衰退预期压制原油需求，俄乌冲突、OPEC减产支撑仍在",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "160723.SZ": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤21.9%，低点143日未破，近60日涨2.2%，波动比0.62",
+      "macro_logic": "全球衰退预期压制原油需求，俄乌冲突、OPEC减产支撑仍在",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤8.8%，低点6日未破，近5日涨1.6%，波动比1.6",
+      "macro_logic": "弱市下资金偏好高股息防御标的，红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "回撤7.2%，低点234日未破，近5日涨2.3%，无明确趋势",
+      "macro_logic": "弱市下资金偏好高股息防御标的，红利风格占优",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤11.8%，低点6日未破，近5日涨0.9%，波动比1.5",
+      "macro_logic": "弱市下资金偏好高股息防御标的，多空博弈",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤7.7%，低点6日未破，近5日涨2.1%，波动比1.82",
+      "macro_logic": "弱市下资金偏好高股息防御标的，多空博弈",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    }
+  },
+  "factor_chains": "美联储加息→美债利率上行→科技成长股承压；俄乌冲突→原油通胀高位→加息预期强化；弱市环境→高股息防御标的占优",
+  "prev_month_review": "上月对原油、银行上升判定基本准确，纳指下降后止跌，恒生科技、科创50筑底逻辑持续，黄金震荡符合预期，误判较少",
+  "summary": "本月优先配置政策强驱动的筑底品种恒生科技、科创50，小幅布局纳指ETF博加息落地反弹，银行类作为防御底仓配置，原油暂观望，黄金中性配置对冲地缘风险",
+  "version": 2,
+  "month": "20220725",
+  "asof": "20220725",
+  "model": "bot-20250308205057-5kjf4"
+}

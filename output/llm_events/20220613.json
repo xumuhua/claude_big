@@ -1,0 +1,92 @@
+{
+  "new_events": "2022年4月政治局会议明确支持平台经济，5月美联储加息50bp，俄乌冲突持续发酵，均改变相关资产定价框架",
+  "assets": {
+    "513100.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-24.5%，52周分位0%，刚创新低（低点距今0天），MA20斜率-5.0%",
+      "macro_logic": "2022年美联储启动加息周期持续压制美股科技成长估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "上升",
+      "phase_evidence": "深回撤-42.5%，52周分位26%，低点58天未破，近20日涨13.1%，站在MA20/MA60之上",
+      "macro_logic": "2022年4月政治局会议明确支持平台经济健康发展",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "588000.SS": {
+      "phase": "上升",
+      "phase_evidence": "回撤-32.1%，52周分位30%，低点30天未破，近20日涨7.5%，MA20斜率9.3%",
+      "macro_logic": "2022年4月央行降准释放流动性，硬科技产业政策支持",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-3.3%，52周分位74%，近60日微跌0.2%，无明确单边趋势",
+      "macro_logic": "俄乌冲突避险需求与美联储加息抬升实际利率多空博弈",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位91%，距高点仅回撤-3.9%，近60日涨15.2%，处于高位快速上涨区间",
+      "macro_logic": "俄乌冲突叠加OPEC减产支撑原油供需缺口",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "160723.SZ": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位83%，近60日涨8.8%，MA20斜率10.4%，短期涨速偏快",
+      "macro_logic": "俄乌冲突叠加OPEC减产支撑原油供需缺口",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位20%，近20日微跌0.6%、近60日微涨1.3%，波动比0.68",
+      "macro_logic": "市场风险偏好低位，高股息银行防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位61%，近20日涨跌幅为0，波动比0.59，无明确趋势",
+      "macro_logic": "市场风险偏好低位，高股息银行防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位24%，近20/60日涨跌幅均在±2%以内，波动比0.47",
+      "macro_logic": "市场风险偏好低位，高股息银行防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位22%，近20日跌1.6%、近60日涨1.0%，窄幅波动无趋势",
+      "macro_logic": "市场风险偏好低位，高股息银行防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    }
+  },
+  "factor_chains": "俄乌冲突推升原油→通胀高企→美联储加息抬升实际利率→成长股估值承压，避险需求支撑黄金、高股息银行防御价值",
+  "prev_month_review": "上月纳指筑底判断误判，本月创出新低；其余标的阶段判定符合预期，核心驱动逻辑整体延续",
+  "summary": "本月优先布局政策驱动反转的恒生科技、科创50作为弹性仓位，保留原油仓位博弈供需缺口，以黄金、四大行作为防御底仓，纳指处于下降通道暂时规避，整体均衡配置成长与防御板块",
+  "version": 2,
+  "month": "20220613",
+  "asof": "20220613",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-1.3%，52周分位94%，MA20/60斜率为正，近120日涨13.9%",
+      "macro_logic": "2016年11月特朗普当选，美股风险偏好抬升，科技龙头盈利稳健",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "标的未上市，无有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "标的未上市，无有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-9.3%，MA20/60斜率为负，近20日跌5.4%，仍站MA250",
+      "macro_logic": "2016年12月美联储加息预期升温，美元走强压制黄金",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "标的未上市，无有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "标的未上市，无有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-7%，52周分位61%，MA20斜率0.3，近20日涨2.3%",
+      "macro_logic": "国内经济企稳，银行不良压力缓解，高股息吸引长线资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-18.9%，低点188日未破，近20日涨4.1%，MA20斜率0.8",
+      "macro_logic": "银行板块估值修复，高股息资产获险资增持",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "近120日涨14.4%，MA20/60斜率为正，vs MA250+9.2%，波动比0.91",
+      "macro_logic": "2016年楼市升温带动房贷业务盈利改善，估值修复",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.9%，52周分位70%，MA20斜率0.8，波动比0.66",
+      "macro_logic": "农业供给侧改革推进，县域业务优势凸显，高股息吸引配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储12月加息预期→美元走强→黄金承压；特朗普当选抬升美股风险偏好→纳指上行；国内经济企稳→银行估值修复",
+  "prev_month_review": "上月无有效标的判定，本月首次基于2016年11月末量价及宏观环境给出判断",
+  "summary": "本月优先配置上升趋势明确的纳指ETF、建设银行，逢低布局筑底的中国银行，高股息银行标的作为底仓，黄金待加息落地后再配置，未上市标的暂不参与",
+  "version": 2,
+  "month": "201611",
+  "asof": "20161130",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "回撤-20.9%/低点34日未破/MA20斜率2.7%/近20日涨0.5%",
+      "macro_logic": "美联储加息节奏边际放缓，美债收益率回落支撑科技估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "上升",
+      "phase_evidence": "回撤-36.2%/低点23日未破/近20日涨15.6%/MA20斜率9.6%",
+      "macro_logic": "平台经济政策暖风+疫情防控优化预期+南向资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "回撤-32.1%/低点146日/近20日跌4%/波动比0.84",
+      "macro_logic": "国内流动性中性偏松，硬科技缺乏强产业政策催化",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.9%/52周分位77%/近20日涨3.4%",
+      "macro_logic": "美联储加息放缓预期+多国央行购金，美元走弱支撑金价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "回撤-14.6%/52周分位68%/近20日跌3%/波动比0.6",
+      "macro_logic": "OPEC+减产托底油价，全球需求走弱预期压制上涨空间",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "回撤-21.6%/低点229日/近20日跌5.4%/波动比0.64",
+      "macro_logic": "OPEC+减产托底油价，全球需求走弱预期压制上涨空间",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "回撤-11.7%/低点19日/近20日涨5.7%/vs MA20+2.9%",
+      "macro_logic": "地产融资支持政策修复资产质量，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-5.4%/站上MA250/近20日涨5%",
+      "macro_logic": "地产融资支持政策修复资产质量，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "回撤-12.2%/低点19日/近20日涨6.3%/vs MA20+3.7%",
+      "macro_logic": "地产融资支持政策修复资产质量，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "回撤-7.1%/低点20日/近20日涨5.9%/vs MA20+2.9%",
+      "macro_logic": "地产融资支持政策修复资产质量，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储加息边际放缓→美债下行→成长股估值修复+黄金走强；国内地产+防疫政策优化→银行修复+港股科技反弹；OPEC减产+俄乌冲突→油价震荡",
+  "prev_month_review": "上月未对各标的作出明确阶段判定，无历史校验项，本月基于最新量价及宏观数据首次给出判定",
+  "summary": "本月优先配置反转逻辑明确的恒生科技ETF、高股息防御属性的银行股，逢低布局筑底的纳指ETF及上升趋势的黄金ETF，原油类暂观望，科创50等待政策催化信号",
+  "version": 2,
+  "month": "202211",
+  "asof": "20221130",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点仅-0.1%，52周分位100%，较MA250高24.1%，波动比1.27",
+      "macro_logic": "2019年美联储三次降息，美股科技龙头盈利持续超预期",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位83%，近120日涨8.9%，MA20斜率3.6%，站稳MA250",
+      "macro_logic": "2019年全球央行购金潮，美联储降息周期开启美元走弱",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-4.8%，较MA250高0.6%，近20日跌1.9%，无明确趋势",
+      "macro_logic": "高股息属性吸引避险资金，2019年末社融数据弱于预期",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位仅18%，低点249日未破，跌速持续收窄，MA20走平",
+      "macro_logic": "银行板块估值处历史低位，高股息防御价值逐步凸显",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "近120日跌5.8%，MA60斜率-0.4%向下，跌破MA60、MA250",
+      "macro_logic": "2019年末经济下行压力大，市场担忧银行资产质量",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位27%，低点101日未破，近20日跌4.1%，无明确趋势",
+      "macro_logic": "高股息防御属性与经济下行担忧交织，缺乏明确驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，暂未观测到明确趋势信号",
+      "macro_logic": "暂无明确事件驱动的趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，暂未观测到明确趋势信号",
+      "macro_logic": "暂无明确事件驱动的趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，暂未观测到明确趋势信号",
+      "macro_logic": "暂无明确事件驱动的趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，暂未观测到明确趋势信号",
+      "macro_logic": "暂无明确事件驱动的趋势性行情",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    }
+  },
+  "factor_chains": "2019年美联储开启降息周期→全球流动性宽松→美股科技、黄金上行→国内经济下行压力→银行板块估值分化",
+  "prev_month_review": "上月无明确阶段判定，本期基于当期量价及宏观事件首次给出判断，无过往误判需修正",
+  "summary": "本月优先配置上升趋势的黄金ETF，冲高的纳指ETF可逐步止盈，银行板块选取高股息标的做防御底仓，无数据标的暂观望，组合整体偏均衡防御",
+  "version": 2,
+  "month": "202001",
+  "asof": "20200123",
+  "model": "bot-20250308205057-5kjf4"
+}

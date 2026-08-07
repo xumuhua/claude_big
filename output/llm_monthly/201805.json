@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.8%，52周分位95%，MA20斜率5.1%，短中期收益全为正",
+      "macro_logic": "2018年美国科技龙头盈利高增，支撑纳指稳健上行",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价数据，无明确趋势信号",
+      "macro_logic": "标的尚未上市，无核心定价驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.2
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价数据，无明确趋势信号",
+      "macro_logic": "标的尚未上市，无核心定价驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.2
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-5.3%，低点距今8日未破，近5日涨0.8%，波动比0.81",
+      "macro_logic": "2018年中美贸易摩擦升温，避险需求抬升黄金价格",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无对应量价特征数据，无明确趋势",
+      "macro_logic": "无明确驱动事件充分定价，走势混沌",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无对应量价特征数据，无明确趋势",
+      "macro_logic": "无明确驱动事件充分定价，走势混沌",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-27%，近60日跌15.3%，MA60斜率-6%，跌破所有均线",
+      "macro_logic": "2018年国内去杠杆推进，压制银行板块估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-20.8%，52周分位14%，MA60斜率-4.7%，位于均线下方",
+      "macro_logic": "去杠杆下社融增速下滑，压制银行估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-27.4%，近60日跌13.3%，MA60斜率-5.7%，跌破均线",
+      "macro_logic": "去杠杆推进，净息差收窄预期压制银行估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-24.4%，52周分位12%，近20日跌6.5%，均线向下",
+      "macro_logic": "去杠杆下信用风险担忧压制银行板块",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "国内去杠杆→银行估值承压，中美贸易摩擦→避险需求推升黄金，美股科技盈利高增→纳指走牛",
+  "prev_month_review": "上月未对各标的给出明确判定，本月基于量价及已发生宏观事件首次判定，无过往误判",
+  "summary": "本月优先配置上升趋势明确的纳指ETF，逐步左侧布局筑底的黄金ETF，暂时规避处于下降通道的银行板块，无明确趋势标的保持观望。",
+  "version": 2,
+  "month": "201805",
+  "asof": "20180531",
+  "model": "bot-20250308205057-5kjf4"
+}

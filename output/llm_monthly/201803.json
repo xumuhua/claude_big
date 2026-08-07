@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-7.3%，52周分位60%，近20日-2.6%，近120日+6.4%",
+      "macro_logic": "美联储3月加息压制成长估值，科技龙头盈利仍有支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无当期量价数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无当期量价数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-6.3%，52周分位14%，低点距今178交易日",
+      "macro_logic": "中美贸易摩擦升温抬升避险需求，加息压制暂趋缓",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无当期量价数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无当期量价数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-21.4%，近20日-8.8%，MA20斜率-9.9%",
+      "macro_logic": "国内去杠杆政策推进，信用收缩压制银行估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-17.4%，近20日-5.8%，MA20斜率-6.9%",
+      "macro_logic": "国内去杠杆政策推进，信用收缩压制银行估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-21.0%，近20日-5.6%，MA20斜率-10.2%",
+      "macro_logic": "国内去杠杆政策推进，信用收缩压制银行估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.78
+    },
+    "601288.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点-17.7%，近20日-4.9%，MA20斜率-7.4%",
+      "macro_logic": "国内去杠杆政策推进，信用收缩压制银行估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.72
+    }
+  },
+  "factor_chains": "美联储加息周期启动+中美贸易摩擦爆发→美债利率上行+避险抬升→权益估值承压，黄金避险属性凸显",
+  "prev_month_review": "上月所有标的均无有效判定，本月基于首次获取的量价及宏观数据完成阶段判定",
+  "summary": "本月维持防御配置，小仓位布局筑底的黄金ETF，纳指ETF暂观望，银行板块受去杠杆压制暂规避，无数据标的暂不配置，严控整体仓位",
+  "version": 2,
+  "month": "201803",
+  "asof": "20180330",
+  "model": "bot-20250308205057-5kjf4"
+}

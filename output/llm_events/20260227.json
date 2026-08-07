@@ -1,0 +1,92 @@
+{
+  "new_events": "无",
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-9.1%，52周分位75%，MA20斜率-2.9%，短期回调未破长期均线",
+      "macro_logic": "美联储利率维持高位，美股科技龙头盈利增速平稳",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "下降",
+      "phase_evidence": "深回撤-23.5%，52周分位16%，MA20斜率-4.7%，短期均线持续走降",
+      "macro_logic": "美债利率高位压制估值，数字经济政策利好尚未兑现",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "588000.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位89%，vs MA250+23.4%，MA60斜率2.6%，短期回调不改上升趋势",
+      "macro_logic": "国内硬科技产业政策支持，流动性边际宽松",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "518800.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨幅47.2%，vs MA250+33.8%，波动比1.96，涨速超均线偏离度高",
+      "macro_logic": "全球央行购金潮，中东地缘冲突升级推升避险需求",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "501018.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近20日涨幅22.2%，vs MA250+19.9%，波动比2.3，短期涨速过快波动放大",
+      "macro_logic": "OPEC+超预期减产，中东地缘冲突推升油价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "160723.SZ": {
+      "phase": "上升",
+      "phase_evidence": "近60日涨幅17.9%，vs MA250+11.9%，MA60斜率3.6%，走势稳健未过度加速",
+      "macro_logic": "油价上行周期，QDII额度溢价支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位13%，近60日跌幅16.7%，MA20斜率-6.7%，均线持续走降",
+      "macro_logic": "红利风格回调，市场风险偏好回升资金分流",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位9%，低点距今94交易日，近20日跌幅0.4%，短期止跌波动收缩",
+      "macro_logic": "高股息防御价值凸显，年度分红期临近",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位10%，近60日跌幅12.8%，MA20斜率-3.7%，跌破走降均线",
+      "macro_logic": "红利板块资金流出，净息差收窄预期升温",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "下降",
+      "phase_evidence": "深回撤-25.5%，近60日跌幅20.7%，MA20斜率-10%，持续创新低",
+      "macro_logic": "前期红利风格涨幅过大，估值回归调整",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    }
+  },
+  "factor_chains": "中东地缘冲突→原油、黄金走强→通胀粘性→美联储降息延后→美债利率高位→压制科技成长，红利风格随风险偏好回升回调",
+  "prev_month_review": "上月对科创50、黄金、原油、多数银行趋势判断正确，纳指、恒生科技下行幅度超预期，预判略有偏差",
+  "summary": "本月优先配置趋势明确的黄金、原油品种，逢低布局科创50，短期规避银行类红利资产，纳指、恒生科技观望等待企稳信号",
+  "version": 2,
+  "month": "20260227",
+  "asof": "20260227",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,92 @@
+{
+  "new_events": "2024年2月美联储议息会议明确年内降息预期，3月OPEC+宣布延长减产协议，国内出台硬科技配套支持政策",
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.4%，52周分位99%，MA20/60斜率为正，近60日涨11.2%",
+      "macro_logic": "AI产业驱动美股科技盈利，美联储年内降息预期升温",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-25.3%，52周分位28%，低点32日未破，MA20斜率9.1上翘",
+      "macro_logic": "平台经济政策支持，美债利率见顶回落，南向资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-32.3%，52周分位22%，低点30日未破，MA20斜率9.7上翘",
+      "macro_logic": "硬科技产业支持政策落地，A股流动性边际宽松",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.4%，52周分位97%，MA20/60斜率为正，近60日涨7.7%",
+      "macro_logic": "全球央行购金潮，美联储降息预期，中东地缘风险持续",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.95
+    },
+    "501018.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-8.9%，52周分位67%，MA20/60斜率为正，近20日涨7.6%",
+      "macro_logic": "OPEC+延长减产协议，原油需求复苏预期升温",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "深回撤-21.2%，52周分位38%，MA20/60斜率为负，近60日跌8.7%",
+      "macro_logic": "移仓损耗压制净值，油价上涨传导滞后，走势偏弱",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.5%，52周分位82%，MA20/60斜率为正，近60日涨10.4%",
+      "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-4.3%，52周分位84%，MA20/60斜率为正，近60日涨10.6%",
+      "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-4.7%，52周分位74%，MA20/60斜率为正，近60日涨7.0%",
+      "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.0%，52周分位90%，MA20/60斜率为正，近60日涨16.6%",
+      "macro_logic": "红利风格占优，弱市资金偏好高股息防御资产",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    }
+  },
+  "factor_chains": "美联储降息预期→美元走弱+实际利率下行→黄金/美股科技走强；红利风格延续→银行股防御价值凸显；OPEC+减产托油价；美债回落利好港股/A股科技",
+  "prev_month_review": "上月判断整体符合走势，各标的核心驱动逻辑均未逆转，仅南方原油由震荡转入上升，其余阶段判定准确",
+  "summary": "本月优先配置确定性强的纳指ETF、黄金ETF、国有行高股息标的，逢低布局筑底的恒生科技、科创50，原油类优先选南方原油，规避嘉实原油，保持攻守均衡配置",
+  "version": 2,
+  "month": "20240325",
+  "asof": "20240325",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点0%，52周分位100%，较MA250高48.2%，短期涨幅远超长期",
+      "macro_logic": "美联储零利率+无限QE放水，推升美股科技股估值",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "暂无当期量价数据",
+      "macro_logic": "无明确驱动事件信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "暂无当期量价数据",
+      "macro_logic": "无明确驱动事件信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-5.8%，近20日-1.9%近5日1.6%，vs MA20 -0.9%",
+      "macro_logic": "美联储宽松推升黄金后高位盘整，疫情避险逻辑部分定价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "暂无当期量价数据",
+      "macro_logic": "无明确驱动事件信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "暂无当期量价数据",
+      "macro_logic": "无明确驱动事件信号",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-17.5%，52周分位0%，MA20斜率-2.3%，近60日跌4.2%",
+      "macro_logic": "政策要求2020年银行业向实体经济让利1.5万亿，压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601988.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-15.2%，52周分位0%，MA20斜率-4.4%，近60日跌6.3%",
+      "macro_logic": "政策要求2020年银行业向实体经济让利1.5万亿，压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-17.2%，52周分位10%，MA20斜率-2.9%，近60日跌3.1%",
+      "macro_logic": "政策要求2020年银行业向实体经济让利1.5万亿，压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601288.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-14.6%，52周分位0%，MA20斜率-2.9%，近60日跌5.9%",
+      "macro_logic": "政策要求2020年银行业向实体经济让利1.5万亿，压制估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    }
+  },
+  "factor_chains": "美联储无限QE→美元走弱+实际利率下行→美股科技、黄金上涨；国内银行让利政策→银行板块估值承压",
+  "prev_month_review": "上月未对所有标的给出有效判定，无历史校验依据，本月基于最新量价及宏观数据首次出具评估结论",
+  "summary": "本月优先规避处于下降趋势的银行板块，纳指ETF处于冲高阶段警惕回调风险，黄金高位震荡暂观望，无明确趋势的其余标的暂不配置，等待信号明朗后再做布局",
+  "version": 2,
+  "month": "202008",
+  "asof": "20200831",
+  "model": "bot-20250308205057-5kjf4"
+}

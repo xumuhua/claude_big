@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤-1.5%，52周分位93%，MA20/60斜率为正，近120日涨25.8%",
+      "macro_logic": "美联储维持宽松货币政策，美股科技龙头盈利超预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-20.5%，低点距今7交易日未破，近5日涨2.2%，站上MA20",
+      "macro_logic": "互联网反垄断政策阶段性落地，利空出尽",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "588000.SS": {
+      "phase": "下降",
+      "phase_evidence": "近5日跌8.9%，近20日跌8%，MA20斜率-1.3，跌破MA20达7%",
+      "macro_logic": "国内流动性边际收紧，硬科技赛道估值承压",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近20日涨0.2%，近60日跌1.8%，MA20/60斜率均为-1.3，波动小",
+      "macro_logic": "美联储Taper预期与美元走弱对冲，金价窄幅波动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "暂无对应量价数据",
+      "macro_logic": "OPEC+逐步增产与全球需求复苏预期博弈",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.5
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "暂无对应量价数据",
+      "macro_logic": "OPEC+逐步增产与全球需求复苏预期博弈",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.5
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位8%，低点距今17日未破，近20日涨0.9%",
+      "macro_logic": "上市银行中报业绩超预期，高股息属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位13%，低点距今19日未破，近5日涨0.3%站上MA20",
+      "macro_logic": "上市银行中报业绩超预期，高股息属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-22.8%，52周分位9%，低点距今17日未破，近20日涨1.9%",
+      "macro_logic": "上市银行中报业绩超预期，高股息属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位12%，低点距今18日未破，近5日涨0.7%站上MA20",
+      "macro_logic": "上市银行中报业绩超预期，高股息属性吸引资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储宽松周期尾部→Taper预期升温→美债利率波动→成长股估值承压+黄金震荡+高股息资产防御价值凸显",
+  "prev_month_review": "上月无明确阶段判定，本月基于最新量价及宏观事件首次给出判断，无过往误判",
+  "summary": "本月优先配置趋势明确的纳指ETF作为进攻仓，左侧布局深回撤的恒生科技ETF，银行股作为防御底仓配置，科创50、黄金、原油暂观望控制组合波动",
+  "version": 2,
+  "month": "202108",
+  "asof": "20210831",
+  "model": "bot-20250308205057-5kjf4"
+}

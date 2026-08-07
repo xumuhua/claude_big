@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-9.9%，近5日涨5.6%，站上MA250但MA20斜率-3.6%",
+      "macro_logic": "美联储主席鲍威尔释放加息放缓信号，纳指修复10月跌幅",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无2018年11月末有效量价数据",
+      "macro_logic": "无明确可验证驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无2018年11月末有效量价数据",
+      "macro_logic": "无明确可验证驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤-2%，MA60斜率1.0%，波动比0.91",
+      "macro_logic": "美联储加息预期缓和，美元走弱支撑黄金价格",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无2018年11月末有效量价数据",
+      "macro_logic": "无明确可验证驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无2018年11月末有效量价数据",
+      "macro_logic": "无明确可验证驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-31.2%，低点距今103交易日，波动比0.58",
+      "macro_logic": "2018年A股熊市，高股息银行股获防御资金偏好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-24.2%，低点距今90交易日，波动比0.59",
+      "macro_logic": "2018年A股熊市，高股息银行股获防御资金偏好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-32.2%，低点距今103交易日，波动比0.55",
+      "macro_logic": "2018年A股熊市，高股息银行股获防御资金偏好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-24.8%，低点距今102交易日，波动比0.72",
+      "macro_logic": "2018年A股熊市，高股息银行股获防御资金偏好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储加息周期边际缓和→美元走弱→黄金上涨/美股科技股反弹→A股风险偏好低位，高股息银行防御价值凸显",
+  "prev_month_review": "上月无明确判定结论，本月基于2018年11月末量价及宏观事件首次给出判断，无误判需修正",
+  "summary": "本月优先配置趋势明确的黄金ETF，关注深回撤筑底的四大行高股息防御机会，纳指ETF短期反弹可轻仓参与，其余无有效数据标的暂不配置，平衡组合波动",
+  "version": 2,
+  "month": "201811",
+  "asof": "20181130",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,92 @@
+{
+  "new_events": "2026年6月美联储释放加息预期，7月国内出台数字经济支持政策，OPEC宣布延长减产至2026年底",
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-8.4%，近20日跌4.9%，MA20斜率-1.6，仍站稳MA60上方",
+      "macro_logic": "AI算力需求支撑科技龙头盈利，美联储加息预期压制短期估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-30%，低点距今14日未破，近5日涨1.8%、近20日涨3.7%",
+      "macro_logic": "国内出台数字经济支持政策，美债利率上行压力边际缓解",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "588000.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点回撤-17%，近60日涨29.8%，波动比1.49，近5日回调16.5%",
+      "macro_logic": "硬科技产业政策加码支撑估值，短期获利盘集中了结",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "518800.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-25.4%，近60日跌16.6%，MA20斜率-7.1%，持续走弱",
+      "macro_logic": "美联储加息预期升温，美元走强压制黄金估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-29%，近5日涨5.3%、近20日涨2.4%，短期止跌",
+      "macro_logic": "OPEC延长减产至2026年底，对油价形成支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "160723.SZ": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-33%，近5日涨9.5%、近20日涨5.2%，短期止跌反弹",
+      "macro_logic": "OPEC延长减产至2026年底，对油价形成支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-11.1%，近20日涨0.4%，走势无明确趋势",
+      "macro_logic": "红利风格阶段性回调，风险偏好抬升分流资金",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-7.8%，近20日跌2.4%，走势无明确方向",
+      "macro_logic": "红利风格阶段性回调，风险偏好抬升分流资金",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-8.4%，近20日跌3.3%，走势震荡无趋势",
+      "macro_logic": "红利风格阶段性回调，风险偏好抬升分流资金",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-26.7%，低点距今9日未破，近5日涨3.1%",
+      "macro_logic": "红利回调充分，高股息优势再次显现，吸引资金配置",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储加息预期→美元走强→黄金、海外成长股估值承压；国内数字经济政策→科技板块修复；OPEC减产→油价获支撑；风险偏好抬升→红利风格回调",
+  "prev_month_review": "上月多数标的判断准确，仅恒生科技筑底后仍有小幅回撤，核心驱动逻辑整体未发生逆转",
+  "summary": "本月优先配置政策驱动的恒生科技，纳指ETF逢低布局，科创50规避短期回调风险，黄金、原油暂观望，银行端仅配置筑底的农行做防御持仓",
+  "version": 2,
+  "month": "20260716",
+  "asof": "20260716",
+  "model": "bot-20250308205057-5kjf4"
+}

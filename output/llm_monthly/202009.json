@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤14.1%，近20日跌12.3%，MA20/60斜率均为7.2%，波动比1.74",
+      "macro_logic": "美联储无限QE推升科技股估值，大选前短期波动加大",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效运行数据",
+      "macro_logic": "无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效运行数据",
+      "macro_logic": "无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤9.3%，MA20斜率-2.9%，MA60斜率1.3%，波动比0.86",
+      "macro_logic": "全球宽松抗通胀需求支撑，前期大涨后短期获利回吐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效运行数据",
+      "macro_logic": "无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无当期有效运行数据",
+      "macro_logic": "无明确驱动因子",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位3%，回撤18.1%，低点距今3个交易日，波动比0.43",
+      "macro_logic": "银行1.5万亿让利政策落地，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位1%，回撤17.3%，低点距今17个交易日，波动比0.54",
+      "macro_logic": "银行1.5万亿让利政策落地，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位6%，回撤17.9%，低点距今47个交易日，波动比0.5",
+      "macro_logic": "银行1.5万亿让利政策落地，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位5%，回撤15.7%，低点距今17个交易日，波动比0.51",
+      "macro_logic": "银行1.5万亿让利政策落地，弱市资金偏好高股息防御",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储无限QE→全球流动性宽松→黄金/美股科技估值抬升，A股弱市→资金转向高股息银行防御",
+  "prev_month_review": "2020年8月无有效标的运行数据，未出具明确阶段判定，本次为首份月度结论，无误判",
+  "summary": "本月以防御配置为主，优先布局筑底阶段的四大行高股息标的，纳指、黄金处于震荡期暂观望，无数据标的暂不纳入配置，控制整体仓位波动",
+  "version": 2,
+  "month": "202009",
+  "asof": "20200930",
+  "model": "bot-20250308205057-5kjf4"
+}

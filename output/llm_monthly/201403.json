@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5.8%，52周分位76%，近20日跌4.9%，波动比0.96",
+      "macro_logic": "美联储启动缩减QE压制美股科技成长估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-9.6%，低点65日未破，近60日涨6.5%，波动比1.05",
+      "macro_logic": "克里米亚地缘冲突升级推升黄金避险需求",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-18%，低点13日未破，近20日涨3.9%，波动比1.33",
+      "macro_logic": "国内经济下行压力加大，资金偏好高股息防御资产",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-13.7%，低点13日未破，近20日涨3.6%，波动比0.95",
+      "macro_logic": "国内经济下行压力加大，资金偏好高股息防御资产",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-18.5%，低点14日未破，近20日涨4.2%，波动比0.72",
+      "macro_logic": "国内经济下行压力加大，资金偏好高股息防御资产",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-16.6%，低点15日未破，近20日涨3.9%，波动比1.32",
+      "macro_logic": "国内经济下行压力加大，资金偏好高股息防御资产",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储缩减QE→美债利率上行压制美股成长，国内经济弱→高股息占优，克里米亚冲突→黄金避险需求抬升",
+  "prev_month_review": "上月无有效判定结果，所有标的阶段均为空白，本月基于最新量价及宏观数据首次出具判定",
+  "summary": "本月无明确上升趋势标的，优先配置筑底阶段的四大行获取高股息收益，小仓位布局黄金对冲地缘风险，纳指暂观望等待调整企稳，未上市标的不参与配置",
+  "version": 2,
+  "month": "201403",
+  "asof": "20140331",
+  "model": "bot-20250308205057-5kjf4"
+}

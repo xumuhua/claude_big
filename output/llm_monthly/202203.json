@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-7.7%，近20日涨6.8%，MA20斜率-1.2%无明确趋势",
+      "macro_logic": "美联储加息周期启动压制科技估值，短期超跌技术性反弹",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-46.6%，低点距今12交易日未破，vs MA20+2.8%",
+      "macro_logic": "金融委会议释放平台经济监管缓和信号，美债冲击阶段性消化",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "588000.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-31.9%，低点距今仅2交易日，MA20斜率-6.4%",
+      "macro_logic": "美债利率上行压制高估值成长，A股流动性阶段性偏紧",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "近60日涨5.7%，vs MA250+4.2%，MA20斜率+4.0%走势稳健",
+      "macro_logic": "俄乌冲突升级+全球通胀高企共同支撑黄金价格",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "下降",
+      "phase_evidence": "近60日涨33.7%后回调，近20日跌6.1%，vs MA20-4.0%",
+      "macro_logic": "美国释放战略原油储备，地缘溢价阶段性被消化",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "下降",
+      "phase_evidence": "近60日涨37.9%后回调，近20日跌8.3%，vs MA20-6.6%",
+      "macro_logic": "美国释放战略原油储备，地缘溢价阶段性被消化",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-13.9%，近20日涨0.6%，无明确单边趋势",
+      "macro_logic": "市场避险情绪升温，资金偏好高股息防御类标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤仅-2.7%，近60日涨7.2%，vs MA250+4.8%",
+      "macro_logic": "避险资金偏好高股息防御标的，业绩稳健估值低",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近60日涨7.2%，vs MA20+4.2%，MA20斜率-2.4%无明确趋势",
+      "macro_logic": "市场避险情绪升温，资金偏好高股息防御类标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近60日涨4.8%，vs MA20+3.4%，MA60斜率+0.5%走势偏稳",
+      "macro_logic": "市场避险情绪升温，资金偏好高股息防御类标的",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "俄乌冲突→原油、黄金上涨→全球通胀上行→美联储加息→美债利率上行→成长股承压→资金避险偏好高股息银行",
+  "prev_month_review": "上月多数标的判定正确，仅科创50误判筑底，实际未止跌创新低，高估值压制逻辑仍强",
+  "summary": "本月优先配置上升趋势的黄金、中国银行，逢低布局筑底的恒生科技，规避仍在下降的科创50、原油，小仓位配置震荡类银行标的防御，整体偏谨慎",
+  "version": 2,
+  "month": "202203",
+  "asof": "20220331",
+  "model": "bot-20250308205057-5kjf4"
+}

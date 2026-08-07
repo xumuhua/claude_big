@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "近60日涨21.2%，MA20/60斜率均为正，站上MA250，距250日高点-7.2%",
+      "macro_logic": "2019年美联储暂停加息，美股科技龙头盈利超预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价数据支撑明确趋势判定",
+      "macro_logic": "暂无明确驱动事件公开",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价数据支撑明确趋势判定",
+      "macro_logic": "暂无明确驱动事件公开",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "近5/20/60日涨跌幅均≤0，MA20斜率-1.4%，52周分位62%",
+      "macro_logic": "2019年全球央行购金潮，美联储加息预期降温",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价数据支撑明确趋势判定",
+      "macro_logic": "暂无明确驱动事件公开",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价数据支撑明确趋势判定",
+      "macro_logic": "暂无明确驱动事件公开",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-14.2%，近20日跌4.8%，近60日涨5.7%",
+      "macro_logic": "2019年Q1国内社融超预期，银行高股息配置价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-9.6%，近20日跌3.3%，近60日涨3.9%，站上MA250",
+      "macro_logic": "2019年Q1国内社融超预期，银行高股息配置价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-14.3%，近20日跌5.3%，近60日涨10.5%，MA20走平",
+      "macro_logic": "2019年Q1国内社融超预期，银行高股息配置价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-9.0%，近20日跌3.1%，近60日涨3.9%，略低于MA20",
+      "macro_logic": "2019年Q1国内社融超预期，银行高股息配置价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储暂停加息→美债利率下行→科技成长估值修复；全球央行购金+国内社融企稳→黄金、银行板块获支撑",
+  "prev_month_review": "上月所有标的均无有效阶段判定，本月结合量价数据与2019年Q1宏观事件完成首次判定",
+  "summary": "本月优先配置上升趋势的纳指ETF作为成长敞口，标配黄金ETF对冲尾部风险，高股息银行作为防御底仓持有，其余无明确趋势标的暂观望",
+  "version": 2,
+  "month": "201903",
+  "asof": "20190329",
+  "model": "bot-20250308205057-5kjf4"
+}

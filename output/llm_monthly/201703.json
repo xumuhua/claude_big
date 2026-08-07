@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-1.6%，52周分位94%，MA20/60斜率均3.4%，近120日涨16.4%",
+      "macro_logic": "2017年美国科技龙头盈利持续超预期，资金流入美股科技板块",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效趋势数据，未形成明确均线趋势",
+      "macro_logic": "暂无明确驱动事件，流动性支撑不足",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效趋势数据，未形成明确均线趋势",
+      "macro_logic": "暂无明确产业政策催化，流动性支撑不足",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-5.8%，52周分位58%，波动比0.76，近60日涨5.7%",
+      "macro_logic": "2017年英国启动脱欧谈判，欧洲地缘风险抬升叠加美元走弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效趋势数据，未形成明确均线趋势",
+      "macro_logic": "暂无OPEC减产或地缘冲突明确驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无有效趋势数据，未形成明确均线趋势",
+      "macro_logic": "暂无OPEC减产或地缘冲突明确驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "创250日新高，52周分位100%，MA60斜率1.8%，近60日涨10.5%",
+      "macro_logic": "2017年国内供给侧改革落地，银行资产质量改善，高股息吸引配置资金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.8%，52周分位95%，MA60斜率1.5%，近60日涨7.9%",
+      "macro_logic": "2017年国内供给侧改革落地，银行资产质量改善，高股息吸引配置资金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.7%，52周分位97%，MA60斜率2.4%，近120日涨15.1%",
+      "macro_logic": "2017年国内供给侧改革落地，银行资产质量改善，高股息吸引配置资金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "创250日新高，52周分位100%，MA60斜率0.9%，近60日涨8.1%",
+      "macro_logic": "2017年国内供给侧改革落地，银行资产质量改善，高股息吸引配置资金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    }
+  },
+  "factor_chains": "全球经济弱复苏→美联储渐进加息+美元走弱支撑黄金；国内供给侧改革→银行资产质量修复抬升估值；美股科技盈利超预期→纳指上行",
+  "prev_month_review": "上月未出具有效标的阶段判定与逻辑，无历史验证项，本月为首次覆盖池内标的",
+  "summary": "本月优先配置趋势明确的纳指ETF及四大行，黄金作为对冲仓位低配，无有效趋势数据的标的暂不配置，整体仓位偏进攻，跟踪美联储政策及国内供给侧改革进展",
+  "version": 2,
+  "month": "201703",
+  "asof": "20170331",
+  "model": "bot-20250308205057-5kjf4"
+}

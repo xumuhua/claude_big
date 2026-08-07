@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-1.3%，52周分位94%，站MA250+9.1%，MA60斜率1.6",
+      "macro_logic": "美联储零利率宽松，美股科技龙头盈利稳定增长",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": null,
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": null,
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-9.1%，低点116日未破，近20日涨1.2%，波动比0.81",
+      "macro_logic": "美联储加息预期前期充分定价，黄金止跌企稳",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": null,
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": null,
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨48.6%，较MA250高34.5%，MA20斜率14.5",
+      "macro_logic": "央行降准降息，A股牛市下低估值银行补涨",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨74.1%，较MA250高45.8%，MA20斜率11.5",
+      "macro_logic": "央行降准降息，A股牛市下低估值银行补涨",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601939.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨65.5%，较MA250高40.0%，MA20斜率14.7",
+      "macro_logic": "央行降准降息，A股牛市下低估值银行补涨",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601288.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨55.9%，较MA250高36.4%，MA20斜率12.8",
+      "macro_logic": "央行降准降息，A股牛市下低估值银行补涨",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    }
+  },
+  "factor_chains": "央行降准降息→A股流动性宽松→银行估值修复；美联储零利率→纳指盈利上行；加息预期充分定价→黄金止跌",
+  "prev_month_review": "上月未形成有效判定，本月基于当期宏观事件及量化指标首次给出各标的阶段判断",
+  "summary": "本月优先配置上升趋势的纳指ETF，逢低布局筑底的黄金ETF，已冲高的银行股可逐步兑现收益，暂无数据标的暂不纳入配置",
+  "version": 2,
+  "month": "201504",
+  "asof": "20150430",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-3.7%，近20日-1.3%，MA20斜率-0.8，波动比0.87",
+      "macro_logic": "2017年美联储加息周期，科技龙头盈利稳但估值受利率压制",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无2017年8月前有效交易数据",
+      "macro_logic": "标的未上市，无对应驱动逻辑",
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无2017年8月前有效交易数据",
+      "macro_logic": "标的未上市，无对应驱动逻辑",
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-4%，近20日1.4%，近60日-1.7%，MA20斜率1.7",
+      "macro_logic": "2017年美联储加息压制金价，朝鲜半岛地缘紧张提供支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无2017年8月前有效交易数据",
+      "macro_logic": "标的未上市，无对应驱动逻辑",
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无2017年8月前有效交易数据",
+      "macro_logic": "标的未上市，无对应驱动逻辑",
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-4.1%，近120日25.5%，vs MA250 22.6%，波动比1.35",
+      "macro_logic": "2017年供给侧改革见效，银行资产质量改善，净息差回升",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-2.1%，52周分位91%，vs MA250 17.1%，波动比1.49",
+      "macro_logic": "2017年供给侧改革见效，银行资产质量改善，净息差回升",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-2.1%，52周分位93%，vs MA250 19.4%，波动比1.12",
+      "macro_logic": "2017年供给侧改革见效，银行资产质量改善，净息差回升",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.6%，近120日16.7%，MA60斜率2.4，波动比1.39",
+      "macro_logic": "2017年供给侧改革见效，银行资产质量改善，净息差回升",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储加息周期→美债利率上行/美元波动→美股成长、黄金估值承压；国内供给侧改革→银行资产质量修复→银行板块行情",
+  "prev_month_review": "2017年7月无有效标的判定，本月为首次基于完整交易数据及同期宏观环境给出判断",
+  "summary": "本月重点配置逻辑支撑强、趋势明确的国有银行标的，纳指ETF、黄金ETF处于震荡期暂观望，未上市标的不纳入配置，组合侧重防御与红利收益",
+  "version": 2,
+  "month": "201708",
+  "asof": "20170831",
+  "model": "bot-20250308205057-5kjf4"
+}

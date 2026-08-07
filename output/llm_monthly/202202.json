@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌15.9%，MA20斜率-8.7%，近20日跌5.8%",
+      "macro_logic": "美联储加息预期持续压制美股科技成长股估值",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌39.9%，52周分位0%，当日创阶段新低",
+      "macro_logic": "互联网监管收紧+美债利率上行双重压制港股科技",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.95
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤22.3%，低点距今11日未破，近5日涨4.5%站MA20",
+      "macro_logic": "高估值消化充分，科创产业扶持政策托底",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅跌1.8%，52周分位82%，MA20斜率2%",
+      "macro_logic": "俄乌冲突推升避险需求，通胀上行支撑金价",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "501018.SS": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位95%，近20日涨11.6%，MA20斜率11%",
+      "macro_logic": "俄乌冲突升级推升原油供需紧张预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "160723.SZ": {
+      "phase": "冲高",
+      "phase_evidence": "52周分位100%，近20日涨13.6%，MA20斜率12%",
+      "macro_logic": "俄乌冲突升级推升原油供需紧张预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点跌16.8%，近5日跌3.3%，vs MA20-2.1%",
+      "macro_logic": "稳增长政策预期支撑，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点跌7.7%，近5日跌2.5%，vs MA20-1.4%",
+      "macro_logic": "稳增长政策预期支撑，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "深回撤20.4%，近5日跌3.8%，vs MA20-2.4%",
+      "macro_logic": "稳增长政策预期支撑，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点跌12.9%，近5日跌1.7%，vs MA20-1.1%",
+      "macro_logic": "稳增长政策预期支撑，高股息属性吸引防御资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "俄乌地缘冲突→原油、黄金上涨→通胀抬升→美联储加息预期强化→全球成长股承压→资金偏好高股息防御资产",
+  "prev_month_review": "上月纳指、恒生科技、科创50下降趋势判断正确，逻辑仍在；建行筑底判断误判，近期再次走弱；原油类补充趋势判定",
+  "summary": "本月优先配置黄金、原油类趋势向上品种，回避纳指、恒生科技等下降趋势成长标的，银行类作为防御底仓，科创50可小仓位试探左侧布局",
+  "version": 2,
+  "month": "202202",
+  "asof": "20220228",
+  "model": "bot-20250308205057-5kjf4"
+}

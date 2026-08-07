@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点0%，52周分位100%，MA20/60斜率为正，近60日涨9.4%",
+      "macro_logic": "2016年美国经济复苏，纳指科技龙头盈利超预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，无法确认趋势",
+      "macro_logic": "无明确当期驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，无法确认趋势",
+      "macro_logic": "无明确当期驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤9.7%，52周分位55%，近60日跌5.8%，MA60斜率-1.2%",
+      "macro_logic": "2016年12月美联储加息，美元走强压制黄金",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，无法确认趋势",
+      "macro_logic": "无明确当期驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无当期有效量价数据，无法确认趋势",
+      "macro_logic": "无明确当期驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤0.6%，52周分位95%，近20日涨5.3%，站MA250+5.6%",
+      "macro_logic": "国内稳增长政策发力，银行净息差改善，高股息吸引配置",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤1.4%，52周分位90%，近60日涨5.9%，站MA250+6.2%",
+      "macro_logic": "国内稳增长落地，高股息资产配置需求抬升",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点0%，52周分位100%，近60日涨9.3%，MA60斜率2.1%",
+      "macro_logic": "国内经济企稳，银行业绩向好，高股息配置价值凸显",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤2.1%，52周分位82%，MA20斜率-1.3%，近60日涨1.6%",
+      "macro_logic": "银行板块行情传导滞后，自身弹性较弱",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "2016年美联储加息落地→美元走强压制黄金；全球经济复苏+国内稳增长→科技、银行板块上行",
+  "prev_month_review": "上月未对任何标的作出有效判定，无过往验证依据，本月首次开展正式分析",
+  "summary": "本月优先配置上升趋势明确的纳指ETF、建行、工行、中行，震荡走势的黄金、农行作为分散配置，无明确信号的其余标的暂观望，组合兼顾成长弹性与防御价值",
+  "version": 2,
+  "month": "201701",
+  "asof": "20170126",
+  "model": "bot-20250308205057-5kjf4"
+}

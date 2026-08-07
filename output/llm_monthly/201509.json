@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌11.6%，MA20斜率-3.4，近20日跌5%，低于所有均线",
+      "macro_logic": "美联储加息预期升温，压制美股科技成长估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距高点跌11.8%，低点41日未破，MA20斜率1.0，波动比0.93收缩",
+      "macro_logic": "加息预期利空充分释放，全球央行购金托底金价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.65
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "标的尚未上市，无有效交易数据",
+      "macro_logic": "无",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤25.4%，低点240日未破，近20日涨3.1%，短期止跌",
+      "macro_logic": "A股股灾风险释放，宽松货币政策支撑高股息估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "下降",
+      "phase_evidence": "深回撤33.6%，近20日跌3.6%，MA20斜率-6.4，低于所有均线",
+      "macro_logic": "股灾抛压延续，板块分化下个股估值仍承压",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤30.7%，低点230日未破，近20日微涨0.2%，波动比0.92收缩",
+      "macro_logic": "A股股灾风险释放，宽松货币政策支撑高股息估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤26.6%，低点230日未破，近20日涨1.7%，短期止跌",
+      "macro_logic": "A股股灾风险释放，宽松货币政策支撑高股息估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    }
+  },
+  "factor_chains": "美联储加息预期升温→美元走强→压制黄金及美股科技；A股股灾+流动性宽松→高股息防御资产获资金青睐",
+  "prev_month_review": "上月无历史判定记录，本月为首次对已上市标的开展研判，无过往误判需修正",
+  "summary": "当前全池无标的站上MA250，整体处于低位区间，优先配置筑底的黄金ETF及工行、建行、农行等高股息防御标的，规避下降趋势的纳指ETF、中行，未上市标的暂不参与",
+  "version": 2,
+  "month": "201509",
+  "asof": "20150930",
+  "model": "bot-20250308205057-5kjf4"
+}

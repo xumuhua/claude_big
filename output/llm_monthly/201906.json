@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.4%，52周分位86%，近120日涨28.2%，MA60斜率1.8",
+      "macro_logic": "2019年美联储释放降息信号，美股科技龙头盈利稳健",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价趋势数据，未进入观测区间",
+      "macro_logic": "暂无明确事件驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价趋势数据，未进入观测区间",
+      "macro_logic": "暂无明确事件驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "518800.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-1.8%，52周分位90%，近20日涨9.1%，波动比1.65",
+      "macro_logic": "美联储降息预期升温，全球央行开启购金潮",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价趋势数据，未进入观测区间",
+      "macro_logic": "暂无明确事件驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无有效量价趋势数据，未进入观测区间",
+      "macro_logic": "暂无明确事件驱动",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2%，52周分位87%，波动比0.58，MA20斜率2.7",
+      "macro_logic": "国内宽货币预期，高股息资产获避险资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位50%，近20日跌3.9%，vs MA60-1.9%，无明确趋势",
+      "macro_logic": "银行板块内部分化，无单独驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-4.1%，近120日涨18.3%，MA60斜率1.1，波动比0.6",
+      "macro_logic": "国内稳增长政策预期，高股息价值股获配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位47%，近60日跌3.5%，vs MA20-3.2%，无单边趋势",
+      "macro_logic": "基本面弱于同业，缺乏明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    }
+  },
+  "factor_chains": "美联储降息预期→美元走弱→黄金上涨+美股科技股估值抬升→国内宽货币→高股息银行获配置",
+  "prev_month_review": "上月未对标的作出明确阶段判定，本月首次结合量价与宏观因子开展分析，无历史误判",
+  "summary": "本月优先配置上升趋势的纳指ETF、工行、建行，关注冲高的黄金ETF短期回调风险，暂规避无明确趋势的标的，整体组合偏成长+价值均衡，兼顾收益与波动控制",
+  "version": 2,
+  "month": "201906",
+  "asof": "20190628",
+  "model": "bot-20250308205057-5kjf4"
+}

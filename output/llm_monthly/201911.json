@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-0.1%，52周分位100%，近120日涨20.3%，MA20斜率4.5%",
+      "macro_logic": "2019年美联储三次降息释放流动性，美股科技龙头盈利超预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无有效量价数据支撑判定",
+      "macro_logic": "无对应可验证宏观驱动因子",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无有效量价数据支撑判定",
+      "macro_logic": "无对应可验证宏观驱动因子",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-8.5%，近60日跌8.5%，MA20斜率-2.7%，波动比0.64",
+      "macro_logic": "美联储11月暗示暂停降息，实际利率短期回升压制金价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无有效量价数据支撑判定",
+      "macro_logic": "无对应可验证宏观驱动因子",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无有效量价数据支撑判定",
+      "macro_logic": "无对应可验证宏观驱动因子",
+      "logic_strength": "无",
+      "logic_durability": "无",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.7%，近60日涨6.8%，MA60斜率2.2%，vs MA250+3.3%",
+      "macro_logic": "国内稳增长政策发力，高股息银行获避险资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "52周分位25%，低点距今213日未破，近5日涨0.6%，波动比1.06",
+      "macro_logic": "银行板块估值修复分化，中行低位止跌企稳",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-8.5%，近20日跌2.7%，vs MA20-1.8%，无明确趋势",
+      "macro_logic": "银行板块估值修复分化，建行处于区间整理阶段",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "低点距今63日未破，近60日涨6.8%，MA60斜率1.7%，波动比0.94",
+      "macro_logic": "国内稳增长政策支撑，农行低位企稳蓄势",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "2019年美联储降息周期→美元流动性宽松→美股科技股上行→实际利率波动驱动黄金→国内稳增长推升高股息银行价值",
+  "prev_month_review": "上月未对任何标的给出明确判定，无对错校验，本月基于最新量价及宏观数据首次出具判定",
+  "summary": "本月优先配置上升趋势明确、逻辑强劲的纳指ETF，其次布局高股息属性的工行获取稳健收益，黄金及分化的银行标的暂时观望，无有效数据标的暂不配置，组合攻守均衡",
+  "version": 2,
+  "month": "201911",
+  "asof": "20191129",
+  "model": "bot-20250308205057-5kjf4"
+}

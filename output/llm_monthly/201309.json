@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2%，52周分位83%，近20日涨4.8%，MA20斜率2.2%，站于MA20/60之上",
+      "macro_logic": "2013年9月美联储宣布暂缓退出QE3，利好美股科技成长",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "2013年9月尚未上市，无有效交易数据",
+      "macro_logic": "无对应驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "2013年9月尚未上市，无有效交易数据",
+      "macro_logic": "无对应驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-6.4%，52周分位29%，近5日涨0.7%，MA20斜率为0",
+      "macro_logic": "美联储QE退出预期升温，实际利率上行压制金价，短期跌后暂企稳",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "2013年9月尚未上市，无有效交易数据",
+      "macro_logic": "无对应驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "2013年9月尚未上市，无有效交易数据",
+      "macro_logic": "无对应驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "衰竭",
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-13.5%，52周分位27%，近20日微跌0.3%，无明确趋势",
+      "macro_logic": "2013年国内利率高位运行，压制银行估值，高股息托底弱企稳",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-13.7%，52周分位35%，近20/60日涨5.3%，MA20斜率3.7%",
+      "macro_logic": "2013年9月信贷数据向好，银行短期盈利预期边际改善",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-15.4%，52周分位38%，近20日微涨1.7%，无明确趋势",
+      "macro_logic": "国内利率上行与经济弱复苏交织，银行估值上下两难",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点-22.6%（深回撤），低点240日未破，近20日涨2%，MA20斜率2.9%",
+      "macro_logic": "22%深回撤后高股息价值凸显，弱市防御资金入场托底",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "美联储暂缓QE退出→美股科技走强、黄金承压；国内利率高位→银行股估值压制，高股息防御价值凸显",
+  "prev_month_review": "上月全部标的无有效判定，本月基于当期量价与宏观事件完成首次判定，无历史误判",
+  "summary": "本月优先配置上升趋势明确的纳指ETF、筑底的农业银行，波段参与短期走势向好的中国银行，其余标的暂观望，未上市品种暂不纳入配置",
+  "version": 2,
+  "month": "201309",
+  "asof": "20130930",
+  "model": "bot-20250308205057-5kjf4"
+}

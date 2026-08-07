@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点-0.2%，52周分位99%，近60日涨18.4%，vs MA250+12.2%",
+      "macro_logic": "2019年美联储暂停加息，美股科技龙头盈利超预期",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位58%，近60日跌1.8%，近120日涨1.7%，MA20斜率-1.1%",
+      "macro_logic": "美联储转鸽预期支撑金价，美元指数震荡压制涨幅",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位72%，近60日涨5.6%，MA20斜率3.6%，vs MA250+4.7%",
+      "macro_logic": "2019年国内宽信用落地，高股息属性吸引配置资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位76%，近60日涨7.8%，MA20斜率2.9%，vs MA250+5.8%",
+      "macro_logic": "国内宽信用改善银行基本面，高股息配置需求提升",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位79%，近60日涨9.9%，MA20斜率5.2%，vs MA250+7.3%",
+      "macro_logic": "国内宽信用落地，银行盈利预期改善，资金偏好高股息",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位71%，近60日涨2.2%，MA20斜率1.4%，vs MA250+2.6%",
+      "macro_logic": "国内宽信用政策托底经济，高股息标的获避险资金青睐",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无当期有效量价数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    }
+  },
+  "factor_chains": "美联储2019年暂停加息→美债利率下行→美股科技走强、黄金获支撑；国内宽信用落地→银行基本面改善、高股息标的受追捧",
+  "prev_month_review": "上月未对各标的出具有效阶段判定，无历史验证依据，本月基于首次完整量价数据给出判断",
+  "summary": "本月优先配置处于上升趋势的四大行获取稳健股息收益，纳指ETF处于冲高区间谨慎追高，黄金暂观望，无有效数据标的暂不纳入配置",
+  "version": 2,
+  "month": "201904",
+  "asof": "20190430",
+  "model": "bot-20250308205057-5kjf4"
+}

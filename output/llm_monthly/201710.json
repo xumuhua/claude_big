@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点0%，52周分位100%，较MA250高10.3%，MA20斜率3%，波动比0.73",
+      "macro_logic": "2017年美国科技巨头盈利超预期，美联储加息节奏温和支撑成长",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价特征数据支撑趋势判定",
+      "macro_logic": "无当期可验证的公开宏观驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价特征数据支撑趋势判定",
+      "macro_logic": "无当期可验证的公开宏观驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤5%，52周分位50%，MA20斜率-1.5%，波动比0.81",
+      "macro_logic": "美联储渐进加息压制黄金，通胀疲弱抵消地缘支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价特征数据支撑趋势判定",
+      "macro_logic": "无当期可验证的公开宏观驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无当期量价特征数据支撑趋势判定",
+      "macro_logic": "无当期可验证的公开宏观驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.1
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位88%，较MA250高20.7%，近120日涨25.5%，MA60斜率5%",
+      "macro_logic": "2017年中国经济企稳，银行净息差改善，红利风格受资金偏好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤8.4%，52周分位62%，近20日跌6%，MA20斜率-1.6%",
+      "macro_logic": "银行业绩分化，短期资金获利了结，长期息差改善逻辑仍在",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤1.5%，52周分位95%，较MA250高17.2%，MA20斜率2.4%",
+      "macro_logic": "建行资产质量优异，息差改善超预期，红利资金持续流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位80%，近20日跌2.6%，MA20斜率0%，较MA250高9.6%",
+      "macro_logic": "农行负债端成本优势凸显，短期估值消化，长期红利逻辑不变",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "美联储2017年渐进加息→美债利率温和上行，美股科技盈利高增支撑纳指走牛；中国经济企稳→银行息差修复，红利风格占优",
+  "prev_month_review": "上月未对全部标的出具明确判定，无历史判断校验项，本月为首次基于当期数据输出结论",
+  "summary": "本月优先配置趋势明确的纳指ETF、建行、工行，享受美股科技红利与银行盈利修复收益；黄金、中行、农行少量配置平衡波动，无数据标的暂不参与，整体仓位7成",
+  "version": 2,
+  "month": "201710",
+  "asof": "20171031",
+  "model": "bot-20250308205057-5kjf4"
+}

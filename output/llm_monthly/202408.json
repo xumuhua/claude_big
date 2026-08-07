@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤9.6%，52周分位71%，MA20斜率-5%，短期涨跌分化",
+      "macro_logic": "美联储2024年降息预期反复+美股科技龙头AI业绩韧性",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤18.5%，近5日涨2.8%、近20日涨3.7%，波动比0.78",
+      "macro_logic": "国内数字经济政策支持+美债利率下行+南向资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "588000.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤26.4%，52周分位8%，低点距今2日，近5日涨1.1%",
+      "macro_logic": "国内硬科技产业政策扶持+A股流动性宽松预期",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅回撤0.9%，52周分位96%，MA20/60斜率均为正，近120日涨13.3%",
+      "macro_logic": "全球央行购金潮+美联储降息预期+地缘冲突避险",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤10.5%，52周分位49%，近20日微跌0.8%，无明确趋势",
+      "macro_logic": "OPEC+减产协议执行+中东地缘局势支撑油价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤23.4%，52周分位9%，长期低位波动，近5日微跌0.5%",
+      "macro_logic": "OPEC+减产托底油价+移仓损耗长期压制净值",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤8.4%，52周分位72%，近5日跌7.4%，MA60斜率4.1%",
+      "macro_logic": "红利风格资金抱团后短期获利了结，防御逻辑阶段性兑现",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
+    },
+    "601988.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤7.4%，52周分位75%，近5日跌5.7%，波动比1.26",
+      "macro_logic": "红利风格交易拥挤，高股息逻辑阶段性兑现后获利盘涌出",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤9.9%，52周分位66%，近5日跌8.6%，波动比1.51",
+      "macro_logic": "红利风格交易拥挤，高股息逻辑阶段性兑现后获利盘涌出",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤9.2%，52周分位70%，近5日跌8.1%，MA60斜率2.6%",
+      "macro_logic": "红利风格交易拥挤，高股息逻辑阶段性兑现后获利盘涌出",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.75
+    }
+  },
+  "factor_chains": "美联储降息预期→美债利率/美元→黄金、科技成长估值重构；OPEC+减产+地缘→油价波动；红利交易拥挤→银行股回调",
+  "prev_month_review": "上月未出具明确标的判定，本月基于截至20240830的量价与宏观因子完成全池分析，无历史误判",
+  "summary": "本月优先配置黄金ETF（强上升逻辑），逢低布局筑底的科创50、恒生科技，纳指、原油做震荡波段操作，暂时规避银行股红利交易拥挤的回调风险，保持组合均衡",
+  "version": 2,
+  "month": "202408",
+  "asof": "20240830",
+  "model": "bot-20250308205057-5kjf4"
+}

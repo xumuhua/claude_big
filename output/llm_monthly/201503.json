@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-2.5%，52周分位89%，MA20斜率3.1%，站上MA250",
+      "macro_logic": "美国经济复苏，科技龙头盈利向好，美联储暂未加息支撑成长",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "513180.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无基准日有效量价数据",
+      "macro_logic": "暂无明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无基准日有效量价数据",
+      "macro_logic": "暂无明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "518800.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-10.6%，52周分位29%，MA20斜率-5%，低点95日未破",
+      "macro_logic": "美联储加息预期升温，美元走强压制黄金价格",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "501018.SS": {
+      "phase": "震荡",
+      "phase_evidence": "无基准日有效量价数据",
+      "macro_logic": "暂无明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "160723.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "无基准日有效量价数据",
+      "macro_logic": "暂无明确驱动事件",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.3
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位84%，近20日涨10.5%，vs MA250 25.7%，MA20斜率3.7%",
+      "macro_logic": "2014年11月央行降息，A股牛市启动，高股息银行获资金追捧",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "近120日涨62.2%，vs MA250 39.3%，MA60斜率5.4%，52周分位75%",
+      "macro_logic": "2014年11月央行降息，A股牛市启动，银行股估值修复",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位73%，近20日涨10.5%，vs MA250 31.1%，MA20斜率3.7%",
+      "macro_logic": "2014年11月央行降息，A股牛市启动，高股息银行获资金偏好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位82%，近20日涨13.3%，vs MA250 32.1%，MA60斜率2.7%",
+      "macro_logic": "2014年11月央行降息，A股牛市启动，高股息银行获资金加仓",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    }
+  },
+  "factor_chains": "央行降息→A股流动性宽松→银行股估值修复；美联储加息预期升温→黄金承压，纳指靠盈利支撑偏强",
+  "prev_month_review": "上月未输出有效阶段判定与逻辑，本月为首次对全池标的开展系统性研判",
+  "summary": "本月优先配置趋势明确的纳指ETF、工行、建行、农行，规避短期涨速过快的中行，黄金暂观望，无有效数据标的暂不配置，整体偏向权益进攻方向。",
+  "version": 2,
+  "month": "201503",
+  "asof": "20150331",
+  "model": "bot-20250308205057-5kjf4"
+}

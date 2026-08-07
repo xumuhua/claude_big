@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点0%，近120日涨39.5%，MA20斜率2.7%，波动比0.49",
+      "macro_logic": "美联储2025年降息周期+AI科技龙头盈利持续释放",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "513180.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点0%，近60日涨22.3%，MA20斜率8.1%，波动比1.1",
+      "macro_logic": "国内数字经济政策加码+美债利率下行+南向资金流入",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "588000.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点0%，近60日涨50.4%，超MA250达43.4%，波动比1.43",
+      "macro_logic": "半导体产业政策支持+流动性宽松+硬科技资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "衰竭",
+      "confidence": 0.9
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点0%，近120日涨19%，MA20斜率7.3%，波动比0.77",
+      "macro_logic": "全球央行购金潮+美联储降息+中东地缘冲突升温",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤16.4%，低点120日未破，近5日涨1.5%，波动比0.5",
+      "macro_logic": "OPEC+持续减产托底油价+全球需求边际修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "160723.SZ": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤22.3%，低点120日未破，近5日涨1.5%，波动比0.41",
+      "macro_logic": "OPEC+减产托底油价+全球需求边际回升",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤9.7%，近20日跌3.6%，MA20斜率-2.6%",
+      "macro_logic": "红利风格切换至成长，高股息板块遭遇资金流出",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601988.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤11.1%，近20日跌8%，MA20斜率-4%",
+      "macro_logic": "红利风格转向成长，高股息板块遭遇资金抛售",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤12.8%，近20日跌6.6%，MA20斜率-3.7%",
+      "macro_logic": "红利风格转向成长，高股息板块遭遇资金抛售",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601288.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤11.3%，近20日跌7.2%，近60日涨9%，MA20斜率-0.4%",
+      "macro_logic": "红利风格切换叠加业绩分化，资金分歧较大",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    }
+  },
+  "factor_chains": "美联储降息→美债利率下行→成长股估值抬升+黄金上涨；资金从高股息银行流向成长；OPEC+减产支撑油价筑底",
+  "prev_month_review": "上月未出具明确标的阶段判定，本月基于最新量价数据与宏观因子完成全池标的趋势研判",
+  "summary": "本月优先配置上升趋势的纳指ETF、恒生科技ETF、黄金ETF，规避冲高的科创50警惕回调，可左侧布局筑底原油标的，暂时规避下降趋势的银行股，仓位向成长+避险倾斜",
+  "version": 2,
+  "month": "202509",
+  "asof": "20250930",
+  "model": "bot-20250308205057-5kjf4"
+}

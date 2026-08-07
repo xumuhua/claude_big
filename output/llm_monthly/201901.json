@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-13.5%，近20日涨7.6%，MA20斜率1.1%，波动比0.77",
+      "macro_logic": "2018年美联储四次加息后接近周期尾端，纳指估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "无2019年1月末有效量价数据，无法判定",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "无2019年1月末有效量价数据，无法判定",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点仅-0.8%，52周分位91%，MA20/60斜率均正，vs MA250+4.9%",
+      "macro_logic": "美联储加息接近尾声，实际利率下行叠加全球央行购金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "无2019年1月末有效量价数据，无法判定",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "无2019年1月末有效量价数据，无法判定",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-27%，近20日涨8.8%，MA20斜率1.2%，波动比0.79",
+      "macro_logic": "国内2019年初宽信用政策落地，高股息银行估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601988.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-22.7%，近20日涨3.7%，波动比0.66",
+      "macro_logic": "国内宽信用政策落地，高股息银行板块估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    },
+    "601939.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-27.9%，近20日涨12.9%，MA20斜率1.2%，波动比0.78",
+      "macro_logic": "国内宽信用政策落地，高股息银行估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "距250日高点回撤-21.7%，近20日涨5.1%，波动比0.63",
+      "macro_logic": "国内宽信用政策落地，高股息银行估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.65
+    }
+  },
+  "factor_chains": "美联储加息周期临近尾声→实际利率下行→黄金走强、海外成长股估值修复；国内宽信用启动→红利银行板块估值修复",
+  "prev_month_review": "上月未出具有效阶段判定，本月首次基于2019年1月末量价及公开宏观数据给出判断",
+  "summary": "优先配置处于明确上升趋势的黄金ETF，纳指及四大行处于筑底阶段可分批低吸，其余标的无当期有效数据暂不配置，组合攻守均衡",
+  "version": 2,
+  "month": "201901",
+  "asof": "20190131",
+  "model": "bot-20250308205057-5kjf4"
+}

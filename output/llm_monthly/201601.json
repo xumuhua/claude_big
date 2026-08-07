@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "513100.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌9.8%/MA20斜率-5.7%/近20日跌9.8%",
+      "macro_logic": "2015年12月美联储首次加息，压制美股科技成长估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "513180.SS": {
+      "phase": null,
+      "phase_evidence": "2016年1月未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "588000.SS": {
+      "phase": null,
+      "phase_evidence": "2016年1月未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "518800.SS": {
+      "phase": "上升",
+      "phase_evidence": "站上MA250/MA20斜率3.9%/近20日涨5.8%",
+      "macro_logic": "2016年初A股熔断避险升温，美联储加息落地实际利率回落",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "501018.SS": {
+      "phase": null,
+      "phase_evidence": "2016年1月未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "160723.SZ": {
+      "phase": null,
+      "phase_evidence": "2016年1月未上市，无有效交易数据",
+      "macro_logic": null,
+      "logic_strength": null,
+      "logic_durability": null,
+      "confidence": 0.0
+    },
+    "601398.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌29.2%/MA20斜率-7.8%/近20日跌10.5%",
+      "macro_logic": "2016年初A股熔断，市场担忧银行不良率抬升",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601988.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌42.5%/低点距今1天/近20日跌19.7%",
+      "macro_logic": "2016年初A股熔断，市场担忧银行不良率抬升，刚创新低",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601939.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌35.6%/MA20斜率-10.9%/近20日跌16.8%",
+      "macro_logic": "2016年初A股熔断，市场担忧银行不良率抬升",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601288.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点跌27.8%/MA20斜率-5.4%/近20日跌7.4%",
+      "macro_logic": "2016年初A股熔断，市场担忧银行不良率抬升",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "2015年12月美联储首次加息→全球风险偏好下行+美元强势→美股科技承压、黄金避险需求抬升，叠加A股熔断→权益类资产普跌",
+  "prev_month_review": "上月未出具任何有效标的阶段判定，本月为基准日首次完成全池标的状态评估",
+  "summary": "本月优先配置处于上升趋势的黄金ETF，规避处于下降通道的纳指ETF及银行股，其余未上市标的暂不参与，整体以防御性配置为主，控制仓位应对市场波动",
+  "version": 2,
+  "month": "201601",
+  "asof": "20160129",
+  "model": "bot-20250308205057-5kjf4"
+}
