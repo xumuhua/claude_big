@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20180605",
  "exec_date": "20180606",
- "equity": 1.882982,
+ "equity": 1.972066,
  "note": "",
  "market": {
   "mode": "big"
@@ -12,6 +12,21 @@
    "code": "513100.SS",
    "name": "纳指ETF",
    "weight": 0.5
+  },
+  {
+   "code": "601288.SS",
+   "name": "农行",
+   "weight": 0.125
+  },
+  {
+   "code": "501018.SS",
+   "name": "南方原油",
+   "weight": 0.1
+  },
+  {
+   "code": "160723.SZ",
+   "name": "嘉实原油",
+   "weight": 0.1
   }
  ]
 }

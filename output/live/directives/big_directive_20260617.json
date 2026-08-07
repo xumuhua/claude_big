@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20260617",
  "exec_date": "20260618",
- "equity": 10.403027,
+ "equity": 11.027619,
  "note": "",
  "market": {
   "mode": "big"
@@ -12,6 +12,21 @@
    "code": "588000.SS",
    "name": "科创50",
    "weight": 0.15
+  },
+  {
+   "code": "601398.SS",
+   "name": "工行",
+   "weight": 0.125
+  },
+  {
+   "code": "601988.SS",
+   "name": "中行",
+   "weight": 0.125
+  },
+  {
+   "code": "601939.SS",
+   "name": "建行",
+   "weight": 0.125
   }
  ]
 }

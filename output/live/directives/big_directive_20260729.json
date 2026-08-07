@@ -2,31 +2,31 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20260729",
  "exec_date": "20260730",
- "equity": 11.054965,
+ "equity": 11.719363,
  "note": "",
  "market": {
   "mode": "big"
  },
  "targets": [
   {
-   "code": "518800.SS",
-   "name": "黄金ETF",
-   "weight": 0.15
-  },
-  {
    "code": "601398.SS",
    "name": "工行",
-   "weight": 0.0875
+   "weight": 0.125
   },
   {
    "code": "601988.SS",
    "name": "中行",
-   "weight": 0.0875
+   "weight": 0.125
   },
   {
    "code": "601939.SS",
    "name": "建行",
-   "weight": 0.0875
+   "weight": 0.125
+  },
+  {
+   "code": "601288.SS",
+   "name": "农行",
+   "weight": 0.125
   },
   {
    "code": "513180.SS",

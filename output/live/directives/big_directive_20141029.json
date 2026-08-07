@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20141029",
  "exec_date": "20141030",
- "equity": 1.100214,
+ "equity": 1.109369,
  "note": "",
  "market": {
   "mode": "big"
@@ -21,6 +21,11 @@
   {
    "code": "601988.SS",
    "name": "中行",
+   "weight": 0.125
+  },
+  {
+   "code": "601939.SS",
+   "name": "建行",
    "weight": 0.125
   },
   {

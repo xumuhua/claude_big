@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20130807",
  "exec_date": "20130808",
- "equity": 0.983673,
+ "equity": 0.983483,
  "note": "",
  "market": {
   "mode": "big"

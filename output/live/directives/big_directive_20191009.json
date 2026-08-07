@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20191009",
  "exec_date": "20191010",
- "equity": 2.273075,
+ "equity": 2.39363,
  "note": "",
  "market": {
   "mode": "big"
@@ -16,7 +16,12 @@
   {
    "code": "518800.SS",
    "name": "黄金ETF",
-   "weight": 0.5
+   "weight": 0.375
+  },
+  {
+   "code": "501018.SS",
+   "name": "南方原油",
+   "weight": 0.125
   }
  ]
 }

@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20210205",
  "exec_date": "20210208",
- "equity": 3.386064,
+ "equity": 3.547941,
  "note": "",
  "market": {
   "mode": "big"
@@ -22,6 +22,16 @@
    "code": "601939.SS",
    "name": "建行",
    "weight": 0.125
+  },
+  {
+   "code": "501018.SS",
+   "name": "南方原油",
+   "weight": 0.1
+  },
+  {
+   "code": "160723.SZ",
+   "name": "嘉实原油",
+   "weight": 0.1
   }
  ]
 }

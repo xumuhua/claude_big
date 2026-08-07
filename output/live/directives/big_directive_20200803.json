@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20200803",
  "exec_date": "20200804",
- "equity": 3.31981,
+ "equity": 3.349559,
  "note": "",
  "market": {
   "mode": "big"
@@ -16,7 +16,12 @@
   {
    "code": "518800.SS",
    "name": "黄金ETF",
-   "weight": 0.5
+   "weight": 0.375
+  },
+  {
+   "code": "160723.SZ",
+   "name": "嘉实原油",
+   "weight": 0.125
   }
  ]
 }

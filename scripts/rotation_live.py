@@ -7,7 +7,8 @@
 实盘决策与回测逐日一致由构造保证 (无孪生漂移风险)。
 
 每晚流程 (--run-daily, 由 quant_levels/holding.py 在 king_live 之后调用):
-  1. update_ydata: y-data.csv 增量更新 (新浪源, 幂等, 接缝校验)
+  1. update_ydata: y-data.csv 全量重建 (tushare复权口径: 银行=common_data前复权,
+     ETF=fund_daily×fund_adj; 失败容错沿用昨日数据)
   2. 月末交易日且当月月报缺失 → 先跑月度LLM分析 (monthly_llm_analysis)
   3. 持有B/V/W2仓且本周事件doc缺失 → 生成今日事件级LLM doc (白皮书§九: 衰竭退出/护航)
   4. run_v31_canonical 全量重跑 (target_sink 收集每日装配目标)
@@ -177,15 +178,18 @@ def write_directive(doc, sync=True):
 
 def run_daily():
     os.makedirs(LIVE_DIR, exist_ok=True)
-    # 1) 数据更新
-    new_days = update_ydata.update()
+    # 1) 数据更新 (全量重建=复权口径一致; 失败则沿用昨日数据继续, 不中断管线)
+    try:
+        update_ydata.update()
+    except Exception as e:
+        print(f"!!! y-data 更新失败, 沿用既有数据继续: {e}")
     # 2) 全量数据 (正典起点切片)
     closes, opens = load_daily()
     closes = closes.loc[START:]
     opens = opens.loc[START:]
     T = closes.index[-1]
     cal = trade_calendar()
-    print(f"数据截至 {T.date()} (本次新增 {len(new_days)} 日)")
+    print(f"数据截至 {T.date()}")
     # 3) 月末LLM (先于回测, 保证当日装配用上新月报)
     if is_month_end(T, cal):
         try:

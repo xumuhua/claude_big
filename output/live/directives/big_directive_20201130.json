@@ -2,12 +2,17 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20201130",
  "exec_date": "20201201",
- "equity": 3.415591,
+ "equity": 3.443357,
  "note": "",
  "market": {
   "mode": "big"
  },
  "targets": [
+  {
+   "code": "501018.SS",
+   "name": "南方原油",
+   "weight": 0.125
+  },
   {
    "code": "601398.SS",
    "name": "工行",
@@ -16,6 +21,11 @@
   {
    "code": "601939.SS",
    "name": "建行",
+   "weight": 0.125
+  },
+  {
+   "code": "601288.SS",
+   "name": "农行",
    "weight": 0.125
   }
  ]

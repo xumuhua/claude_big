@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20221202",
  "exec_date": "20221205",
- "equity": 3.286377,
+ "equity": 3.747865,
  "note": "",
  "market": {
   "mode": "big"
@@ -16,12 +16,22 @@
   {
    "code": "518800.SS",
    "name": "黄金ETF",
-   "weight": 0.25
+   "weight": 0.2
   },
   {
    "code": "513180.SS",
    "name": "恒生科技",
-   "weight": 0.15
+   "weight": 0.075
+  },
+  {
+   "code": "501018.SS",
+   "name": "南方原油",
+   "weight": 0.0625
+  },
+  {
+   "code": "160723.SZ",
+   "name": "嘉实原油",
+   "weight": 0.0625
   }
  ]
 }

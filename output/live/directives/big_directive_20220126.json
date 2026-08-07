@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20220126",
  "exec_date": "20220127",
- "equity": 3.337158,
+ "equity": 3.767171,
  "note": "",
  "market": {
   "mode": "big"
@@ -12,6 +12,11 @@
    "code": "513100.SS",
    "name": "纳指ETF",
    "weight": 0.5
+  },
+  {
+   "code": "601988.SS",
+   "name": "中行",
+   "weight": 0.125
   }
  ]
 }

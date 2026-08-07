@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20220715",
  "exec_date": "20220718",
- "equity": 3.206123,
+ "equity": 3.648948,
  "note": "",
  "market": {
   "mode": "big"
@@ -14,14 +14,24 @@
    "weight": 0.5
   },
   {
+   "code": "601988.SS",
+   "name": "中行",
+   "weight": 0.125
+  },
+  {
    "code": "513180.SS",
    "name": "恒生科技",
-   "weight": 0.1
+   "weight": 0.0706
   },
   {
    "code": "588000.SS",
    "name": "科创50",
-   "weight": 0.1
+   "weight": 0.0706
+  },
+  {
+   "code": "160723.SZ",
+   "name": "嘉实原油",
+   "weight": 0.0588
   }
  ]
 }
