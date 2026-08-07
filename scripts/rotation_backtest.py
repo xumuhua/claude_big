@@ -375,7 +375,10 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            oh_arm_mode="ext", oh_rsi=80.0, b_rsi_exit=0.0, tr2_ratio=0.0, oh_re_delay=60,
            grid_on=True, grid_up=0.10, grid_down=0.07, grid_step=0.05, grid_rungs=2,
            grid_mode="rsi", grid_regime=True, gold_bottom_ride=False,
-           bank_mode="switch", overflow="priority"):
+           bank_mode="switch", overflow="priority",
+           crash_ladder=False, ladder_rungs=((-0.20, 0.30), (-0.30, 0.30))):
+    """崩盘梯形接回(用户20260807): 核心票保护性退出(OH/核按钮)后, 距退出参考价
+    每跌一档接回一部分(ladder_rungs: (回撤, 累计占cap比例)); 筑底确认/创新高回补时补满。"""
     """bank_mode: switch=黄金失势才启用银行(默认) / indep=银行独立趋势控制(用户20260806)
     overflow:  priority=银行让位再归一(默认) / normalize=总和>1全比例归一"""
     """网格交易(用户20260806): 核心票过热减部分仓/回落回补。
@@ -451,6 +454,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     nuke_low = {}                  # t -> [低点价, 低点年龄]
     oh_ref = {}                    # t -> 止盈卖出日收盘价 (回补参照)
     oh_ref_d = {}                  # t -> 止盈日 (认错回补冷静期用)
+    ladder_fill = {}               # t -> 梯形已接回比例(0~1, 占cap)
+    nuke_ref = {}                  # t -> 核按钮退出参考价
     bottom_ride = {}               # GOLD -> True (筑底ride中, OFF锚=创新低)
     bottom_low = {}                # GOLD -> 筑底参考低
     grid_ref = {}                  # t -> 网格参考价(上次动作价)
@@ -563,6 +568,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     if in_pos and t not in nuke_out and dd250 <= -nuke_stop:
                         nuke_out[t] = True
                         nuke_low[t] = [v, 0]
+                        nuke_ref[t] = v
+                        ladder_fill[t] = 0.0
                         trades.append((str(day.date()), "NUKE-OUT", TICKERS[t],
                                        f"dd250{dd250:.0%}核按钮"))
                     elif t in nuke_out:
@@ -577,6 +584,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                                     and ma20c[t].iloc[-1] > m20s.iloc[0])
                         if bottomed:
                             del nuke_out[t]
+                            ladder_fill[t] = 1.0
                             trades.append((str(day.date()), "NUKE-IN", TICKERS[t],
                                            f"严格筑底回补 低点{nuke_low[t][1]}日"))
                             nuke_low.pop(t, None)
@@ -606,10 +614,22 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     if sig_fire:
                         oh_ref[t] = v
                         oh_ref_d[t] = day
+                        ladder_fill[t] = 0.0
                         tag = oh_armed.pop(t)
                         trades.append((str(day.date()), "OH-OUT", TICKERS[t],
                                        f"{tag} ext{ext:+.0%} r20{r20:+.0%} r60{r60:+.0%} diff5{diff5:+.1%}"))
-                elif t in oh_ref:
+                elif t in oh_ref or t in nuke_out:
+                    # 崩盘梯形接回: 距退出参考价每深一档接一部分
+                    if crash_ladder:
+                        ref = oh_ref.get(t) or nuke_ref.get(t)
+                        if ref:
+                            dd_ref = v / ref - 1
+                            for rdd, frac in ladder_rungs:
+                                if dd_ref <= rdd and ladder_fill.get(t, 0.0) < frac - 1e-9:
+                                    ladder_fill[t] = frac
+                                    trades.append((str(day.date()), "LADDER-IN", TICKERS[t],
+                                                   f"dd{dd_ref:.0%}接至{frac:.0%}cap"))
+                if t in oh_ref:
                     # 止盈后跟踪低点
                     lo = oh_low_age.get(t, [v, 0])
                     if v < lo[0]:
@@ -627,6 +647,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                         why = "创新高认错回补" if back_newhigh else "调整充分回补"
                         trades.append((str(day.date()), "OH-IN", TICKERS[t],
                                        f"{why} 止盈价{oh_ref[t]:.2f}现{v:.2f}"))
+                        ladder_fill[t] = 1.0
                         del oh_ref[t]
                         oh_ref_d.pop(t, None)
                         oh_low_age.pop(t, None)
@@ -653,6 +674,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 trades.append((str(day.date()), "CORE-IN", TICKERS[NDX], f"{ndx_w:.0%}永持"))
             if not blocked:
                 target[NDX] = max(ndx_w - grid_trim.get(NDX, 0.0), 0.0)
+            elif crash_ladder and ladder_fill.get(NDX, 0.0) > 0:
+                target[NDX] = ndx_w * ladder_fill[NDX]
             elif sb_out.get(NDX) and sb_to == "banks":
                 for b in ["601398.SS", "601988.SS", "601939.SS", "601288.SS"]:
                     if listed.loc[day, b] and np.isfinite(ma250.loc[day, b]) and c[b] > ma250.loc[day, b]:
@@ -881,6 +904,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 gw = max(gold_w - b_sum - grid_trim.get(GOLD, 0.0), 0.0)
                 if listed.loc[day, GOLD] and GOLD not in oh_ref and GOLD not in nuke_out:
                     target[GOLD] = gw
+                elif listed.loc[day, GOLD] and crash_ladder and ladder_fill.get(GOLD, 0.0) > 0:
+                    target[GOLD] = gw * ladder_fill[GOLD]     # 梯形接回部分直接给黄金(优先于银行)
                     if GOLD not in pos:
                         trades.append((str(day.date()), "CORE-IN", TICKERS[GOLD], f"{gw:.1%}"))
             for b in BANKS:
@@ -906,6 +931,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 gw = max(gold_w - b_sum - grid_trim.get(GOLD, 0.0), 0.0)
                 if listed.loc[day, GOLD] and GOLD not in oh_ref and GOLD not in nuke_out:
                     target[GOLD] = gw
+                elif listed.loc[day, GOLD] and crash_ladder and ladder_fill.get(GOLD, 0.0) > 0:
+                    target[GOLD] = gw * ladder_fill[GOLD]     # 梯形接回部分直接给黄金(优先于银行)
                     if GOLD not in pos:
                         trades.append((str(day.date()), "CORE-IN", TICKERS[GOLD], f"{gw:.1%}"))
         # 总和归一(防御期可能 nasdaq50+banks50+B20=120%)
@@ -1263,6 +1290,8 @@ def main():
                     help="黄金筑底回补通道(低点20日+MA20转正买入, 创新低才退出)")
     ap.add_argument("--v3-bank-mode", choices=["switch", "indep"], default="switch",
                     help="银行: switch=黄金失势顶替(默认) / indep=独立趋势控制")
+    ap.add_argument("--v3-crash-ladder", action="store_true",
+                    help="崩盘梯形接回: 退出参考价-20%%起建30%%底仓, 每-10%%加一档")
     ap.add_argument("--v3-overflow", choices=["priority", "normalize"], default="priority",
                     help="权重和>1时: 优先级填充(默认) / 全比例归一")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
