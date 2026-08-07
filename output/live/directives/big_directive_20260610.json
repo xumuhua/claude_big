@@ -1,0 +1,17 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20260610",
+ "exec_date": "20260611",
+ "equity": 10.237487,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "588000.SS",
+   "name": "科创50",
+   "weight": 0.15
+  }
+ ]
+}

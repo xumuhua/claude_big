@@ -1,0 +1,22 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20260427",
+ "exec_date": "20260428",
+ "equity": 9.397151,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "513100.SS",
+   "name": "纳指ETF",
+   "weight": 0.5
+  },
+  {
+   "code": "588000.SS",
+   "name": "科创50",
+   "weight": 0.15
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20200320",
+ "exec_date": "20200323",
+ "equity": 2.71067,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "518800.SS",
+   "name": "黄金ETF",
+   "weight": 0.5
+  },
+  {
+   "code": "513100.SS",
+   "name": "纳指ETF",
+   "weight": 0.15
+  }
+ ]
+}

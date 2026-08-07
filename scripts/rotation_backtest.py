@@ -377,7 +377,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            grid_mode="rsi", grid_regime=True, gold_bottom_ride=False,
            bank_mode="switch", overflow="priority",
            crash_ladder=True, ladder_rungs=((-0.20, 0.30), (-0.30, 0.30)),
-           nuke_block=False):
+           nuke_block=False, target_sink=None):
     """崩盘梯形接回(用户20260807): 核心票保护性退出(OH/核按钮)后, 距退出参考价
     每跌一档接回一部分(ladder_rungs: (回撤, 累计占cap比例)); 筑底确认/创新高回补时补满。"""
     """bank_mode: switch=黄金失势才启用银行(默认) / indep=银行独立趋势控制(用户20260806)
@@ -975,9 +975,26 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                   any(abs(target.get(t, 0) - cur_w.get(t, 0)) >= dust for t in set(target) | set(cur_w))
         if changed:
             pending = target
+        if target_sink is not None:
+            # 实盘/部署用: 记录每日收盘装配的完整目标权重(含碎单过滤前的装配结果,
+            # 语义=次日开盘的目标仓位; 碎单过滤由执行侧按同 dust 口径复现)
+            target_sink.append((day, dict(target)))
 
     eq = pd.Series(dict(curve)).sort_index()
     wdf = pd.DataFrame(wlog, index=eq.index).fillna(0.0)
+    return eq, trades, wdf
+
+
+def run_v31_canonical(closes, opens, target_sink=None):
+    """v3.10 正典配置入口 —— 与 `--strategy v31` 全部默认参数一致(单一事实源,
+    杜绝函数签名/argparse两处默认值漂移的 20260806 oh_ext 事故重演)。
+    实盘(rotation_live)与回测共用; 改配方只改 bt_v31 签名默认值/argparse 默认并复跑校验。"""
+    root = os.path.dirname(DATA)
+    eq, trades, wdf = bt_v31(
+        closes, opens,
+        llm_dir=os.path.join(root, "output", "llm_monthly"),
+        events_dir=os.path.join(root, "output", "llm_events"),
+        target_sink=target_sink)
     return eq, trades, wdf
 
 
@@ -986,7 +1003,6 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
 #   A轨(低波复利): 黄金/纳指/银行  趋势持有直到反转 (MA250 + LLM下降)
 #   B轨(高波周期): 恒科/科创/原油  底部反转等待 (深回撤武装→筑底确认→持有到趋势结束)
 # ---------------------------------------------------------------------------
-
 def bt_v3(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
           a_exit_buf=0.02, a_entry_buf=0.01, alloc="normalize", a_ma=250,
           b_arm_dd=-0.25, b_bottom_age=20, b_stop=-0.12,

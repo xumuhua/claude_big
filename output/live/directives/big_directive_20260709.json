@@ -1,0 +1,37 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20260709",
+ "exec_date": "20260710",
+ "equity": 10.623586,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "518800.SS",
+   "name": "黄金ETF",
+   "weight": 0.15
+  },
+  {
+   "code": "501018.SS",
+   "name": "南方原油",
+   "weight": 0.1
+  },
+  {
+   "code": "160723.SZ",
+   "name": "嘉实原油",
+   "weight": 0.1
+  },
+  {
+   "code": "601988.SS",
+   "name": "中行",
+   "weight": 0.0875
+  },
+  {
+   "code": "601939.SS",
+   "name": "建行",
+   "weight": 0.0875
+  }
+ ]
+}

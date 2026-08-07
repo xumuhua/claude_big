@@ -1,0 +1,22 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20201210",
+ "exec_date": "20201211",
+ "equity": 3.311655,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "513100.SS",
+   "name": "纳指ETF",
+   "weight": 0.5
+  },
+  {
+   "code": "601939.SS",
+   "name": "建行",
+   "weight": 0.125
+  }
+ ]
+}

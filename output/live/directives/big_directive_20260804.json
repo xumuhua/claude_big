@@ -1,0 +1,37 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20260804",
+ "exec_date": "20260805",
+ "equity": 10.943031,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "513180.SS",
+   "name": "恒生科技",
+   "weight": 0.15
+  },
+  {
+   "code": "518800.SS",
+   "name": "黄金ETF",
+   "weight": 0.15
+  },
+  {
+   "code": "601398.SS",
+   "name": "工行",
+   "weight": 0.0875
+  },
+  {
+   "code": "601988.SS",
+   "name": "中行",
+   "weight": 0.0875
+  },
+  {
+   "code": "601939.SS",
+   "name": "建行",
+   "weight": 0.0875
+  }
+ ]
+}

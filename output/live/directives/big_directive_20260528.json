@@ -1,0 +1,22 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20260528",
+ "exec_date": "20260529",
+ "equity": 10.125133,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "513100.SS",
+   "name": "纳指ETF",
+   "weight": 0.5
+  },
+  {
+   "code": "513180.SS",
+   "name": "恒生科技",
+   "weight": 0.15
+  }
+ ]
+}

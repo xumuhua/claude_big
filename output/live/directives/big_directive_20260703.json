@@ -1,0 +1,22 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20260703",
+ "exec_date": "20260706",
+ "equity": 10.700392,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "518800.SS",
+   "name": "黄金ETF",
+   "weight": 0.15
+  },
+  {
+   "code": "601939.SS",
+   "name": "建行",
+   "weight": 0.0875
+  }
+ ]
+}

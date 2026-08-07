@@ -1,0 +1,22 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20130830",
+ "exec_date": "20130902",
+ "equity": 1.021165,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "513100.SS",
+   "name": "纳指ETF",
+   "weight": 0.5
+  },
+  {
+   "code": "518800.SS",
+   "name": "黄金ETF",
+   "weight": 0.5
+  }
+ ]
+}

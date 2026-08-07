@@ -1,0 +1,32 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20260625",
+ "exec_date": "20260626",
+ "equity": 10.597263,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "588000.SS",
+   "name": "科创50",
+   "weight": 0.15
+  },
+  {
+   "code": "518800.SS",
+   "name": "黄金ETF",
+   "weight": 0.15
+  },
+  {
+   "code": "601988.SS",
+   "name": "中行",
+   "weight": 0.0875
+  },
+  {
+   "code": "601939.SS",
+   "name": "建行",
+   "weight": 0.0875
+  }
+ ]
+}

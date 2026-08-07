@@ -1,0 +1,22 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20210629",
+ "exec_date": "20210630",
+ "equity": 3.398941,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "513100.SS",
+   "name": "纳指ETF",
+   "weight": 0.5
+  },
+  {
+   "code": "601398.SS",
+   "name": "工行",
+   "weight": 0.125
+  }
+ ]
+}

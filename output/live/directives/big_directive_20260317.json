@@ -1,0 +1,27 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20260317",
+ "exec_date": "20260318",
+ "equity": 8.796432,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "513100.SS",
+   "name": "纳指ETF",
+   "weight": 0.5
+  },
+  {
+   "code": "588000.SS",
+   "name": "科创50",
+   "weight": 0.1091
+  },
+  {
+   "code": "160723.SZ",
+   "name": "嘉实原油",
+   "weight": 0.0909
+  }
+ ]
+}

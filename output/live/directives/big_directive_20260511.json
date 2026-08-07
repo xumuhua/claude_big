@@ -1,0 +1,32 @@
+{
+ "strategy": "big_rotation_v3.10",
+ "signal_date": "20260511",
+ "exec_date": "20260512",
+ "equity": 9.887128,
+ "note": "",
+ "market": {
+  "mode": "big"
+ },
+ "targets": [
+  {
+   "code": "513100.SS",
+   "name": "纳指ETF",
+   "weight": 0.5
+  },
+  {
+   "code": "513180.SS",
+   "name": "恒生科技",
+   "weight": 0.075
+  },
+  {
+   "code": "501018.SS",
+   "name": "南方原油",
+   "weight": 0.0625
+  },
+  {
+   "code": "160723.SZ",
+   "name": "嘉实原油",
+   "weight": 0.0625
+  }
+ ]
+}
