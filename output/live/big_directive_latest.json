@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20260807",
  "exec_date": "20260810",
- "equity": 11.456127,
+ "equity": 11.437963,
  "note": "2026-07-28 DEF-IN 农行; 2026-07-29 B-IN 恒生科技; 2026-07-29 B-IN 南方原油; 2026-07-31 B-OUT 南方原油; 2026-07-31 B-OUT 嘉实原油",
  "market": {
   "mode": "big"
