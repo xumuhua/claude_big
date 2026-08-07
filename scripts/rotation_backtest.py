@@ -376,7 +376,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            grid_on=True, grid_up=0.10, grid_down=0.07, grid_step=0.05, grid_rungs=2,
            grid_mode="rsi", grid_regime=True, gold_bottom_ride=False,
            bank_mode="switch", overflow="priority",
-           crash_ladder=True, ladder_rungs=((-0.20, 0.30), (-0.30, 0.30))):
+           crash_ladder=True, ladder_rungs=((-0.20, 0.30), (-0.30, 0.30)),
+           nuke_block=False):
     """崩盘梯形接回(用户20260807): 核心票保护性退出(OH/核按钮)后, 距退出参考价
     每跌一档接回一部分(ladder_rungs: (回撤, 累计占cap比例)); 筑底确认/创新高回补时补满。"""
     """bank_mode: switch=黄金失势才启用银行(默认) / indep=银行独立趋势控制(用户20260806)
@@ -620,7 +621,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                                        f"{tag} ext{ext:+.0%} r20{r20:+.0%} r60{r60:+.0%} diff5{diff5:+.1%}"))
                 elif t in oh_ref or t in nuke_out:
                     # 崩盘梯形接回: 距退出参考价每深一档接一部分
-                    if crash_ladder:
+                    if crash_ladder and not (nuke_block and t in nuke_out):
                         ref = oh_ref.get(t) or nuke_ref.get(t)
                         if ref:
                             dd_ref = v / ref - 1
@@ -643,6 +644,9 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                     if bottomed and oh_re_slope:
                         m20s = ma20c[t].iloc[max(0, i - 20):i + 1]
                         bottomed = bottomed and len(m20s) >= 21 and ma20c[t].iloc[-1] > m20s.iloc[0]
+                    if nuke_block and t in nuke_out:
+                        back_newhigh = False
+                        bottomed = False        # 核按钮后只认NUKE-IN严格筑底
                     if back_newhigh or (retrace and bottomed):
                         why = "创新高认错回补" if back_newhigh else "调整充分回补"
                         trades.append((str(day.date()), "OH-IN", TICKERS[t],
@@ -1299,6 +1303,8 @@ def main():
                     help="银行: switch=黄金失势顶替(默认) / indep=独立趋势控制")
     ap.add_argument("--v3-no-crash-ladder", action="store_true",
                     help="关闭崩盘梯形接回(默认开: -20%%/-30%%各接30%%cap)")
+    ap.add_argument("--v3-nuke-block", action="store_true",
+                    help="核按钮后封锁梯形/OH回补(末日-7pct但真实历史-10.6pct, 默认关)")
     ap.add_argument("--v3-overflow", choices=["priority", "normalize"], default="priority",
                     help="权重和>1时: 优先级填充(默认) / 全比例归一")
     ap.add_argument("--v3-ev-exhaust-profit", type=float, default=0.0,
