@@ -2,10 +2,14 @@
 # -*- coding: utf-8 -*-
 """y-data.csv 每日增量更新器 (claude_big 实盘数据底座)
 
-数据源: 新浪 (akshare fund_etf_hist_sina / stock_zh_a_daily, 未复权原始价)
-  - 与 y-data.csv 主列口径已验证一致 (2026-08-04 全池收盘价逐票比对零偏差;
-    y-data 主列=未复权原始价, 拆分由引擎 |日收益|>30% 自动修复)
-  - 东财源(fund_etf_hist_em)限流严重不可用, 新浪源稳定
+数据源 (20260807 起双源):
+  主源 = tushare (fund_daily/daily 未复权, 用户指定接口, SH后缀),
+         由 quant_levels/fetch_stock_price.py 每日抓取落盘
+         ~/local_data/common_data/big_pool_price.csv (本机=数据权威)
+  兜底 = 新浪 (akshare fund_etf_hist_sina / stock_zh_a_daily, 未复权原始价)
+         —— 东财源(fund_etf_hist_em)限流严重不可用
+  两源与 y-data.csv 主列口径均已验证一致 (2026-08-04 全池收盘价逐票比对零偏差;
+  y-data 主列=未复权原始价, 拆分由引擎 |日收益|>30% 自动修复)
 
 文件格式 (与历史一致):
   - 倒序存储 (新日期在前), 8 bar/日: 1500..0931
@@ -71,16 +75,26 @@ def update(check_only=False, verbose=True):
     if verbose:
         print(f"y-data 当前截至 {last_day.date()}, {len(df)} 行")
 
-    # 1) 抓取全池日线
-    series = {}
-    for full in TICKERS:
-        s = fetch_daily(full)
-        if s is None:
-            raise RuntimeError(f"数据抓取失败: {full} (重试{RETRY}次仍失败, 中止保安全)")
-        series[full] = s
-        time.sleep(1)          # 防限流
-    # 2) 新增交易日 = 纳指ETF(最稳定标的) 日期 > last_day
-    ref = series["513100.SS"]
+    # 1) 先定新增交易日 (tushare本地文件的参考票, 无新增则直接退出, 零外网请求)
+    LOCAL = os.path.expanduser("~/local_data/common_data/big_pool_price.csv")
+    local = None
+    if os.path.exists(LOCAL):
+        local = pd.read_csv(LOCAL, dtype={"trade_date": str})
+        local["date"] = pd.to_datetime(local.trade_date, format="%Y%m%d")
+
+    def _from_local(full):
+        if local is None:
+            return None
+        sub = local[local.code == full]
+        if len(sub) and sub.date.max() > last_day:
+            return sub.set_index("date")[["open", "close"]].astype(float)
+        return None
+
+    ref = _from_local("513100.SS")
+    if ref is None:
+        ref = fetch_daily("513100.SS")     # 本地无新增时才问新浪(判定是否有新交易日)
+        if ref is None:
+            raise RuntimeError("数据抓取失败: 513100.SS (双源均失败, 中止保安全)")
     new_days = sorted(d for d in ref.index if d > last_day)
     if not new_days:
         if verbose:
@@ -88,6 +102,24 @@ def update(check_only=False, verbose=True):
         return []
     if verbose:
         print(f"新增 {len(new_days)} 个交易日: {new_days[0].date()} -> {new_days[-1].date()}")
+
+    # 2) 抓取全池日线: tushare本地文件(主源) → 新浪(兜底, 仅补缺票)
+    series = {"513100.SS": ref}
+    for full in TICKERS:
+        if full == "513100.SS":
+            continue
+        s = _from_local(full)
+        if s is None or not all(d in s.index for d in new_days):
+            if verbose:
+                print(f"  {full} 本地tushare未覆盖全部新增日, 走新浪兜底")
+            s2 = fetch_daily(full)
+            if s2 is not None:
+                s = s2
+        if s is None:
+            raise RuntimeError(f"数据抓取失败: {full} (双源均失败, 中止保安全)")
+        series[full] = s
+        if s is not None and verbose:
+            time.sleep(0.5)          # 兜底抓取防限流
 
     # 3) 每票辅助列状态 (从最新行反解; 文件倒序存储, 先按时间正序排)
     dfs = df.sort_values("dt")
