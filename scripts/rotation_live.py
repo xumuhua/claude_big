@@ -45,7 +45,8 @@ EVENTS_DIR = os.path.join(ROOT, "output", "llm_events")
 SYNC_DIR = os.path.expanduser("~/local_data/stock_src/quant_levels/history_output_new")
 CAL_CACHE = os.path.join(LIVE_DIR, "trade_cal.json")
 
-B_TICKERS = ["513180.SS", "588000.SS", "501018.SS", "160723.SZ"]
+# 原油501018.SS/160723.SZ 20260814移出候选池(2027退市)
+B_TICKERS = ["513180.SS", "588000.SS"]
 START = "2013-08-01"   # 正典回测起点 (与 --strategy v31 --start 默认一致, 6标的时代)
 
 
