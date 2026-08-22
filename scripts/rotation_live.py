@@ -33,7 +33,7 @@ import time
 import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from rotation_backtest import TICKERS, load_daily, run_v31_canonical  # noqa: E402
+from rotation_backtest import TICKERS, B_TRACK, load_daily, run_v31_canonical  # noqa: E402
 import update_ydata  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -46,7 +46,8 @@ SYNC_DIR = os.path.expanduser("~/local_data/stock_src/quant_levels/history_outpu
 CAL_CACHE = os.path.join(LIVE_DIR, "trade_cal.json")
 
 # 原油501018.SS/160723.SZ 20260814移出候选池(2027退市)
-B_TICKERS = ["513180.SS", "588000.SS"]
+# exp-3etfs: 跟随B_TRACK单一事实源(20260822起含159920/588060/159952)
+B_TICKERS = list(B_TRACK)
 START = "2013-08-01"   # 正典回测起点 (与 --strategy v31 --start 默认一致, 6标的时代)
 
 
