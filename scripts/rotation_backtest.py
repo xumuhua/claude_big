@@ -33,6 +33,8 @@ TICKERS = {
     "513100.SS": "纳指ETF", "513180.SS": "恒生科技", "588000.SS": "科创50",
     "518800.SS": "黄金ETF",
     "601398.SS": "工行", "601988.SS": "中行", "601939.SS": "建行", "601288.SS": "农行",
+    # 20260822 哥哥任务(exp-3etfs分支): 三ETF合入大宗资产算法
+    "588060.SS": "科创板ETF", "159920.SZ": "恒生ETF", "159952.SZ": "创业板ETF",
 }
 # ETF(含LOF)无印花税; 银行股卖出有印花税 → 分类成本
 STOCKS = {"601398.SS", "601988.SS", "601939.SS", "601288.SS"}
@@ -41,12 +43,14 @@ CLASSES = {
     "513100.SS": "us", "513180.SS": "hk", "588000.SS": "star",
     "518800.SS": "gold",
     "601398.SS": "bank", "601988.SS": "bank", "601939.SS": "bank", "601288.SS": "bank",
+    "588060.SS": "star", "159920.SZ": "hk", "159952.SZ": "chinext",
 }
 # v3 分轨(用户20260806): A=低波复利轨(趋势持有到反转), B=高波周期轨(底部反转等待)
 A_TRACK = {"513100.SS": 0.50, "518800.SS": 0.50,
            "601398.SS": 0.125, "601988.SS": 0.125, "601939.SS": 0.125, "601288.SS": 0.125}
 # B轨原油501018/160723已于20260814移出(2027退市)
-B_TRACK = {"513180.SS": 0.15, "588000.SS": 0.15}
+B_TRACK = {"513180.SS": 0.15, "588000.SS": 0.15,
+           "159920.SZ": 0.15, "588060.SS": 0.15, "159952.SZ": 0.15}  # exp-3etfs
 
 NAME = os.path.basename(DATA)
 
@@ -379,7 +383,7 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            grid_mode="rsi", grid_regime=True, gold_bottom_ride=False,
            bank_mode="switch", overflow="priority",
            crash_ladder=True, ladder_rungs=((-0.20, 0.30), (-0.30, 0.30)),
-           nuke_block=False, target_sink=None):
+           nuke_block=False, target_sink=None, b_class_cap=True):
     """崩盘梯形接回(用户20260807): 核心票保护性退出(OH/核按钮)后, 距退出参考价
     每跌一档接回一部分(ladder_rungs: (回撤, 累计占cap比例)); 筑底确认/创新高回补时补满。"""
     """bank_mode: switch=黄金失势才启用银行(默认) / indep=银行独立趋势控制(用户20260806)
@@ -879,6 +883,20 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                               else "移动止盈" if trail
                               else "V反止盈" if v_trail_hit else "RSI止盈" if rsi_sell else "硬止损")
                     trades.append((str(day.date()), "B-OUT", TICKERS[t], reason))
+        # 类内上限(exp-3etfs, 20260822): hk/star/chinext 同类最多1只
+        # 在位者优先(防同质票反复横跳); 都未在场取回撤更深的(反弹空间更大, 同oil dedup规则)
+        if b_class_cap:
+            by_cls = {}
+            for t in list(b_active):
+                by_cls.setdefault(CLASSES.get(t, t), []).append(t)
+            for cls, ts_ in by_cls.items():
+                if cls in ("us", "gold", "bank") or len(ts_) <= 1:
+                    continue
+                inc = [t for t in ts_ if t in pos]
+                keep = inc[0] if inc else min(ts_, key=lambda t: c[t] / hi250.loc[day, t] - 1)
+                for t in ts_:
+                    if t != keep:
+                        del b_active[t]
         # R14变体在CLI层用 b_dedup 控制: 两只原油同时active时留强去弱
         if b_dedup:
             oils = [t for t in b_active if CLASSES[t] == "oil"]

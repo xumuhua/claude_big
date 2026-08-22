@@ -37,6 +37,8 @@ import pandas as pd
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 YDATA = os.path.join(ROOT, "y-data.csv")
 LOCAL = os.path.expanduser("~/local_data/common_data/big_pool_price.csv")
+# exp-3etfs: 三只新ETF数据源 (fetch_new_etfs.py 产物, 与主池同schema同口径)
+LOCAL_EXTRA = os.path.expanduser("~/local_data/common_data/big_pool_extra_price.csv")
 
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -63,6 +65,11 @@ def rebuild(verbose=True):
     if not os.path.exists(LOCAL):
         raise RuntimeError(f"本地数据源缺失: {LOCAL} (先跑 fetch_stock_price.py)")
     local = pd.read_csv(LOCAL, dtype={"trade_date": str})
+    if os.path.exists(LOCAL_EXTRA):
+        extra = pd.read_csv(LOCAL_EXTRA, dtype={"trade_date": str})
+        local = pd.concat([local, extra], ignore_index=True)
+        if verbose:
+            print(f"合并新ETF池: {LOCAL_EXTRA} ({len(extra)} 行)")
     cal, series = build_frames(local)
     if verbose:
         print(f"本地数据: {cal[0].date()} -> {cal[-1].date()}, {len(cal)} 个交易日")
@@ -138,6 +145,8 @@ def diff_report(old_df, new_df):
     common = old_c.index.intersection(new_c.index)
     reports = {}
     for full in TICKERS:
+        if full not in old_c.columns:
+            continue          # exp-3etfs: 旧文件无新标的列, 跳过比对
         o = pd.to_numeric(old_c.loc[common, full], errors="coerce")
         n = pd.to_numeric(new_c.loc[common, full], errors="coerce")
         ro = o.pct_change()
