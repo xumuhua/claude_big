@@ -48,6 +48,19 @@ CAL_CACHE = os.path.join(LIVE_DIR, "trade_cal.json")
 # 原油501018.SS/160723.SZ 20260814移出候选池(2027退市)
 # exp-3etfs: 跟随B_TRACK单一事实源(20260822起含159920/588060/159952)
 B_TICKERS = list(B_TRACK)
+
+# 20260825 静默失效修复(M3/M4)：主动告警通道（复用主线 live_alert CLI,
+# scp 到 manager wechat_inbox; 失败只 print, 绝不影响管线）
+ALERT_CLI = "/home/claude/claude/scripts/live_alert.py"
+
+
+def _alert(title, line):
+    import subprocess
+    try:
+        subprocess.run(["python3", ALERT_CLI, str(title), str(line)],
+                       timeout=90)
+    except Exception as e:
+        print(f"WARNING: 告警发送失败({e})")
 START = "2013-08-01"   # 正典回测起点 (与 --strategy v31 --start 默认一致, 6标的时代)
 
 
@@ -169,10 +182,15 @@ def write_directive(doc, sync=True):
     latest = os.path.join(LIVE_DIR, "big_directive_latest.json")
     with open(latest, "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=1)
-    if sync and os.path.isdir(SYNC_DIR):
-        p3 = os.path.join(SYNC_DIR, "big_directive_latest.json")
-        with open(p3, "w", encoding="utf-8") as f:
-            json.dump(doc, f, ensure_ascii=False, indent=1)
+    if sync:
+        if os.path.isdir(SYNC_DIR):
+            p3 = os.path.join(SYNC_DIR, "big_directive_latest.json")
+            with open(p3, "w", encoding="utf-8") as f:
+                json.dump(doc, f, ensure_ascii=False, indent=1)
+        else:
+            # M4（20260825）：SYNC_DIR 缺失从静默跳过改为显式 WARNING
+            print(f"WARNING: SYNC_DIR 缺失({SYNC_DIR}), "
+                  f"big指导文件未同步到消费目录")
     return p
 
 
@@ -185,6 +203,10 @@ def run_daily():
         update_ydata.update()
     except Exception as e:
         print(f"!!! y-data 更新失败, 沿用既有数据继续: {e}")
+        # M4（20260825）：数据更新失败从"仅一行print"升级为显式告警——
+        # 沿用旧数据全量重跑会产出 signal_date 停滞的指导文件并覆盖 latest
+        _alert("ETF轮动 y-data 更新失败",
+               f"沿用既有数据继续, 指导文件signal_date将停滞: {e}")
     # 2) 全量数据 (正典起点切片)
     closes, opens = load_daily()
     closes = closes.loc[START:]
@@ -198,6 +220,30 @@ def run_daily():
             ensure_monthly_llm(closes, T)
         except Exception as e:
             print(f"月度LLM生成失败(回测沿用既有文档继续): {e}")
+            # M3（20260825）：月末夜失败显式告警, 不再"仅一行print"
+            _alert(f"ETF月度LLM生成失败 {T.date()}",
+                   f"回测沿用既有文档继续, 明日月初补漏兜底: {e}")
+    # 3b) 月初补漏（20260825 M3, 对齐 king_live 20260729 模式）:
+    # 上月末 doc 缺失(月末夜生成失败) → 月初窗口内补生成; 引擎语义
+    # "asof≤当日最新一份生效"=不补则整月静默沿用上月判断
+    try:
+        import monthly_llm_analysis as mla
+        me_all = [t for t in mla.month_ends(closes.index) if t < T]
+        if me_all:
+            last_me = me_all[-1]
+            if (last_me.strftime("%Y%m") != T.strftime("%Y%m")
+                    and (T - last_me).days <= 10
+                    and not os.path.exists(os.path.join(
+                        LLM_DIR, f"{last_me.strftime('%Y%m')}.json"))):
+                print(f"{last_me.date()} 月度LLM缺失, 月初补漏生成...")
+                try:
+                    ensure_monthly_llm(closes, last_me)
+                except Exception as e:
+                    print(f"月度LLM月初补漏失败(整月沿用上月doc): {e}")
+                    _alert(f"ETF月度LLM月初补漏失败 {last_me.date()}",
+                           f"整月沿用上月doc, 需人工介入: {e}")
+    except Exception as e:
+        print(f"WARNING: 月初补漏检查自身异常({e}), 跳过(不影响主流程)")
     # 4) 首跑: 先看持仓决定是否需要事件doc, 再终跑
     sink = []
     eq, trades, wdf = run_v31_canonical(closes, opens, target_sink=sink)
