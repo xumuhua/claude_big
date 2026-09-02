@@ -47,7 +47,17 @@ ASSET_DESC = {
     "601988.SS": "中国银行(类债防御, 同上)",
     "601939.SS": "建设银行(类债防御, 同上)",
     "601288.SS": "农业银行(类债防御, 同上)",
+    # FIX-HENGKE 20260902: 20260822 三ETF合入TICKERS时漏加描述,
+    # build_prompt:ASSET_DESC[t] 每晚KeyError被静默吞 → 事件文档断档15天
+    "588060.SS": "科创板ETF(A股硬科技成长, 与科创50同类宽基, 受流动性/产业政策驱动)",
+    "159920.SZ": "恒生ETF(港股大盘宽基, 受中国政策/美债利率/南向资金驱动)",
+    "159952.SZ": "创业板ETF(A股成长宽基, 高beta, 受流动性/成长风格驱动)",
 }
+
+# FIX-HENGKE 20260902: 入口断言——池内任何标的缺描述立即失败并点名,
+# 而不是在 build_prompt 深处抛裸 KeyError 被调用方静默吞掉
+_missing = [t for t in TICKERS if t not in ASSET_DESC]
+assert not _missing, f"ASSET_DESC 缺少池内标的描述: {_missing} (新ETF入池必须同步补ASSET_DESC)"
 
 
 def _ensure_llm_keys():

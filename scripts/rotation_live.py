@@ -259,6 +259,11 @@ def run_daily():
                 eq, trades, wdf = run_v31_canonical(closes, opens, target_sink=sink)
         except Exception as e:
             print(f"事件级LLM生成失败(沿用既有文档继续): {e}")
+            # FIX-HENGKE 20260902: 事件级失败从"仅一行print"升级为显式告警
+            # (对齐 M3 月度同款通道)。20260824-0901 断档15天教训: 护航豁免
+            # 靠过期叙事继续否决退出, 每晚失败却无人知
+            _alert(f"ETF事件级LLM生成失败 {T.date()}",
+                   f"B轨持仓{sorted(held_b)}护航证据源未刷新, 引擎沿用旧doc: {e}")
     # 5) 指导文件
     sig_day, target = sink[-1]
     exec_date = next_trading_day(T, cal)
