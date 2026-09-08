@@ -46,15 +46,19 @@ SYNC_DIR = os.path.expanduser("~/local_data/stock_src/quant_levels/history_outpu
 CAL_CACHE = os.path.join(LIVE_DIR, "trade_cal.json")
 
 # 原油501018.SS/160723.SZ 20260814移出候选池(2027退市)
-# exp-3etfs: 跟随B_TRACK单一事实源(20260822起含159920/588060/159952)
+# exp-3etfs: 跟随B_TRACK单一事实源(20260822起含159920/159952; 588060 20260908移出)
 # 20260908 哥哥指令: 恒生科技513180.SS 永久移出(移池后引擎target自然不含它,
 # 执行侧"持仓不在目标→weight=0全清"口径于次日09:30自动清仓, 20260730哥哥已确认)
+# 20260908 哥哥指令: 科创板ETF 588060.SS 移出候选池(科创类只留科创50 588000.SS);
+# 当日无持仓 → 仅移池, 无需清仓指令
 B_TICKERS = list(B_TRACK)
 
-# 哥哥指令清仓事件记录: signal_date落在窗口内 → directive note 打标(留痕)
+# 哥哥指令清仓/移池事件记录: signal_date落在窗口内 → directive note 打标(留痕)
 MANUAL_EXIT_LOG = [
     ("20260908", "20260908", "513180.SS",
      "2026-09-08 哥哥指令清仓(恒生科技永久移出候选池, 港股保留恒生ETF)"),
+    ("20260908", "20260909", "588060.SS",
+     "2026-09-08 哥哥指令移出科创板ETF(科创类保留科创50, 当日无持仓仅移池)"),
 ]
 
 # 20260825 静默失效修复(M3/M4)：主动告警通道（复用主线 live_alert CLI,
