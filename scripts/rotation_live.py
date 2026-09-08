@@ -47,7 +47,15 @@ CAL_CACHE = os.path.join(LIVE_DIR, "trade_cal.json")
 
 # 原油501018.SS/160723.SZ 20260814移出候选池(2027退市)
 # exp-3etfs: 跟随B_TRACK单一事实源(20260822起含159920/588060/159952)
+# 20260908 哥哥指令: 恒生科技513180.SS 永久移出(移池后引擎target自然不含它,
+# 执行侧"持仓不在目标→weight=0全清"口径于次日09:30自动清仓, 20260730哥哥已确认)
 B_TICKERS = list(B_TRACK)
+
+# 哥哥指令清仓事件记录: signal_date落在窗口内 → directive note 打标(留痕)
+MANUAL_EXIT_LOG = [
+    ("20260908", "20260908", "513180.SS",
+     "2026-09-08 哥哥指令清仓(恒生科技永久移出候选池, 港股保留恒生ETF)"),
+]
 
 # 20260825 静默失效修复(M3/M4)：主动告警通道（复用主线 live_alert CLI,
 # scp 到 manager wechat_inbox; 失败只 print, 绝不影响管线）
@@ -269,12 +277,20 @@ def run_daily():
     exec_date = next_trading_day(T, cal)
     recent = [tr for tr in trades if pd.Timestamp(tr[0]) >= T - pd.Timedelta(days=10)]
     note = "; ".join(f"{tr[0]} {tr[1]} {tr[2]}" for tr in recent[-5:])
+    # 哥哥指令清仓事件: 指令日~次日窗口内打标留痕(移池当日引擎尚无该票卖出trade记录)
+    for d0, d1, code, msg in MANUAL_EXIT_LOG:
+        if d0 <= sig_day.strftime("%Y%m%d") <= d1:
+            note = (note + "; " if note else "") + f"MANUAL-EXIT {code}: {msg}"
     doc = build_directive(sig_day, exec_date, target, eq.iloc[-1], note)
     path = write_directive(doc, sync=True)
     # 6) live 日志
     rec = {"date": str(T.date()), "equity": round(float(eq.iloc[-1]), 6),
            "target": {t: round(w, 4) for t, w in target.items() if w > 1e-4},
            "exec_date": exec_date.strftime("%Y%m%d")}
+    # 哥哥指令清仓留痕进 live log
+    for d0, d1, code, msg in MANUAL_EXIT_LOG:
+        if d0 <= rec["date"].replace("-", "") <= d1:
+            rec["manual_exit"] = f"{code}: {msg}"
     with open(os.path.join(LIVE_DIR, "big_live_log.jsonl"), "a", encoding="utf-8") as f:
         f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     print(f"指导文件: {path}")

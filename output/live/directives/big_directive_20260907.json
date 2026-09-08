@@ -2,7 +2,7 @@
  "strategy": "big_rotation_v3.10",
  "signal_date": "20260907",
  "exec_date": "20260908",
- "equity": 9.53443,
+ "equity": 9.223169,
  "note": "2026-09-02 GOLD-OFF 黄金ETF; 2026-09-02 DEF-IN 工行; 2026-09-02 DEF-IN 中行; 2026-09-02 DEF-IN 建行; 2026-09-02 DEF-IN 农行",
  "market": {
   "mode": "big"
@@ -12,11 +12,6 @@
    "code": "518800.SS",
    "name": "黄金ETF",
    "weight": 0.5
-  },
-  {
-   "code": "513180.SS",
-   "name": "恒生科技",
-   "weight": 0.15
   }
  ]
 }

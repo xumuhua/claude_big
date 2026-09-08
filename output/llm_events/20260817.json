@@ -1,0 +1,76 @@
+{
+  "new_events": "2026年7月美联储释放鹰派加息信号，国内出台数字经济专项支持政策，无颠覆定价框架的重大极端事件",
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-3.8%，52周分位87%，近20日涨8.5%，MA60斜率2.3%，波动比0.94",
+      "macro_logic": "AI科技龙头盈利高增，美联储加息预期已部分定价，全球资金增配美股科技",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-30.8%，52周分位19%，低点36日未破，MA20斜率4.5%，波动比0.84",
+      "macro_logic": "国内数字经济政策支持，南向资金持续流入，美债利率压制边际缓解",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "588000.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-19.5%，52周分位63%，近20日涨4%，MA20斜率-14%，波动比1.29",
+      "macro_logic": "流动性边际宽松预期升温，硬科技产业政策逐步落地",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-23.8%，近20日涨9%，MA20斜率2.6%，波动比0.67，低点239日未破",
+      "macro_logic": "美联储加息压制接近尾声，地缘避险需求支撑黄金估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "601398.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-7.2%，52周分位58%，近20日跌2.3%，MA60斜率1.9%，波动比1.22",
+      "macro_logic": "红利风格仍受避险资金偏好，高股息属性支撑估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点-4.2%，52周分位78%，近120日涨13.5%，MA60斜率1.6%，波动比1.12",
+      "macro_logic": "红利风格占优，高股息国有行获避险资金持续配置",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601939.SS": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点-6.1%，52周分位75%，近120日涨20.8%，MA60斜率2.5%，波动比1.23",
+      "macro_logic": "红利风格极致演绎后小幅回调，估值修复逻辑已充分定价",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-22.1%，52周分位23%，低点31日未破，MA20斜率6.5%，波动比1.19",
+      "macro_logic": "低估值高股息，红利风格下估值修复预期支撑",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    }
+  },
+  "factor_chains": "美联储利率预期→美债利率/美元→海外科技、黄金估值波动；国内政策+风险偏好→科创、恒生科技、高股息银行估值分化",
+  "prev_month_review": "上月对纳指、恒生科技、银行、农行判定基本准确，科创、黄金原下行逻辑边际缓解，原池内原油标的已调出",
+  "summary": "本月均衡配置：优先持有趋势向上的纳指ETF，逢低布局筑底的恒生科技、黄金、农行，科创50轻仓试探，止盈估值偏高的建行，继续持有工行、中行获取股息收益",
+  "version": 2,
+  "month": "20260817",
+  "asof": "20260817",
+  "model": "bot-20250308205057-5kjf4"
+}

@@ -1,0 +1,100 @@
+{
+  "new_events": "近1-2月无足以改变资产定价框架的重大突发新事件，既有宏观逻辑均处于平稳发酵期",
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤-5.5%，52周分位81%，MA20斜率3.2，近120日涨26.0%",
+      "macro_logic": "AI算力需求支撑美股科技龙头盈利，美联储加息预期降温",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "513180.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-34.8%，52周分位9%，低点距今51个交易日未破，波动比0.67",
+      "macro_logic": "国内数字经济政策支持，美债利率下行吸引南向资金流入",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "588000.SS": {
+      "phase": "下降",
+      "phase_evidence": "距250日高点回撤-27.3%，近20日跌7.1%，MA20斜率-4.6，低于MA20 3.2%",
+      "macro_logic": "流动性边际收紧，高beta硬科技估值承压",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "518800.SS": {
+      "phase": "筑底",
+      "phase_evidence": "深回撤-24.2%，MA20斜率8.2，近60日涨4.2%，52周分位35%",
+      "macro_logic": "美联储加息预期充分定价，降息周期渐近支撑金价",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤-3.0%，52周分位83%，MA20斜率2.0，近20日涨5.8%",
+      "macro_logic": "弱市红利风格占优，高股息防御属性获资金偏好",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "601988.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点回撤-3.6%，52周分位86%，近20日涨10.7%，波动比1.1",
+      "macro_logic": "红利风格资金抱团，高股息属性吸引配置资金涌入",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601939.SS": {
+      "phase": "冲高",
+      "phase_evidence": "距250日高点回撤-3.9%，52周分位85%，vs MA250 14.8%，近120日涨19.0%",
+      "macro_logic": "红利风格抱团延续，高股息防御价值凸显",
+      "logic_strength": "中",
+      "logic_durability": "衰竭",
+      "confidence": 0.8
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤-17.9%，低点距今46日，MA20斜率2.2，近20日涨5.4%",
+      "macro_logic": "红利风格估值修复，高股息属性吸引配置资金",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.75
+    },
+    "588060.SS": {
+      "phase": "下降",
+      "phase_evidence": "深回撤-25.7%，近20日跌4.7%，MA20斜率-3.8，低于MA20 1.6%",
+      "macro_logic": "流动性边际收紧，硬科技高beta属性估值承压",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.7
+    },
+    "159920.SZ": {
+      "phase": "上升",
+      "phase_evidence": "距250日高点回撤-9.6%，52周分位53%，MA20斜率1.1，近60日涨5.4%",
+      "macro_logic": "国内稳增长政策发力，美债利率下行带动港股估值修复",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "159952.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "距250日高点回撤-18.9%，52周分位51%，近20日涨0.2%，MA20斜率1.3",
+      "macro_logic": "流动性边际宽松预期支撑，成长风格估值面临分化",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.6
+    }
+  },
+  "factor_chains": "美联储加息渐近尾声→美债利率下行→港股/黄金估值修复；国内弱市→红利风格占优→银行股跑赢；流动性收紧→A股高beta成长承压",
+  "prev_month_review": "上月对纳指、银行、恒生科技、黄金的判定基本符合，科创50下降逻辑持续，原能源类标的已调出本池，整体误判率低",
+  "summary": "本月以高股息银行股为底仓，超配纳指、恒生ETF捕捉确定性收益，逢低布局恒生科技、黄金ETF左侧机会，暂规避科创、创业板等高beta品种",
+  "version": 2,
+  "month": "20260907",
+  "asof": "20260907",
+  "model": "bot-20250308205057-5kjf4"
+}
