@@ -9,7 +9,9 @@
 每晚流程 (--run-daily, 由 quant_levels/holding.py 在 king_live 之后调用):
   1. update_ydata: y-data.csv 全量重建 (tushare复权口径: 银行=common_data前复权,
      ETF=fund_daily×fund_adj; 失败容错沿用昨日数据)
-  2. 月末交易日且当月月报缺失 → 先跑月度LLM分析 (monthly_llm_analysis)
+  2. 月末交易日且当月月报未覆盖月末基准日 → 先跑月度LLM分析 (monthly_llm_analysis;
+     MONTHLY-FIX1 20261010: 旧口径「文件缺失」被月中事件级补跑版挡住, 9/30 月末
+     正式版从未生成 → 机检 HIGH 19 天; 现按 asof>=月末基准日判定, 旧版 force 覆盖)
   3. 持有B/V/W2仓且本周事件doc缺失 → 生成今日事件级LLM doc (白皮书§九: 衰竭退出/护航)
   4. run_v31_canonical 全量重跑 (target_sink 收集每日装配目标)
   5. 指导文件: output/live/big_directive_{signal_date}.json + big_directive_latest.json
@@ -123,11 +125,29 @@ def next_trading_day(day, cal):
 
 # ---------------------------------------------------------------- LLM 更新
 
+def _monthly_report_covers(T):
+    """MONTHLY-FIX1 (20261010): 当月月报是否已覆盖月末基准日 T?
+    旧判定=「文件存在即跳过」——9/12 BIG-LLM1 事件级补跑版(asof=20260911)
+    挡住了 9/30 月末正式版生成(BIG-LLM1 留痕承诺「月末机制自动覆盖正式版」
+    但处置硬约束未触碰本文件, 覆盖语义从未落码), 月初补漏同被存在性条件挡,
+    机检月末锚点制报 HIGH「asof 落后 20260930 19 天」。
+    新判定=文件存在 且 asof(8位) >= T 当日 —— 月中旧版不再算「已存在」。"""
+    p = os.path.join(LLM_DIR, f"{T.strftime('%Y%m')}.json")
+    if not os.path.exists(p):
+        return False
+    try:
+        asof = str(json.load(open(p, encoding="utf-8")).get("asof", ""))
+    except Exception:
+        return False                       # 文件损坏视为缺失, 重生成覆盖
+    return len(asof) == 8 and asof >= T.strftime("%Y%m%d")
+
+
 def ensure_monthly_llm(closes, T):
-    """月末交易日: 当月月报缺失 → 生成 (链式读上月)。"""
+    """月末交易日: 当月月报缺失或未覆盖月末基准日 → 生成 (链式读上月;
+    月中事件级旧版 force 覆盖为正式月末版, 旧版留 git 史)。"""
     ym = T.strftime("%Y%m")
-    if os.path.exists(os.path.join(LLM_DIR, f"{ym}.json")):
-        print(f"月度LLM {ym} 已存在, 跳过")
+    if _monthly_report_covers(T):
+        print(f"月度LLM {ym} 月末版已存在 (asof 覆盖 {T.date()}), 跳过")
         return
     import monthly_llm_analysis as mla
     mla._ensure_llm_keys()
@@ -137,8 +157,10 @@ def ensure_monthly_llm(closes, T):
         p = os.path.join(LLM_DIR, f"{me[-1].strftime('%Y%m')}.json")
         if os.path.exists(p):
             prev = json.load(open(p, encoding="utf-8"))
-    print(f"月末交易日 {T.date()}: 生成月度LLM {ym} ...")
-    tag, st = mla.analyze_month(closes, T, prev)
+    stale = os.path.exists(os.path.join(LLM_DIR, f"{ym}.json"))
+    print(f"月末交易日 {T.date()}: 生成月度LLM {ym} "
+          f"{'(月中旧版未覆盖月末, force 覆盖)' if stale else ''}...")
+    tag, st = mla.analyze_month(closes, T, prev, force=True)
     print(f"月度LLM {tag}: {st}")
 
 
@@ -243,10 +265,11 @@ def run_daily():
         me_all = [t for t in mla.month_ends(closes.index) if t < T]
         if me_all:
             last_me = me_all[-1]
+            # MONTHLY-FIX1: 补漏条件从「文件缺失」改「未覆盖上月末基准日」——
+            # 月中事件级旧版存在时同样触发补生成(旧口径下 9 月补漏永远判"无需补")
             if (last_me.strftime("%Y%m") != T.strftime("%Y%m")
                     and (T - last_me).days <= 10
-                    and not os.path.exists(os.path.join(
-                        LLM_DIR, f"{last_me.strftime('%Y%m')}.json"))):
+                    and not _monthly_report_covers(last_me)):
                 print(f"{last_me.date()} 月度LLM缺失, 月初补漏生成...")
                 try:
                     ensure_monthly_llm(closes, last_me)

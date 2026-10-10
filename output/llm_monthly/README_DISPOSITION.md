@@ -50,3 +50,43 @@
 - 真正受停更影响的是**观测层**：事件级 LLM 失去最新链式上文、月末复盘缺依据——即机检
   报 HIGH 的原始动机，本次补生成 + 口径修订后恢复。
 - 本次处置**未触碰** `rotation_backtest.py` / `rotation_live.py` 任何逻辑（硬约束）。
+
+---
+
+## MONTHLY-FIX1（2026-10-11 凌晨，yifei seq2994 派单）——9 月月末版未生成：根因定案与修复
+
+**机检违例**：10/10 23:33 HIGH「最新月报 asof=20260911 落后最近月末锚点 20260930 19 天 (>7)」。
+本例锚点取值正确（y-data 尾部 20261008/09 同月→上月末 20260930）=**真告警**；与 10/8 那次
+「跨月日锚点=今天」结构性误报（quant 挂账④，待哥哥裁决）是两回事，本单未动机检。
+
+**根因（三层定位）**：
+1. **生成层（错误所在）**：`rotation_live.ensure_monthly_llm` 跳过条件只判「文件存在」不判 asof
+   ——9/12 BIG-LLM1 事件级补跑版（asof=20260911）挡住 9/30 月末正式版覆盖生成（9/30 日志
+   「月度LLM 202609 已存在, 跳过」实证）。本留痕上文承诺「9 月自然月末将由 rotation_live
+   自动生成正式月末版覆盖（version=2 覆盖 version=2）」，但 BIG-LLM1 处置硬约束「未触碰
+   rotation_live 任何逻辑」，**覆盖语义写进了文档、从未落进代码**（`analyze_month` 的
+   version==2 跳过是第二道挡，不带 force 同样不覆盖）。
+2. **补漏层（该拦未拦）**：月初 ≤10 天兜底条件同含「文件缺失」判定——与生成层同款存在性
+   语义，10/1-10/9 每晚检查均判「202609.json 存在无需补」，只答缺不缺文件、不答覆没覆盖
+   月末锚点。另窗口 (T-last_me).days≤10 于 10/12 起也自然关闭，9 月本案只能人工补跑。
+3. **通道层（排查中发现的第二独立死点）**：直连 Ark bot 端点已被哥哥 20260923 令关停
+   （本单实测旧直连 key 401「not active」）；9/23 全系统切中转站 127.0.0.1:9536 时本链漏迁
+   ——即使跳过逻辑不挡，9/30 晚生成也必失败（M3 告警会响但产物照样缺）。
+
+**与 10/8 rotation_live 缺席不同根**：那次=holding.py 主段进程层未触发；本次=9/30 主段正常
+触发、ensure_monthly_llm 正常被调用，业务层跳过语义错。「机制每晚都在跑，跑的是错判定」。
+
+**处置**：
+1. **补跑**：`monthly_llm_analysis.py --months 202609 --force` 覆盖生成正式月末版
+   （asof=20260930、9 票池、version=2、model=doubao 中转站别名；build_features
+   `closes.loc[:T]` 截尾=特征 PIT 安全无 lookahead，LLM 知识截点纪律同 BIG-LLM1 口径；
+   旧 9/12 事件级版留 git 437b84c 可溯）。
+2. **机制修复**：`rotation_live.py` 新增 `_monthly_report_covers(T)`（文件存在且 asof≥月末
+   基准日才算已覆盖），ensure_monthly_llm/月初补漏同款换新判定，月中旧版 force 覆盖；
+   `monthly_llm_analysis.py` call_doubao_api 切中转站（chat.completions + doubao 别名 +
+   max_tokens=16384 防空响应，对齐日度链 20261010 加固），relay token 走 env /
+   `~/keys/ark_relay.sh`(600)，不进 git（本仓推 GitHub，密钥红线）。
+3. **验证**：`_monthly_report_covers` 四场景单测过（缺失/月中旧版/月末版/损坏文件）；
+   机检 10/11 00:12 干跑 **HIGH=0 LOW=0 全量通过**（月度LLM链 asof=20260930=锚点）。
+   下一自然观察点：10/30 月末尾晚经新逻辑自动生成 202610.json（asof=20261030，链式
+   prev=202609 月末版）——「机检连续 3 天零 HIGH」窗口 10/11-10/13 由本修复覆盖。

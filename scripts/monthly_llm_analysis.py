@@ -33,9 +33,13 @@ from rotation_backtest import TICKERS, CLASSES, load_daily  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.join(ROOT, "output", "llm_monthly")
 
-MODEL_ID = "bot-20250308205057-5kjf4"
-# 与 industry_mainline_scorer_doubao.py:46 同一 fallback (该路径主线复盘60/60零失败)
-ARK_API_KEY_FALLBACK = "ec086b7d-fa97-4db2-b196-1eb64c8f5baa"
+# MONTHLY-FIX1 (20261010): 原直连 Ark bot 端点已被哥哥 20260923 令关停
+# (旧 bot=bot-20250308205057-5kjf4, 直连 key 401 "not active")——本链与日度链
+# historical_market_analysis_doubao.py 同款切中转站 127.0.0.1:9536 doubao 别名。
+# relay token 不进 git (本仓推 GitHub, 密钥红线): env ARK_API_KEY 优先,
+# 其次 ~/keys/ark_relay.sh (600)。
+MODEL_ID = "doubao"                       # 中转站别名 (ark-code-latest)
+RELAY_BASE_URL = "http://127.0.0.1:9536"  # 20260923 哥哥令: 直连火山→中转站
 
 ASSET_DESC = {
     "513100.SS": "纳指ETF(美股科技成长, QDII, 受美股/汇率/QDII溢价三重驱动)",
@@ -61,10 +65,11 @@ assert not _missing, f"ASSET_DESC 缺少池内标的描述: {_missing} (新ETF�
 
 
 def _ensure_llm_keys():
-    """~/keys/*.sh 无 export, source 不进子进程 → 显式解析进 os.environ (仿 replay_llm_pipeline)"""
+    """~/keys/*.sh 无 export, source 不进子进程 → 显式解析进 os.environ (仿 replay_llm_pipeline)
+    MONTHLY-FIX1: doubao.sh 已改置 ANTHROPIC_* 件(无 ARK 键), 增读 ark_relay.sh(中转站 relay token)"""
     if os.environ.get("ARK_API_KEY"):
         return
-    for f in ("~/keys/doubao.sh",):
+    for f in ("~/keys/ark_relay.sh", "~/keys/doubao.sh"):
         p = os.path.expanduser(f)
         if not os.path.exists(p):
             continue
@@ -77,19 +82,26 @@ def _ensure_llm_keys():
 
 
 def call_doubao_api(prompt: str, max_retries: int = 3) -> str:
-    """原生Ark SDK调用 (仿 industry_mainline_scorer_doubao.py:61-92, 60/60零失败路径)"""
+    """中转站Ark协议调用 (MONTHLY-FIX1 20261010: 原直连 bot_chat 已被哥哥 20260923 令关停,
+    切中转站 chat.completions + doubao 别名, 对齐日度链 20261010 加固姿势:
+    显式 max_tokens 防思考链烧光输出预算致 finish=length→content 空; 空文本显式重试后 raise)"""
     from volcenginesdkarkruntime import Ark
-    client = Ark(api_key=os.environ.get("ARK_API_KEY", ARK_API_KEY_FALLBACK))
+    _ensure_llm_keys()
+    api_key = os.environ.get("ARK_API_KEY")
+    if not api_key:
+        raise RuntimeError("中转站 ARK_API_KEY 缺失: 需 env 或 ~/keys/ark_relay.sh 其一")
+    client = Ark(api_key=api_key, base_url=RELAY_BASE_URL)
     for attempt in range(1, max_retries + 1):
         try:
-            completion = client.bot_chat.completions.create(
+            completion = client.chat.completions.create(
                 model=MODEL_ID,
                 messages=[{"role": "system", "content": prompt}],
+                max_tokens=16384,
             )
-            result = completion.choices[0].message.content.strip()
+            result = (completion.choices[0].message.content or "").strip()
             if result:
                 return result
-            raise ValueError("API 返回空文本")
+            raise ValueError(f"API 返回空文本 (finish={completion.choices[0].finish_reason})")
         except Exception as e:
             print(f"    [API重试] 第{attempt}/{max_retries}次失败: {e}")
             if attempt < max_retries:
