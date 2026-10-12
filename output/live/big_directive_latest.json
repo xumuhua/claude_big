@@ -1,9 +1,9 @@
 {
  "strategy": "big_rotation_v3.10",
- "signal_date": "20261009",
- "exec_date": "20261012",
- "equity": 8.810227,
- "note": "2026-09-29 NUKE-OUT 黄金ETF; 2026-09-29 DEF-IN 农行",
+ "signal_date": "20261012",
+ "exec_date": "20261013",
+ "equity": 8.940749,
+ "note": "",
  "market": {
   "mode": "big"
  },
