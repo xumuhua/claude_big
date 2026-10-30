@@ -1,8 +1,8 @@
 {
  "strategy": "big_rotation_v3.10",
- "signal_date": "20261029",
- "exec_date": "20261030",
- "equity": 8.978255,
+ "signal_date": "20261030",
+ "exec_date": "20261102",
+ "equity": 9.166405,
  "note": "",
  "market": {
   "mode": "big"
