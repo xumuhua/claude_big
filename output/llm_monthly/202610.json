@@ -1,0 +1,84 @@
+{
+  "new_events": "无颠覆性新事件；市场延续9月FOMC高利率更久与国内存款利率下行框架。",
+  "assets": {
+    "513100.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位78%，距高点-6.7%，vs MA250 +10%，MA20/60正斜率，近20日回调3.2%",
+      "macro_logic": "AI算力资本开支超预期支撑科技龙头盈利，美联储高利率形成扰动",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.72
+    },
+    "588000.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位0，低点当日，近20日-28.3%，vs MA20 -15.2%，MA20斜率-15.1%",
+      "macro_logic": "央行流动性边际收紧、资金利率上行，高估值硬科技持续杀估值",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.9
+    },
+    "518800.SS": {
+      "phase": "下降",
+      "phase_evidence": "52周分位0，回撤-31.8%且当日创新低，vs MA250 -13.1%，MA20斜率-6.4%",
+      "macro_logic": "9月FOMC释放高利率更久信号，美债实际利率上行压制黄金",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.85
+    },
+    "601398.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位99%，距高点-0.3%，近20日+9.5%，vs MA250 +17.6%，均线上行",
+      "macro_logic": "新一轮存款利率下调叠加险资增配，弱市资金抱团国有大行红利",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.78
+    },
+    "601988.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位93%，距高点-2.1%，近20日+7.1%，vs MA250 +22.3%，均线正斜率",
+      "macro_logic": "存款利率下行提升股息吸引力，险资及配置资金增配中行",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.78
+    },
+    "601939.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位98%，距高点-0.5%，近20日+9.1%，vs MA250 +23.8%，均线上行",
+      "macro_logic": "存款利率下调叠加长钱增配高股息，建行获弱市资金抱团",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.77
+    },
+    "601288.SS": {
+      "phase": "上升",
+      "phase_evidence": "52周分位71%，近20日+10.8%，vs MA20/60/250分别+4.4%/+9.6%/+10.1%",
+      "macro_logic": "存款利率下行推动高股息估值修复，配置资金增配农行",
+      "logic_strength": "强",
+      "logic_durability": "持续",
+      "confidence": 0.8
+    },
+    "159920.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位53%，近5/20日收益为0，贴近MA20/60，MA20斜率0",
+      "macro_logic": "中国稳增长政策与美债利率高位拉锯，南向资金缺乏一致方向",
+      "logic_strength": "中",
+      "logic_durability": "持续",
+      "confidence": 0.55
+    },
+    "159952.SZ": {
+      "phase": "震荡",
+      "phase_evidence": "52周分位44%，近5/20日收益为0，贴近MA20/60，MA60斜率-1.2%",
+      "macro_logic": "流动性预期反复，成长风格缺乏增量资金，资金偏向红利",
+      "logic_strength": "弱",
+      "logic_durability": "持续",
+      "confidence": 0.5
+    }
+  },
+  "factor_chains": "美联储高利率更久→实际利率上行→黄金与成长承压；国内存款利率下行+弱市风险偏好→资金抱团银行高股息。",
+  "prev_month_review": "上月纳指、银行上升及科创下降、恒生与创业板震荡基本正确；黄金破位，仍判震荡属误判。",
+  "summary": "本月以四家国有银行为防御底仓但高位不追涨，纳指AI上升趋势未破可持有或回调分批；科创50与黄金处于下降趋势应低配，恒生、创业板方向不明保持观望。",
+  "version": 2,
+  "month": "202610",
+  "asof": "20261030",
+  "model": "doubao"
+}
