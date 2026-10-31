@@ -373,7 +373,8 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
            oh_ext=0.275, oh_r20=0.12, stag_ext=0.12, stag_r250=0.20, stag_r60=0.0,
            oh_re_dd=-0.08, use_oh=True, oh_cool=20, use_stag=False,
            oh_re_age=20, oh_re_slope=False,
-           sb_days=0, sb_re_days=5, sb_to="cash",
+           sb_days=0, sb_re_days=5, sb_to="cash", sb_exit_buf=0.98, sb_re_buf=1.0,
+           sb_b_priority=None,
            b_priority=True, b_deep=False, b_trail=-0.20, b_llm_bottom=False,
            oh_park_banks=False, oh_exit_sig="rsidn", b_tranche=False, b_dedup=False,
            nuke_stop=0.28, nuke_win=500,
@@ -402,7 +403,10 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     严格筑底(低点≥20日+MA20上穿+斜率>0)才回补。13年历史纳指最深-29%/黄金-21%,
     -30%档在真实历史零误触发, 专为-70%型史诗崩盘准备。"""
     """sb_days>0: 慢性破位换防(用户20260806迭代轮1)——核心票连续sb_days日收于
-    MA250×0.98下方 → 袖珍转sb_to(cash/banks); 重新站上MA250满sb_re_days日 → 回归。
+    MA250×sb_exit_buf下方 → 袖珍转sb_to(cash/banks); 重新站上MA250×sb_re_buf满sb_re_days日 → 回归。
+    出场/回归独立水线形成滞回带, 默认0.98/1.00保留旧版语义(用户20261031指定研究)。
+    sb_re_buf≠1.00时, 中间带清零回归确认; sb_b_priority=None时完全沿用b_priority;
+    sb_b_priority显式False仅研究换防期是否给B轨让现金。
     与OH止盈正交: OH是过热前瞻止盈, SB是慢熊确认换防(2022型)。"""
     """过热/滞涨收紧止盈(用户20260806): 核心常态永不卖出, 过热武装态下 diff5<0 坚决止盈。
     oh: 冲顶武装= 偏离MA250≥oh_ext ∧ ret20≥oh_r20 (泡沫加速)
@@ -456,9 +460,9 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
     w_coold = {}                   # W仓退出后冷却截止日
     b_pending_low = {}             # 信号日暂存底部参考低
     b_pending_kind = {}            # 信号日暂存入仓类型(V/B)
-    sb_streak = {}                 # t -> 连续低于MA250×0.98天数
+    sb_streak = {}                 # t -> 连续低于MA250×sb_exit_buf天数
     sb_out = {}                    # t -> True (换防中)
-    sb_re = {}                     # t -> 重新站上MA250天数
+    sb_re = {}                     # t -> 重新站上MA250×sb_re_buf天数
     v_arm_low = {}                 # t -> 深跌武装区最低价 (创新低证伪锚)
     nuke_out = {}                  # t -> True (核按钮清仓中, 等严格筑底回补)
     nuke_low = {}                  # t -> [低点价, 低点年龄]
@@ -669,19 +673,26 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
         if listed.loc[day, NDX]:
             # 慢性破位状态机
             if sb_days and np.isfinite(ma250.loc[day, NDX]):
-                if c[NDX] < ma250.loc[day, NDX] * 0.98:
-                    sb_streak[NDX] = sb_streak.get(NDX, 0) + 1
-                    sb_re[NDX] = 0
+                below_exit = c[NDX] < ma250.loc[day, NDX] * sb_exit_buf
+                above_re = c[NDX] > ma250.loc[day, NDX] * sb_re_buf
+                sb_streak[NDX] = sb_streak.get(NDX, 0) + 1 if below_exit else 0
+                if sb_re_buf == 1.0:
+                    # 默认旧语义: 脱离MA250×0.98下方即累计站上MA250天数。
+                    sb_re[NDX] = 0 if below_exit else sb_re.get(NDX, 0) + 1
+                elif sb_out.get(NDX):
+                    # 换防中只认独立回归线; 中间带停止累计, 防跨带凑满M日。
+                    sb_re[NDX] = sb_re.get(NDX, 0) + 1 if above_re else 0
                 else:
-                    sb_streak[NDX] = 0
-                    sb_re[NDX] = sb_re.get(NDX, 0) + 1
+                    # 未换防时维持旧累计, 使宽回归水线不会制造新的首日假回归。
+                    sb_re[NDX] = 0 if below_exit else sb_re.get(NDX, 0) + 1
                 if not sb_out.get(NDX) and sb_streak[NDX] >= sb_days:
                     sb_out[NDX] = True
                     trades.append((str(day.date()), "SB-OUT", TICKERS[NDX],
                                    f"慢破{sb_streak[NDX]}日→{sb_to}"))
                 elif sb_out.get(NDX) and sb_re[NDX] >= sb_re_days:
                     sb_out[NDX] = False
-                    trades.append((str(day.date()), "SB-IN", TICKERS[NDX], "收复MA250回归"))
+                    trades.append((str(day.date()), "SB-IN", TICKERS[NDX],
+                                   "收复MA250回归" if sb_re_buf == 1.0 else f"收复MA250×{sb_re_buf:g}回归"))
             blocked = NDX in oh_ref or sb_out.get(NDX) or NDX in nuke_out
             if NDX not in pos and not blocked:
                 trades.append((str(day.date()), "CORE-IN", TICKERS[NDX], f"{ndx_w:.0%}永持"))
@@ -976,8 +987,9 @@ def bt_v31(closes, opens, llm_dir=None, cost_etf=0.0005, cost_stock=0.001,
                 # 用户20260806提案: 全比例归一(无优先级)
                 target = {t: w / tot for t, w in target.items()}
             else:
-                # 削减顺序: b_priority=True→银行先让位(B保留); False→B先让位(原规则)
-                yield_order = (["601398.SS", "601988.SS", "601939.SS", "601288.SS"] if b_priority
+                # 默认完全保持b_priority; 探查档允许纳指换防时优先削减B轨。
+                use_b_priority = b_priority if (sb_b_priority is None or not sb_out.get(NDX)) else sb_b_priority
+                yield_order = (["601398.SS", "601988.SS", "601939.SS", "601288.SS"] if use_b_priority
                                else list(B_TRACK))
                 excess = tot - 1.0
                 for t in yield_order:
