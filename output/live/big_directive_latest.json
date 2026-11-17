@@ -1,9 +1,9 @@
 {
  "strategy": "big_rotation_v3.10",
- "signal_date": "20261116",
- "exec_date": "20261117",
- "equity": 9.067043,
- "note": "2026-11-10 V-IN 科创50; 2026-11-11 DEF-IN 工行; 2026-11-12 DEF-IN 工行; 2026-11-13 DEF-IN 工行; 2026-11-16 DEF-IN 工行",
+ "signal_date": "20261117",
+ "exec_date": "20261118",
+ "equity": 9.045556,
+ "note": "2026-11-11 DEF-IN 工行; 2026-11-12 DEF-IN 工行; 2026-11-13 DEF-IN 工行; 2026-11-16 DEF-IN 工行; 2026-11-17 DEF-IN 工行",
  "market": {
   "mode": "big"
  },
