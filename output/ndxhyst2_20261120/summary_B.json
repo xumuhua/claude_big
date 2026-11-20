@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "ixic_total_ret": -0.6908956371967023,
+    "ixic_peak": 5048.62,
+    "ixic_trough": 1114.11,
+    "gold_window_ret": 0.14144858711177632,
+    "gold_stitch_jump_200109": 0.053357865685372596,
+    "days": 691,
+    "first": "2000-03-01",
+    "last": "2002-11-29"
+  },
+  "arms": {
+    "armA": {
+      "total": -0.3279871512744139,
+      "mdd": -0.4559987914329,
+      "trough_date": "2001-09-21",
+      "recovery_days_from_trough": null,
+      "sb_out_n": 0,
+      "sb_out_dates": [],
+      "end": 0.6720128487255861
+    },
+    "b98": {
+      "total": -0.2626058997277385,
+      "mdd": -0.3524964076508291,
+      "trough_date": "2001-02-23",
+      "recovery_days_from_trough": null,
+      "sb_out_n": 1,
+      "sb_out_dates": [
+        "2001-02-26"
+      ],
+      "end": 0.7373941002722615
+    },
+    "b95": {
+      "total": -0.2626058997277385,
+      "mdd": -0.3524964076508291,
+      "trough_date": "2001-02-23",
+      "recovery_days_from_trough": null,
+      "sb_out_n": 1,
+      "sb_out_dates": [
+        "2001-02-26"
+      ],
+      "end": 0.7373941002722615
+    },
+    "b90": {
+      "total": -0.2626058997277385,
+      "mdd": -0.3524964076508291,
+      "trough_date": "2001-02-23",
+      "recovery_days_from_trough": null,
+      "sb_out_n": 1,
+      "sb_out_dates": [
+        "2001-02-26"
+      ],
+      "end": 0.7373941002722615
+    },
+    "b85": {
+      "total": -0.2626058997277385,
+      "mdd": -0.3524964076508291,
+      "trough_date": "2001-02-23",
+      "recovery_days_from_trough": null,
+      "sb_out_n": 1,
+      "sb_out_dates": [
+        "2001-02-26"
+      ],
+      "end": 0.7373941002722615
+    }
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "off_date": "2018-12-25",
+    "on_date": "2019-04-25",
+    "days_out": 79,
+    "off_close": 0.4244387132889502,
+    "off_vs_ma250": -0.12417636274527599,
+    "on_close": 0.5517903196785221,
+    "ndx_ret_during_off": 0.3000471031559113,
+    "min_ret_during_off": -0.0014130946773434072,
+    "ndx_ret_20d": 0.10927932171455468,
+    "armX_ret_20d": -0.002733744313132447,
+    "armA_ret_20d": 0.051398843222736135,
+    "dodge_20d": false,
+    "eq_ret_out_to_in": 0.03193089474983135,
+    "base_eq_ret_same_window": 0.1828576950411902
+  },
+  {
+    "off_date": "2022-02-24",
+    "on_date": "2023-05-11",
+    "days_out": 293,
+    "off_close": 0.8570000000000001,
+    "off_vs_ma250": -0.11672368286242973,
+    "on_close": 0.942,
+    "ndx_ret_during_off": 0.09918319719953317,
+    "min_ret_during_off": -0.07817969661610269,
+    "ndx_ret_20d": 0.10385064177362868,
+    "armX_ret_20d": 0.0557012163189734,
+    "armA_ret_20d": 0.0557012163189734,
+    "dodge_20d": false,
+    "eq_ret_out_to_in": 0.08063721358430342,
+    "base_eq_ret_same_window": 0.08063721358430231
+  },
+  {
+    "off_date": "2025-04-07",
+    "on_date": "2025-07-28",
+    "days_out": 76,
+    "off_close": 1.272,
+    "off_vs_ma250": -0.13433583414092343,
+    "on_close": 1.684,
+    "ndx_ret_during_off": 0.32389937106918243,
+    "min_ret_during_off": 0.0,
+    "ndx_ret_20d": 0.1674528301886793,
+    "armX_ret_20d": 0.14077031002683804,
+    "armA_ret_20d": 0.14077031002683782,
+    "dodge_20d": false,
+    "eq_ret_out_to_in": 0.2181209465755316,
+    "base_eq_ret_same_window": 0.21812094657553116
+  }
+]
